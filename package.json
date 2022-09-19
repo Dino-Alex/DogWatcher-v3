@@ -70,6 +70,7 @@
     "multicodec": "^2.0.0",
     "multihashes": "^3.0.1",
     "node-fetch": "^2.6.1",
+    "numeral": "^2.0.6",
     "otp-timer": "^1.1.5",
     "qs": "^6.9.4",
     "react": "^17.0.2",
