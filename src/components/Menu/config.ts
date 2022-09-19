@@ -27,9 +27,9 @@ export type ConfigMenuItemsType = MenuItemsType & { hideSubNav?: boolean }
 
 export const configIsConnect: (t: ContextApi['t']) => MenuItemsType[] = (t) => [
   {
-    label: t('Marketplace'),
+    label: t('Admin Table'),
     icon: 'Marketplace',
-    href: '/marketplace',
+    href: '/admintable',
     isBottomNav:false,
     showItemsOnMobile:false,
     items: [ 
@@ -37,89 +37,22 @@ export const configIsConnect: (t: ContextApi['t']) => MenuItemsType[] = (t) => [
     ]
   },
   {
-    label: t('Account'),
-    icon: 'Account',
-    href: '/account',
-    isBottomNav:false,
-    showItemsOnMobile:true,
-    items: [
-      {
-        label: t('My Balance'),
-        href: '/mybalance',
-      },
-      {
-        label: t('Inventory'),
-        href: '/inventory',
-      },
-      {
-        label: t('Account'),
-        href: '/account',
-      },
-    ]
-  },
-  {
-    label: t('Earn'),
-    icon: 'Earn',
-    href: '/farms',
-    isBottomNav:false,
-    showItemsOnMobile:true,
-    items: [
-      {
-        label: t('Invest Together'),
-        href: '/investtogether',
-      },
-      {
-        label: t('Pawn NFT'),
-        href: 'https://dapp.bami.money/pawn',
-        type:1
-      },
-      {
-        label: t('Pools'),
-        href: '/pools',
-      },
-      {
-        label: t('Farms'),
-        href: '/farms',
-      },
-    ]
-  },
-  {
-    label: t('Partners'),
-    icon: 'Partner',
-    href: '/mypartner',
+    label: t('Project Table'),
+    icon: 'Marketplace',
+    href: '/projecttable',
     isBottomNav:false,
     showItemsOnMobile:false,
-    items: [
-      {
-        label: t('Partners'),
-        href: '/mypartner',
-      },
-    ]
-  },
-  {
-    label: t('Exchange'),
-    icon: 'ExChange',
-    href: '/swap',
-    isBottomNav:false,
-    showItemsOnMobile:true,
-    items: [
-      {
-        label: t('Swap'),
-        href: '/swap',
-      },
-      {
-        label: t('Liquidity'),
-        href: '/liquidity',
-      },
+    items: [ 
+     
     ]
   },
 ]
 
 export const configDisconnect: (t: ContextApi['t']) => MenuItemsType[] = (t) => [
   {
-    label: t('Marketplace'),
+    label: t('Admin Table'),
     icon: 'Marketplace',
-    href: '/marketplace',
+    href: '/admintable',
     isBottomNav:false,
     showItemsOnMobile:false,
     items: [ 
@@ -127,41 +60,13 @@ export const configDisconnect: (t: ContextApi['t']) => MenuItemsType[] = (t) => 
     ]
   },
   {
-    label: t('Inventory'),
-    icon: 'Account',
-    href: '/inventory',
+    label: t('Project Table'),
+    icon: 'Marketplace',
+    href: '/projecttable',
     isBottomNav:false,
     showItemsOnMobile:false,
-    items: [
-      {
-        label: t('Inventory'),
-        href: '/inventory',
-      },
-    ]
-  },
-  {
-    label: t('Earn'),
-    icon: 'Earn',
-    href: '/farms',
-    isBottomNav:false,
-    showItemsOnMobile:true,
-    items: [
-      {
-        label: t('Invest Together'),
-        href: '/investtogether',
-      },
-      {
-        label: t('Pawn NFT'),
-        href: '/pawnnft',
-      },
-      {
-        label: t('Pool'),
-        href: '/pools',
-      },
-      {
-        label: t('Farm'),
-        href: '/farms',
-      },
+    items: [ 
+     
     ]
   },
 ]

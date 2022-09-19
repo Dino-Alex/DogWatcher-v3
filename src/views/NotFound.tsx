@@ -4,14 +4,6 @@ import { Button, Heading, Flex } from '@phamphu19498/runtogether-uikit'
 import PageFullWidth from 'components/Layout/PageFullWidth'
 import { useTranslation } from 'contexts/Localization'
 
-const StyledNotFound = styled.div`
-  align-items: center;
-  display: flex;
-  flex-direction: column;
-  height: calc(100vh - 64px);
-  justify-content: flex-start;
-  padding-top:2rem;
-`
 const Container = styled.div`
     width:100%;
     max-width: 1300px;
@@ -41,7 +33,6 @@ const NotFound = () => {
   )
 }
 
-const Page = styled.div``
 
 export default NotFound
 
