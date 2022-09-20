@@ -1,8 +1,10 @@
-import { Flex, PencilIcon } from '@phamphu19498/runtogether-uikit';
+import { Flex, PencilIcon, useModal } from '@phamphu19498/runtogether-uikit';
 import { BlockIcon, CloseIcon } from 'components/Pancake-uikit';
 import React from 'react';
 import styled from 'styled-components';
 import { formatAmount } from 'utils/formatInfoNumbers';
+import DeleteModalAdmin from './DeleteModalAdmin';
+import UpdateModalAdmin from './UpdateModalAdmin';
 
 interface Props {
     contract?:string
@@ -21,6 +23,9 @@ const ListAdmin:React.FC<Props> = ({
     email,
     rowId,
 }) => {
+
+    const [openUpdateModal] = useModal(<UpdateModalAdmin />)
+    const [openDeleteModal] = useModal(<DeleteModalAdmin />)
    
     function setAddress (dataAddress) {
         if ( dataAddress ) {
@@ -87,8 +92,8 @@ const ListAdmin:React.FC<Props> = ({
                 </FlexData>
                 <FlexData>
                     <Flex width='100%' justifyContent='space-around'>
-                        <PencilIcon/>
-                        <CloseIcon/>
+                        <PencilIcon onClick={openUpdateModal} style={{cursor: 'pointer'}}/>
+                        <CloseIcon onClick={openDeleteModal} style={{cursor: 'pointer'}}/>
                     </Flex>
                 </FlexData>
             </BodyTable>
