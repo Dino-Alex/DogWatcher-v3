@@ -1,4 +1,5 @@
-import { Flex } from '@phamphu19498/runtogether-uikit';
+import { Flex, PencilIcon } from '@phamphu19498/runtogether-uikit';
+import { BlockIcon, CloseIcon } from 'components/Pancake-uikit';
 import React from 'react';
 import styled from 'styled-components';
 import { formatAmount } from 'utils/formatInfoNumbers';
@@ -84,6 +85,12 @@ const ListAdmin:React.FC<Props> = ({
                     }
                     </Flex>
                 </FlexData>
+                <FlexData>
+                    <Flex width='100%' justifyContent='space-around'>
+                        <PencilIcon/>
+                        <CloseIcon/>
+                    </Flex>
+                </FlexData>
             </BodyTable>
         </Container>
     );
@@ -110,6 +117,7 @@ const BodyTable = styled(Flex)<{isActive: boolean}>`
     @media screen and (max-width: 1024px){
         gap: 10px;
         padding-left: 10px;
+        padding-right: 15px;
     }
     @media screen and (max-width: 768px){
         gap: 20px;
@@ -117,7 +125,8 @@ const BodyTable = styled(Flex)<{isActive: boolean}>`
     }
     @media screen and (max-width: 600px){
         gap: 5px;
-        padding-left: 20px;
+        padding-left: 10px;
+        padding-right: 5px;
     }
 `
 const FlexData = styled(Flex)`

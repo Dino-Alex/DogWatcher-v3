@@ -1,4 +1,4 @@
-import { Flex, Text } from '@phamphu19498/runtogether-uikit';
+import { Button, Flex, Text } from '@phamphu19498/runtogether-uikit';
 import { useTranslation } from 'contexts/Localization';
 import React from 'react';
 import styled from 'styled-components';
@@ -11,15 +11,19 @@ const AdminTable = () => {
 
     return (
         <Container>
+            <Flex mb={1} mt={1} justifyContent='center'>
+                <Text fontWeight='700' fontSize='26px'>List Admin Table</Text>
+            </Flex>
+            <Flex mb={1} mt={1} mr={2} justifyContent='flex-end'>
+                <Button>Create</Button>
+            </Flex>
             <TitleTable>
-                <Flex>
-                    List Admin Table
-                </Flex>
                 <FlexListVotting width='100%' justifyContent='space-around'>
-                    <TextListVotting justifyContent='center'>Contract/Wallet</TextListVotting>
+                    <TextListVotting ml="-25px" justifyContent='center'>Contract/Wallet</TextListVotting>
                     <TextListVotting ml="-25px" justifyContent='center'>Balance</TextListVotting>
                     <TextListVotting justifyContent='center'>Limit</TextListVotting>
                     <TextListVotting justifyContent='center'>Email</TextListVotting>
+                    <TextListVotting justifyContent='center'>Action</TextListVotting>
                 </FlexListVotting>
             </TitleTable>
             {ConfigAdmin ?
