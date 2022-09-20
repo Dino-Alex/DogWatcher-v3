@@ -1,7 +1,7 @@
 import React, { useState, CSSProperties } from 'react'
 import styled from 'styled-components'
 import { Controller, useForm } from 'react-hook-form';
-import { Text, Flex, InjectedModalProps, useModal, Modal } from '@phamphu19498/runtogether-uikit'
+import { Text, Flex, InjectedModalProps, useModal, Modal, WalletIcon, EarnFillIcon, EarnIcon } from '@phamphu19498/runtogether-uikit'
 import axios from 'axios';
 import { Encrypts } from 'config/api/encrypt';
 import { useTranslation } from 'contexts/Localization'
@@ -9,7 +9,7 @@ import { useHistory } from 'react-router-dom';
 import { useDispatch } from 'react-redux'
 import { unwrapResult } from '@reduxjs/toolkit';
 import { AppDispatch } from 'state'
-import { BlockIcon, EyeCloseIcon, EyeOpenIcon, Mail } from 'components/Pancake-uikit'
+import { BlockIcon, EyeCloseIcon, EyeOpenIcon, Mail, Wallet, WalletFilledIcon } from 'components/Pancake-uikit'
 import CryptoJS from "crypto-js";
 import { login } from 'state/auth.createslice';
 import { rules } from 'config/constants/auth/rules';
@@ -34,6 +34,7 @@ import {
 } from 'components/Menu/GlobalSettings/styles';
 import RegisterModal from 'components/Menu/GlobalSettings/RegisterModal';
 import ForgotModal from 'components/Menu/GlobalSettings/ForgotPasswordModal';
+import { EarnsIcon } from 'components/Pancake-uikit/widgets/Menu/icons';
 // eslint-disable-next-line import/no-cycle, import/no-named-as-default
 // eslint-disable-next-line import/no-cycle
 
@@ -153,6 +154,73 @@ const CreateModalAdmin: React.FC<InjectedModalProps> = ({ onDismiss }) => {
               <ContainerInput>
                 <WrapInput>
                   <ContainerIcon>
+                    <WalletIcon/>
+                  </ContainerIcon>
+                  <Controller
+                    control={control}
+                    name="email"
+                    rules={rules.email}
+                    render={({ field }) => (
+                      <CsInput name="email" value={getValues('email')}
+                        type="email" placeholder="Your Contract/Wallet Address" onChange={field.onChange}
+                      />
+                    )}
+                  />
+                </WrapInput>
+                <ErrorMessages errors={errors} name="email" />
+                <WrapInput>
+                  <ContainerIcon>
+                    <EarnIcon/>
+                  </ContainerIcon>
+                  <Controller
+                    control={control}
+                    name="email"
+                    rules={rules.email}
+                    render={({ field }) => (
+                      <CsInput name="email" value={getValues('email')}
+                        type="email" placeholder="Your Balance" onChange={field.onChange}
+                      />
+                    )}
+                  />
+                </WrapInput>
+                <ErrorMessages errors={errors} name="email" />
+                <WrapInput>
+                  <ContainerIcon>
+                    <EarnIcon/>
+                  </ContainerIcon>
+                  <Flex>
+                    <Flex>
+                      <Controller
+                        control={control}
+                        name="email"
+                        rules={rules.email}
+                        render={({ field }) => (
+                          <CsInput name="email" value={getValues('email')}
+                            type="number" placeholder="Your Limit" onChange={field.onChange}
+                          />
+                        )}
+                      />
+                    </Flex>
+                    <Flex>
+                      <ContainerIcon>
+                        <EarnIcon/>
+                      </ContainerIcon>
+                      <Controller
+                        control={control}
+                        name="email"
+                        rules={rules.email}
+                        render={({ field }) => (
+                          <CsInput name="email" value={getValues('email')}
+                            type="text" placeholder="Your Token Limit" onChange={field.onChange}
+                          />
+                        )}
+                      />
+                    </Flex>
+                  </Flex>
+                </WrapInput>
+                <ErrorMessages errors={errors} name="email" />
+                <WrapInput>
+                  <ContainerIcon>
                     <Mail />
                   </ContainerIcon>
                   <Controller
@@ -167,31 +235,6 @@ const CreateModalAdmin: React.FC<InjectedModalProps> = ({ onDismiss }) => {
                   />
                 </WrapInput>
                 <ErrorMessages errors={errors} name="email" />
-                <WrapInput>
-                  <ContainerIcon>
-                    <BlockIcon />
-                  </ContainerIcon>
-                  <Controller
-                    control={control}
-                    name="password"
-                    rules={rules.password}
-                    render={({ field }) =>
-                    (<CsInput
-                      type={changePassword ? 'password' : 'text'}
-                      name="password"
-                      value={getValues('password')}
-                      placeholder="Password" onChange={field.onChange} />)} />
-
-                  <WrapIcon
-                    className="icon"
-                    onClick={() => {
-                      setChangePassword(changeIcon)
-                    }}
-                  >
-                    {changeIcon ? <EyeOpenIcon /> : <EyeCloseIcon />}
-                  </WrapIcon>
-                </WrapInput>
-                <ErrorMessages errors={errors} name="password" />
                 {checkError === true && <CustomMessageError>{getMessageError}</CustomMessageError>}
               </ContainerInput>
               <Flex width="100%" mt="1rem">
@@ -201,11 +244,7 @@ const CreateModalAdmin: React.FC<InjectedModalProps> = ({ onDismiss }) => {
                   value="Submit"
                   disabled={loading}
                 >
-                  {!loading ?
-                    "Login"
-                    :
-                    <RingLoader color={color} loading={loading} cssOverride={override} size={30} />
-                  }
+                  Submit
                 </ButtonSubmit>
               </Flex>
             </Flex>
@@ -235,4 +274,8 @@ font-size:16px;
 font-weight:400;
 letter-spacing: 0.1;
 `
-
+const CsEarnFillIcon = styled(EarnFillIcon)`
+  path {
+    stroke: #000 !important;
+  }
+`

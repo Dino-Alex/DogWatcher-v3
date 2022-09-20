@@ -1,39 +1,24 @@
-import React, { useState, CSSProperties } from 'react'
-import styled from 'styled-components'
-import { Controller, useForm } from 'react-hook-form';
-import { Text, Flex, InjectedModalProps, useModal, Modal } from '@phamphu19498/runtogether-uikit'
-import axios from 'axios';
-import { Encrypts } from 'config/api/encrypt';
-import { useTranslation } from 'contexts/Localization'
-import { useHistory } from 'react-router-dom';
-import { useDispatch } from 'react-redux'
+import { Button, Flex, InjectedModalProps, Modal, Text, useModal } from '@phamphu19498/runtogether-uikit';
 import { unwrapResult } from '@reduxjs/toolkit';
-import { AppDispatch } from 'state'
-import { BlockIcon, EyeCloseIcon, EyeOpenIcon, Mail } from 'components/Pancake-uikit'
-import CryptoJS from "crypto-js";
-import { login } from 'state/auth.createslice';
-import { rules } from 'config/constants/auth/rules';
-import useTheme from 'hooks/useTheme'
-import ErrorMessages from 'components/ErrorMessages/ErrorMessage';
-import useToast from 'hooks/useToast'
-import { GetUser } from 'state/account'
-import { fetchUserInfo } from 'state/account/actions';
-import { fetchUser } from 'state/account/fetchData';
 import { useWeb3React } from '@web3-react/core';
-import RingLoader from "react-spinners/RingLoader";
-import {
-  ButtonSubmit,
-  ContainerIcon,
-  ContainerInput,
-  CsFlex,
-  CsInput,
-  FormSubmit,
-  TransferModal,
-  WrapIcon,
-  WrapInput,
-} from 'components/Menu/GlobalSettings/styles';
-import RegisterModal from 'components/Menu/GlobalSettings/RegisterModal';
+import axios from 'axios';
 import ForgotModal from 'components/Menu/GlobalSettings/ForgotPasswordModal';
+import RegisterModal from 'components/Menu/GlobalSettings/RegisterModal';
+import {
+  CsFlex
+} from 'components/Menu/GlobalSettings/styles';
+import { Encrypts } from 'config/api/encrypt';
+import { useTranslation } from 'contexts/Localization';
+import useTheme from 'hooks/useTheme';
+import useToast from 'hooks/useToast';
+import React, { CSSProperties, useState } from 'react';
+import { useForm } from 'react-hook-form';
+import { useDispatch } from 'react-redux';
+import { useHistory } from 'react-router-dom';
+import { AppDispatch } from 'state';
+import { GetUser } from 'state/account';
+import { login } from 'state/auth.createslice';
+import styled from 'styled-components';
 // eslint-disable-next-line import/no-cycle, import/no-named-as-default
 // eslint-disable-next-line import/no-cycle
 
@@ -145,71 +130,27 @@ const DeleteModalAdmin: React.FC<InjectedModalProps> = ({ onDismiss }) => {
           <CsFlex width="100%" justifyContent="center" alignItems="center">
             <Text bold fontSize="24px">{t('Delete Admin')}</Text>
           </CsFlex>
-          <CsFlex mb={4} width="100%" justifyContent="center" alignItems="center">
-            <Text color="#B5B5BE" />
+          <CsFlex mb={3} mt={3} width="100%" justifyContent="center" alignItems="center">
+            <Text color="red">Hãy chắc chắn bạn muốn xóa!</Text>
           </CsFlex>
-          <FormSubmit onSubmit={handleSubmit(handleLogin)}>
-            <Flex flexDirection="column">
-              <ContainerInput>
-                <WrapInput>
-                  <ContainerIcon>
-                    <Mail />
-                  </ContainerIcon>
-                  <Controller
-                    control={control}
-                    name="email"
-                    rules={rules.email}
-                    render={({ field }) => (
-                      <CsInput name="email" value={getValues('email')}
-                        type="email" placeholder="Your email address" onChange={field.onChange}
-                      />
-                    )}
-                  />
-                </WrapInput>
-                <ErrorMessages errors={errors} name="email" />
-                <WrapInput>
-                  <ContainerIcon>
-                    <BlockIcon />
-                  </ContainerIcon>
-                  <Controller
-                    control={control}
-                    name="password"
-                    rules={rules.password}
-                    render={({ field }) =>
-                    (<CsInput
-                      type={changePassword ? 'password' : 'text'}
-                      name="password"
-                      value={getValues('password')}
-                      placeholder="Password" onChange={field.onChange} />)} />
-
-                  <WrapIcon
-                    className="icon"
-                    onClick={() => {
-                      setChangePassword(changeIcon)
-                    }}
-                  >
-                    {changeIcon ? <EyeOpenIcon /> : <EyeCloseIcon />}
-                  </WrapIcon>
-                </WrapInput>
-                <ErrorMessages errors={errors} name="password" />
-                {checkError === true && <CustomMessageError>{getMessageError}</CustomMessageError>}
-              </ContainerInput>
-              <Flex width="100%" mt="1rem">
-                <ButtonSubmit
-                  width="100%"
-                  type="submit"
-                  value="Submit"
-                  disabled={loading}
-                >
-                  {!loading ?
-                    "Login"
-                    :
-                    <RingLoader color={color} loading={loading} cssOverride={override} size={30} />
-                  }
-                </ButtonSubmit>
-              </Flex>
-            </Flex>
-          </FormSubmit>
+          <Flex width="100%" mt="1rem" style={{gap: '10px'}}>
+            <ButtonDelete
+              width="100%"
+              type="submit"
+              value="Submit"
+              disabled={loading}
+            >
+              Delete
+            </ButtonDelete>
+            <ButtonCancel
+              width="100%"
+              type="submit"
+              value="Submit"
+              disabled={loading}
+            >
+              Cancel
+            </ButtonCancel>
+          </Flex>
         </Flex>
       </Flex>
     </CustomModal>
@@ -235,4 +176,13 @@ font-size:16px;
 font-weight:400;
 letter-spacing: 0.1;
 `
-
+const ButtonCancel = styled(Button)`
+  background: #029DA5;
+  border-radius: 25px;
+  box-shadow: none;
+`
+const ButtonDelete = styled(Button)`
+  background: #FF592C;
+  border-radius: 25px;
+  box-shadow: none;
+`
