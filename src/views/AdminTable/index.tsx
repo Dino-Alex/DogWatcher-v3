@@ -24,9 +24,9 @@ const AdminTable = () => {
             </Flex>
             <TitleTable>
                 <FlexListVotting width='100%' justifyContent='space-around'>
-                    <TextListVotting ml="-25px" justifyContent='center'>Contract/Wallet</TextListVotting>
-                    <TextListVotting ml="-25px" justifyContent='center'>Balance</TextListVotting>
-                    <TextListVotting justifyContent='center'>Limit</TextListVotting>
+                    <TextListVotting justifyContent='center'>Name</TextListVotting>
+                    <TextListVotting justifyContent='center'>Wallet</TextListVotting>
+                    <TextListVotting justifyContent='center'>Balance/Limit</TextListVotting>
                     <TextListVotting justifyContent='center'>Email</TextListVotting>
                     <TextListVotting justifyContent='center'>Action</TextListVotting>
                 </FlexListVotting>
@@ -36,11 +36,12 @@ const AdminTable = () => {
                     {ConfigAdmin.map((item, key) => {
                         return (
                             <ListAdmin
+                                nameWallet={item.name}
                                 contract={item.contract}
-                                balance={item.balance}
-                                limit={item.limit}
-                                tokenLimit={item.tokenLimit}
+                                totalBalance={item.totalBalance}
                                 email={item.email}
+                                timeEmail={item.timeEmail}
+                                dateEmail={item.dateEmail}
                                 rowId={key}
                             />
                         )
@@ -84,7 +85,6 @@ const TitleTable = styled(Flex)`
     font-weight: 700;
     font-size: 24px;
     line-height: 36px;
-    padding-left: 40px;
     color: #FFFFFF;
     flex-direction: column;
     align-items: left;
@@ -107,7 +107,7 @@ const FlexListVotting = styled(Flex)`
     }
 `
 const TextListVotting = styled(Flex)`
-    width: 250px;
+    width: 300px;
     font-family: 'Poppins';
     font-style: normal;
     font-weight: 600;

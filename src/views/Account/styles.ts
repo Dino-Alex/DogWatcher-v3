@@ -224,14 +224,14 @@ export const Tooltip = styled.div<{ isTooltipDisplayed: boolean }>`
   display: ${({ isTooltipDisplayed }) => (isTooltipDisplayed ? 'inline-block' : 'none')};
   position: absolute;
   padding: 8px;
-  top: -35px;
-  right: -15px;
+  /* top: -35px; */
+  /* right: -15px; */
   text-align: center;
-  background-color: #fff;
+  /* background-color: #fff; */
   color: #000;
   border-radius: 16px;
   width: 100px;
-  box-shadow: 4px 4px 4px rgba(0, 0, 0, 0.1);
+  /* box-shadow: 4px 4px 4px rgba(0, 0, 0, 0.1); */
 `
 export const CustomIconCopy = styled(Copy)`
   fill: #6c5dd3;
