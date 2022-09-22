@@ -7,12 +7,16 @@ import DeleteModalAdmin from './components/DeleteModalAdmin';
 import ListAdmin from './components/ListAdmin';
 import UpdateModalAdmin from './components/UpdateModalAdmin';
 import { ConfigAdmin } from './config';
+import { GetListAdmin } from './hook/fetchData';
 
 const AdminTable = () => {
 
   const { t } = useTranslation()
   const [openCreateModal] = useModal(<CreateModalAdmin />)
 
+  const {listDataAdmin} = GetListAdmin()
+  console.log('listDataAdmin',listDataAdmin);
+  
 
     return (
         <Container>
@@ -28,6 +32,7 @@ const AdminTable = () => {
                     <TextListVotting justifyContent='center'>Wallet</TextListVotting>
                     <TextListVotting justifyContent='center'>Balance/Limit</TextListVotting>
                     <TextListVotting justifyContent='center'>Email</TextListVotting>
+                    <TextListVotting justifyContent='center'>Status</TextListVotting>
                     <TextListVotting justifyContent='center'>Action</TextListVotting>
                 </FlexListVotting>
             </TitleTable>
@@ -36,12 +41,11 @@ const AdminTable = () => {
                     {ConfigAdmin.map((item, key) => {
                         return (
                             <ListAdmin
-                                nameWallet={item.name}
-                                contract={item.contract}
-                                totalBalance={item.totalBalance}
+                                walletName={item.walletName}
+                                walletAddress={item.walletAddress}
+                                totalLimit={item.totalLimit}
                                 email={item.email}
-                                timeEmail={item.timeEmail}
-                                dateEmail={item.dateEmail}
+                                status={item.status}
                                 rowId={key}
                             />
                         )

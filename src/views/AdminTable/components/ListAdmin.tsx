@@ -1,37 +1,37 @@
+import { ChainId } from '@pancakeswap/sdk';
 import { Button, Flex, PencilIcon, Text, useModal } from '@phamphu19498/runtogether-uikit';
 import { BlockIcon, CloseIcon } from 'components/Pancake-uikit';
 import UpdateToClipboard from 'components/Pancake-uikit/widgets/WalletModal/UpdateToClipboard';
+import tokens from 'config/constants/tokens';
 import React, { useState } from 'react';
 import styled from 'styled-components';
 import { formatAmount } from 'utils/formatInfoNumbers';
 import { Tooltip } from 'views/Account/styles';
 import { useComparisonLimit } from '../hook/useComparisonLimit';
+import { GetBalance } from '../hook/usefetchBalance';
 import DeleteModalAdmin from './DeleteModalAdmin';
 import UpdateModalAdmin from './UpdateModalAdmin';
 
 interface Props {
-    nameWallet?: string
-    contract?: string
-    totalBalance?: any
-    email?: string
-    timeEmail?: string
-    dateEmail?: string
+    walletName?: string
+    walletAddress?: string
+    totalLimit?: any
+    email?: any
+    status?: boolean
     rowId?: number
 }
 
 const ListAdmin: React.FC<Props> = ({
-    nameWallet,
-    contract,
-    totalBalance,
+    walletName,
+    walletAddress,
+    totalLimit,
     email,
-    timeEmail,
-    dateEmail,
+    status,
     rowId,
 }) => {
 
     const [openUpdateModal] = useModal(<UpdateModalAdmin />)
     const [openDeleteModal] = useModal(<DeleteModalAdmin />)
-
 
     function setAddress(dataAddress) {
         if (dataAddress) {
@@ -46,36 +46,44 @@ const ListAdmin: React.FC<Props> = ({
         }
         return ""
     }
+    function compareBalance(balance, limit, name) {
+        if (balance < limit) {
+            return `${formatAmount(balance)} < ${formatAmount(limit)} ${name}`
+        }
+        if (balance > limit) {
+            return <CsText color='#FF592C'>{`${formatAmount(balance)} > ${formatAmount(limit)} ${name}`}</CsText>
+        }
+        if (balance === limit && (balance !== 0 && limit !== 0)) {
+            return <CsText color='#FF592C'>{`${formatAmount(balance)} = ${formatAmount(limit)} ${name}`}</CsText>
+        }
+        if (balance === 0 && limit === 0) {
+            return <CsText>No Data</CsText>
+        }
+        return ''
+    }
 
-    // const [isWarning, setWarning] = useState(false)
-    // function warningBalance(key: number) {
-    //     if (balance[key] >= limit[key]) {
-    //         return true
-    //     }
-    //     return false
-    // }
-    
     const windownSize = window.screen.width
-    const Color = Math.floor(Math.random()*16777215).toString(16);
+    const Color = Math.floor(Math.random() * 16777215).toString(16);
     const [isDisplay, setDisplay] = useState(false);
     const [isTooltipDisplayed, setIsTooltipDisplayed] = useState(false);
     function displayTooltip() {
         setIsTooltipDisplayed(true);
         setTimeout(() => {
-        setIsTooltipDisplayed(false);
-        }, 2000);
+            setIsTooltipDisplayed(false);
+        }, 10000);
     }
 
-    
+    const { balanceList } = GetBalance(walletAddress, totalLimit)
+
     return (
         <Container>
             <BodyTable isActive={rowId % 2 === 0 ? !false : false}>
                 <FlexData>
                     <Flex width='100%' justifyContent='center' alignItems='center'>
-                        {nameWallet ?
-                            <Flex width='100%' justifyContent='center' alignItems='center' style={{gap: '10px'}}>
-                                <CsText>{nameWallet}</CsText>
-                                <CsPencilIcon isDisplay={isDisplay} onClick={openUpdateModal} style={{ cursor: 'pointer' }} />
+                        {walletName ?
+                            <Flex width='100%' justifyContent='center' alignItems='center' style={{ gap: '10px' }}>
+                                <CsText>{walletName}</CsText>
+                                <CsPencilIcon className='IconHiden' onClick={openUpdateModal} style={{ cursor: 'pointer' }} />
                             </Flex>
                             :
                             <Flex width='100%' justifyContent='center' alignItems='center'>
@@ -86,10 +94,10 @@ const ListAdmin: React.FC<Props> = ({
                 </FlexData>
                 <FlexData>
                     <Flex width='100%' justifyContent='center' alignItems='center'>
-                        {contract ?
-                            <Flex width='100%' justifyContent='center' alignItems='center' style={{gap: '10px'}}>
-                                <CsText>{setAddress(contract)}</CsText>
-                                <CsPencilIcon isDisplay={isDisplay} onClick={openUpdateModal} style={{ cursor: 'pointer' }} />
+                        {walletAddress ?
+                            <Flex width='100%' justifyContent='center' alignItems='center' style={{ gap: '10px' }}>
+                                <CsText>{setAddress(walletAddress)}</CsText>
+                                <CsPencilIcon className='IconHiden' onClick={openUpdateModal} style={{ cursor: 'pointer' }} />
                             </Flex>
                             :
                             <Flex width='100%' justifyContent='center' alignItems='center'>
@@ -99,35 +107,79 @@ const ListAdmin: React.FC<Props> = ({
                     </Flex>
                 </FlexData>
                 <FlexData justifyContent='center' alignItems='center'>
-                    <Flex width='100%' justifyContent='center' alignItems='center' style={{gap: '10px'}}>
-                            <CsText>{`10M < 20M RUN`}</CsText>
-                            <CsPencilIcon isDisplay={isDisplay} onClick={openUpdateModal} style={{ cursor: 'pointer' }} />
-                    </Flex>
+                    {balanceList.length !== 0 ?
+                        <Flex flexDirection='column' width='100%' justifyContent='center' alignItems='center' style={{ gap: '10px' }}>
+                            {balanceList.map((item) => {
+                                return (
+                                    <Flex width='100%' justifyContent='center' alignItems='center' style={{ gap: '10px' }}>
+                                        <CsText>{compareBalance(item.balance, item.limit, item.name)}</CsText>
+                                        <CsPencilIcon className='IconHiden' onClick={openUpdateModal} style={{ cursor: 'pointer' }} />
+                                    </Flex>
+                                )
+                            })}
+                        </Flex>
+                        :
+                        <Flex width='100%' justifyContent='center' alignItems='center'>
+                            <CsText>No data</CsText>
+                        </Flex>
+                    }
                 </FlexData>
                 <FlexData>
                     <Flex width='100%' justifyContent='center' alignItems='center'>
-                        <Flex flexDirection='column' width='100%' justifyContent='center' alignItems='center'>
-                            <TextEmail textAlign='center' fontWeight='100'>14:28 AM 21/09/2022</TextEmail>
-                            <CsText>thaihuuluong@gmail.com</CsText>
-                        </Flex>
-                        <Flex>
-                            <CsPencilIcon isDisplay={isDisplay} onClick={openUpdateModal} style={{ cursor: 'pointer' }} />
-                        </Flex>
+                        {email.length !== 0 ?
+                            <>
+                                <Flex flexDirection='column' width='100%' justifyContent='center' alignItems='center'>
+                                    {email.map((item) => {
+                                        return (
+                                            <>
+                                                <TextEmail textAlign='center' fontWeight='100'>{item.timeEmail}</TextEmail>
+                                                <CsText>{item.email}</CsText>
+                                            </>
+                                        )
+                                    })}
+                                </Flex>
+                                <Flex>
+                                    <CsPencilIcon className='IconHiden' onClick={openUpdateModal} style={{ cursor: 'pointer' }} />
+                                </Flex>
+                            </>
+                            :
+                            <Flex width='100%' justifyContent='center' alignItems='center'>
+                                <CsText>No data</CsText>
+                            </Flex>
+                        }
                     </Flex>
                 </FlexData>
-                <FlexData>
-                    <Flex width='100%' justifyContent='center' style={{gap: '10px'}}>
-                        <CsPencilIconV1 onClick={displayTooltip} style={{ cursor: 'pointer' }} />
-                        {/* <UpdateToClipboard toCopy='abc' /> */}
-                        {/* <CsCloseIcon onClick={openDeleteModal} style={{ cursor: 'pointer' }} /> */}
-                        <CsCloseIconV1 Color={Color} onClick={openDeleteModal} style={{ cursor: 'pointer' }} />
-                    </Flex>
-                    <Tooltip isTooltipDisplayed={isTooltipDisplayed}>
-                        <Flex flexDirection='column' style={{gap: '10px'}}>
-                            <Button onClick={() => setDisplay(true)}>Update</Button>
-                            <Button>Update All</Button>
+                <FlexData width='100%' justifyContent='center' alignItems='center'>
+                    {status !== null ?
+                        <Flex width='100%' justifyContent='center' alignItems='center'>
+                            <Flex width='100%' justifyContent='center' alignItems='center' style={{ gap: '10px' }}>
+                                {status === true ?
+                                    <CsText>Enable</CsText>
+                                    :
+                                    <CsText>Disable</CsText>
+                                }
+                                <CsPencilIcon className='IconHiden' onClick={displayTooltip} style={{ cursor: 'pointer' }} />
+                            </Flex>
+                            <Flex  alignItems='center' justifyContent='center'>
+                            <Tooltip isTooltipDisplayed={isTooltipDisplayed}>
+                                <Button onClick={() => setDisplay(true)}>{status === true ? 'Enable' : 'Disable'}</Button>
+                            </Tooltip>
+                            </Flex>
                         </Flex>
-                    </Tooltip>
+                        :
+                        <Flex width='100%' justifyContent='center' alignItems='center'>
+                            <CsText>No data</CsText>
+                        </Flex>
+                    }
+                </FlexData>
+                <FlexData>
+                    <Flex width='100%' justifyContent='center' style={{ gap: '10px' }}>
+                        {/* <CsPencilIconV1 onClick={displayTooltip} style={{ cursor: 'pointer' }} /> */}
+                        <CsPencilIcon style={{ cursor: 'pointer' }} />
+                        <CsCloseIcon onClick={openDeleteModal} style={{ cursor: 'pointer' }} />
+                        {/* <CsCloseIconV1 Color={Color} onClick={openDeleteModal} style={{ cursor: 'pointer' }} /> */}
+                    </Flex>
+
                 </FlexData>
             </BodyTable>
         </Container>
@@ -183,6 +235,14 @@ const FlexData = styled(Flex)`
     @media screen and (max-width: 376px) {
         width: 80px;
     }
+    .IconHiden{
+        display: none;
+    }
+    :hover{
+        .IconHiden{
+            display: block;
+        }
+    }
 `
 const CsText = styled(Text)`
     font-weight: 600;
@@ -197,15 +257,7 @@ const TextEmail = styled(Text)`
         font-size: 12px;
     }
 `
-
-const CsPencilIcon = styled(PencilIcon)<{isDisplay: boolean}>`
-    margin-bottom: 0.5rem;
-    display: ${({ isDisplay }) => (isDisplay === true ? 'block' : 'none')};
-    path{
-        fill: #FF592C;
-    }
-`
-const CsPencilIconV1 = styled(PencilIcon)`
+const CsPencilIcon = styled(PencilIcon)`
     margin-bottom: 0.5rem;
     path{
         fill: #FF592C;
@@ -217,9 +269,10 @@ const CsCloseIcon = styled(CloseIcon)`
         fill: #FF592C;
     }
 `
-const CsCloseIconV1 = styled(CloseIcon)<{ Color: any }>`
-    width: 26px;
-    path{
-        fill: ${({ Color }) => (`#${Color}`)};
+const CsTextStatus = styled(Text) <{ isNone: boolean }>`
+    font-weight: 600;
+    @media screen and (max-width: 600px) {
+        font-size: 12px;
     }
+    display: ${({ isNone }) => (isNone ? 'none' : 'block')};
 `
