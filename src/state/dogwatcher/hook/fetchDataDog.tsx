@@ -17,9 +17,7 @@ export const fetchDataDog =async (): Promise<ItemsPropsDog> => {
                 slack:item.slack
             }
         })  
-        console.log("convertData", converData)
         return {listDataDog: converData}
-
     } catch (e) {
         console.log(e);
         return {listDataDog: [{

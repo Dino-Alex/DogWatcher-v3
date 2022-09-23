@@ -129,7 +129,7 @@ export interface OptionProps {
   value: any
 }
 
-const Select: React.FunctionComponent<SelectProps> = ({ options, onChange }) => {
+const SelectToken: React.FunctionComponent<SelectProps> = ({ options, onChange }) => {
   const containerRef = useRef(null)
   const dropdownRef = useRef(null)
   const [isOpen, setIsOpen] = useState(false)
@@ -193,7 +193,7 @@ const Select: React.FunctionComponent<SelectProps> = ({ options, onChange }) => 
   )
 }
 
-export default Select
+export default SelectToken
 
 const CustomListItem = styled(ListItem)`
   width: auto;

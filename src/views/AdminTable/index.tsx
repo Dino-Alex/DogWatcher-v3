@@ -16,8 +16,6 @@ const AdminTable = () => {
   const [openCreateModal] = useModal(<CreateModalAdmin />)
 
   const [listDataDog] = GetDataDogWatcher(true)
-  console.log('listDataDog',listDataDog);
-  
 
     return (
         <Container>

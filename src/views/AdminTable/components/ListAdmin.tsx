@@ -1,13 +1,9 @@
-import { ChainId } from '@pancakeswap/sdk';
 import { Button, Flex, PencilIcon, Text, useModal } from '@phamphu19498/runtogether-uikit';
-import { BlockIcon, CloseIcon } from 'components/Pancake-uikit';
-import UpdateToClipboard from 'components/Pancake-uikit/widgets/WalletModal/UpdateToClipboard';
-import tokens from 'config/constants/tokens';
+import { CloseIcon } from 'components/Pancake-uikit';
 import React, { useState } from 'react';
 import styled from 'styled-components';
 import { formatAmount } from 'utils/formatInfoNumbers';
 import { Tooltip } from 'views/Account/styles';
-import { useComparisonLimit } from '../hook/useComparisonLimit';
 import { GetBalance } from '../hook/usefetchBalance';
 import DeleteModalAdmin from './DeleteModalAdmin';
 import UpdateModalAdmin from './UpdateModalAdmin';
