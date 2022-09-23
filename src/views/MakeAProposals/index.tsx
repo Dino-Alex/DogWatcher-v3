@@ -81,7 +81,6 @@ const MakeAProposals = () => {
           sAccount = address
         }
       }
-      // console.log('sAccount',sAccount);
       return sAccount
   }
   const openBSC = () => {

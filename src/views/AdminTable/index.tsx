@@ -1,6 +1,7 @@
 import { Button, Flex, Text, useModal } from '@phamphu19498/runtogether-uikit';
 import { useTranslation } from 'contexts/Localization';
 import React from 'react';
+import { GetDataDogWatcher } from 'state/dogwatcher';
 import styled from 'styled-components';
 import CreateModalAdmin from './components/CreateModalAdmin';
 import DeleteModalAdmin from './components/DeleteModalAdmin';
@@ -14,8 +15,8 @@ const AdminTable = () => {
   const { t } = useTranslation()
   const [openCreateModal] = useModal(<CreateModalAdmin />)
 
-  const {listDataAdmin} = GetListAdmin()
-  console.log('listDataAdmin',listDataAdmin);
+  const [listDataDog] = GetDataDogWatcher(true)
+  console.log('listDataDog',listDataDog);
   
 
     return (
@@ -36,14 +37,14 @@ const AdminTable = () => {
                     <TextListVotting justifyContent='center'>Action</TextListVotting>
                 </FlexListVotting>
             </TitleTable>
-            {ConfigAdmin ?
+            {listDataDog ?
                 <>
-                    {ConfigAdmin.map((item, key) => {
+                    {listDataDog.map((item, key) => {
                         return (
                             <ListAdmin
                                 walletName={item.walletName}
                                 walletAddress={item.walletAddress}
-                                totalLimit={item.totalLimit}
+                                limit={item.limit}
                                 email={item.email}
                                 status={item.status}
                                 rowId={key}

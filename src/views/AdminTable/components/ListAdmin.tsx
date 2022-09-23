@@ -15,7 +15,7 @@ import UpdateModalAdmin from './UpdateModalAdmin';
 interface Props {
     walletName?: string
     walletAddress?: string
-    totalLimit?: any
+    limit?: any
     email?: any
     status?: boolean
     rowId?: number
@@ -24,7 +24,7 @@ interface Props {
 const ListAdmin: React.FC<Props> = ({
     walletName,
     walletAddress,
-    totalLimit,
+    limit,
     email,
     status,
     rowId,
@@ -46,17 +46,17 @@ const ListAdmin: React.FC<Props> = ({
         }
         return ""
     }
-    function compareBalance(balance, limit, name) {
-        if (balance < limit) {
-            return `${formatAmount(balance)} < ${formatAmount(limit)} ${name}`
+    function compareBalance(balance, tokenLimit, name) {
+        if (balance < tokenLimit) {
+            return `${formatAmount(balance)} < ${formatAmount(tokenLimit)} ${name}`
         }
-        if (balance > limit) {
-            return <CsText color='#FF592C'>{`${formatAmount(balance)} > ${formatAmount(limit)} ${name}`}</CsText>
+        if (balance > tokenLimit) {
+            return <CsText color='#FF592C'>{`${formatAmount(balance)} > ${formatAmount(tokenLimit)} ${name}`}</CsText>
         }
-        if (balance === limit && (balance !== 0 && limit !== 0)) {
-            return <CsText color='#FF592C'>{`${formatAmount(balance)} = ${formatAmount(limit)} ${name}`}</CsText>
+        if (balance === tokenLimit && (balance !== 0 && tokenLimit !== 0)) {
+            return <CsText color='#FF592C'>{`${formatAmount(balance)} = ${formatAmount(tokenLimit)} ${name}`}</CsText>
         }
-        if (balance === 0 && limit === 0) {
+        if (balance === 0 && tokenLimit === 0) {
             return <CsText>No Data</CsText>
         }
         return ''
@@ -73,7 +73,7 @@ const ListAdmin: React.FC<Props> = ({
         }, 10000);
     }
 
-    const { balanceList } = GetBalance(walletAddress, totalLimit)
+    const { balanceList } = GetBalance(walletAddress, limit)
 
     return (
         <Container>
@@ -132,8 +132,8 @@ const ListAdmin: React.FC<Props> = ({
                                     {email.map((item) => {
                                         return (
                                             <>
-                                                <TextEmail textAlign='center' fontWeight='100'>{item.timeEmail}</TextEmail>
-                                                <CsText>{item.email}</CsText>
+                                                <TextEmail textAlign='center' fontWeight='100'>{item.emailTime}</TextEmail>
+                                                <CsText>{item.emailAddress}</CsText>
                                             </>
                                         )
                                     })}

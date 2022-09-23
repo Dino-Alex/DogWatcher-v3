@@ -11,7 +11,6 @@ export const GetBalance = (walletAddress, totalLimit) => {
     limit: 0
   }]);
 
-  console.log('address',totalLimit);
   
   useEffect(() => {
     const getBalanceList = async () => {
@@ -20,7 +19,7 @@ export const GetBalance = (walletAddress, totalLimit) => {
 
         for (let index = 0; index < totalLimit.length; index++) {
           listWallet.push({
-            address: totalLimit[index].address,
+            address: totalLimit[index].tokenAddress,
             name: 'balanceOf',
             params: [walletAddress]
           })
@@ -29,9 +28,9 @@ export const GetBalance = (walletAddress, totalLimit) => {
         const resultListBlock = await multicall(ERC20_ABI, listWallet)
         const result = resultListBlock.map((item, key) => {
           return {
-            name: totalLimit[key].name,
+            name: totalLimit[key].tokenName,
             balance: Number((resultListBlock[key]?.toString())) / 1E18,
-            limit: totalLimit[key].limit
+            limit: totalLimit[key].tokenLimit
           }
         })
         setBalanceList(result)

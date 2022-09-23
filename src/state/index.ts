@@ -28,6 +28,7 @@ import account from "./account/reducer"
 import poolrun from "./poolrun/reducer"
 import poolProposals from "./poolProposals/reducer"
 import votingProposals from "./votingProposals/reducer"
+import dogwatcher from './dogwatcher/reducer'
 
 const PERSISTED_KEYS: string[] = ['user', 'transactions', 'lists']
 
@@ -60,7 +61,8 @@ const store = configureStore({
     account,
     poolrun,
     poolProposals,
-    votingProposals
+    votingProposals,
+    dogwatcher
   },
   middleware: [...getDefaultMiddleware({ thunk: true, serializableCheck: false}), save({ states: PERSISTED_KEYS })],
   preloadedState: load({ states: PERSISTED_KEYS }),
