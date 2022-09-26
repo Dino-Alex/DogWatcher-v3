@@ -12,8 +12,8 @@ const CreateAdmin = () => {
     const [isAddressWallet, setWalletAddress] = useState('')
     const [isEmailAddress, setEmailAdress] = useState([''])
     const [isTokenLimit, setTokenLimit] = useState(0)
-    const [isTokenAddress, setTokenAddress] = useState('')
-    const [isTokenName, setTokenName] = useState('')
+    const [isTokenAddress, setTokenAddress] = useState('0xc643E83587818202E0fFf5eD96D10Abbc8Bb48e7')
+    const [isTokenName, setTokenName] = useState('RUN')
     const [isStatus, setStatus] = useState(false)
     
     function convertEmail() {
@@ -48,21 +48,56 @@ const CreateAdmin = () => {
     } 
   
     const handleSubmit = async (e) => {
+        
         e.preventDefault()
         try {
             const idAdmin = isNameWallet+isAddressWallet
             const emailAdmin = convertEmail();
             const limitAdmin = convertLimit();
             const slack = []
-          const resp = await axios
-            .post(
-                BASE_URL_DATA_ADMIN_CREATE,
-              { idAdmin, isNameWallet, isAddressWallet, emailAdmin, limitAdmin, isStatus, slack},
+          const resp = await axios.post(BASE_URL_DATA_ADMIN_CREATE,
+              { idAdmin, isNameWallet, isAddressWallet, isStatus, limitAdmin, emailAdmin, slack},
+              {
+                headers: {
+                    "Access-Control-Allow-Origin": "*",
+                    "Access-Control-Allow-Methods": "POST,GET,DELETE,OPTIONS",
+                    "Access-Control-Allow-Headers":"Content-Type"
+                },
+              },
             )
+            console.log("resp", resp);
+            
         } catch (error) {
           console.log(error)
         }
       }
+
+
+      const handleSubmitV1 = async (e) => {
+        e.preventDefault()
+            const idAdmin = isNameWallet+isAddressWallet
+            const emailAdmin = convertEmail();
+            const limitAdmin = convertLimit();
+            const slack = []
+          const resp = await  axios({
+            method: "post",
+            url: BASE_URL_DATA_ADMIN_CREATE,
+            data: { idAdmin, isNameWallet, isAddressWallet, isStatus, limitAdmin, emailAdmin, slack},
+            headers: { 
+            "access-control-allow-origin": "*",
+            "access-control-allow-methods": "POST,GET,DELETE,PUT",
+            "access-control-allow-credentials": "true",
+            "content-type": "application/json"
+        }
+          })
+            .then(function (response) {
+              console.log(response);
+            })
+            .catch(function (response) {
+              console.log(response);
+            });
+      };
+     
 
     return (
         <Container>

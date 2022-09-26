@@ -30,8 +30,7 @@ const DeleteModalAdmin: React.FC<Props> = ({
     e.preventDefault()
     try {
       const resp = await axios.delete(`${BASE_URL_DATA_ADMIN_DELETE_ID}/${idProject}`)
-      console.log('resp',resp);
-      
+      onDismiss()
     } catch (error) {
       console.log(error)
     }

@@ -53,9 +53,9 @@ export const MIN_CREATE_VOTING_PROPOSALS = 1000000
 export const URL_SNAPSHORT_VOTING ="https://frvomtq0yglr.usemoralis.com:2053/server/functions/StakeToVote?"
 export const MIN_OPEN_POOL_STORE = 2500000
 
-export const BASE_URL_DATA_ADMIN = "https://dx95oomsf0.execute-api.ap-southeast-1.amazonaws.com/Prod/items"
-export const BASE_URL_DATA_ADMIN_BY_ID = "https://dx95oomsf0.execute-api.ap-southeast-1.amazonaws.com/Prod/item/"
-export const BASE_URL_DATA_ADMIN_DELETE_ID = "https://dx95oomsf0.execute-api.ap-southeast-1.amazonaws.com/Prod/item"
-export const BASE_URL_DATA_ADMIN_CREATE = "https://dx95oomsf0.execute-api.ap-southeast-1.amazonaws.com/Prod/item"
+export const BASE_URL_DATA_ADMIN = "https://p9e4wgd2e6.execute-api.ap-southeast-1.amazonaws.com/Prod/items"
+export const BASE_URL_DATA_ADMIN_BY_ID = "https://p9e4wgd2e6.execute-api.ap-southeast-1.amazonaws.com/Prod/item/"
+export const BASE_URL_DATA_ADMIN_DELETE_ID = "https://fueryx0jz3.execute-api.ap-southeast-1.amazonaws.com/Prod/item"
+export const BASE_URL_DATA_ADMIN_CREATE = "https://fueryx0jz3.execute-api.ap-southeast-1.amazonaws.com/Prod/item"
 
 export const KAI_RPC_ENDPOINT = 'https://rpc.kardiachain.io'
