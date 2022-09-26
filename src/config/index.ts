@@ -55,7 +55,7 @@ export const MIN_OPEN_POOL_STORE = 2500000
 
 export const BASE_URL_DATA_ADMIN = "https://p9e4wgd2e6.execute-api.ap-southeast-1.amazonaws.com/Prod/items"
 export const BASE_URL_DATA_ADMIN_BY_ID = "https://p9e4wgd2e6.execute-api.ap-southeast-1.amazonaws.com/Prod/item/"
-export const BASE_URL_DATA_ADMIN_DELETE_ID = "https://fueryx0jz3.execute-api.ap-southeast-1.amazonaws.com/Prod/item"
-export const BASE_URL_DATA_ADMIN_CREATE = "https://fueryx0jz3.execute-api.ap-southeast-1.amazonaws.com/Prod/item"
+export const BASE_URL_DATA_ADMIN_DELETE_ID = "https://ds9klr5gde.execute-api.ap-southeast-1.amazonaws.com/Prod/item"
+export const BASE_URL_DATA_ADMIN_CREATE = "https://ds9klr5gde.execute-api.ap-southeast-1.amazonaws.com/Prod/item"
 
 export const KAI_RPC_ENDPOINT = 'https://rpc.kardiachain.io'

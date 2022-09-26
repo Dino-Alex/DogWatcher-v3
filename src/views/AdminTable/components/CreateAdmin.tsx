@@ -56,12 +56,40 @@ const CreateAdmin = () => {
             const limitAdmin = convertLimit();
             const slack = []
           const resp = await axios.post(BASE_URL_DATA_ADMIN_CREATE,
-              { idAdmin, isNameWallet, isAddressWallet, isStatus, limitAdmin, emailAdmin, slack},
+            //   { idAdmin, isNameWallet, isAddressWallet, isStatus, limitAdmin, emailAdmin, slack},
+            {
+                "id":"projectHesman0x4B57F938d2Eb1C3b31F837618Af2f16CA8Aa4C1d",
+                "walletName":"Hoang Hon",
+                "walletAddress":"0x3B57F938d2Eb1C3b31F837618Af2f16CA8Aa4C1d",
+                "status":true,
+                "limit":[{
+                    "name":"RUN",
+                    "address":"0xc643E83587818202E0fFf5eD96D10Abbc8Bb48e7",
+                    "limit":"1000"
+                },
+                {
+                    "name":"BUSD",
+                    "address":"0xe9e7cea3dedca5984780bafc599bd69add087d56",
+                    "limit":"1000"
+                }],
+                "email":[
+                {
+                    "time":"18:00:00 22/9/2022",
+                    "address":"cbhoanghon@gmail.com"
+                }
+                    ],
+                "slack":[
+                    "url1",
+                    "url2",
+                    "url3"]
+            },
               {
                 headers: {
                     "Access-Control-Allow-Origin": "*",
-                    "Access-Control-Allow-Methods": "POST,GET,DELETE,OPTIONS",
-                    "Access-Control-Allow-Headers":"Content-Type"
+                    "Access-Control-Allow-Methods": "POST, GET, DELETE, PUT",
+                    "Access-Control-Allow-Headers": "Content-Type",  
+                    "Access-Control-Allow-Credentials" : "false",
+                    "Content-Type" : "application/json"
                 },
               },
             )
