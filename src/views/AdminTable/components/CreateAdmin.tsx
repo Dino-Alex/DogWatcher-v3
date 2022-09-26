@@ -82,16 +82,7 @@ const CreateAdmin = () => {
                     "url1",
                     "url2",
                     "url3"]
-            },
-              {
-                headers: {
-                    "Access-Control-Allow-Origin": "*",
-                    "Access-Control-Allow-Methods": "POST, GET, DELETE, PUT",
-                    "Access-Control-Allow-Headers": "Content-Type",  
-                    "Access-Control-Allow-Credentials" : "false",
-                    "Content-Type" : "application/json"
-                },
-              },
+            }
             )
             console.log("resp", resp);
             
