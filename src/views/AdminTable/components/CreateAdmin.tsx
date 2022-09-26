@@ -1,21 +1,68 @@
 import { Button, CloseIcon, Flex, Input, Text } from '@phamphu19498/runtogether-uikit';
-import Select from 'components/Select/SelectV2';
+import Select, { OptionProps } from 'components/Select/SelectV2';
 import React, { useEffect, useState } from 'react';
 import styled from 'styled-components';
-import SelectToken from './SelectToken';
+import { TagsInput } from "react-tag-input-component";
+import axios from 'axios';
+import { BASE_URL_DATA_ADMIN_CREATE } from 'config';
 
 const CreateAdmin = () => {
 
-    const [totalClone, setTotalClone] = useState([])
-    const arrayEmail = []
-    const handleCloneAdd = () => {
-        arrayEmail.push()
-        setTotalClone((item) => [...item, arrayEmail])
+    const [isNameWallet, setNameWallet] = useState('')
+    const [isAddressWallet, setWalletAddress] = useState('')
+    const [isEmailAddress, setEmailAdress] = useState([''])
+    const [isTokenLimit, setTokenLimit] = useState(0)
+    const [isTokenAddress, setTokenAddress] = useState('')
+    const [isTokenName, setTokenName] = useState('')
+    const [isStatus, setStatus] = useState(false)
+    
+    function convertEmail() {
+        const emailPush = [];
+        isEmailAddress.forEach(element => {
+            const itemEmail = {
+                emailTime: '',
+                emailAddress: element
+            }
+            emailPush.push(itemEmail)
+        });
+       return emailPush;
     }
-    const handleCloneClose = () => {
-        arrayEmail.pop()
-        setTotalClone((item) => [...item, arrayEmail])
+    function convertLimit() {
+        const limitPush = [];
+            const itemLimit = {
+                tokenName: isTokenName,
+                tokenLimit: isTokenLimit,
+                tokenAddress: isTokenAddress
+            }
+            limitPush.push(itemLimit)
+
+       return limitPush;
     }
+ 
+    const handleChangeLimit = (option: OptionProps): void => {
+        setTokenAddress(option.value)
+        setTokenName(option.label)
+    }
+    const handleChangeStatus = (option: OptionProps): void => {
+        setStatus(option.value)
+    } 
+  
+    const handleSubmit = async (e) => {
+        e.preventDefault()
+        try {
+            const idAdmin = isNameWallet+isAddressWallet
+            const emailAdmin = convertEmail();
+            const limitAdmin = convertLimit();
+            const slack = []
+          const resp = await axios
+            .post(
+                BASE_URL_DATA_ADMIN_CREATE,
+              { idAdmin, isNameWallet, isAddressWallet, emailAdmin, limitAdmin, isStatus, slack},
+            )
+        } catch (error) {
+          console.log(error)
+        }
+      }
 
     return (
         <Container>
@@ -26,21 +73,24 @@ const CreateAdmin = () => {
                 <FlexInput>
                     <Flex width='40%' flexDirection='column'>
                         <Text>Name Wallet</Text>
-                        <CustomInput />
+                        <CustomInput onChange={(e) => setNameWallet(e.target.value)}/>
                     </Flex>
                     <Flex width='40%' flexDirection='column'>
                         <Text>Address Wallet</Text>
-                        <CustomInput />
+                        <CustomInput onChange={(e) => setWalletAddress(e.target.value)}/>
                     </Flex>
                 </FlexInput>
                 <FlexInput>
                     <Flex width='40%' flexDirection='column'>
                         <Text>Limit</Text>
-                        <CustomInput />
+                        <CustomInput
+                        pattern={`^[0-9]*[.,]?[0-9]{0,${18}}$`}
+                        type="number" onChange={(e) => setTokenLimit(Number(e.target.value))}/>
                     </Flex>
                     <Flex width='40%' flexDirection='column'>
                         <Text>Email</Text>
-                        <CustomInput />
+                        {/* <CustomInput onChange={(e) => setEmailAdress(e.target.value)}/> */}
+                        <TagsInput onChange={setEmailAdress}/>
                     </Flex>
                 </FlexInput>
                 <FlexInput>
@@ -66,6 +116,7 @@ const CreateAdmin = () => {
                                         value: '0xdbad544416df0677254645422bb560af8408cae7',
                                     }
                                 ]}
+                                onChange={handleChangeLimit}
                             />
                         </Flex>
                         <Flex flexDirection='column'>
@@ -81,13 +132,14 @@ const CreateAdmin = () => {
                                         value: false,
                                     }
                                 ]}
+                                onChange={handleChangeStatus}
                             />
                         </Flex>
                     </Flex>
                     <Flex width='40%' justifyContent='space-between' style={{ gap: '20px' }}>
                         <Flex flexDirection='column'>
                             <Text>Submit</Text>
-                            <Button>Submit</Button>
+                            <Button type='submit' onClick={handleSubmit}>Submit</Button>
                         </Flex>
                         <Flex flexDirection='column'>
                             <Text>Cancel</Text>
@@ -95,16 +147,6 @@ const CreateAdmin = () => {
                         </Flex>
                     </Flex>
                 </FlexInput>
-                {totalClone.map((item, index) => (
-                    // eslint-disable-next-line react/no-array-index-key
-                    <FlexInput key={index}>
-                        <Flex width='40%' flexDirection='column' >
-                            <Text>Email</Text>
-                            <CustomInput />
-                        </Flex>
-                    </FlexInput>
-                ))
-                }
             </Flex>
         </Container>
     );

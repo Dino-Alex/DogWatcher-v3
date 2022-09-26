@@ -1,14 +1,17 @@
 import { Button, Flex, PencilIcon, Text, useModal } from '@phamphu19498/runtogether-uikit';
 import { CloseIcon } from 'components/Pancake-uikit';
 import React, { useState } from 'react';
+import { useHistory } from 'react-router-dom';
 import styled from 'styled-components';
 import { formatAmount } from 'utils/formatInfoNumbers';
 import { Tooltip } from 'views/Account/styles';
 import { GetBalance } from '../hook/usefetchBalance';
-import DeleteModalAdmin from './DeleteModalAdmin';
-import UpdateModalAdmin from './UpdateModalAdmin';
+import DeleteModalAdmin from './Modal/DeleteModalAdmin';
+import UpdateEmail from './Modal/UpdateEmail';
+import UpdateModalAdmin from './Modal/UpdateModalAdmin';
 
 interface Props {
+    id?: string
     walletName?: string
     walletAddress?: string
     limit?: any
@@ -18,6 +21,7 @@ interface Props {
 }
 
 const ListAdmin: React.FC<Props> = ({
+    id,
     walletName,
     walletAddress,
     limit,
@@ -25,9 +29,10 @@ const ListAdmin: React.FC<Props> = ({
     status,
     rowId,
 }) => {
-
-    const [openUpdateModal] = useModal(<UpdateModalAdmin />)
-    const [openDeleteModal] = useModal(<DeleteModalAdmin />)
+    
+    const [openUpdateModal] = useModal(<UpdateModalAdmin id={id} />)
+    const [openUpdateEmailModal] = useModal(<UpdateEmail id={id} />)
+    const [openDeleteModal] = useModal(<DeleteModalAdmin id={id}/>)
 
     function setAddress(dataAddress) {
         if (dataAddress) {
@@ -135,7 +140,7 @@ const ListAdmin: React.FC<Props> = ({
                                     })}
                                 </Flex>
                                 <Flex>
-                                    <CsPencilIcon className='IconHiden' onClick={openUpdateModal} style={{ cursor: 'pointer' }} />
+                                    <CsPencilIcon className='IconHiden' onClick={openUpdateEmailModal} style={{ cursor: 'pointer' }} />
                                 </Flex>
                             </>
                             :

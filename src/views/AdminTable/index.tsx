@@ -1,20 +1,14 @@
-import { Button, Flex, Text, useModal } from '@phamphu19498/runtogether-uikit';
+import { Button, Flex, Text } from '@phamphu19498/runtogether-uikit';
 import { useTranslation } from 'contexts/Localization';
 import React from 'react';
 import { GetDataDogWatcher } from 'state/dogwatcher';
 import styled from 'styled-components';
-import CreateModalAdmin from './components/CreateModalAdmin';
-import DeleteModalAdmin from './components/DeleteModalAdmin';
 import ListAdmin from './components/ListAdmin';
-import UpdateModalAdmin from './components/UpdateModalAdmin';
-import { ConfigAdmin } from './config';
-import { GetListAdmin } from './hook/fetchData';
+
 
 const AdminTable = () => {
 
   const { t } = useTranslation()
-  const [openCreateModal] = useModal(<CreateModalAdmin />)
-
   const [listDataDog] = GetDataDogWatcher(true)
 
     return (
@@ -23,7 +17,7 @@ const AdminTable = () => {
                 <Text fontWeight='700' fontSize='26px'>List Admin Table</Text>
             </Flex>
             <Flex mb={1} mt={1} mr={2} justifyContent='flex-end'>
-                <Button onClick={openCreateModal}>Create</Button>
+                {/* <Button onClick={openCreateModal}>Create</Button> */}
             </Flex>
             <TitleTable>
                 <FlexListVotting width='100%' justifyContent='space-around'>
@@ -40,6 +34,7 @@ const AdminTable = () => {
                     {listDataDog.map((item, key) => {
                         return (
                             <ListAdmin
+                                id={item.id}
                                 walletName={item.walletName}
                                 walletAddress={item.walletAddress}
                                 limit={item.limit}

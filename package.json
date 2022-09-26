@@ -95,6 +95,7 @@
     "react-router-dom": "^5.2.0",
     "react-scripts": "^4.0.1",
     "react-spinners": "^0.13.4",
+    "react-tag-input-component": "^1.1.1",
     "react-tooltip": "^4.2.21",
     "react-transition-group": "^4.4.1",
     "react-verification-code-input": "^1.2.9",
