@@ -1,6 +1,6 @@
-import { Button, CloseIcon, Flex, Input, Text } from '@phamphu19498/runtogether-uikit';
+import { Button, Flex, Input, Text } from '@phamphu19498/runtogether-uikit';
 import Select, { OptionProps } from 'components/Select/SelectV2';
-import React, { useEffect, useState } from 'react';
+import React, {useState } from 'react';
 import styled from 'styled-components';
 import { TagsInput } from "react-tag-input-component";
 import axios from 'axios';
@@ -12,9 +12,9 @@ const CreateAdmin = () => {
     const [isAddressWallet, setWalletAddress] = useState('')
     const [isEmailAddress, setEmailAdress] = useState([''])
     const [isTokenLimit, setTokenLimit] = useState(0)
-    const [isTokenAddress, setTokenAddress] = useState('0xc643E83587818202E0fFf5eD96D10Abbc8Bb48e7')
-    const [isTokenName, setTokenName] = useState('RUN')
-    const [isStatus, setStatus] = useState(false)
+    const [isTokenAddress, setTokenAddress] = useState('')
+    const [isTokenName, setTokenName] = useState('')
+    const [isStatus, setStatus] = useState(true)
     
     function convertEmail() {
         const emailPush = [];
@@ -38,7 +38,6 @@ const CreateAdmin = () => {
 
        return limitPush;
     }
- 
     const handleChangeLimit = (option: OptionProps): void => {
         setTokenAddress(option.value)
         setTokenName(option.label)
@@ -48,76 +47,26 @@ const CreateAdmin = () => {
     } 
   
     const handleSubmit = async (e) => {
-        
         e.preventDefault()
         try {
             const idAdmin = isNameWallet+isAddressWallet
             const emailAdmin = convertEmail();
             const limitAdmin = convertLimit();
             const slack = []
-          const resp = await axios.post(BASE_URL_DATA_ADMIN_CREATE,
-            //   { idAdmin, isNameWallet, isAddressWallet, isStatus, limitAdmin, emailAdmin, slack},
+            const resp = await axios.post(BASE_URL_DATA_ADMIN_CREATE,
             {
-                "id":"projectHesman0x4B57F938d2Eb1C3b31F837618Af2f16CA8Aa4C1d",
-                "walletName":"Hoang Hon",
-                "walletAddress":"0x3B57F938d2Eb1C3b31F837618Af2f16CA8Aa4C1d",
-                "status":true,
-                "limit":[{
-                    "name":"RUN",
-                    "address":"0xc643E83587818202E0fFf5eD96D10Abbc8Bb48e7",
-                    "limit":"1000"
-                },
-                {
-                    "name":"BUSD",
-                    "address":"0xe9e7cea3dedca5984780bafc599bd69add087d56",
-                    "limit":"1000"
-                }],
-                "email":[
-                {
-                    "time":"18:00:00 22/9/2022",
-                    "address":"cbhoanghon@gmail.com"
-                }
-                    ],
-                "slack":[
-                    "url1",
-                    "url2",
-                    "url3"]
-            }
-            )
-            console.log("resp", resp);
-            
+                "id" : idAdmin.toString(),
+                "walletName": isNameWallet,
+                "walletAddress": isAddressWallet,
+                "status": isStatus,
+                "limit":limitAdmin,
+                "email":emailAdmin,
+                "slack":slack
+            })
         } catch (error) {
           console.log(error)
         }
       }
-
-
-      const handleSubmitV1 = async (e) => {
-        e.preventDefault()
-            const idAdmin = isNameWallet+isAddressWallet
-            const emailAdmin = convertEmail();
-            const limitAdmin = convertLimit();
-            const slack = []
-          const resp = await  axios({
-            method: "post",
-            url: BASE_URL_DATA_ADMIN_CREATE,
-            data: { idAdmin, isNameWallet, isAddressWallet, isStatus, limitAdmin, emailAdmin, slack},
-            headers: { 
-            "access-control-allow-origin": "*",
-            "access-control-allow-methods": "POST,GET,DELETE,PUT",
-            "access-control-allow-credentials": "true",
-            "content-type": "application/json"
-        }
-          })
-            .then(function (response) {
-              console.log(response);
-            })
-            .catch(function (response) {
-              console.log(response);
-            });
-      };
-     
-
     return (
         <Container>
             <Flex flexDirection='column'>
@@ -153,6 +102,10 @@ const CreateAdmin = () => {
                             <Text>Token</Text>
                             <Select
                                 options={[
+                                    {
+                                        label: 'Chọn Token',
+                                        value: '',
+                                    },
                                     {
                                         label: 'RUN',
                                         value: '0xc643E83587818202E0fFf5eD96D10Abbc8Bb48e7',
