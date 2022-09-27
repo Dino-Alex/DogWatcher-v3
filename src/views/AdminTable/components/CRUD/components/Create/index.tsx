@@ -30,10 +30,9 @@ const Create = () => {
     const [nameWallet, setNameWallet] = useState('')
     const [walletAddress, setWalletAddress] = useState('')
     const [projectName, setProjectName] = useState('')
-    const [tokenLimit, setTokenLimit] = useState([])
+    const [tokenLimit, setTokenLimit] = useState([{"address" :"0x00" ,"name": "project", "limit" : 0}])
     const [emails, setEmails] = useState([''])
     console.log('tokenLimit', tokenLimit);
-    
 
     const callbackNameWallet = (childData) => {
         setNameWallet(childData)
@@ -56,14 +55,13 @@ const Create = () => {
     }
 
 
-
-    const handleAddClick = () => {
-        const newTokenLimit = {"address" : "" ,"name": "", "limit" : 0};
+    const handleAddLimit = () => {
+        const newTokenLimit = {"address" :"0x00" ,"name": "project", "limit" : 0};
         const newArrLimit = [...tokenLimit, newTokenLimit];
         setTokenLimit(newArrLimit);
     };
     const handleDeleteClick = (id: any) => {
-        walletInfo.tokens.splice(id, 1);
+        tokenLimit.splice(id, 1);
     };
     const handleAddEmail = () => {
         const newEmail = "Email"
@@ -71,7 +69,7 @@ const Create = () => {
         setEmails(newArrEmail);
     };
     const handleDeleteEmail = (id: any) => {
-        walletInfo.emails.splice(id, 1);
+        emails.splice(id, 1);
     };
 
     return (
@@ -95,20 +93,17 @@ const Create = () => {
             <Flex height='100%' width='40%' flexDirection='column' style={{gap: '5px'}}>
                 <Flex alignItems='center'>
                     <Text bold color='#FF592C'>Thêm Token</Text>
-                    <PlusIcon onClick={handleAddClick} style={{cursor: 'pointer'}}/>
+                    <PlusIcon onClick={handleAddLimit} style={{cursor: 'pointer'}}/>
                 </Flex>
             {
                 tokenLimit.map((item, index) => (
                     <Flex style={{gap: '5px'}}>
                         <InputToken
-                        index={index}
-                        value={item}
                         parentCallback={callbackTokenLimit}/>
                         <Flex  justifyContent='center' alignItems='center' style={{gap: "10px"}}>
                             <DeleteIcon onClick={() => handleDeleteClick(index)} style={{cursor: 'pointer'}}/>
                         </Flex>
                     </Flex>
-
             ))}
             </Flex>
             <Flex height='100%' width='40%' flexDirection='column' style={{gap: '5px'}}>
