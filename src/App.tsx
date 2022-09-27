@@ -25,6 +25,7 @@ import { ModalAlert } from "./views/Account/components/ModalAlert"
 const NotFound = lazy(() => import('./views/NotFound'))
 const AdminTable = lazy(() => import('./views/AdminTable'))
 const CreateAdmin = lazy(() => import('./views/AdminTable/components/CreateAdmin')) 
+const Create = lazy(() => import('./views/AdminTable/components/CRUD/components/Create/index')) 
 const ProjectTable = lazy(() => import('./views/ProjectTable'))
 
 // const Register = lazy(() => import('./state/register/index'))
@@ -60,7 +61,7 @@ const App: React.FC = () => {
               <CreateAdmin />
             </Route>
             <Route path="/createadmin">
-              <CreateAdmin />
+              <Create />
             </Route>
             <Route path="/projecttable">
               <ProjectTable />

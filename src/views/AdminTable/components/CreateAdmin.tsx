@@ -5,17 +5,47 @@ import styled from 'styled-components';
 import { TagsInput } from "react-tag-input-component";
 import axios from 'axios';
 import { BASE_URL_DATA_ADMIN_CREATE } from 'config';
+import TokenInput from './Modal/component/TokenInput';
+
+const walletInfo = { 
+"id" : "project0x00000",
+"name" : "Vo",
+"walletAddress" : "0x00000" ,
+"tokens" : [
+    {"address" : "0x000" , "limit" : "0" },
+],
+"emails" : [
+    "thuongvokg@gmail.com"
+],
+"project" : "project",
+"slack" : [
+    "url"
+]
+};
 
 const CreateAdmin = () => {
 
     const [isNameWallet, setNameWallet] = useState('')
     const [isAddressWallet, setWalletAddress] = useState('')
     const [isEmailAddress, setEmailAdress] = useState([''])
-    const [isTokenLimit, setTokenLimit] = useState(0)
+    const [isTokenLimit, setTokenLimit] = useState([])
     const [isTokenAddress, setTokenAddress] = useState('')
     const [isTokenName, setTokenName] = useState('')
     const [isStatus, setStatus] = useState(true)
-    
+
+
+    const arrayLimit = []
+    console.log('arrayLimit',arrayLimit);
+    function inputTokenChangeEvent(value){
+        const array = [
+            {
+                tokenAddress: value.tokenAddress,
+                tokenName: value.tokenName,
+                tokenLimit: value.limit
+            }
+        ]
+        arrayLimit.push(array)
+    }
     function convertEmail() {
         const emailPush = [];
         isEmailAddress.forEach(element => {
@@ -38,13 +68,7 @@ const CreateAdmin = () => {
 
        return limitPush;
     }
-    const handleChangeLimit = (option: OptionProps): void => {
-        setTokenAddress(option.value)
-        setTokenName(option.label)
-    }
-    const handleChangeStatus = (option: OptionProps): void => {
-        setStatus(option.value)
-    } 
+    
   
     const handleSubmit = async (e) => {
         e.preventDefault()
@@ -67,6 +91,16 @@ const CreateAdmin = () => {
           console.log(error)
         }
       }
+
+      
+      const handleAddClick = () => {
+        const newTokenLimit = {"address" : "0x000" , "limit" : "0" };
+        walletInfo.tokens.push(newTokenLimit);
+      };
+      const handleDeleteClick = (id: any) => {
+        walletInfo.tokens.splice(id, 1);
+      };
+
     return (
         <Container>
             <Flex flexDirection='column'>
@@ -76,82 +110,42 @@ const CreateAdmin = () => {
                 <FlexInput>
                     <Flex width='40%' flexDirection='column'>
                         <Text>Name Wallet</Text>
-                        <CustomInput onChange={(e) => setNameWallet(e.target.value)}/>
+                        <CustomInput placeholder={walletInfo.name} onChange={(e) => setNameWallet(e.target.value)}/>
                     </Flex>
                     <Flex width='40%' flexDirection='column'>
                         <Text>Address Wallet</Text>
-                        <CustomInput onChange={(e) => setWalletAddress(e.target.value)}/>
+                        <CustomInput placeholder={walletInfo.walletAddress} onChange={(e) => setWalletAddress(e.target.value)}/>
                     </Flex>
                 </FlexInput>
                 <FlexInput>
                     <Flex width='40%' flexDirection='column'>
-                        <Text>Limit</Text>
-                        <CustomInput
-                        pattern={`^[0-9]*[.,]?[0-9]{0,${18}}$`}
-                        type="number" onChange={(e) => setTokenLimit(Number(e.target.value))}/>
+                        <Text>Project</Text>
+                        {/* <CustomInput onChange={(e) => setEmailAdress(e.target.value)}/> */}
+                        <CustomInput placeholder={walletInfo.project} onChange={(e) => setWalletAddress(e.target.value)}/>
                     </Flex>
                     <Flex width='40%' flexDirection='column'>
                         <Text>Email</Text>
                         {/* <CustomInput onChange={(e) => setEmailAdress(e.target.value)}/> */}
-                        <TagsInput onChange={setEmailAdress}/>
+                        <TagsInput  onChange={setEmailAdress}/>
                     </Flex>
                 </FlexInput>
+                {
+                    walletInfo.tokens.map((item, index) => (
+                       <>
+                        <TokenInput
+                        rowId={index}
+                        address={item.address}
+                        limit={item.limit}
+                        inputTokenChangeEvent={(newValue)=>inputTokenChangeEvent(newValue)}
+                        />
+                        {/* <Button onClick={() => handleDeleteClick(index)}>Xoa</Button> */}
+                        </>
+
+                    ))
+                }
                 <FlexInput>
-                    <Flex width='40%' justifyContent='space-between' style={{ gap: '20px' }}>
-                        <Flex flexDirection='column'>
-                            <Text>Token</Text>
-                            <Select
-                                options={[
-                                    {
-                                        label: 'Chọn Token',
-                                        value: '',
-                                    },
-                                    {
-                                        label: 'RUN',
-                                        value: '0xc643E83587818202E0fFf5eD96D10Abbc8Bb48e7',
-                                    },
-                                    {
-                                        label: 'BUSD',
-                                        value: '0xe9e7cea3dedca5984780bafc599bd69add087d56',
-                                    },
-                                    {
-                                        label: 'BAMI',
-                                        value: '0xe2d3486f46efbd4199ea087e9e466dcc35ee0248',
-                                    },
-                                    {
-                                        label: 'LTD',
-                                        value: '0xdbad544416df0677254645422bb560af8408cae7',
-                                    }
-                                ]}
-                                onChange={handleChangeLimit}
-                            />
-                        </Flex>
-                        <Flex flexDirection='column'>
-                            <Text>Status</Text>
-                            <Select
-                                options={[
-                                    {
-                                        label: 'Enable',
-                                        value: true,
-                                    },
-                                    {
-                                        label: 'Disable',
-                                        value: false,
-                                    }
-                                ]}
-                                onChange={handleChangeStatus}
-                            />
-                        </Flex>
-                    </Flex>
-                    <Flex width='40%' justifyContent='space-between' style={{ gap: '20px' }}>
-                        <Flex flexDirection='column'>
-                            <Text>Submit</Text>
-                            <Button type='submit' onClick={handleSubmit}>Submit</Button>
-                        </Flex>
-                        <Flex flexDirection='column'>
-                            <Text>Cancel</Text>
-                            <Button color='blue'>Cancel</Button>
-                        </Flex>
+                    <Flex>
+                        <Button onClick={handleAddClick}>Add</Button>
                     </Flex>
                 </FlexInput>
             </Flex>
