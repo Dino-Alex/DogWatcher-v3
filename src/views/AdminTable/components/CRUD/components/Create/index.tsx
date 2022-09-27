@@ -30,8 +30,10 @@ const Create = () => {
     const [nameWallet, setNameWallet] = useState('')
     const [walletAddress, setWalletAddress] = useState('')
     const [projectName, setProjectName] = useState('')
-    const [tokenLimit, setTokenLimit] = useState('')
+    const [tokenLimit, setTokenLimit] = useState([])
     const [emails, setEmails] = useState([''])
+    console.log('tokenLimit', tokenLimit);
+    
 
     const callbackNameWallet = (childData) => {
         setNameWallet(childData)
@@ -42,12 +44,12 @@ const Create = () => {
     const callbackProjectName = (childData) => {
         setProjectName(childData)
     }
-    const callbackTokenLimit = (childData) => {
-        setTokenLimit(childData)
+    const callbackTokenLimit = (childData, index) => {
+        const newArrLimit = [...tokenLimit];
+        newArrLimit[index] = childData;
+        setTokenLimit(newArrLimit);
     }
     const callbackEmail = (childData, index) => {
-        console.log(emails)
-        // setEmails(childData)
         const newArrEmail = [...emails];
         newArrEmail[index] = childData;
         setEmails(newArrEmail);
@@ -56,8 +58,9 @@ const Create = () => {
 
 
     const handleAddClick = () => {
-        const newTokenLimit = {"address" : "0x000" ,"name": "project", "limit" : "0" };
-        walletInfo.tokens.push(newTokenLimit);
+        const newTokenLimit = {"address" : "" ,"name": "", "limit" : 0};
+        const newArrLimit = [...tokenLimit, newTokenLimit];
+        setTokenLimit(newArrLimit);
     };
     const handleDeleteClick = (id: any) => {
         walletInfo.tokens.splice(id, 1);
@@ -95,11 +98,14 @@ const Create = () => {
                     <PlusIcon onClick={handleAddClick} style={{cursor: 'pointer'}}/>
                 </Flex>
             {
-                walletInfo.tokens.map((item, index) => (
+                tokenLimit.map((item, index) => (
                     <Flex style={{gap: '5px'}}>
-                        <InputToken parentCallback={callbackTokenLimit}/>
+                        <InputToken
+                        index={index}
+                        value={item}
+                        parentCallback={callbackTokenLimit}/>
                         <Flex  justifyContent='center' alignItems='center' style={{gap: "10px"}}>
-                        <DeleteIcon onClick={() => handleDeleteClick(index)} style={{cursor: 'pointer'}}/>
+                            <DeleteIcon onClick={() => handleDeleteClick(index)} style={{cursor: 'pointer'}}/>
                         </Flex>
                     </Flex>
 
@@ -117,8 +123,6 @@ const Create = () => {
                         index={index}
                         value={item}
                         parentCallback={callbackEmail}/>
-                    {/* <Button onClick={() => handleDeleteClick(index)}>Xoa</Button> */}
-                    
                         <Flex  justifyContent='center' alignItems='center' style={{gap: "10px"}}>
                             <DeleteIcon onClick={() => handleDeleteEmail(index)} style={{cursor: 'pointer'}}/>
                         </Flex>

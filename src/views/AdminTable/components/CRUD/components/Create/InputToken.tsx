@@ -23,10 +23,12 @@ const optionArray = [
 ]
 
 interface Props {
-    parentCallback?: (newValue) => void
+    parentCallback?: (newValue, index) => void
+    index?: number,
+    value?: string
 }
 
-const InputToken: React.FC<Props> = ({ parentCallback }) => {
+const InputToken: React.FC<Props> = ({ parentCallback, value, index }) => {
 
     const [tokenName, setTokenName] = useState('')
     const [tokenAddress, setTokenAddress] = useState('')
@@ -45,7 +47,7 @@ const InputToken: React.FC<Props> = ({ parentCallback }) => {
         setTokenName(option.label)
       }
 
-    parentCallback(1);
+    parentCallback(listArray, index);
 
     return (
         <Flex width='100%' justifyContent='space-between'>

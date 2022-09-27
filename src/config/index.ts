@@ -59,3 +59,5 @@ export const BASE_URL_DATA_ADMIN_DELETE_ID = "https://ds9klr5gde.execute-api.ap-
 export const BASE_URL_DATA_ADMIN_CREATE = "https://ds9klr5gde.execute-api.ap-southeast-1.amazonaws.com/Prod/item"
 
 export const KAI_RPC_ENDPOINT = 'https://rpc.kardiachain.io'
+
+// https://p9e4wgd2e6.execute-api.ap-southeast-1.amazonaws.com/Prod

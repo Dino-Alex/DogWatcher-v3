@@ -12,11 +12,6 @@ interface Props {
 const InputEmail: React.FC<Props> = ({ parentCallback, value, index }) => {
 
     const [email, setEmail] = useState([])
-    const listEmail = []
-    listEmail.push(email)
-    // parentCallback(email);
-    // console.log('email123', email);
-
     const handleChangeToken = (option): void => {
         setEmail(option.target.value)
       }
