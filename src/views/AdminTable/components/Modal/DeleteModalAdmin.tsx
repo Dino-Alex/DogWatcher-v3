@@ -6,6 +6,8 @@ import {
 import { BASE_URL_DATA_ADMIN_DELETE_ID } from 'config';
 import { useTranslation } from 'contexts/Localization';
 import React from 'react';
+import { useDispatch } from 'react-redux';
+import history from 'routerHistory';
 import styled from 'styled-components';
 // eslint-disable-next-line import/no-cycle, import/no-named-as-default
 // eslint-disable-next-line import/no-cycle
@@ -23,7 +25,6 @@ const DeleteModalAdmin: React.FC<Props> = ({
 }) => {
 
   const { t } = useTranslation()
-
   const idProject = id
   
   const handleSubmit = async (e) => {
@@ -31,6 +32,7 @@ const DeleteModalAdmin: React.FC<Props> = ({
     try {
       const resp = await axios.delete(`${BASE_URL_DATA_ADMIN_DELETE_ID}/${idProject}`)
       onDismiss()
+      window.location.reload(true)
     } catch (error) {
       console.log(error)
     }

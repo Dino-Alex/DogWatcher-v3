@@ -6,7 +6,6 @@ import { GetDataDogWatcher } from 'state/dogwatcher';
 import styled from 'styled-components';
 import ListAdmin from './components/ListAdmin';
 
-
 const AdminTable = () => {
 
   const { t } = useTranslation()
@@ -19,7 +18,6 @@ const AdminTable = () => {
             </Flex>
             <Flex mb={1} mt={1} mr={2} justifyContent='flex-end'>
                 <Button><Link to='/create'>Create</Link></Button>
-                <Button><Link to='/update'>update</Link></Button>
             </Flex>
             <TitleTable>
                 <FlexListVotting width='100%' justifyContent='space-around'>

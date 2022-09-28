@@ -32,10 +32,7 @@ const CreateAdmin = () => {
     const [isTokenAddress, setTokenAddress] = useState('')
     const [isTokenName, setTokenName] = useState('')
     const [isStatus, setStatus] = useState(true)
-
-
     const arrayLimit = []
-    console.log('arrayLimit',arrayLimit);
     function inputTokenChangeEvent(value){
         const array = [
             {

@@ -61,3 +61,23 @@ export const BASE_URL_DATA_ADMIN_CREATE = "https://y0pgvg7is5.execute-api.ap-sou
 export const KAI_RPC_ENDPOINT = 'https://rpc.kardiachain.io'
 
 // https://p9e4wgd2e6.execute-api.ap-southeast-1.amazonaws.com/Prod
+
+
+export const optionArrayToken = [
+  {
+      label: 'RUN',
+      value: '0xc643E83587818202E0fFf5eD96D10Abbc8Bb48e7',
+  },
+  {
+      label: 'BUSD',
+      value: '0xe9e7cea3dedca5984780bafc599bd69add087d56',
+  },
+  {
+      label: 'BAMI',
+      value: '0xe2d3486f46efbd4199ea087e9e466dcc35ee0248',
+  },
+  {
+      label: 'LTD',
+      value: '0xdbad544416df0677254645422bb560af8408cae7',
+  }
+]

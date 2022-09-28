@@ -1,4 +1,5 @@
-import { EarnIcon, Flex, Modal, Text } from '@phamphu19498/runtogether-uikit';
+import { Button, EarnIcon, Flex, Modal, Text } from '@phamphu19498/runtogether-uikit';
+import axios from 'axios';
 import {
   ButtonSubmit,
   ContainerIcon,
@@ -8,8 +9,9 @@ import {
   FormSubmit, WrapInput
 } from 'components/Menu/GlobalSettings/styles';
 import { WalletIcon } from 'components/Pancake-uikit';
+import { BASE_URL_DATA_ADMIN_CREATE } from 'config';
 import { useTranslation } from 'contexts/Localization';
-import React from 'react';
+import React, { useEffect, useState } from 'react';
 import styled from 'styled-components';
 import { GetListAdminByID } from 'views/AdminTable/hook/fetchDataByID';
 
@@ -25,6 +27,44 @@ const UpdateWallet: React.FC<Props> = ({
 
   const { t } = useTranslation()
   const { listDataAdminByID } = GetListAdminByID(id.toString())
+  const [nameWallet, setNameWallet] = useState("")
+  const [walletAddress, setWalletAddress] = useState("")
+  
+  useEffect(() => {
+    if (nameWallet === "") {
+        if (listDataAdminByID[0]?.walletName !== undefined) {
+            setNameWallet(listDataAdminByID[0]?.walletName)
+        }
+    }
+    if (walletAddress === "") {
+        if (listDataAdminByID[0]?.walletAddress !== undefined) {
+            setWalletAddress(listDataAdminByID[0]?.walletAddress)
+        }
+    }
+  }, [listDataAdminByID, nameWallet, walletAddress])
+
+  const handleSubmit = async (e) => {
+    e.preventDefault()
+    try {
+        const resp = await axios.post(BASE_URL_DATA_ADMIN_CREATE,
+            {
+                "id": listDataAdminByID[0].id,
+                "walletName": nameWallet,
+                "walletAddress": walletAddress,
+                "status": listDataAdminByID[0].status,
+                "limit": listDataAdminByID[0].limit,
+                "email": listDataAdminByID[0].email,
+                "project": listDataAdminByID[0].project,
+                "slack": listDataAdminByID[0].slack
+            })
+            onDismiss()
+      window.location.reload(true)
+
+    } catch (error) {
+        console.log(error)
+    }
+}
+
   return (
     <CustomModal title="" onDismiss={onDismiss} maxWidth="550px">
       <Flex flexDirection="column">
@@ -45,7 +85,8 @@ const UpdateWallet: React.FC<Props> = ({
                     </ContainerIcon>
                     <CsInput name="wallet"
                       type="text"
-                      value={listDataAdminByID[0].walletName}
+                      value={nameWallet}
+                      onChange={(e) => setNameWallet(e.target.value)}
                     />
                   </WrapInput>
                   <WrapInput>
@@ -54,18 +95,20 @@ const UpdateWallet: React.FC<Props> = ({
                     </ContainerIcon>
                     <CsInput name="wallet"
                       type="text"
-                      value={listDataAdminByID[0].walletAddress}
+                      value={walletAddress}
+                      onChange={(e) => setWalletAddress(e.target.value)}
                     />
                   </WrapInput>
                 </ContainerInput>
                 <Flex width="100%" mt="1rem">
-                  <ButtonSubmit
+                  <Button
                     width="100%"
                     type="submit"
                     value="Submit"
+                    onClick={handleSubmit}
                   >
                     Submit
-                  </ButtonSubmit>
+                  </Button>
                 </Flex>
               </Flex>
             </FormSubmit>

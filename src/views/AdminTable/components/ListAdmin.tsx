@@ -1,15 +1,13 @@
 import { Button, Flex, PencilIcon, Text, useModal } from '@phamphu19498/runtogether-uikit';
 import { CloseIcon } from 'components/Pancake-uikit';
 import React, { useState } from 'react';
-import { useHistory } from 'react-router-dom';
 import history from 'routerHistory';
 import styled from 'styled-components';
 import { formatAmount } from 'utils/formatInfoNumbers';
 import { Tooltip } from 'views/Account/styles';
 import { GetBalance } from '../hook/usefetchBalance';
 import DeleteModalAdmin from './Modal/DeleteModalAdmin';
-import UpdateEmail from './Modal/UpdateEmail';
-import UpdateModalAdmin from './Modal/UpdateModalAdmin';
+import UpdateWallet from './Modal/UpdateWallet';
 
 interface Props {
     id?: string
@@ -31,12 +29,9 @@ const ListAdmin: React.FC<Props> = ({
     rowId,
 }) => {
     
-    const [openUpdateModal] = useModal(<UpdateModalAdmin id={id} />)
-    const [openUpdateEmailModal] = useModal(<UpdateEmail id={id} />)
     const [openDeleteModal] = useModal(<DeleteModalAdmin id={id}/>)
-
+    const [openUpdateWalletModal] = useModal(<UpdateWallet id={id}/>)
     
-
     function setAddress(dataAddress) {
         if (dataAddress) {
             return `${dataAddress.substring(0, 4)}...${dataAddress.substring(dataAddress.length - 4)}`
@@ -79,7 +74,7 @@ const ListAdmin: React.FC<Props> = ({
 
     const { balanceList } = GetBalance(walletAddress, limit)
     
-    const handleClick = () => {
+    const handleClickUpdate = () => {
         history.push(`/update/${id.toString()}`)
       }
 
@@ -91,7 +86,7 @@ const ListAdmin: React.FC<Props> = ({
                         {walletName ?
                             <Flex width='100%' justifyContent='center' alignItems='center' style={{ gap: '10px' }}>
                                 <CsText>{walletName}</CsText>
-                                <CsPencilIcon className='IconHiden' onClick={openUpdateModal} style={{ cursor: 'pointer' }} />
+                                <CsPencilIcon className='IconHiden' onClick={openUpdateWalletModal} style={{ cursor: 'pointer' }} />
                             </Flex>
                             :
                             <Flex width='100%' justifyContent='center' alignItems='center'>
@@ -105,7 +100,7 @@ const ListAdmin: React.FC<Props> = ({
                         {walletAddress ?
                             <Flex width='100%' justifyContent='center' alignItems='center' style={{ gap: '10px' }}>
                                 <CsText>{setAddress(walletAddress)}</CsText>
-                                <CsPencilIcon className='IconHiden' onClick={openUpdateModal} style={{ cursor: 'pointer' }} />
+                                <CsPencilIcon className='IconHiden' onClick={openUpdateWalletModal} style={{ cursor: 'pointer' }} />
                             </Flex>
                             :
                             <Flex width='100%' justifyContent='center' alignItems='center'>
@@ -121,7 +116,7 @@ const ListAdmin: React.FC<Props> = ({
                                 return (
                                     <Flex width='100%' justifyContent='center' alignItems='center' style={{ gap: '10px' }}>
                                         <CsText>{compareBalance(item.balance, item.limit, item.name)}</CsText>
-                                        <CsPencilIcon className='IconHiden' onClick={openUpdateModal} style={{ cursor: 'pointer' }} />
+                                        <CsPencilIcon className='IconHiden' onClick={handleClickUpdate} style={{ cursor: 'pointer' }} />
                                     </Flex>
                                 )
                             })}
@@ -147,7 +142,7 @@ const ListAdmin: React.FC<Props> = ({
                                     })}
                                 </Flex>
                                 <Flex>
-                                    <CsPencilIcon className='IconHiden' onClick={openUpdateEmailModal} style={{ cursor: 'pointer' }} />
+                                    <CsPencilIcon className='IconHiden' onClick={handleClickUpdate} style={{ cursor: 'pointer' }} />
                                 </Flex>
                             </>
                             :
@@ -183,7 +178,7 @@ const ListAdmin: React.FC<Props> = ({
                 <FlexData>
                     <Flex width='100%' justifyContent='center' style={{ gap: '10px' }}>
                         {/* <CsPencilIconV1 onClick={displayTooltip} style={{ cursor: 'pointer' }} /> */}
-                        <CsPencilIcon onClick={handleClick}  style={{ cursor: 'pointer' }} />
+                        <CsPencilIcon onClick={handleClickUpdate}  style={{ cursor: 'pointer' }} />
                         <CsCloseIcon onClick={openDeleteModal} style={{ cursor: 'pointer' }} />
                         {/* <CsCloseIconV1 Color={Color} onClick={openDeleteModal} style={{ cursor: 'pointer' }} /> */}
                     </Flex>

@@ -3,6 +3,8 @@ import axios from 'axios';
 import { DeleteIcon } from 'components/Pancake-uikit';
 import { PlusIcon } from 'components/Pancake-uikit/widgets/Menu/icons';
 import { BASE_URL_DATA_ADMIN_CREATE } from 'config';
+import { Link } from 'react-router-dom';
+import history from 'routerHistory';
 import Select from 'react-select'
 import React, { useState } from 'react';
 import styled from 'styled-components';
@@ -116,8 +118,7 @@ const Create = () => {
                 "project":projectName,
                 "slack":slacks
             })
-            console.log(resp);
-            
+            history.push(`/admintable`)
         } catch (error) {
           console.log(error)
         }
@@ -216,7 +217,7 @@ const Create = () => {
                 <Flex width='100%' justifyContent='center'>
                     <Flex style={{gap: '20px'}}>
                         <Button onClick={handleSubmit}>Submit</Button>
-                        <Button>Back</Button>
+                        <Button><Link to='/admintable'>Cancel</Link></Button>
                     </Flex>
                 </Flex>
            </FlexInput>

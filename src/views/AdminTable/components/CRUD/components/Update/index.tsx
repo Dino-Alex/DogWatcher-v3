@@ -5,6 +5,7 @@ import { PlusIcon } from 'components/Pancake-uikit/widgets/Menu/icons';
 import { BASE_URL_DATA_ADMIN_CREATE } from 'config';
 import { GetListAdminByID } from 'views/AdminTable/hook/fetchDataByID';
 import Select from 'react-select'
+import history from 'routerHistory';
 import { useParams } from 'react-router-dom';
 import React, { useEffect, useState } from 'react';
 import styled from 'styled-components';
@@ -138,8 +139,7 @@ const Update: React.FC<Props> = () => {
                     "project": projectName,
                     "slack": slacks
                 })
-            console.log(resp);
-
+                history.push(`/admintable`)
         } catch (error) {
             console.log(error)
         }
