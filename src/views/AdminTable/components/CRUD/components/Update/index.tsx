@@ -44,21 +44,18 @@ const Update: React.FC<Props> = () => {
     const [emails, setEmails] = useState([])
     const [slacks, setSlacks] = useState([''])
     const [status, setStatus] = useState(true)
-    const tmp = 
     useEffect(() => {
-        if ( listDataAdminByID[0]?.email !== undefined ) {
+        if (listDataAdminByID[0]?.email !== undefined) {
             setEmails(listDataAdminByID[0]?.email);
-        } 
-        if (listDataAdminByID[0]?.slack !== undefined ){
+        }
+        if (listDataAdminByID[0]?.slack !== undefined) {
             setSlacks(listDataAdminByID[0]?.slack)
         }
-        if (listDataAdminByID[0]?.limit !== undefined ){
+        if (listDataAdminByID[0]?.limit !== undefined) {
             setTokenLimit(listDataAdminByID[0]?.limit)
         }
-    },[listDataAdminByID])
-    console.log('emails', emails);
-    console.log('slacks', slacks);
-    console.log('tokenLimit', tokenLimit);
+    }, [listDataAdminByID])
+
     const callbackNameWallet = (childData) => {
         setNameWallet(childData)
     }
@@ -93,7 +90,7 @@ const Update: React.FC<Props> = () => {
         tokenLimit.splice(id, 1);
     };
 
- 
+
     const handleAddEmail = () => {
         const newEmail = ""
         const newArrEmail = [...emails, newEmail];
@@ -150,11 +147,11 @@ const Update: React.FC<Props> = () => {
                     </FlexInput>
                     <FlexInput>
                         <InputProject
-                        value={listDataAdminByID[0].project}
-                        parentCallback={callbackProjectName}/>
+                            value={listDataAdminByID[0].project}
+                            parentCallback={callbackProjectName} />
                         <Flex width='40%' flexDirection='column'>
                             <Text>ID Project</Text>
-                            <CustomInput disabled value={listDataAdminByID[0].project+listDataAdminByID[0].walletAddress}/>
+                            <CustomInput disabled value={listDataAdminByID[0].project + listDataAdminByID[0].walletAddress} />
                         </Flex>
                     </FlexInput>
                     <FlexInputToken>
@@ -165,29 +162,35 @@ const Update: React.FC<Props> = () => {
                                     <PlusIcon />
                                 </CustomButton>
                             </Flex>
-                            {
-                                listDataAdminByID[0].limit.map((item, index) => (
-                                    <Flex height='100%' style={{ gap: '5px' }}>
-                                        <InputToken
-                                            index={index}
-                                            valueToken={item}
-                                            parentCallback={callbackTokenLimit} />
-                                        <Flex justifyContent='center' alignItems='center' style={{ gap: "10px" }}>
-                                            <DeleteIcon onClick={() => handleDeleteClick(index)} style={{ cursor: 'pointer' }} />
-                                        </Flex>
-                                    </Flex>
-                                ))}
+                            {tokenLimit.length === 0 ?
+                                <Text> No Data</Text>
+                                :
+                                <>
+                                    {
+                                        tokenLimit.map((item, index) => (
+                                            <Flex height='100%' style={{ gap: '5px' }}>
+                                                <InputToken
+                                                    index={index}
+                                                    valueToken={item}
+                                                    parentCallback={callbackTokenLimit} />
+                                                <Flex justifyContent='center' alignItems='center' style={{ gap: "10px" }}>
+                                                    <DeleteIcon onClick={() => handleDeleteClick(index)} style={{ cursor: 'pointer' }} />
+                                                </Flex>
+                                            </Flex>
+                                        ))}
+                                </>
+                            }
                         </Flex>
                         <Flex height='100%' width='40%' flexDirection='column' style={{ gap: '5px' }}>
-                            <Flex alignItems='center' style={{gap:"10px"}}>
+                            <Flex alignItems='center' style={{ gap: "10px" }}>
                                 <Text bold color='#FF592C'>Thêm Email</Text>
                                 <CustomButton onClick={handleAddEmail} style={{ cursor: 'pointer' }} >
-                                    <PlusIcon/>
+                                    <PlusIcon />
                                 </CustomButton>
                             </Flex>
-                            { emails.length === 0 ?
+                            {emails.length === 0 ?
                                 <Text> No Data</Text>
-                            :
+                                :
                                 <>
                                     {emails.map((item, index) => (
                                         <Flex style={{ gap: '5px' }}>
@@ -224,21 +227,27 @@ const Update: React.FC<Props> = () => {
                             <Flex alignItems='center'>
                                 <Text bold color='#FF592C'>Thêm Slack</Text>
                                 <CustomButton onClick={handleAddSlack} style={{ cursor: 'pointer' }}  >
-                                    <PlusIcon/>
+                                    <PlusIcon />
                                 </CustomButton>
                             </Flex>
-                            {
-                                listDataAdminByID[0].slack.map((item, index) => (
-                                    <Flex style={{ gap: '5px' }}>
-                                        <InputSlack
-                                            index={index}
-                                            value={item}
-                                            parentCallback={callbackSlack} />
-                                        <Flex justifyContent='center' alignItems='center' style={{ gap: "10px" }}>
-                                            <DeleteIcon onClick={() => handleDeleteSlack(index)} style={{ cursor: 'pointer' }} />
-                                        </Flex>
-                                    </Flex>
-                                ))}
+                            {slacks.length === 0 ?
+                                <Text> No Data</Text>
+                                :
+                                <>
+                                    {
+                                        slacks.map((item, index) => (
+                                            <Flex style={{ gap: '5px' }}>
+                                                <InputSlack
+                                                    index={index}
+                                                    value={item}
+                                                    parentCallback={callbackSlack} />
+                                                <Flex justifyContent='center' alignItems='center' style={{ gap: "10px" }}>
+                                                    <DeleteIcon onClick={() => handleDeleteSlack(index)} style={{ cursor: 'pointer' }} />
+                                                </Flex>
+                                            </Flex>
+                                        ))}
+                                </>
+                            }
                         </Flex>
                     </FlexInputToken>
                     <FlexInput>
