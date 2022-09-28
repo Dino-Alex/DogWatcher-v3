@@ -24,10 +24,13 @@ const optionArray = [
 
 interface Props {
     parentCallback?: (newValue, index) => void
+    valueToken?: any
     index?: number
 }
 
-const InputToken: React.FC<Props> = ({ parentCallback, index }) => {
+const InputToken: React.FC<Props> = ({ parentCallback, index, valueToken }) => {
+    console.log('valueToken',valueToken);
+    
 
     const [tokenName, setTokenName] = useState('RUN')
     const [tokenAddress, setTokenAddress] = useState('0xc643E83587818202E0fFf5eD96D10Abbc8Bb48e7')
@@ -56,11 +59,14 @@ const InputToken: React.FC<Props> = ({ parentCallback, index }) => {
                 <Select
                     options={optionArray}
                     onChange={handleChangeToken}
+                    defaultValue={{ value: valueToken.tokenAddress, label: valueToken.tokenName }}
+                       
                 />
             </Flex>
             <Flex width='40%' flexDirection='column'>
                 <Text>Limit</Text>
                 <CustomInput
+                    value={valueToken.tokenLimit}
                     pattern={`^[0-9]*[.,]?[0-9]{0,${18}}$`}
                     type="number" onChange={(e) => handleChangeLimit(Number(e.target.value))} />
             </Flex>

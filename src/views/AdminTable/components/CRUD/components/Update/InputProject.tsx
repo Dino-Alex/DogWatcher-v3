@@ -4,9 +4,10 @@ import styled from 'styled-components';
 
 interface Props {
     parentCallback?:(newValue) => void
+    value?: string
   }
 
-const InputProject: React.FC<Props> = ({parentCallback}) => {
+const InputProject: React.FC<Props> = ({parentCallback, value}) => {
 
     const [projectName, setProjectName] = useState('')
     parentCallback(projectName);
@@ -14,7 +15,7 @@ const InputProject: React.FC<Props> = ({parentCallback}) => {
     return (
         <Flex width='40%' flexDirection='column'>
             <Text>Project Name</Text>
-            <CustomInput placeholder='name' onChange={(e) => setProjectName(e.target.value)}/>
+            <CustomInput disabled value={value} placeholder='name' onChange={(e) => setProjectName(e.target.value)}/>
         </Flex>
     );
 };
