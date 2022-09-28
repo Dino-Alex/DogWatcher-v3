@@ -35,27 +35,28 @@ const Update: React.FC<Props> = () => {
 
     const { idProject }: { idProject: string } = useParams()
     const { listDataAdminByID } = GetListAdminByID(idProject)
-    console.log('listDataAdminByID', listDataAdminByID[0]);
-
     const [nameWallet, setNameWallet] = useState('')
     const [walletAddress, setWalletAddress] = useState('')
     const [projectName, setProjectName] = useState('')
-    const [tokenLimit, setTokenLimit] = useState([{}])
-    const [emails, setEmails] = useState([])
+    const [tokenLimit, setTokenLimit] = useState([])
+    const [emails, setEmails] = useState([''])
     const [slacks, setSlacks] = useState([''])
     const [status, setStatus] = useState(true)
-    useEffect(() => {
+    
+    if(emails.length === 1){
         if (listDataAdminByID[0]?.email !== undefined) {
             setEmails(listDataAdminByID[0]?.email);
         }
         if (listDataAdminByID[0]?.slack !== undefined) {
             setSlacks(listDataAdminByID[0]?.slack)
         }
+    }
+    if(tokenLimit.length === 0){
         if (listDataAdminByID[0]?.limit !== undefined) {
             setTokenLimit(listDataAdminByID[0]?.limit)
         }
-    }, [listDataAdminByID])
-
+    }
+  
     const callbackNameWallet = (childData) => {
         setNameWallet(childData)
     }
@@ -101,7 +102,7 @@ const Update: React.FC<Props> = () => {
     };
     const handleAddSlack = () => {
         const newSlack = "Slack"
-        const newArrSlack = [...emails, newSlack];
+        const newArrSlack = [...slacks, newSlack];
         setSlacks(newArrSlack);
     };
     const handleDeleteSlack = (id: any) => {

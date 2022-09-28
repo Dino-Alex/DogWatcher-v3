@@ -29,8 +29,6 @@ interface Props {
 }
 
 const InputToken: React.FC<Props> = ({ parentCallback, index, valueToken }) => {
-    console.log('valueToken',valueToken);
-    
 
     const [tokenName, setTokenName] = useState('RUN')
     const [tokenAddress, setTokenAddress] = useState('0xc643E83587818202E0fFf5eD96D10Abbc8Bb48e7')
