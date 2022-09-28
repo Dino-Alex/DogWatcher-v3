@@ -1,4 +1,4 @@
-import { Button, Flex, Input, Text } from '@phamphu19498/runtogether-uikit';
+import { Button, Flex, Input, Text, IconButton } from '@phamphu19498/runtogether-uikit';
 import axios from 'axios';
 import { DeleteIcon } from 'components/Pancake-uikit';
 import { PlusIcon } from 'components/Pancake-uikit/widgets/Menu/icons';
@@ -41,16 +41,24 @@ const Update: React.FC<Props> = () => {
     const [walletAddress, setWalletAddress] = useState('')
     const [projectName, setProjectName] = useState('')
     const [tokenLimit, setTokenLimit] = useState([{}])
-    const [emails, setEmails] = useState([''])
+    const [emails, setEmails] = useState([])
     const [slacks, setSlacks] = useState([''])
     const [status, setStatus] = useState(true)
-
-    // useEffect(() => {
-    //     setEmails(listDataAdminByID[0]);
-    // },[listDataAdminByID])
-    console.log('emails',emails);
-
-
+    const tmp = 
+    useEffect(() => {
+        if ( listDataAdminByID[0]?.email !== undefined ) {
+            setEmails(listDataAdminByID[0]?.email);
+        } 
+        if (listDataAdminByID[0]?.slack !== undefined ){
+            setSlacks(listDataAdminByID[0]?.slack)
+        }
+        if (listDataAdminByID[0]?.limit !== undefined ){
+            setTokenLimit(listDataAdminByID[0]?.limit)
+        }
+    },[listDataAdminByID])
+    console.log('emails', emails);
+    console.log('slacks', slacks);
+    console.log('tokenLimit', tokenLimit);
     const callbackNameWallet = (childData) => {
         setNameWallet(childData)
     }
@@ -153,7 +161,9 @@ const Update: React.FC<Props> = () => {
                         <Flex height='100%' width='40%' flexDirection='column' style={{ gap: '5px' }}  >
                             <Flex alignItems='center'>
                                 <Text bold color='#FF592C'>Thêm Token</Text>
-                                <PlusIcon onClick={handleAddLimit} style={{ cursor: 'pointer' }} />
+                                <CustomButton onClick={handleAddLimit} style={{ cursor: 'pointer' }} >
+                                    <PlusIcon />
+                                </CustomButton>
                             </Flex>
                             {
                                 listDataAdminByID[0].limit.map((item, index) => (
@@ -169,22 +179,29 @@ const Update: React.FC<Props> = () => {
                                 ))}
                         </Flex>
                         <Flex height='100%' width='40%' flexDirection='column' style={{ gap: '5px' }}>
-                            <Flex alignItems='center'>
+                            <Flex alignItems='center' style={{gap:"10px"}}>
                                 <Text bold color='#FF592C'>Thêm Email</Text>
-                                <PlusIcon onClick={handleAddEmail} style={{ cursor: 'pointer' }} />
+                                <CustomButton onClick={handleAddEmail} style={{ cursor: 'pointer' }} >
+                                    <PlusIcon/>
+                                </CustomButton>
                             </Flex>
-                            {
-                                listDataAdminByID[0].email.map((item, index) => (
-                                    <Flex style={{ gap: '5px' }}>
-                                        <InputEmail
-                                            index={index}
-                                            value={item}
-                                            parentCallback={callbackEmail} />
-                                        <Flex justifyContent='center' alignItems='center' style={{ gap: "10px" }}>
-                                            <DeleteIcon onClick={() => handleDeleteEmail(index)} style={{ cursor: 'pointer' }} />
+                            { emails.length === 0 ?
+                                <Text> No Data</Text>
+                            :
+                                <>
+                                    {emails.map((item, index) => (
+                                        <Flex style={{ gap: '5px' }}>
+                                            <InputEmail
+                                                index={index}
+                                                value={item}
+                                                parentCallback={callbackEmail} />
+                                            <Flex justifyContent='center' alignItems='center' style={{ gap: "10px" }}>
+                                                <DeleteIcon onClick={() => handleDeleteEmail(index)} style={{ cursor: 'pointer' }} />
+                                            </Flex>
                                         </Flex>
-                                    </Flex>
-                                ))}
+                                    ))}
+                                </>
+                            }
                         </Flex>
                     </FlexInputToken>
                     <FlexInputToken>
@@ -206,7 +223,9 @@ const Update: React.FC<Props> = () => {
                         <Flex height='100%' width='40%' flexDirection='column' style={{ gap: '5px' }}>
                             <Flex alignItems='center'>
                                 <Text bold color='#FF592C'>Thêm Slack</Text>
-                                <PlusIcon onClick={handleAddSlack} style={{ cursor: 'pointer' }} />
+                                <CustomButton onClick={handleAddSlack} style={{ cursor: 'pointer' }}  >
+                                    <PlusIcon/>
+                                </CustomButton>
                             </Flex>
                             {
                                 listDataAdminByID[0].slack.map((item, index) => (
@@ -259,4 +278,11 @@ const FlexInputToken = styled(Flex)`
     height: auto;
     justify-content: space-around;
     align-items: center;
+`
+const CustomButton = styled(IconButton)`
+    background-color: transparent;
+    height: 32px;
+    width: 32px;
+    cursor: pointer;
+    box-shadow:none !important;
 `
