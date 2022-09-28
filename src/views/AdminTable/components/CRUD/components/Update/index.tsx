@@ -35,8 +35,8 @@ const Update: React.FC<Props> = () => {
 
     const { idProject }: { idProject: string } = useParams()
     const { listDataAdminByID } = GetListAdminByID(idProject)
-    const [nameWallet, setNameWallet] = useState('')
-    const [walletAddress, setWalletAddress] = useState('')
+    const [nameWallet, setNameWallet] = useState("")
+    const [walletAddress, setWalletAddress] = useState("")
     const [projectName, setProjectName] = useState('')
     const [tokenLimit, setTokenLimit] = useState([])
     const [emails, setEmails] = useState([''])
@@ -56,7 +56,13 @@ const Update: React.FC<Props> = () => {
             setTokenLimit(listDataAdminByID[0]?.limit)
         }
     }
-  
+    useEffect(() => {
+       if (nameWallet === ""){
+            if (listDataAdminByID[0]?.walletName !== undefined) {
+                setNameWallet(listDataAdminByID[0]?.walletName)
+            }
+       }
+    }, [listDataAdminByID]) // eslint-disable-line react-hooks/exhaustive-deps
     const callbackNameWallet = (childData) => {
         setNameWallet(childData)
     }
@@ -140,7 +146,7 @@ const Update: React.FC<Props> = () => {
                     </Flex>
                     <FlexInput>
                         <NameWallet
-                            value={listDataAdminByID[0].walletName}
+                            value={nameWallet}
                             parentCallback={callbackNameWallet} />
                         <WalletAddress
                             value={listDataAdminByID[0].walletAddress}
