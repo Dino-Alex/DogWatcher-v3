@@ -26,8 +26,8 @@ const NotFound = lazy(() => import('./views/NotFound'))
 const AdminTable = lazy(() => import('./views/AdminTable'))
 const CreateAdmin = lazy(() => import('./views/AdminTable/components/CreateAdmin')) 
 const Create = lazy(() => import('./views/AdminTable/components/CRUD/components/Create/index')) 
+const Update = lazy(() => import('./views/AdminTable/components/CRUD/components/Update/index')) 
 const ProjectTable = lazy(() => import('./views/ProjectTable'))
-
 // const Register = lazy(() => import('./state/register/index'))
 // This config is required for number formatting Membership 
 BigNumber.config({
@@ -58,15 +58,12 @@ const App: React.FC = () => {
               <AdminTable />
             </Route>
             <Route path="/create">
-              <CreateAdmin />
-            </Route>
-            <Route path="/createadmin">
               <Create />
             </Route>
             <Route path="/projecttable">
               <ProjectTable />
             </Route>
-            <Route exact strict path="/admintable/create" component={CreateAdmin} />
+            <Route exact path="/update/:id" component={Update} />
             {/* 404 */}
             <Route component={NotFound} />
           </Switch>

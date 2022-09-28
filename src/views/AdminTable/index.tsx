@@ -1,6 +1,7 @@
 import { Button, Flex, Text } from '@phamphu19498/runtogether-uikit';
 import { useTranslation } from 'contexts/Localization';
 import React from 'react';
+import { Link } from 'react-router-dom';
 import { GetDataDogWatcher } from 'state/dogwatcher';
 import styled from 'styled-components';
 import ListAdmin from './components/ListAdmin';
@@ -17,7 +18,8 @@ const AdminTable = () => {
                 <Text fontWeight='700' fontSize='26px'>List Admin Table</Text>
             </Flex>
             <Flex mb={1} mt={1} mr={2} justifyContent='flex-end'>
-                {/* <Button onClick={openCreateModal}>Create</Button> */}
+                <Button><Link to='/create'>Create</Link></Button>
+                <Button><Link to='/update'>update</Link></Button>
             </Flex>
             <TitleTable>
                 <FlexListVotting width='100%' justifyContent='space-around'>

@@ -2,6 +2,7 @@ import { Button, Flex, PencilIcon, Text, useModal } from '@phamphu19498/runtoget
 import { CloseIcon } from 'components/Pancake-uikit';
 import React, { useState } from 'react';
 import { useHistory } from 'react-router-dom';
+import history from 'routerHistory';
 import styled from 'styled-components';
 import { formatAmount } from 'utils/formatInfoNumbers';
 import { Tooltip } from 'views/Account/styles';
@@ -79,6 +80,9 @@ const ListAdmin: React.FC<Props> = ({
     const { balanceList } = GetBalance(walletAddress, limit)
     console.log('balanceList',balanceList);
     
+    const handleClick = () => {
+        history.push(`/update/${id.toString()}`)
+      }
 
     return (
         <Container>
@@ -180,7 +184,7 @@ const ListAdmin: React.FC<Props> = ({
                 <FlexData>
                     <Flex width='100%' justifyContent='center' style={{ gap: '10px' }}>
                         {/* <CsPencilIconV1 onClick={displayTooltip} style={{ cursor: 'pointer' }} /> */}
-                        <CsPencilIcon style={{ cursor: 'pointer' }} />
+                        <CsPencilIcon onClick={handleClick}  style={{ cursor: 'pointer' }} />
                         <CsCloseIcon onClick={openDeleteModal} style={{ cursor: 'pointer' }} />
                         {/* <CsCloseIconV1 Color={Color} onClick={openDeleteModal} style={{ cursor: 'pointer' }} /> */}
                     </Flex>
