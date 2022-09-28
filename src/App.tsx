@@ -63,7 +63,7 @@ const App: React.FC = () => {
             <Route path="/projecttable">
               <ProjectTable />
             </Route>
-            <Route exact path="/update/:id" component={Update} />
+            <Route exact path="/update/:idProject" component={Update} />
             {/* 404 */}
             <Route component={NotFound} />
           </Switch>

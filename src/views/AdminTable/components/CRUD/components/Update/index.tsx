@@ -70,12 +70,16 @@ const Update: React.FC<Props> = () => {
     // 
     const [ listDataAdmin, setListDataAdmin ] = useState([])
     const { fastRefresh } = useRefresh()
+    // 
+
+    const { idProject }: { idProject: string } = useParams()
     useEffect(() => {
         const fetchDataAdmin = async () =>{
           try {
-             await axios.get(`${BASE_URL_DATA_ADMIN_BY_ID}`)
+             await axios.get(`${BASE_URL_DATA_ADMIN_BY_ID}${idProject}`)
              .then(res => {
                 const response = res.data;
+                console.log("response", response)
                 setListDataAdmin(response)
              })
              .catch(error => console.log(error));
@@ -84,13 +88,8 @@ const Update: React.FC<Props> = () => {
           }
         }
         fetchDataAdmin();
-      }, [fastRefresh]);
-    // 
-
-  const { idProject }: { idProject: string } = useParams()
-   console.log('idProject',idProject);
-   
-
+      }, [idProject]);
+      console.log("listDataAdmin", listDataAdmin)
     const handleAddLimit = () => {
         const newTokenLimit = {"tokenAddress" :"" ,"tokenName": "", "tokenLimit" : 0};
         const newArrLimit = [...tokenLimit, newTokenLimit];
