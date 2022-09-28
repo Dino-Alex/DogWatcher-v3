@@ -5,8 +5,6 @@ import { useEffect, useState } from "react";
 
 export const GetListAdminByID = (ID:string) => {
     const [ listDataAdminByID, setListDataAdminByID ] = useState([])
-
-    const { fastRefresh } = useRefresh()
     useEffect(() => {
         const fetchDataAdminByID = async () =>{
           try {
@@ -20,7 +18,9 @@ export const GetListAdminByID = (ID:string) => {
             console.error(error);
           }
         }
-        fetchDataAdminByID();
-      }, [ID, fastRefresh]);
+        if(ID){
+          fetchDataAdminByID();
+        }
+      }, [ID]);
     return { listDataAdminByID }
 }

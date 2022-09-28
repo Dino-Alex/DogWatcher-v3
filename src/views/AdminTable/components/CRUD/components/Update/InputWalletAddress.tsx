@@ -8,14 +8,11 @@ interface Props {
   }
 
 const WalletAddress: React.FC<Props> = ({parentCallback, value}) => {
-
-    const [walletAddress, setWalletAddress] = useState('')
-    parentCallback(walletAddress);
-
+    
     return (
         <Flex width='40%' flexDirection='column'>
             <Text>Wallet Address</Text>
-            <CustomInput value={value} placeholder='name' onChange={(e) => setWalletAddress(e.target.value)}/>
+            <CustomInput value={value} placeholder='name' onChange={(e) => parentCallback(e.target.value)}/>
         </Flex>
     );
 };

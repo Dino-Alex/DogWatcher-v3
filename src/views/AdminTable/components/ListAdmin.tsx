@@ -78,7 +78,6 @@ const ListAdmin: React.FC<Props> = ({
     }
 
     const { balanceList } = GetBalance(walletAddress, limit)
-    console.log('balanceList',balanceList);
     
     const handleClick = () => {
         history.push(`/update/${id.toString()}`)

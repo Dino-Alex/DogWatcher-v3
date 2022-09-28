@@ -42,27 +42,35 @@ const Update: React.FC<Props> = () => {
     const [emails, setEmails] = useState([''])
     const [slacks, setSlacks] = useState([''])
     const [status, setStatus] = useState(true)
-    
-    if(emails.length === 1){
-        if (listDataAdminByID[0]?.email !== undefined) {
-            setEmails(listDataAdminByID[0]?.email);
-        }
-        if (listDataAdminByID[0]?.slack !== undefined) {
-            setSlacks(listDataAdminByID[0]?.slack)
-        }
-    }
-    if(tokenLimit.length === 0){
-        if (listDataAdminByID[0]?.limit !== undefined) {
-            setTokenLimit(listDataAdminByID[0]?.limit)
-        }
-    }
+
     useEffect(() => {
-       if (nameWallet === ""){
+        if (emails.length === 1) {
+            if (listDataAdminByID[0]?.email !== undefined) {
+                setEmails(listDataAdminByID[0]?.email);
+            }
+            if (listDataAdminByID[0]?.slack !== undefined) {
+                setSlacks(listDataAdminByID[0]?.slack)
+            }
+        }
+        if (tokenLimit.length === 0) {
+            if (listDataAdminByID[0]?.limit !== undefined) {
+                setTokenLimit(listDataAdminByID[0]?.limit)
+            }
+        }
+        if (nameWallet === "") {
             if (listDataAdminByID[0]?.walletName !== undefined) {
                 setNameWallet(listDataAdminByID[0]?.walletName)
             }
-       }
-    }, [listDataAdminByID]) // eslint-disable-line react-hooks/exhaustive-deps
+        }
+        if (walletAddress === "") {
+            if (listDataAdminByID[0]?.walletAddress !== undefined) {
+                setWalletAddress(listDataAdminByID[0]?.walletAddress)
+            }
+        }
+      }, [emails.length, listDataAdminByID, nameWallet, tokenLimit.length, walletAddress])
+
+
+    
     const callbackNameWallet = (childData) => {
         setNameWallet(childData)
     }
@@ -149,7 +157,7 @@ const Update: React.FC<Props> = () => {
                             value={nameWallet}
                             parentCallback={callbackNameWallet} />
                         <WalletAddress
-                            value={listDataAdminByID[0].walletAddress}
+                            value={walletAddress}
                             parentCallback={callbackWalletAddress} />
                     </FlexInput>
                     <FlexInput>
