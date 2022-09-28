@@ -56,12 +56,16 @@ const InputToken: React.FC<Props> = ({ parentCallback, index }) => {
                 <Select
                     options={optionArray}
                     onChange={handleChangeToken}
+                    defaultValue={{
+                        label: 'RUN',
+                        value: '0xc643E83587818202E0fFf5eD96D10Abbc8Bb48e7'}}
                 />
             </Flex>
             <Flex width='40%' flexDirection='column'>
                 <Text>Limit</Text>
                 <CustomInput
                     pattern={`^[0-9]*[.,]?[0-9]{0,${18}}$`}
+                    value={limit}
                     type="number" onChange={(e) => handleChangeLimit(Number(e.target.value))} />
             </Flex>
         </Flex>

@@ -13,8 +13,8 @@ const NameWallet: React.FC<Props> = ({parentCallback}) => {
 
     return (
         <Flex width='40%' flexDirection='column'>
-            <Text>Name Wallet</Text>
-            <CustomInput placeholder='name' onChange={(e) => setNameWallet(e.target.value)}/>
+            <Text>Wallet Name </Text>
+            <CustomInput placeholder='Please input your name' onChange={(e) => setNameWallet(e.target.value)}/>
         </Flex>
     );
 };

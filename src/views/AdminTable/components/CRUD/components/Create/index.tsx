@@ -87,7 +87,7 @@ const Create = () => {
         tokenLimit.splice(id, 1);
     };
     const handleAddEmail = () => {
-        const newEmail = "Email"
+        const newEmail = ""
         const newArrEmail = [...emails, newEmail];
         setEmails(newArrEmail);
     };
@@ -95,7 +95,7 @@ const Create = () => {
         emails.splice(id, 1);
     };
     const handleAddSlack = () => {
-        const newSlack = "Slack"
+        const newSlack = ""
         const newArrSlack = [...emails, newSlack];
         setSlacks(newArrSlack);
     };
@@ -137,14 +137,14 @@ const Create = () => {
             <FlexInput>
                 <InputProject parentCallback={callbackProjectName}/>
                 <Flex width='40%' flexDirection='column'>
-                    <Text>ID Project</Text>
+                    <Text>Project ID</Text>
                     <CustomInput disabled value={projectName+walletAddress}/>
                 </Flex>
             </FlexInput>
            <FlexInputToken>
             <Flex height='100%' width='40%' flexDirection='column' style={{gap: '5px'}}  >
                 <Flex alignItems='center'>
-                    <Text bold color='#FF592C'>Thêm Token</Text>
+                    <Text bold color='#FF592C'>Add Token</Text>
                     <PlusIcon onClick={handleAddLimit} style={{cursor: 'pointer'}}/>
                 </Flex>
             {
@@ -161,7 +161,7 @@ const Create = () => {
             </Flex>
             <Flex height='100%' width='40%' flexDirection='column' style={{gap: '5px'}}>
                 <Flex alignItems='center'>
-                    <Text bold color='#FF592C'>Thêm Email</Text>
+                    <Text bold color='#FF592C'>Add Email</Text>
                     <PlusIcon onClick={handleAddEmail} style={{cursor: 'pointer'}}/>
                 </Flex>
             {
@@ -196,7 +196,7 @@ const Create = () => {
             </Flex>
             <Flex height='100%' width='40%' flexDirection='column' style={{gap: '5px'}}>
                 <Flex alignItems='center'>
-                    <Text bold color='#FF592C'>Thêm Slack</Text>
+                    <Text bold color='#FF592C'>Add Slack</Text>
                     <PlusIcon onClick={handleAddSlack} style={{cursor: 'pointer'}}/>
                 </Flex>
             {

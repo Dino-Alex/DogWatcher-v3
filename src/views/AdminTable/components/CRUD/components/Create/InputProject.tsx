@@ -14,7 +14,7 @@ const InputProject: React.FC<Props> = ({parentCallback}) => {
     return (
         <Flex width='40%' flexDirection='column'>
             <Text>Project Name</Text>
-            <CustomInput placeholder='name' onChange={(e) => setProjectName(e.target.value)}/>
+            <CustomInput placeholder='Please input your project name' onChange={(e) => setProjectName(e.target.value)}/>
         </Flex>
     );
 };

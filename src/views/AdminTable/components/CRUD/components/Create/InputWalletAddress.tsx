@@ -14,7 +14,7 @@ const WalletAddress: React.FC<Props> = ({parentCallback}) => {
     return (
         <Flex width='40%' flexDirection='column'>
             <Text>Wallet Address</Text>
-            <CustomInput placeholder='name' onChange={(e) => setWalletAddress(e.target.value)}/>
+            <CustomInput placeholder='Please input your wallet address' onChange={(e) => setWalletAddress(e.target.value)}/>
         </Flex>
     );
 };
