@@ -52,7 +52,7 @@ const App: React.FC = () => {
         <SuspenseWithChunkError fallback={<PageLoader />}>
           <Switch>
             <Route path="/" exact>
-              <Home />
+              <AdminTable />
             </Route>
             <Route path="/admintable">
               <AdminTable />

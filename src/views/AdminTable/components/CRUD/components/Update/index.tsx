@@ -188,7 +188,7 @@ const Update: React.FC<Props> = () => {
                                                     index={index}
                                                     valueToken={item}
                                                     parentCallback={callbackTokenLimit} />
-                                                <Flex justifyContent='center' alignItems='center' style={{ gap: "10px" }}>
+                                                <Flex justifyContent='center' alignItems='center' style={{ gap: "10px" }} mt={4}>
                                                     <DeleteIcon onClick={() => handleDeleteClick(index)} style={{ cursor: 'pointer' }} />
                                                 </Flex>
                                             </Flex>
@@ -213,7 +213,7 @@ const Update: React.FC<Props> = () => {
                                                 index={index}
                                                 value={item}
                                                 parentCallback={callbackEmail} />
-                                            <Flex justifyContent='center' alignItems='center' style={{ gap: "10px" }}>
+                                            <Flex justifyContent='center' alignItems='center' style={{ gap: "10px" }} mt={4}>
                                                 <DeleteIcon onClick={() => handleDeleteEmail(index)} style={{ cursor: 'pointer' }} />
                                             </Flex>
                                         </Flex>
@@ -256,7 +256,7 @@ const Update: React.FC<Props> = () => {
                                                     index={index}
                                                     value={item}
                                                     parentCallback={callbackSlack} />
-                                                <Flex justifyContent='center' alignItems='center' style={{ gap: "10px" }}>
+                                                <Flex justifyContent='center' alignItems='center' style={{ gap: "10px" }} mt={4}>
                                                     <DeleteIcon onClick={() => handleDeleteSlack(index)} style={{ cursor: 'pointer' }} />
                                                 </Flex>
                                             </Flex>
