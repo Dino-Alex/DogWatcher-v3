@@ -1,11 +1,15 @@
-import { Flex, Input, Text } from '@phamphu19498/runtogether-uikit';
+import { Button, Flex, Input, Text } from '@phamphu19498/runtogether-uikit';
+import axios from 'axios';
 import { DeleteIcon } from 'components/Pancake-uikit';
 import { PlusIcon } from 'components/Pancake-uikit/widgets/Menu/icons';
+import { BASE_URL_DATA_ADMIN_CREATE } from 'config';
+import Select from 'react-select'
 import React, { useState } from 'react';
 import styled from 'styled-components';
 import InputEmail from './InputEmail';
 import NameWallet from './InputNameWallet';
 import InputProject from './InputProject';
+import InputSlack from './InputSlack';
 import InputToken from './InputToken';
 import WalletAddress from './InputWalletAddress';
 
@@ -25,14 +29,26 @@ const walletInfo = {
 ]
 };
 
+const optionStatus = [
+    {
+        label: 'True',
+        value: true,
+    },
+    {
+        label: 'False',
+        value: false,
+    }
+]
+
 const Create = () => {
 
     const [nameWallet, setNameWallet] = useState('')
     const [walletAddress, setWalletAddress] = useState('')
     const [projectName, setProjectName] = useState('')
-    const [tokenLimit, setTokenLimit] = useState([{"address" :"0x00" ,"name": "project", "limit" : 0}])
+    const [tokenLimit, setTokenLimit] = useState([{}])
     const [emails, setEmails] = useState([''])
-    console.log('tokenLimit', tokenLimit);
+    const [slacks, setSlacks] = useState([''])
+    const [status, setStatus] = useState(true)
 
     const callbackNameWallet = (childData) => {
         setNameWallet(childData)
@@ -53,10 +69,15 @@ const Create = () => {
         newArrEmail[index] = childData;
         setEmails(newArrEmail);
     }
+    const callbackSlack = (childData, index) => {
+        const newArrSlack = [...slacks];
+        newArrSlack[index] = childData;
+        setSlacks(newArrSlack);
+    }
 
 
     const handleAddLimit = () => {
-        const newTokenLimit = {"address" :"0x00" ,"name": "project", "limit" : 0};
+        const newTokenLimit = {"tokenAddress" :"" ,"tokenName": "", "tokenLimit" : 0};
         const newArrLimit = [...tokenLimit, newTokenLimit];
         setTokenLimit(newArrLimit);
     };
@@ -71,6 +92,36 @@ const Create = () => {
     const handleDeleteEmail = (id: any) => {
         emails.splice(id, 1);
     };
+    const handleAddSlack = () => {
+        const newSlack = "Slack"
+        const newArrSlack = [...emails, newSlack];
+        setSlacks(newArrSlack);
+    };
+    const handleDeleteSlack = (id: any) => {
+        slacks.splice(id, 1);
+    };
+
+    const handleSubmit = async (e) => {
+        e.preventDefault()
+        try {
+            const idAdmin = projectName+walletAddress
+            const resp = await axios.post(BASE_URL_DATA_ADMIN_CREATE,
+            {
+                "id" : idAdmin.toString(),
+                "walletName": nameWallet,
+                "walletAddress": walletAddress,
+                "status": status,
+                "limit":tokenLimit,
+                "email":emails,
+                "project":projectName,
+                "slack":slacks
+            })
+            console.log(resp);
+            
+        } catch (error) {
+          console.log(error)
+        }
+      }
 
     return (
         <Container>
@@ -90,15 +141,16 @@ const Create = () => {
                 </Flex>
             </FlexInput>
            <FlexInputToken>
-            <Flex height='100%' width='40%' flexDirection='column' style={{gap: '5px'}}>
+            <Flex height='100%' width='40%' flexDirection='column' style={{gap: '5px'}}  >
                 <Flex alignItems='center'>
                     <Text bold color='#FF592C'>Thêm Token</Text>
                     <PlusIcon onClick={handleAddLimit} style={{cursor: 'pointer'}}/>
                 </Flex>
             {
                 tokenLimit.map((item, index) => (
-                    <Flex style={{gap: '5px'}}>
+                    <Flex height='100%' style={{gap: '5px'}}>
                         <InputToken
+                        index={index}
                         parentCallback={callbackTokenLimit}/>
                         <Flex  justifyContent='center' alignItems='center' style={{gap: "10px"}}>
                             <DeleteIcon onClick={() => handleDeleteClick(index)} style={{cursor: 'pointer'}}/>
@@ -122,10 +174,52 @@ const Create = () => {
                             <DeleteIcon onClick={() => handleDeleteEmail(index)} style={{cursor: 'pointer'}}/>
                         </Flex>
                     </Flex>
-
             ))}
             </Flex>
            </FlexInputToken>
+           <FlexInputToken>
+            <Flex height='100%' width='40%' flexDirection='column' style={{gap: '5px'}}  >
+                <Flex alignItems='center'>
+                    <Text bold color='#FF592C'>Status</Text>
+                </Flex>
+                <Flex>
+                <Select
+                    options={optionStatus}
+                    defaultValue={{
+                        label: 'True',
+                        value: true,
+                    }}
+                    onChange={(e) => setStatus(e.value)}
+                />
+                </Flex>
+            </Flex>
+            <Flex height='100%' width='40%' flexDirection='column' style={{gap: '5px'}}>
+                <Flex alignItems='center'>
+                    <Text bold color='#FF592C'>Thêm Slack</Text>
+                    <PlusIcon onClick={handleAddSlack} style={{cursor: 'pointer'}}/>
+                </Flex>
+            {
+                slacks.map((item, index) => (
+                    <Flex style={{gap: '5px'}}>
+                        <InputSlack
+                        index={index}
+                        value={item}
+                        parentCallback={callbackSlack}/>
+                        <Flex  justifyContent='center' alignItems='center' style={{gap: "10px"}}>
+                            <DeleteIcon onClick={() => handleDeleteSlack(index)} style={{cursor: 'pointer'}}/>
+                        </Flex>
+                    </Flex>
+            ))}
+            </Flex>
+           </FlexInputToken>
+           <FlexInput>
+                <Flex width='100%' justifyContent='center'>
+                    <Flex style={{gap: '20px'}}>
+                        <Button onClick={handleSubmit}>Submit</Button>
+                        <Button>Back</Button>
+                    </Flex>
+                </Flex>
+           </FlexInput>
         </Flex>
     </Container>
     );
@@ -135,7 +229,7 @@ export default Create;
 
 const Container = styled.div`
     width: 100%;
-    height: 100vh;
+    height: auto;
     padding: 10px 100px 10px 100px;
 `
 const FlexInput = styled(Flex)`
@@ -149,7 +243,7 @@ const CustomInput = styled(Input)`
 `
 const FlexInputToken = styled(Flex)`
     width: 100%;
-    height: 100px;
+    height: auto;
     justify-content: space-around;
     align-items: center;
 `

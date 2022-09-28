@@ -10,7 +10,7 @@ const AdminTable = () => {
 
   const { t } = useTranslation()
   const [listDataDog] = GetDataDogWatcher(true)
-
+  
     return (
         <Container>
             <Flex mb={1} mt={1} justifyContent='center'>

@@ -9,22 +9,17 @@ interface Props {
     value?: string
 }
 
-const InputEmail: React.FC<Props> = ({ parentCallback, value, index }) => {
-
-    const [email, setEmail] = useState([])
-    const handleChangeToken = (option): void => {
-        setEmail(option.target.value)
-      }
+const InputSlack: React.FC<Props> = ({ parentCallback, value, index }) => {
 
     return (
         <Flex width='100%' flexDirection='column'>
-            <Text>Email</Text>
-            <CustomInput placeholder='Please input your email' value={value} onChange={(e) => parentCallback(e.target.value, index)}/>
+            <Text>Slack</Text>
+            <CustomInput placeholder='Please input your slack' value={value} onChange={(e) => parentCallback(e.target.value, index)}/>
         </Flex>
     );
 };
 
-export default InputEmail;
+export default InputSlack;
 
 const CustomInput = styled(Input)`
     height: 50px;

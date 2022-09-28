@@ -11,6 +11,7 @@ export const GetBalance = (walletAddress, totalLimit) => {
     limit: 0
   }]);
 
+  console.log('totalLimit123', totalLimit);
   
   useEffect(() => {
     const getBalanceList = async () => {

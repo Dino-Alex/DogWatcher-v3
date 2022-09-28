@@ -34,6 +34,8 @@ const ListAdmin: React.FC<Props> = ({
     const [openUpdateEmailModal] = useModal(<UpdateEmail id={id} />)
     const [openDeleteModal] = useModal(<DeleteModalAdmin id={id}/>)
 
+    
+
     function setAddress(dataAddress) {
         if (dataAddress) {
             return `${dataAddress.substring(0, 4)}...${dataAddress.substring(dataAddress.length - 4)}`
@@ -75,6 +77,8 @@ const ListAdmin: React.FC<Props> = ({
     }
 
     const { balanceList } = GetBalance(walletAddress, limit)
+    console.log('balanceList',balanceList);
+    
 
     return (
         <Container>
@@ -134,7 +138,7 @@ const ListAdmin: React.FC<Props> = ({
                                         return (
                                             <>
                                                 <TextEmail textAlign='center' fontWeight='100'>{item.emailTime}</TextEmail>
-                                                <CsText>{item.emailAddress}</CsText>
+                                                <CsText>{item}</CsText>
                                             </>
                                         )
                                     })}
