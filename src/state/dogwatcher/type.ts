@@ -1,10 +1,11 @@
 export interface ListDataDog {
     id:string,
     walletName:string,
-    walletAddress:string
+    walletAddress:string,
     limit:any,
     email:any,
-    status:boolean
+    project: string,
+    status:boolean,
     slack:any
 }
 

@@ -5,11 +5,14 @@ import { Link } from 'react-router-dom';
 import { GetDataDogWatcher } from 'state/dogwatcher';
 import styled from 'styled-components';
 import ListAdmin from './components/ListAdmin';
+import { GetListAdmin } from './hook/fetchData';
 
 const AdminTable = () => {
 
   const { t } = useTranslation()
-  const [listDataDog] = GetDataDogWatcher(true)
+  const [listDataDog] = GetDataDogWatcher()
+    console.log('listDataDog',listDataDog);
+    
   
     return (
         <Container>
@@ -31,7 +34,7 @@ const AdminTable = () => {
             </TitleTable>
             {listDataDog ?
                 <>
-                    {listDataDog.map((item, key) => {
+                    {/* {listDataDog.map((item, key) => {
                         return (
                             <ListAdmin
                                 id={item.id}
@@ -39,11 +42,12 @@ const AdminTable = () => {
                                 walletAddress={item.walletAddress}
                                 limit={item.limit}
                                 email={item.email}
+                                project={item.project}
                                 status={item.status}
                                 rowId={key}
                             />
                         )
-                    })}
+                    })} */}
                 </>
                 :
                <>

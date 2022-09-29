@@ -15,6 +15,7 @@ interface Props {
     walletAddress?: string
     limit?: any
     email?: any
+    project?: string
     status?: boolean
     rowId?: number
 }
@@ -25,6 +26,7 @@ const ListAdmin: React.FC<Props> = ({
     walletAddress,
     limit,
     email,
+    project,
     status,
     rowId,
 }) => {
@@ -59,17 +61,6 @@ const ListAdmin: React.FC<Props> = ({
             return <CsText>No Data</CsText>
         }
         return ''
-    }
-
-    const windownSize = window.screen.width
-    const Color = Math.floor(Math.random() * 16777215).toString(16);
-    const [isDisplay, setDisplay] = useState(false);
-    const [isTooltipDisplayed, setIsTooltipDisplayed] = useState(false);
-    function displayTooltip() {
-        setIsTooltipDisplayed(true);
-        setTimeout(() => {
-            setIsTooltipDisplayed(false);
-        }, 10000);
     }
 
     const { balanceList } = GetBalance(walletAddress, limit)

@@ -13,6 +13,7 @@ export const fetchDataDog =async (): Promise<ItemsPropsDog> => {
                 walletAddress:item.walletAddress,
                 limit:item.limit,
                 email:item.email,
+                project: item.project,
                 status:item.status,
                 slack:item.slack
             }
@@ -26,6 +27,7 @@ export const fetchDataDog =async (): Promise<ItemsPropsDog> => {
             walletAddress:"",
             limit:[],
             email:[],
+            project: "",
             status:false,
             slack:[]
         }]}

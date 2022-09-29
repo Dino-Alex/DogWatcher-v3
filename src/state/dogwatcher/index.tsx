@@ -5,7 +5,7 @@ import { fetchDataAdminItems } from "./action"
 import { fetchDataDog } from "./hook/fetchDataDog"
 
 
-export const GetDataDogWatcher = (requested: boolean) =>{
+export const GetDataDogWatcher = () =>{
     const dogwatcher = useSelector<AppState, AppState['dogwatcher']>((state) => state.dogwatcher)
     const listDataDog = dogwatcher.listDataDog
     const dispatch = useDispatch<AppDispatch>()
@@ -21,6 +21,6 @@ export const GetDataDogWatcher = (requested: boolean) =>{
         }
         getSaleItems()
     // eslint-disable-next-line react-hooks/exhaustive-deps
-    },[requested])
+    },[])
     return [listDataDog]
 }

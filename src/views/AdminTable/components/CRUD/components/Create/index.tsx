@@ -230,7 +230,7 @@ const Create = () => {
            <FlexInput>
                 <Flex width='100%' justifyContent='center'>
                     <Flex style={{gap: '20px'}}>
-                        <Button onClick={handleSubmit} disabled={nameWallet === '' || walletAddress === '' || projectName === ''}>Submit</Button>
+                        {/* <Button onClick={handleSubmit} disabled={nameWallet === '' || walletAddress === '' || projectName === ''}>Submit</Button> */}
                         <Button><Link to='/'>Cancel</Link></Button>
                     </Flex>
                 </Flex>
