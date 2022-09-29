@@ -57,6 +57,7 @@ export const BASE_URL_DATA_ADMIN = "https://p9e4wgd2e6.execute-api.ap-southeast-
 export const BASE_URL_DATA_ADMIN_BY_ID = "https://p9e4wgd2e6.execute-api.ap-southeast-1.amazonaws.com/Prod/item/"
 export const BASE_URL_DATA_ADMIN_DELETE_ID = "https://y0pgvg7is5.execute-api.ap-southeast-1.amazonaws.com/Prod/item"
 export const BASE_URL_DATA_ADMIN_CREATE = "https://y0pgvg7is5.execute-api.ap-southeast-1.amazonaws.com/Prod/item"
+export const BASE_URL_LOGIN = "https://7xiwvyzebf.execute-api.ap-southeast-1.amazonaws.com/Dev/admin/login"
 
 export const KAI_RPC_ENDPOINT = 'https://rpc.kardiachain.io'
 

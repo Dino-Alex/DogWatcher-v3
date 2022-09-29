@@ -58,7 +58,9 @@ const Create = () => {
         setRamdomID(idRamdom)
     // eslint-disable-next-line react-hooks/exhaustive-deps
     },[])
-
+    const handToken = localStorage.getItem("tokenAuth")
+    console.log('handleSubmit', handToken);
+    
     const callbackNameWallet = (childData) => {
         setNameWallet(childData)
     }
@@ -84,7 +86,6 @@ const Create = () => {
         newArrSlack[index] = childData;
         setSlacks(newArrSlack);
     }
-
 
     const handleAddLimit = () => {
         const newTokenLimit = {"tokenAddress" :"" ,"tokenName": "", "tokenLimit" : 0};
@@ -230,7 +231,7 @@ const Create = () => {
            <FlexInput>
                 <Flex width='100%' justifyContent='center'>
                     <Flex style={{gap: '20px'}}>
-                        {/* <Button onClick={handleSubmit} disabled={nameWallet === '' || walletAddress === '' || projectName === ''}>Submit</Button> */}
+                        <Button onClick={handleSubmit} disabled={nameWallet === '' || walletAddress === '' || projectName === ''}>Submit</Button>
                         <Button><Link to='/'>Cancel</Link></Button>
                     </Flex>
                 </Flex>
