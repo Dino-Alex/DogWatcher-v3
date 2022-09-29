@@ -47,7 +47,7 @@ const Create = () => {
     const [nameWallet, setNameWallet] = useState('')
     const [walletAddress, setWalletAddress] = useState('')
     const [projectName, setProjectName] = useState('')
-    const [tokenLimit, setTokenLimit] = useState([{}])
+    const [tokenLimit, setTokenLimit] = useState([{"tokenAddress" : "0xc643E83587818202E0fFf5eD96D10Abbc8Bb48e7", "tokenName" : "RUN", "tokenLimit" : 0}])
     const [emails, setEmails] = useState([''])
     const [slacks, setSlacks] = useState([''])
     const [status, setStatus] = useState(true)
@@ -131,14 +131,20 @@ const Create = () => {
                 <Text fontSize='26px'>Create Admin</Text>
             </Flex>
             <FlexInput>
-                <NameWallet parentCallback={callbackNameWallet}/>
-                <WalletAddress parentCallback={callbackWalletAddress}/>
+                <NameWallet 
+                value={nameWallet}
+                parentCallback={callbackNameWallet}/>
+                <WalletAddress 
+                value={walletAddress}
+                parentCallback={callbackWalletAddress}/>
             </FlexInput>
             <FlexInput>
-                <InputProject parentCallback={callbackProjectName}/>
+                <InputProject
+                value={projectName}
+                parentCallback={callbackProjectName}/>
                 <Flex width='40%' flexDirection='column'>
                     <Text>Project ID</Text>
-                    <CustomInput disabled value={projectName+walletAddress}/>
+                    <CustomInput  disabled value={projectName+walletAddress}/>
                 </Flex>
             </FlexInput>
            <FlexInputToken>
@@ -216,7 +222,7 @@ const Create = () => {
            <FlexInput>
                 <Flex width='100%' justifyContent='center'>
                     <Flex style={{gap: '20px'}}>
-                        <Button onClick={handleSubmit}>Submit</Button>
+                        <Button onClick={handleSubmit} disabled={nameWallet === '' || walletAddress === '' || projectName === ''}>Submit</Button>
                         <Button><Link to='/admintable'>Cancel</Link></Button>
                     </Flex>
                 </Flex>
@@ -232,6 +238,9 @@ const Container = styled.div`
     width: 100%;
     height: auto;
     padding: 10px 100px 10px 100px;
+    @media screen and (max-width: 768px){
+        display: none;
+    }
 `
 const FlexInput = styled(Flex)`
     width: 100%;

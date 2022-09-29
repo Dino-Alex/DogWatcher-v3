@@ -9,13 +9,10 @@ interface Props {
 
 const InputProject: React.FC<Props> = ({parentCallback, value}) => {
 
-    const [projectName, setProjectName] = useState('')
-    parentCallback(projectName);
-
     return (
         <Flex width='40%' flexDirection='column'>
             <Text>Project Name</Text>
-            <CustomInput disabled value={value} placeholder='name' onChange={(e) => setProjectName(e.target.value)}/>
+            <CustomInput disabled value={value} placeholder='name' onChange={(e) => parentCallback(e.target.value)}/>
         </Flex>
     );
 };

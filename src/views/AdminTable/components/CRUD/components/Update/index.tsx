@@ -127,7 +127,7 @@ const Update: React.FC<Props> = () => {
     const handleSubmit = async (e) => {
         e.preventDefault()
         try {
-            const idAdmin = projectName + walletAddress
+            const idAdmin = listDataAdminByID[0].project + walletAddress
             const resp = await axios.post(BASE_URL_DATA_ADMIN_CREATE,
                 {
                     "id": idAdmin.toString(),
@@ -136,7 +136,7 @@ const Update: React.FC<Props> = () => {
                     "status": status,
                     "limit": tokenLimit,
                     "email": emails,
-                    "project": projectName,
+                    "project": listDataAdminByID[0].project,
                     "slack": slacks
                 })
                 history.push(`/admintable`)

@@ -11,15 +11,13 @@ interface Props {
 
 const InputEmail: React.FC<Props> = ({ parentCallback, value, index }) => {
 
-    const [email, setEmail] = useState([])
-    const handleChangeToken = (option): void => {
-        setEmail(option.target.value)
-      }
-
     return (
         <Flex width='100%' flexDirection='column'>
             <Text>Email</Text>
             <CustomInput placeholder='Please input your email' value={value} onChange={(e) => parentCallback(e.target.value, index)}/>
+            {value === '' &&
+            <Text fontSize='12px' color='#FF592C'>Email Null</Text>
+            }
         </Flex>
     );
 };

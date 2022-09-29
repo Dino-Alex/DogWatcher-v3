@@ -4,17 +4,20 @@ import styled from 'styled-components';
 
 interface Props {
     parentCallback?:(newValue) => void
+    value?: string
   }
 
-const NameWallet: React.FC<Props> = ({parentCallback}) => {
-
-    const [nameWallet, setNameWallet] = useState('')
-    parentCallback(nameWallet);
+const NameWallet: React.FC<Props> = ({parentCallback, value}) => {
 
     return (
         <Flex width='40%' flexDirection='column'>
-            <Text>Wallet Name </Text>
-            <CustomInput placeholder='Please input your name' onChange={(e) => setNameWallet(e.target.value)}/>
+            <Flex>
+                <Text>Wallet Name</Text> <Text color='#FF592C'>*</Text>
+            </Flex>
+            <CustomInput placeholder='Please input your name' onChange={(e) => parentCallback(e.target.value)}/>
+            {value === '' &&
+            <Text fontSize='12px' color='#FF592C'>Wallet Name Null</Text>
+            }
         </Flex>
     );
 };
