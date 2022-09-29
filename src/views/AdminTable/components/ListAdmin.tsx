@@ -33,6 +33,7 @@ const ListAdmin: React.FC<Props> = ({
     
     const [openDeleteModal] = useModal(<DeleteModalAdmin id={id}/>)
     const [openUpdateWalletModal] = useModal(<UpdateWallet id={id}/>)
+    console.log('listDataDog',email);
     
     function setAddress(dataAddress) {
         if (dataAddress) {
@@ -107,7 +108,6 @@ const ListAdmin: React.FC<Props> = ({
                                 return (
                                     <Flex width='100%' justifyContent='center' alignItems='center' style={{ gap: '10px' }}>
                                         <CsText>{compareBalance(item.balance, item.limit, item.name)}</CsText>
-                                        {/* <CsPencilIcon className='IconHiden' onClick={handleClickUpdate} style={{ cursor: 'pointer' }} /> */}
                                     </Flex>
                                 )
                             })}
@@ -116,7 +116,7 @@ const ListAdmin: React.FC<Props> = ({
                         <Flex width='100%' justifyContent='center' alignItems='center'>
                             <CsText>No data</CsText>
                         </Flex>
-                    }
+                    } 
                 </FlexData>
                 <FlexData>
                     <Flex width='100%' justifyContent='center' alignItems='center'>
@@ -126,15 +126,12 @@ const ListAdmin: React.FC<Props> = ({
                                     {email.map((item) => {
                                         return (
                                             <>
-                                                <TextEmail textAlign='center' fontWeight='100'>{item.emailTime}</TextEmail>
+                                                {/* <TextEmail textAlign='center' fontWeight='100'>{item.emailTime}</TextEmail> */}
                                                 <CsText>{item}</CsText>
                                             </>
                                         )
                                     })}
                                 </Flex>
-                                {/* <Flex>
-                                    <CsPencilIcon className='IconHiden' onClick={handleClickUpdate} style={{ cursor: 'pointer' }} />
-                                </Flex> */}
                             </>
                             :
                             <Flex width='100%' justifyContent='center' alignItems='center'>

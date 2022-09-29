@@ -11,8 +11,6 @@ const AdminTable = () => {
 
   const { t } = useTranslation()
   const [listDataDog] = GetDataDogWatcher()
-    console.log('listDataDog',listDataDog);
-    
   
     return (
         <Container>
@@ -34,7 +32,7 @@ const AdminTable = () => {
             </TitleTable>
             {listDataDog ?
                 <>
-                    {/* {listDataDog.map((item, key) => {
+                    {listDataDog.map((item, key) => {
                         return (
                             <ListAdmin
                                 id={item.id}
@@ -47,7 +45,7 @@ const AdminTable = () => {
                                 rowId={key}
                             />
                         )
-                    })} */}
+                    })}
                 </>
                 :
                <>
