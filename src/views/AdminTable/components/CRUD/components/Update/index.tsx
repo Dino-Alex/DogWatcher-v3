@@ -152,7 +152,7 @@ const Update: React.FC<Props> = () => {
             {listDataAdminByID.length !== 0 ?
                 <Flex flexDirection='column'>
                     <Flex width='100%' mt={3} mb={3} justifyContent='center' alignItems='center'>
-                        <Text fontSize='26px'>Create Admin</Text>
+                        <Text fontSize='26px'>Update Admin</Text>
                     </Flex>
                     <FlexInput>
                         <NameWallet
