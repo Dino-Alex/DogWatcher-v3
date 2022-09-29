@@ -68,10 +68,8 @@ const Update: React.FC<Props> = () => {
                 setWalletAddress(listDataAdminByID[0]?.walletAddress)
             }
         }
-      }, [emails.length, listDataAdminByID, nameWallet, tokenLimit.length, walletAddress])
+      }, [emails.length, listDataAdminByID, tokenLimit.length])// eslint-disable-line react-hooks/exhaustive-deps
 
-
-    
     const callbackNameWallet = (childData) => {
         setNameWallet(childData)
     }
