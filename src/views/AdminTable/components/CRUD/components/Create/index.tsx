@@ -6,7 +6,7 @@ import { BASE_URL_DATA_ADMIN_CREATE } from 'config';
 import { Link } from 'react-router-dom';
 import history from 'routerHistory';
 import Select from 'react-select'
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import styled from 'styled-components';
 import InputEmail from './InputEmail';
 import NameWallet from './InputNameWallet';
@@ -51,8 +51,13 @@ const Create = () => {
     const [emails, setEmails] = useState([''])
     const [slacks, setSlacks] = useState([''])
     const [status, setStatus] = useState(true)
-    const idRamdom = Math.random().toString(36).slice(2)
-    const IDProject = projectName + idRamdom
+    const [idProject, setIProject] = useState('')
+    const [ramdomID, setRamdomID] = useState('')
+    useEffect(()=>{
+        const idRamdom = Math.random().toString(36).slice(2)
+        setRamdomID(idRamdom)
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+    },[])
 
     const callbackNameWallet = (childData) => {
         setNameWallet(childData)
@@ -62,6 +67,7 @@ const Create = () => {
     }
     const callbackProjectName = (childData) => {
         setProjectName(childData)
+        setIProject(projectName+ramdomID)
     }
     const callbackTokenLimit = (childData, index) => {
         const newArrLimit = [...tokenLimit];
@@ -110,7 +116,7 @@ const Create = () => {
         try {
             const resp = await axios.post(BASE_URL_DATA_ADMIN_CREATE,
             {
-                "id" : IDProject.split(" ").join(""),
+                "id" : idProject.split(" ").join(""),
                 "walletName": nameWallet,
                 "walletAddress": walletAddress,
                 "status": status,
@@ -119,7 +125,7 @@ const Create = () => {
                 "project":projectName,
                 "slack":slacks
             })
-            history.push(`/admintable`)
+            history.push(`/`)
         } catch (error) {
           console.log(error)
         }
@@ -145,7 +151,7 @@ const Create = () => {
                 parentCallback={callbackProjectName}/>
                 <Flex width='40%' flexDirection='column'>
                     <Text>Project ID</Text>
-                    <CustomInput  disabled value={IDProject.split(" ").join("")}/>
+                    <CustomInput  disabled value={idProject.split(" ").join("")}/>
                     {/* ""+ projectName.trim()+idRamdom.trim() +"" */}
                 </Flex>
             </FlexInput>
