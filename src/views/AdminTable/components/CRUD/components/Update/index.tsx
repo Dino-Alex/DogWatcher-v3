@@ -125,10 +125,9 @@ const Update: React.FC<Props> = () => {
     const handleSubmit = async (e) => {
         e.preventDefault()
         try {
-            const idAdmin = listDataAdminByID[0].project + walletAddress
             const resp = await axios.post(BASE_URL_DATA_ADMIN_CREATE,
                 {
-                    "id": idAdmin.toString(),
+                    "id": idProject,
                     "walletName": nameWallet,
                     "walletAddress": walletAddress,
                     "status": status,
@@ -164,7 +163,7 @@ const Update: React.FC<Props> = () => {
                             parentCallback={callbackProjectName} />
                         <Flex width='40%' flexDirection='column'>
                             <Text>ID Project</Text>
-                            <CustomInput disabled value={listDataAdminByID[0].project + listDataAdminByID[0].walletAddress} />
+                            <CustomInput disabled value={idProject} />
                         </Flex>
                     </FlexInput>
                     <FlexInputToken>

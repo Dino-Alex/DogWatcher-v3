@@ -51,6 +51,8 @@ const Create = () => {
     const [emails, setEmails] = useState([''])
     const [slacks, setSlacks] = useState([''])
     const [status, setStatus] = useState(true)
+    const idRamdom = Math.random().toString(36).slice(2)
+    const IDProject = projectName + idRamdom
 
     const callbackNameWallet = (childData) => {
         setNameWallet(childData)
@@ -106,10 +108,9 @@ const Create = () => {
     const handleSubmit = async (e) => {
         e.preventDefault()
         try {
-            const idAdmin = projectName+walletAddress
             const resp = await axios.post(BASE_URL_DATA_ADMIN_CREATE,
             {
-                "id" : idAdmin.toString(),
+                "id" : IDProject.split(" ").join(""),
                 "walletName": nameWallet,
                 "walletAddress": walletAddress,
                 "status": status,
@@ -144,7 +145,8 @@ const Create = () => {
                 parentCallback={callbackProjectName}/>
                 <Flex width='40%' flexDirection='column'>
                     <Text>Project ID</Text>
-                    <CustomInput  disabled value={projectName+walletAddress}/>
+                    <CustomInput  disabled value={IDProject.split(" ").join("")}/>
+                    {/* ""+ projectName.trim()+idRamdom.trim() +"" */}
                 </Flex>
             </FlexInput>
            <FlexInputToken>
