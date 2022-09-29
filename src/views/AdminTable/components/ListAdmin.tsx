@@ -81,7 +81,7 @@ const ListAdmin: React.FC<Props> = ({
     return (
         <Container>
             <BodyTable isActive={rowId % 2 === 0 ? !false : false}>
-                <FlexData>
+                <FlexDataName>
                     <Flex width='100%' justifyContent='center' alignItems='center'>
                         {walletName ?
                             <Flex width='100%' justifyContent='center' alignItems='center' style={{ gap: '10px' }}>
@@ -94,8 +94,8 @@ const ListAdmin: React.FC<Props> = ({
                             </Flex>
                         }
                     </Flex>
-                </FlexData>
-                <FlexData>
+                </FlexDataName>
+                <FlexDataName className='NoneWallet'>
                     <Flex width='100%' justifyContent='center' alignItems='center'>
                         {walletAddress ?
                             <Flex width='100%' justifyContent='center' alignItems='center' style={{ gap: '10px' }}>
@@ -108,7 +108,7 @@ const ListAdmin: React.FC<Props> = ({
                             </Flex>
                         }
                     </Flex>
-                </FlexData>
+                </FlexDataName>
                 <FlexData justifyContent='center' alignItems='center'>
                     {balanceList.length !== 0 ?
                         <Flex flexDirection='column' width='100%' justifyContent='center' alignItems='center' style={{ gap: '10px' }}>
@@ -152,7 +152,7 @@ const ListAdmin: React.FC<Props> = ({
                         }
                     </Flex>
                 </FlexData>
-                <FlexData width='100%' justifyContent='center' alignItems='center'>
+                <FlexDataName className='NoneWallet' width='100%' justifyContent='center' alignItems='center'>
                     {status !== null ?
                         <Flex width='100%' justifyContent='center' alignItems='center'>
                             <Flex width='100%' justifyContent='center' alignItems='center' style={{ gap: '10px' }}>
@@ -174,16 +174,15 @@ const ListAdmin: React.FC<Props> = ({
                             <CsText>No data</CsText>
                         </Flex>
                     }
-                </FlexData>
-                <FlexData>
+                </FlexDataName>
+                <FlexDataV1>
                     <Flex width='100%' justifyContent='center' style={{ gap: '10px' }}>
                         {/* <CsPencilIconV1 onClick={displayTooltip} style={{ cursor: 'pointer' }} /> */}
                         <CsPencilIcon onClick={handleClickUpdate}  style={{ cursor: 'pointer' }} />
                         <CsCloseIcon onClick={openDeleteModal} style={{ cursor: 'pointer' }} />
                         {/* <CsCloseIconV1 Color={Color} onClick={openDeleteModal} style={{ cursor: 'pointer' }} /> */}
                     </Flex>
-
-                </FlexData>
+                </FlexDataV1>
             </BodyTable>
         </Container>
     );
@@ -223,6 +222,31 @@ const BodyTable = styled(Flex) <{ isActive: boolean }>`
         padding-right: 5px;
     }
 `
+const FlexDataName = styled(Flex)`
+    width: 200px;
+    font-family: 'Poppins';
+    font-style: normal;
+    font-weight: 600;
+    font-size: 16px;
+    line-height: 24px;
+    display: flex;
+    align-items: center;
+    @media screen and (max-width: 600px) {
+        width: 100px;
+        &.NoneWallet{
+            display: none;
+        }
+    }
+   
+    .IconHiden{
+        display: none;
+    }
+    :hover{
+        .IconHiden{
+            display: block;
+        }
+    }
+`
 const FlexData = styled(Flex)`
     width: 300px;
     font-family: 'Poppins';
@@ -232,12 +256,35 @@ const FlexData = styled(Flex)`
     line-height: 24px;
     display: flex;
     align-items: center;
+    @media screen and (max-width: 768px) {
+        font-size: 4px;
+    }
     @media screen and (max-width: 600px) {
-        width: 90px;
+        width: 400px;
     }
-    @media screen and (max-width: 376px) {
-        width: 80px;
+    
+    .IconHiden{
+        display: none;
     }
+    :hover{
+        .IconHiden{
+            display: block;
+        }
+    }
+`
+const FlexDataV1 = styled(Flex)`
+    width: 100px;
+    font-family: 'Poppins';
+    font-style: normal;
+    font-weight: 600;
+    font-size: 16px;
+    line-height: 24px;
+    display: flex;
+    align-items: center;
+    @media screen and (max-width: 980px) {
+        display: none;
+    }
+    
     .IconHiden{
         display: none;
     }
@@ -249,6 +296,9 @@ const FlexData = styled(Flex)`
 `
 const CsText = styled(Text)`
     font-weight: 600;
+    @media screen and (max-width: 768px) {
+        font-size: 10px;
+    }
     @media screen and (max-width: 600px) {
         font-size: 12px;
     }

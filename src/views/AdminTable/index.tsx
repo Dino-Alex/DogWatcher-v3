@@ -22,11 +22,11 @@ const AdminTable = () => {
             <TitleTable>
                 <FlexListVotting width='100%' justifyContent='space-around'>
                     <TextListVotting justifyContent='center'>Name</TextListVotting>
-                    <TextListVotting justifyContent='center'>Wallet</TextListVotting>
+                    <TextListVotting className='NoneWallet' justifyContent='center'>Wallet</TextListVotting>
                     <TextListVotting justifyContent='center'>Balance/Limit</TextListVotting>
                     <TextListVotting justifyContent='center'>Email</TextListVotting>
-                    <TextListVotting justifyContent='center'>Status</TextListVotting>
-                    <TextListVotting justifyContent='center'>Action</TextListVotting>
+                    <TextListVotting className='NoneWallet' justifyContent='center'>Status</TextListVotting>
+                    <TextListVottingV1 justifyContent='center'>Action</TextListVottingV1>
                 </FlexListVotting>
             </TitleTable>
             {listDataDog ?
@@ -117,5 +117,21 @@ const TextListVotting = styled(Flex)`
         margin-left: -1.5rem;
         width: 80px;
         word-break: break-all;
+        &.NoneWallet{
+            display: none;
+        }
+    }
+`
+const TextListVottingV1 = styled(Flex)`
+    width: 300px;
+    font-family: 'Poppins';
+    font-style: normal;
+    font-weight: 600;
+    font-size: 16px;
+    line-height: 24px;
+    display: flex;
+    align-items: center;
+    @media screen and (max-width: 980px) {
+       display: none;
     }
 `
