@@ -86,7 +86,7 @@ const ListAdmin: React.FC<Props> = ({
                         {walletName ?
                             <Flex width='100%' justifyContent='center' alignItems='center' style={{ gap: '10px' }}>
                                 <CsText>{walletName}</CsText>
-                                <CsPencilIcon className='IconHiden' onClick={openUpdateWalletModal} style={{ cursor: 'pointer' }} />
+                                {/* <CsPencilIcon className='IconHiden' onClick={openUpdateWalletModal} style={{ cursor: 'pointer' }} /> */}
                             </Flex>
                             :
                             <Flex width='100%' justifyContent='center' alignItems='center'>
@@ -100,7 +100,7 @@ const ListAdmin: React.FC<Props> = ({
                         {walletAddress ?
                             <Flex width='100%' justifyContent='center' alignItems='center' style={{ gap: '10px' }}>
                                 <CsText>{setAddress(walletAddress)}</CsText>
-                                <CsPencilIcon className='IconHiden' onClick={openUpdateWalletModal} style={{ cursor: 'pointer' }} />
+                                {/* <CsPencilIcon className='IconHiden' onClick={openUpdateWalletModal} style={{ cursor: 'pointer' }} /> */}
                             </Flex>
                             :
                             <Flex width='100%' justifyContent='center' alignItems='center'>
@@ -116,7 +116,7 @@ const ListAdmin: React.FC<Props> = ({
                                 return (
                                     <Flex width='100%' justifyContent='center' alignItems='center' style={{ gap: '10px' }}>
                                         <CsText>{compareBalance(item.balance, item.limit, item.name)}</CsText>
-                                        <CsPencilIcon className='IconHiden' onClick={handleClickUpdate} style={{ cursor: 'pointer' }} />
+                                        {/* <CsPencilIcon className='IconHiden' onClick={handleClickUpdate} style={{ cursor: 'pointer' }} /> */}
                                     </Flex>
                                 )
                             })}
@@ -141,9 +141,9 @@ const ListAdmin: React.FC<Props> = ({
                                         )
                                     })}
                                 </Flex>
-                                <Flex>
+                                {/* <Flex>
                                     <CsPencilIcon className='IconHiden' onClick={handleClickUpdate} style={{ cursor: 'pointer' }} />
-                                </Flex>
+                                </Flex> */}
                             </>
                             :
                             <Flex width='100%' justifyContent='center' alignItems='center'>
@@ -161,13 +161,13 @@ const ListAdmin: React.FC<Props> = ({
                                     :
                                     <CsText>Disable</CsText>
                                 }
-                                <CsPencilIcon className='IconHiden' onClick={displayTooltip} style={{ cursor: 'pointer' }} />
+                                {/* <CsPencilIcon className='IconHiden' onClick={displayTooltip} style={{ cursor: 'pointer' }} /> */}
                             </Flex>
-                            <Flex  alignItems='center' justifyContent='center'>
+                            {/* <Flex  alignItems='center' justifyContent='center'>
                             <Tooltip isTooltipDisplayed={isTooltipDisplayed}>
                                 <Button onClick={() => setDisplay(true)}>{status === true ? 'Enable' : 'Disable'}</Button>
                             </Tooltip>
-                            </Flex>
+                            </Flex> */}
                         </Flex>
                         :
                         <Flex width='100%' justifyContent='center' alignItems='center'>

@@ -22,11 +22,11 @@ const AdminTable = () => {
             <TitleTable>
                 <FlexListVotting width='100%' justifyContent='space-around'>
                     <TextListVotting justifyContent='center'>Name</TextListVotting>
-                    <TextListVotting className='NoneWallet' justifyContent='center'>Wallet</TextListVotting>
-                    <TextListVotting justifyContent='center'>Balance/Limit</TextListVotting>
+                    <TextListVotting className='NoneWallet' id='Wallet' justifyContent='center'>Wallet</TextListVotting>
+                    <TextListVotting justifyContent='center' id='Balance'>Balance/Limit</TextListVotting>
                     <TextListVotting justifyContent='center'>Email</TextListVotting>
-                    <TextListVotting className='NoneWallet' justifyContent='center'>Status</TextListVotting>
-                    <TextListVottingV1 justifyContent='center'>Action</TextListVottingV1>
+                    <TextListVotting className='NoneWallet' id='Status' justifyContent='center'>Status</TextListVotting>
+                    <TextListVottingV1 justifyContent='center' id='Action'>Action</TextListVottingV1>
                 </FlexListVotting>
             </TitleTable>
             {listDataDog ?
@@ -113,6 +113,55 @@ const TextListVotting = styled(Flex)`
     line-height: 24px;
     display: flex;
     align-items: center;
+    @media screen and (max-width: 2560px) {
+        &#Wallet{
+            padding-right: 130px;
+        }
+        &#Balance{
+            padding-right: 130px;
+        }
+        &#Action{
+            padding-right: 130px;
+        }
+        &#Status{
+            padding-left: 0px;
+        }
+    }
+    @media screen and (max-width: 1444px) {
+        &#Wallet{
+            padding-right: 80px;
+        }
+        &#Balance{
+            padding-right: 80px;
+        }
+        &#Action{
+            padding-right: 80px;
+        }
+        &#Status{
+            padding-left: 30px;
+        }
+    }
+    @media screen and (max-width: 1024px) {
+        &#Wallet{
+            padding-right: 80px;
+        }
+        &#Balance{
+            padding-right: 80px;
+        }
+        &#Action{
+            padding-right: 80px;
+        }
+    }
+    @media screen and (max-width: 768px) {
+        font-size: 12px;
+        width: 100px;
+        &#Wallet{
+            padding-right: 80px;
+        }
+        &#Balance{
+            padding-right: 80px;
+        }
+    }
     @media screen and (max-width: 600px) {
         margin-left: -1.5rem;
         width: 80px;
@@ -123,7 +172,7 @@ const TextListVotting = styled(Flex)`
     }
 `
 const TextListVottingV1 = styled(Flex)`
-    width: 300px;
+    width: 130px;
     font-family: 'Poppins';
     font-style: normal;
     font-weight: 600;
@@ -131,6 +180,11 @@ const TextListVottingV1 = styled(Flex)`
     line-height: 24px;
     display: flex;
     align-items: center;
+    @media screen and (max-width: 1024px) {
+        &#Action{
+            padding-right: 20px;
+        }
+    }
     @media screen and (max-width: 980px) {
        display: none;
     }

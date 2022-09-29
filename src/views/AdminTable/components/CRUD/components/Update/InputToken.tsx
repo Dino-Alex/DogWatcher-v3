@@ -49,6 +49,7 @@ const InputToken: React.FC<Props> = ({ parentCallback, index, valueToken }) => {
                 <CustomInput
                     value={valueToken.tokenLimit}
                     pattern={`^[0-9]*[.,]?[0-9]{0,${18}}$`}
+                    min="0"
                     type="number" onChange={(e) => handleChangeLimit(Number(e.target.value))} />
             </Flex>
         </Flex>
