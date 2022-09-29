@@ -24,7 +24,6 @@ import { ModalAlert } from "./views/Account/components/ModalAlert"
 
 const NotFound = lazy(() => import('./views/NotFound'))
 const AdminTable = lazy(() => import('./views/AdminTable'))
-const CreateAdmin = lazy(() => import('./views/AdminTable/components/CreateAdmin')) 
 const Create = lazy(() => import('./views/AdminTable/components/CRUD/components/Create/index')) 
 const Update = lazy(() => import('./views/AdminTable/components/CRUD/components/Update/index')) 
 const ProjectTable = lazy(() => import('./views/ProjectTable'))
@@ -54,15 +53,15 @@ const App: React.FC = () => {
             <Route path="/" exact>
               <AdminTable />
             </Route>
-            <Route path="/admintable">
+            {/* <Route path="/admintable">
               <AdminTable />
-            </Route>
+            </Route> */}
             <Route path="/create">
               <Create />
             </Route>
-            <Route path="/projecttable">
+            {/* <Route path="/projecttable">
               <ProjectTable />
-            </Route>
+            </Route> */}
             <Route exact path="/update/:idProject" component={Update} />
             {/* 404 */}
             <Route component={NotFound} />

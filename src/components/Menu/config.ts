@@ -26,49 +26,49 @@ export const status = {
 export type ConfigMenuItemsType = MenuItemsType & { hideSubNav?: boolean }
 
 export const configIsConnect: (t: ContextApi['t']) => MenuItemsType[] = (t) => [
-  {
-    label: t('Admin Table'),
-    icon: 'Marketplace',
-    href: '/admintable',
-    isBottomNav:false,
-    showItemsOnMobile:false,
-    items: [ 
+  // {
+  //   label: t('Admin Table'),
+  //   icon: 'Marketplace',
+  //   href: '/admintable',
+  //   isBottomNav:false,
+  //   showItemsOnMobile:false,
+  //   items: [ 
      
-    ]
-  },
-  {
-    label: t('Project Table'),
-    icon: 'Marketplace',
-    href: '/projecttable',
-    isBottomNav:false,
-    showItemsOnMobile:false,
-    items: [ 
+  //   ]
+  // },
+  // {
+  //   label: t('Project Table'),
+  //   icon: 'Marketplace',
+  //   href: '/projecttable',
+  //   isBottomNav:false,
+  //   showItemsOnMobile:false,
+  //   items: [ 
      
-    ]
-  },
+  //   ]
+  // },
 ]
 
 export const configDisconnect: (t: ContextApi['t']) => MenuItemsType[] = (t) => [
-  {
-    label: t('Admin Table'),
-    icon: 'Marketplace',
-    href: '/admintable',
-    isBottomNav:false,
-    showItemsOnMobile:false,
-    items: [ 
+  // {
+  //   label: t('Admin Table'),
+  //   icon: 'Marketplace',
+  //   href: '/admintable',
+  //   isBottomNav:false,
+  //   showItemsOnMobile:false,
+  //   items: [ 
      
-    ]
-  },
-  {
-    label: t('Project Table'),
-    icon: 'Marketplace',
-    href: '/projecttable',
-    isBottomNav:false,
-    showItemsOnMobile:false,
-    items: [ 
+  //   ]
+  // },
+  // {
+  //   label: t('Project Table'),
+  //   icon: 'Marketplace',
+  //   href: '/projecttable',
+  //   isBottomNav:false,
+  //   showItemsOnMobile:false,
+  //   items: [ 
      
-    ]
-  },
+  //   ]
+  // },
 ]
 
 

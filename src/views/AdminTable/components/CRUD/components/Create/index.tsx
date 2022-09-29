@@ -225,7 +225,7 @@ const Create = () => {
                 <Flex width='100%' justifyContent='center'>
                     <Flex style={{gap: '20px'}}>
                         <Button onClick={handleSubmit} disabled={nameWallet === '' || walletAddress === '' || projectName === ''}>Submit</Button>
-                        <Button><Link to='/admintable'>Cancel</Link></Button>
+                        <Button><Link to='/'>Cancel</Link></Button>
                     </Flex>
                 </Flex>
            </FlexInput>

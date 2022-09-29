@@ -6,7 +6,7 @@ import { BASE_URL_DATA_ADMIN_CREATE } from 'config';
 import { GetListAdminByID } from 'views/AdminTable/hook/fetchDataByID';
 import Select from 'react-select'
 import history from 'routerHistory';
-import { useParams } from 'react-router-dom';
+import { Link, useParams } from 'react-router-dom';
 import React, { useEffect, useState } from 'react';
 import styled from 'styled-components';
 import InputEmail from './InputEmail';
@@ -61,6 +61,11 @@ const Update: React.FC<Props> = () => {
         if (nameWallet === "") {
             if (listDataAdminByID[0]?.walletName !== undefined) {
                 setNameWallet(listDataAdminByID[0]?.walletName)
+            }
+        }
+        if (projectName === "") {
+            if (listDataAdminByID[0]?.project !== undefined) {
+                setProjectName(listDataAdminByID[0]?.project)
             }
         }
         if (walletAddress === "") {
@@ -136,7 +141,7 @@ const Update: React.FC<Props> = () => {
                     "project": listDataAdminByID[0].project,
                     "slack": slacks
                 })
-                history.push(`/admintable`)
+                history.push(`/`)
         } catch (error) {
             console.log(error)
         }
@@ -159,7 +164,7 @@ const Update: React.FC<Props> = () => {
                     </FlexInput>
                     <FlexInput>
                         <InputProject
-                            value={listDataAdminByID[0].project}
+                            value={projectName}
                             parentCallback={callbackProjectName} />
                         <Flex width='40%' flexDirection='column'>
                             <Text>ID Project</Text>
@@ -266,7 +271,7 @@ const Update: React.FC<Props> = () => {
                         <Flex width='100%' justifyContent='center'>
                             <Flex style={{ gap: '20px' }}>
                                 <Button onClick={handleSubmit}>Submit</Button>
-                                <Button>Back</Button>
+                                <Button><Link to='/'>Cancel</Link></Button>
                             </Flex>
                         </Flex>
                     </FlexInput>
