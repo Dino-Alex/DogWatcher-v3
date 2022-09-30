@@ -1,10 +1,8 @@
-import useTheme from "hooks/useTheme";
 import React from "react";
 import Svg from "../Svg";
 import { SvgProps } from "../types";
 
 const Icon: React.FC<SvgProps> = (props) => {
-  const { theme } = useTheme()
   return (
     <Svg width="17" height="16" viewBox="0 0 17 16" {...props} style={{fill:"none"}}>
 <path d="M12.2233 3.88672H4.04333V12.7934C4.04333 13.5467 4.65667 14.1601 5.41 14.1601H10.85C11.6033 14.1601 12.2167 13.5467 12.2167 12.7934V3.88672H12.2233Z"  strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round"/>

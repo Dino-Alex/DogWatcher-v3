@@ -2,7 +2,7 @@ import { Button, Flex, Input, Text, IconButton } from '@phamphu19498/runtogether
 import axios from 'axios';
 import { DeleteIcon } from 'components/Pancake-uikit';
 import { PlusIcon } from 'components/Pancake-uikit/widgets/Menu/icons';
-import { BASE_URL_DATA_ADMIN_CREATE } from 'config';
+import {BASE_URL_DATA_ADMIN_CRUD} from 'config';
 import { GetListAdminByID } from 'views/AdminTable/hook/fetchDataByID';
 import Select from 'react-select'
 import history from 'routerHistory';
@@ -35,6 +35,7 @@ interface Props {
 const Update: React.FC<Props> = () => {
 
     const { idProject }: { idProject: string } = useParams()
+    const tokenAuth = localStorage.getItem("tokenAuth")
     const { listDataAdminByID } = GetListAdminByID(idProject)
     const [nameWallet, setNameWallet] = useState("")
     const [walletAddress, setWalletAddress] = useState("")
@@ -127,11 +128,17 @@ const Update: React.FC<Props> = () => {
         slacks.splice(id, 1);
     };
 
+
     const handleSubmit = async (e) => {
         e.preventDefault()
         try {
-            const resp = await axios.post(BASE_URL_DATA_ADMIN_CREATE,
-                {
+            await axios({
+                method: 'POST',
+                url: `${BASE_URL_DATA_ADMIN_CRUD}`,
+                headers:{
+                    'Authorization': `Bearer ${tokenAuth}`,
+                },
+                data: {
                     "id": idProject,
                     "walletName": nameWallet,
                     "walletAddress": walletAddress,
@@ -140,12 +147,13 @@ const Update: React.FC<Props> = () => {
                     "email": emails,
                     "project": listDataAdminByID[0].project,
                     "slack": slacks
-                })
-                history.push(`/`)
+                }
+            });
+            history.push(`/`)
         } catch (error) {
-            console.log(error)
+          console.log(error)
         }
-    }
+      }
 
     return (
         <Container>

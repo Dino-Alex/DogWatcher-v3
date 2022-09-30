@@ -1,14 +1,12 @@
-import React, { useMemo, ReactNode } from 'react'
-import ReactDOM from 'react-dom'
-import * as Sentry from "@sentry/react";
-import { BrowserTracing } from "@sentry/tracing";
-import useActiveWeb3React from './hooks/useActiveWeb3React'
-import { BLOCKED_ADDRESSES } from './config/constants'
-import ListsUpdater from './state/lists/updater'
-import MulticallUpdater from './state/multicall/updater'
-import TransactionUpdater from './state/transactions/updater'
-import App from './App'
-import Providers from './Providers'
+import React, { ReactNode, useMemo } from 'react';
+import ReactDOM from 'react-dom';
+import App from './App';
+import { BLOCKED_ADDRESSES } from './config/constants';
+import useActiveWeb3React from './hooks/useActiveWeb3React';
+import Providers from './Providers';
+import ListsUpdater from './state/lists/updater';
+import MulticallUpdater from './state/multicall/updater';
+import TransactionUpdater from './state/transactions/updater';
 
 function Updaters() {
   return (
@@ -19,7 +17,6 @@ function Updaters() {
     </>
   )
 }
-const LINK_SENTRY = process.env.REACT_APP_SENTRY
 function Blocklist({ children }: { children: ReactNode }) {
   const { account } = useActiveWeb3React()
   const blocked: boolean = useMemo(() => Boolean(account && BLOCKED_ADDRESSES.indexOf(account) !== -1), [account])

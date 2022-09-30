@@ -45,10 +45,13 @@ const LoginModal: React.FC<InjectedModalProps> = ({ onDismiss }) => {
   const changeIcon = changePassword !== true
   const [loading, setLoading] = useState(false);
   const [color, setColor] = useState("#FFFFFF");
+  const [errorLogin, setErrorLogin] = useState(0);
   const { t } = useTranslation()
-
   const [username, setUsername] = useState('');
   const [password, setPassword] = useState('');
+
+  console.log('errorLogin',errorLogin);
+  
 
   const handleSubmit = async (e) => {
     e.preventDefault()
@@ -64,21 +67,12 @@ const LoginModal: React.FC<InjectedModalProps> = ({ onDismiss }) => {
         setLoading(true)
     } catch (error) {
       setLoading(false)
+      setErrorLogin(error.response.status)
       console.log(error)
     }
   }
 
-//   const {data: response} = await axios({
-//     method: 'POST',
-//     url: `${URL}/user/get-nonce`,
-//     headers:{
-//         'Authorization': `Bearer ${token}`,
-//         'hash-client': `${hash}`
-//     },
-//     data: {
-//         "address": `${account}`
-//     }
-// });
+
   
   return (
     <CustomModal title="" onDismiss={onDismiss} maxWidth="550px">
@@ -138,7 +132,11 @@ const LoginModal: React.FC<InjectedModalProps> = ({ onDismiss }) => {
               <Flex
                 justifyContent="center"
               >
-                <TransferModal>Forgot password?</TransferModal>
+                {errorLogin === 404 ?
+                  <TextInvalid color='#e75243'>Invalid Username or Password!</TextInvalid>
+                :
+                  <TransferModal/>
+              }
               </Flex>
             </Flex>
           </Flex>
@@ -167,4 +165,13 @@ font-size:16px;
 font-weight:400;
 letter-spacing: 0.1;
 `
-
+const TextInvalid = styled(Text)`
+  margin-top: 10px;
+  background: none;
+  box-shadow: none;
+  color: #e75243;
+  font-weight: 400;
+  font-size: 14px;
+  line-height: 21px;
+  padding: 0px;
+`

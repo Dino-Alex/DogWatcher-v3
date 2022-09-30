@@ -1,7 +1,6 @@
 import { createReducer } from '@reduxjs/toolkit'
-import { fetchData } from "./fetchData/fetchDataUser"
-import { fetchDataUser, fetchDataUserStaked, fetchTvlPool, fetchEndTimeBlock, fetchEndBlock, fetchStartTime } from "./actions"
-import { user, userProps, userStaked, userStakedProps } from "./type"
+import { fetchDataUser, fetchDataUserStaked, fetchEndBlock, fetchEndTimeBlock, fetchStartTime, fetchTvlPool } from "./actions"
+import { userProps, userStakedProps } from "./type"
 
 interface globalPoolRun {
     dataUser: userProps,

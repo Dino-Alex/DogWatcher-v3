@@ -1,10 +1,9 @@
-import { useEffect, } from 'react'
 import { useWeb3React } from '@web3-react/core'
-import { useSelector } from 'react-redux'
-import { useAppDispatch } from 'state'
 import { ethers } from 'ethers'
-import { State } from './types'
+import { useEffect } from 'react'
+import { useSelector } from 'react-redux'
 import fetchReferralInfo from './referrals/fetchReferralsInfo'
+import { State } from './types'
 
 const saveReferrer = async (account, ref) => {
   if (!ethers.utils.isAddress(ref) || account === ref) {

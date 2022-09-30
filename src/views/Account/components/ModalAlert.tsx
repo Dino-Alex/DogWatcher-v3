@@ -1,15 +1,12 @@
-import React, { useState, useEffect } from "react";
-import { Text, Flex, Button, Modal, CloseIcon } from "@phamphu19498/runtogether-uikit";
-import { Overlay } from "components/Pancake-uikit";
-import styled from "styled-components";
-import { useWeb3React } from '@web3-react/core'
+import { CloseIcon, Flex, Text } from "@phamphu19498/runtogether-uikit";
+import { useWeb3React } from '@web3-react/core';
 import { useTranslation } from "contexts/Localization";
-import { GetUser } from 'state/account'
-
+import { GetUser } from 'state/account';
+import styled from "styled-components";
+import React, { useState, useEffect } from "react";
 
 export const ModalAlert = () => {
     const { t } = useTranslation()
-    const userAddress = sessionStorage.getItem('userAddress')
     const isDifferent = sessionStorage.getItem('isDifferent')
     const [ user ] = GetUser(true)
     const token = localStorage.getItem('serviceToken');

@@ -1,14 +1,14 @@
-import { useEffect, useState } from 'react'
-import BigNumber from 'bignumber.js'
 import { useWeb3React } from '@web3-react/core'
 import axios from 'axios'
-import { getBep20Contract, getLpContract } from 'utils/contractHelpers'
-import { getKrc20Contract } from 'utils/kaiContractHepler'
-import { BIG_ZERO } from 'utils/bigNumber'
-import { simpleRpcProvider } from 'utils/providers'
+import BigNumber from 'bignumber.js'
+import { useEffect, useState } from 'react'
 import { getTokenPrice } from 'state/pools/helpers'
-import useRefresh from './useRefresh'
+import { BIG_ZERO } from 'utils/bigNumber'
+import { getBep20Contract } from 'utils/contractHelpers'
+import { getKrc20Contract } from 'utils/kaiContractHepler'
+import { simpleRpcProvider } from 'utils/providers'
 import useLastUpdated from './useLastUpdated'
+import useRefresh from './useRefresh'
 
 type UseTokenBalanceState = {
   balance: BigNumber

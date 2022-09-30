@@ -1,6 +1,6 @@
 import { createReducer } from '@reduxjs/toolkit'
-import { fetchTotalProposals, fetchListProposals, fetchAllowanceVoting, fetchSnapShortVoting } from "./actions"
-import { CountProposal, ListVoting, VotingProposalsType, ListVotingData, votingData } from "./type"
+import { fetchAllowanceVoting, fetchListProposals, fetchSnapShortVoting, fetchTotalProposals } from "./actions"
+import { votingData, VotingProposalsType } from "./type"
 
 interface globalPoolRun {
     countProposals:number,

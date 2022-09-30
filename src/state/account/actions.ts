@@ -1,6 +1,6 @@
-import { createAction, createAsyncThunk } from '@reduxjs/toolkit'
+import { createAction } from '@reduxjs/toolkit'
 // eslint-disable-next-line import/named
-import { userInfoProp, listPartnerConfig, getVipAndReferalProp, parentPartnerProp, getListReferalProps } from './type'
+import { getListReferalProps, getVipAndReferalProp, listPartnerConfig, parentPartnerProp, userInfoProp } from './type'
 
 export const fetchUserLevelVip = createAction<{level:string}>('account/fetchDataUser')
 export const fetchreferralCode = createAction<{referralCode:string}>('account/fetchreferralCode')

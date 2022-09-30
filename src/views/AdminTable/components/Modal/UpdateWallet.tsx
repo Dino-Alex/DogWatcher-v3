@@ -1,7 +1,6 @@
 import { Button, EarnIcon, Flex, Modal, Text } from '@phamphu19498/runtogether-uikit';
 import axios from 'axios';
 import {
-  ButtonSubmit,
   ContainerIcon,
   ContainerInput,
   CsFlex,
@@ -9,7 +8,7 @@ import {
   FormSubmit, WrapInput
 } from 'components/Menu/GlobalSettings/styles';
 import { WalletIcon } from 'components/Pancake-uikit';
-import { BASE_URL_DATA_ADMIN_CREATE } from 'config';
+import { BASE_URL_DATA_ADMIN_CRUD } from 'config';
 import { useTranslation } from 'contexts/Localization';
 import React, { useEffect, useState } from 'react';
 import styled from 'styled-components';
@@ -46,7 +45,7 @@ const UpdateWallet: React.FC<Props> = ({
   const handleSubmit = async (e) => {
     e.preventDefault()
     try {
-        const resp = await axios.post(BASE_URL_DATA_ADMIN_CREATE,
+        await axios.post(BASE_URL_DATA_ADMIN_CRUD,
             {
                 "id": listDataAdminByID[0].id,
                 "walletName": nameWallet,
@@ -58,8 +57,7 @@ const UpdateWallet: React.FC<Props> = ({
                 "slack": listDataAdminByID[0].slack
             })
             onDismiss()
-      window.location.reload(true)
-
+      // window.location.reload(true)
     } catch (error) {
         console.log(error)
     }

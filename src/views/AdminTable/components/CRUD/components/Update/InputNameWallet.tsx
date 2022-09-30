@@ -1,5 +1,5 @@
 import { Flex, Input, Text } from '@phamphu19498/runtogether-uikit';
-import React, { useState } from 'react';
+import React from 'react';
 import styled from 'styled-components';
 
 interface Props {

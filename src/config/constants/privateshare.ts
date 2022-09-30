@@ -1,9 +1,7 @@
-import {Conditions, Memberships} from "views/Membership/config"
-import tokens from "config/constants/tokens"
-import darklanndABI from "config/abi/darklandABI.json"
-import privateShareStakingABI from 'config/abi/privateShareStakingABI.json'
-import privateShareIDO from "config/abi/privateShareIDO.json"
 import ido from "config/abi/ido.json"
+import privateShareStakingABI from 'config/abi/privateShareStakingABI.json'
+import tokens from "config/constants/tokens"
+import { Conditions, Memberships } from "views/Membership/config"
 
 const nftRequired = () => {
     const arr = []

@@ -1,10 +1,10 @@
-import { useCallback, useEffect } from 'react'
-import { useDispatch, useSelector } from 'react-redux'
 import { Decrypts } from 'config/api/decrypts'
+import { useEffect } from 'react'
+import { useDispatch, useSelector } from 'react-redux'
 import { AppDispatch, AppState } from '../index'
 // eslint-disable-next-line import/named
-import { fetchLevelVip, fetchReferralCode, fetchnonceCodeByUser, fetchUser, fetchPartnerConfig, fetchParentPartnerData, fetchListReferalData} from "./fetchData"
-import { fetchUserLevelVip, fetchreferralCode, fetchnonceCode, fetchUserInfo, fetchListPartnerConfig,fetchParentPartner, fetchListReferal } from "./actions"
+import { fetchListPartnerConfig, fetchListReferal, fetchnonceCode, fetchParentPartner, fetchreferralCode, fetchUserInfo, fetchUserLevelVip } from "./actions"
+import { fetchLevelVip, fetchListReferalData, fetchnonceCodeByUser, fetchParentPartnerData, fetchPartnerConfig, fetchReferralCode, fetchUser } from "./fetchData"
 
 export const GetLevelVip = () => {
     const account = useSelector<AppState, AppState['account']>((state) => state.account)

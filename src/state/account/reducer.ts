@@ -1,9 +1,8 @@
 
 import { createReducer } from '@reduxjs/toolkit'
-import { fetchLevelVip, fetchReferralCode } from "./fetchData"
-import { fetchUserLevelVip, fetchreferralCode, fetchnonceCode, fetchUserInfo, fetchListPartnerConfig, fetchParentPartner, fetchgetVipAndReferal, fetchListReferal } from "./actions"
+import { fetchgetVipAndReferal, fetchListPartnerConfig, fetchListReferal, fetchnonceCode, fetchParentPartner, fetchreferralCode, fetchUserInfo, fetchUserLevelVip } from "./actions"
 // eslint-disable-next-line import/named
-import { userInfoProp, partnetConfig, parentPartnerProp, getVipAndReferalProp, getListReferalProp } from "./type"
+import { getListReferalProp, getVipAndReferalProp, parentPartnerProp, partnetConfig, userInfoProp } from "./type"
 
 interface globalStateAccount {
     level: string,

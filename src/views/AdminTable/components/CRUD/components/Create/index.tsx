@@ -2,7 +2,7 @@ import { Button, Flex, Input, Text } from '@phamphu19498/runtogether-uikit';
 import axios from 'axios';
 import { DeleteIcon } from 'components/Pancake-uikit';
 import { PlusIcon } from 'components/Pancake-uikit/widgets/Menu/icons';
-import { BASE_URL_DATA_ADMIN_CREATE } from 'config';
+import {BASE_URL_DATA_ADMIN_CRUD } from 'config';
 import { Link } from 'react-router-dom';
 import history from 'routerHistory';
 import Select from 'react-select'
@@ -14,22 +14,6 @@ import InputProject from './InputProject';
 import InputSlack from './InputSlack';
 import InputToken from './InputToken';
 import WalletAddress from './InputWalletAddress';
-
-const walletInfo = { 
-"id" : "project0x00000",
-"name" : "Vo",
-"walletAddress" : "0x00000" ,
-"tokens" : [
-    {"address" : "0x000" , "name" : "run", "limit" : "0" },
-],
-"emails" : [
-    "thuongvokg@gmail.com"
-],
-"project" : "project",
-"slack" : [
-    "url"
-]
-};
 
 const optionStatus = [
     {
@@ -44,6 +28,7 @@ const optionStatus = [
 
 const Create = () => {
 
+    const tokenAuth = localStorage.getItem("tokenAuth")
     const [nameWallet, setNameWallet] = useState('')
     const [walletAddress, setWalletAddress] = useState('')
     const [projectName, setProjectName] = useState('')
@@ -58,8 +43,6 @@ const Create = () => {
         setRamdomID(idRamdom)
     // eslint-disable-next-line react-hooks/exhaustive-deps
     },[])
-    const handToken = localStorage.getItem("tokenAuth")
-    console.log('handleSubmit', handToken);
     
     const callbackNameWallet = (childData) => {
         setNameWallet(childData)
@@ -88,7 +71,7 @@ const Create = () => {
     }
 
     const handleAddLimit = () => {
-        const newTokenLimit = {"tokenAddress" :"" ,"tokenName": "", "tokenLimit" : 0};
+        const newTokenLimit = {"tokenAddress" :"0xc643E83587818202E0fFf5eD96D10Abbc8Bb48e7" ,"tokenName": "RUN", "tokenLimit" : 0};
         const newArrLimit = [...tokenLimit, newTokenLimit];
         setTokenLimit(newArrLimit);
     };
@@ -115,17 +98,23 @@ const Create = () => {
     const handleSubmit = async (e) => {
         e.preventDefault()
         try {
-            const resp = await axios.post(BASE_URL_DATA_ADMIN_CREATE,
-            {
-                "id" : idProject.split(" ").join(""),
-                "walletName": nameWallet,
-                "walletAddress": walletAddress,
-                "status": status,
-                "limit":tokenLimit,
-                "email":emails,
-                "project":projectName,
-                "slack":slacks
-            })
+            await axios({
+                method: 'POST',
+                url: `${BASE_URL_DATA_ADMIN_CRUD}`,
+                headers:{
+                    'Authorization': `Bearer ${tokenAuth}`,
+                },
+                data: {
+                    "id" : idProject.split(" ").join(""),
+                    "walletName": nameWallet,
+                    "walletAddress": walletAddress,
+                    "status": status,
+                    "limit":tokenLimit,
+                    "email":emails,
+                    "project":projectName,
+                    "slack":slacks
+                }
+            });
             history.push(`/`)
         } catch (error) {
           console.log(error)

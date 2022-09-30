@@ -1,9 +1,7 @@
 import { Decrypts } from 'config/api/decrypts';
 import jwtDecode from 'jwt-decode';
-import { useHistory } from "react-router";
 
 const useCheckTokenExpired = () => { 
-    const history = useHistory();
     let isExpired = false;
     // const token = localStorage.getItem('serviceToken');
     const token = Decrypts();

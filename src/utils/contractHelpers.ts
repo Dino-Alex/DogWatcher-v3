@@ -1,81 +1,60 @@
 import idoStakingABI from 'config/abi/idoStakingABI.json';
-import nftABI from 'config/abi/nftABI.json';
-import { ethers } from 'ethers'
-import { simpleRpcProvider } from 'utils/providers'
-import { poolsConfig, poolsNFTConfig, bountiesConfig } from 'config/constants'
-import { PoolCategory } from 'config/constants/types'
-import { Conditions } from 'views/Membership/config'
+import { poolsConfig, poolsNFTConfig } from 'config/constants';
 import { idoList } from 'config/constants/ido';
-import { privateList } from "config/constants/privateshare"
+import { privateList } from "config/constants/privateshare";
+import { PoolCategory } from 'config/constants/types';
+import { ethers } from 'ethers';
+import { simpleRpcProvider } from 'utils/providers';
+import { Conditions } from 'views/Membership/config';
 // Addresses
 import {
-  getAddress,
-  getPancakeProfileAddress,
-  getPancakeRabbitsAddress,
-  getBunnyFactoryAddress,
-  getBunnySpecialAddress,
-  getCakeAddress,
-  getLotteryV2Address,
-  getMasterChefAddress,
-  getPointCenterIfoAddress,
-  getClaimRefundAddress,
-  getTradingCompetitionAddress,
-  getEasterNftAddress,
-  getCakeVaultAddress,
-  getPredictionsAddress,
-  getChainlinkOracleAddress,
-  getMulticallAddress,
-  getBunnySpecialCakeVaultAddress,
-  getBunnySpecialPredictionAddress,
-  getBunnySpecialLotteryAddress,
-  getFarmAuctionAddress,
-  getKscAddress,
-  getBksAddress,
-  getAirdropAddress,
-  getMemberOfKSharkAddress,
-  getMigrationAddress,
-  airdropAddress
-} from 'utils/addressHelpers'
+  airdropAddress, getAddress, getBksAddress, getBunnyFactoryAddress,
+  getBunnySpecialAddress, getBunnySpecialCakeVaultAddress, getBunnySpecialLotteryAddress, getBunnySpecialPredictionAddress, getCakeAddress, getCakeVaultAddress, getChainlinkOracleAddress, getClaimRefundAddress, getEasterNftAddress, getFarmAuctionAddress,
+  getKscAddress, getLotteryV2Address,
+  getMasterChefAddress, getMemberOfKSharkAddress,
+  getMigrationAddress, getMulticallAddress, getPancakeProfileAddress,
+  getPancakeRabbitsAddress, getPointCenterIfoAddress, getPredictionsAddress, getTradingCompetitionAddress
+} from 'utils/addressHelpers';
 
 // ABI
-import profileABI from 'config/abi/pancakeProfile.json'
-import pancakeRabbitsAbi from 'config/abi/pancakeRabbits.json'
-import bunnyFactoryAbi from 'config/abi/bunnyFactory.json'
-import bunnySpecialAbi from 'config/abi/bunnySpecial.json'
-import bep20Abi from 'config/abi/erc20.json'
-import erc721Abi from 'config/abi/erc721.json'
-import lpTokenAbi from 'config/abi/lpToken.json'
-import cakeAbi from 'config/abi/cake.json'
-import ifoV1Abi from 'config/abi/ifoV1.json'
-import ifoV2Abi from 'config/abi/ifoV2.json'
-import pointCenterIfo from 'config/abi/pointCenterIfo.json'
-import lotteryV2Abi from 'config/abi/lotteryV2.json'
-import masterChef from 'config/abi/masterchef.json'
-import sousChef from 'config/abi/sousChef.json'
-import sousChefV2 from 'config/abi/sousChefV2.json'
-import sousChefBnb from 'config/abi/sousChefBnb.json'
-import claimRefundAbi from 'config/abi/claimRefund.json'
-import tradingCompetitionAbi from 'config/abi/tradingCompetition.json'
-import easterNftAbi from 'config/abi/easterNft.json'
-import cakeVaultAbi from 'config/abi/cakeVault.json'
-import predictionsAbi from 'config/abi/predictions.json'
-import chainlinkOracleAbi from 'config/abi/chainlinkOracle.json'
-import MultiCallAbi from 'config/abi/Multicall.json'
-import bunnySpecialCakeVaultAbi from 'config/abi/bunnySpecialCakeVault.json'
-import bunnySpecialPredictionAbi from 'config/abi/bunnySpecialPrediction.json'
-import bunnySpecialLotteryAbi from 'config/abi/bunnySpecialLottery.json'
-import farmAuctionAbi from 'config/abi/farmAuction.json'
-import airDropAbi from 'config/abi/airdrop.json'
-import babySharkAbi from 'config/abi/babyshark.json'
-import poolNftAbi from 'config/abi/kSharkFarmingNFTs.json'
-import pancakeRouterAbi from 'config/abi/pancakeRouter.json'
-import membershipABi from 'config/abi/membershipAbi.json'
-import idoAbi from 'config/abi/ido.json'
-import ltdMigrationAbi from 'config/abi/LTDMigration.json'
-import ltdAirdropAbi from "config/abi/ltdAirdropAbi.json"
+import airDropAbi from 'config/abi/airdrop.json';
+import babySharkAbi from 'config/abi/babyshark.json';
+import bunnyFactoryAbi from 'config/abi/bunnyFactory.json';
+import bunnySpecialAbi from 'config/abi/bunnySpecial.json';
+import bunnySpecialCakeVaultAbi from 'config/abi/bunnySpecialCakeVault.json';
+import bunnySpecialLotteryAbi from 'config/abi/bunnySpecialLottery.json';
+import bunnySpecialPredictionAbi from 'config/abi/bunnySpecialPrediction.json';
+import cakeAbi from 'config/abi/cake.json';
+import cakeVaultAbi from 'config/abi/cakeVault.json';
+import chainlinkOracleAbi from 'config/abi/chainlinkOracle.json';
+import claimRefundAbi from 'config/abi/claimRefund.json';
+import easterNftAbi from 'config/abi/easterNft.json';
+import bep20Abi from 'config/abi/erc20.json';
+import erc721Abi from 'config/abi/erc721.json';
+import farmAuctionAbi from 'config/abi/farmAuction.json';
+import idoAbi from 'config/abi/ido.json';
+import ifoV1Abi from 'config/abi/ifoV1.json';
+import ifoV2Abi from 'config/abi/ifoV2.json';
+import poolNftAbi from 'config/abi/kSharkFarmingNFTs.json';
+import lotteryV2Abi from 'config/abi/lotteryV2.json';
+import lpTokenAbi from 'config/abi/lpToken.json';
+import ltdAirdropAbi from "config/abi/ltdAirdropAbi.json";
+import ltdMigrationAbi from 'config/abi/LTDMigration.json';
+import masterChef from 'config/abi/masterchef.json';
+import membershipABi from 'config/abi/membershipAbi.json';
+import MultiCallAbi from 'config/abi/Multicall.json';
+import profileABI from 'config/abi/pancakeProfile.json';
+import pancakeRabbitsAbi from 'config/abi/pancakeRabbits.json';
+import pancakeRouterAbi from 'config/abi/pancakeRouter.json';
+import pointCenterIfo from 'config/abi/pointCenterIfo.json';
+import predictionsAbi from 'config/abi/predictions.json';
+import sousChef from 'config/abi/sousChef.json';
+import sousChefBnb from 'config/abi/sousChefBnb.json';
+import sousChefV2 from 'config/abi/sousChefV2.json';
+import tradingCompetitionAbi from 'config/abi/tradingCompetition.json';
 
-import { ROUTER_ADDRESS } from '../config/constants'
-import { ChainLinkOracleContract, FarmAuctionContract, PredictionsContract } from './types'
+import { ROUTER_ADDRESS } from '../config/constants';
+import { ChainLinkOracleContract, FarmAuctionContract, PredictionsContract } from './types';
 
 
 

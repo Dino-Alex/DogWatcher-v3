@@ -1,6 +1,6 @@
 import { createReducer } from '@reduxjs/toolkit'
 import { fetchDataPool, fetchMinAmountToVoting } from "./actions"
-import { user, userProps, userStaked, userStakedProps } from "./type"
+import { userStakedProps } from "./type"
 
 interface globalPoolRun {
     userStaked: userStakedProps[],

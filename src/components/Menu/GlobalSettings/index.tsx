@@ -12,17 +12,17 @@ const GlobalSettings = () => {
   const [onPresentLoginModal] = useModal(<LoginModal />)
   const { theme } = useTheme()
   const history = useHistory();
-  const token = Decrypts();
+  // const token = Decrypts();
+  const tokenAuth = localStorage.getItem("tokenAuth")
+
   const handleSignout = ()=>{
-    localStorage.removeItem('serviceToken');
-    localStorage.removeItem('user_info');
-    localStorage.removeItem('userAddress');
+    localStorage.removeItem('tokenAuth');
     // window.location.reload();  userAddress
   }
   return (
     <Flex alignItems="center">
       { 
-       token ? 
+       tokenAuth ? 
       <CustomButtonSignOut onClick={handleSignout}>
         <CsText
           textAlign="center"
@@ -31,7 +31,7 @@ const GlobalSettings = () => {
           width="48px"
           color={theme.isDark ? 'textSubtle' : '#101133'}
         >
-          Sign out
+          Sign Out
         </CsText>
       </CustomButtonSignOut>
       : 

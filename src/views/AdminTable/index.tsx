@@ -5,21 +5,26 @@ import { Link } from 'react-router-dom';
 import { GetDataDogWatcher } from 'state/dogwatcher';
 import styled from 'styled-components';
 import ListAdmin from './components/ListAdmin';
-import { GetListAdmin } from './hook/fetchData';
 
 const AdminTable = () => {
 
   const { t } = useTranslation()
   const [listDataDog] = GetDataDogWatcher()
+  const tokenAuth = localStorage.getItem("tokenAuth")
   
     return (
         <Container>
             <Flex mb={1} mt={1} justifyContent='center'>
                 <Text fontWeight='700' fontSize='26px'>List Admin Table</Text>
             </Flex>
-            <Flex mb={1} mt={1} mr={2} justifyContent='flex-end'>
-                <Button><Link to='/create'>Create</Link></Button>
-            </Flex>
+            {tokenAuth ?
+                <Flex mb={1} mt={1} mr={2} justifyContent='flex-end'>
+                    <Button><Link to='/create'>Create</Link></Button>
+                </Flex>
+            :
+                <></>
+            }
+           
             <TitleTable>
                 <FlexListVotting width='100%' justifyContent='space-around'>
                     <TextListVotting justifyContent='center'>Name</TextListVotting>
@@ -27,7 +32,11 @@ const AdminTable = () => {
                     <TextListVotting justifyContent='center' id='Balance'>Balance/Limit</TextListVotting>
                     <TextListVotting justifyContent='center'>Email</TextListVotting>
                     <TextListVotting className='NoneWallet' id='Status' justifyContent='center'>Status</TextListVotting>
-                    <TextListVottingV1 justifyContent='center' id='Action'>Action</TextListVottingV1>
+                    {tokenAuth?
+                        <TextListVottingV1 justifyContent='center' id='Action'>Action</TextListVottingV1>
+                    :
+                        <></>
+                    }
                 </FlexListVotting>
             </TitleTable>
             {listDataDog ?
@@ -40,7 +49,6 @@ const AdminTable = () => {
                                 walletAddress={item.walletAddress}
                                 limit={item.limit}
                                 email={item.email}
-                                project={item.project}
                                 status={item.status}
                                 rowId={key}
                             />

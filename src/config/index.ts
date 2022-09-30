@@ -23,7 +23,6 @@ export const BASE_BSC_SCAN_URLS = {
 // 9 CAKE per block goes to Yield farms and lottery
 // CAKE_PER_BLOCK in config/index.ts = 40 as we only change the amount sent to the burn pool which is effectively a farm.
 // CAKE/Block in src/views/Home/components/CakeDataRow.tsx = 15 (40 - Amount sent to burn pool)
-const id = process.env.REACT_APP_CHAIN_ID
 export const CAKE_PER_BLOCK = new BigNumber(0.07)
 export const BLOCKS_PER_YEAR = new BigNumber((60 / BSC_BLOCK_TIME) * 60 * 24 * 365) // 10512000
 export const CAKE_PER_YEAR = CAKE_PER_BLOCK.times(BLOCKS_PER_YEAR)
@@ -55,8 +54,7 @@ export const MIN_OPEN_POOL_STORE = 2500000
 
 export const BASE_URL_DATA_ADMIN = "https://p9e4wgd2e6.execute-api.ap-southeast-1.amazonaws.com/Prod/items"
 export const BASE_URL_DATA_ADMIN_BY_ID = "https://p9e4wgd2e6.execute-api.ap-southeast-1.amazonaws.com/Prod/item/"
-export const BASE_URL_DATA_ADMIN_DELETE_ID = "https://y0pgvg7is5.execute-api.ap-southeast-1.amazonaws.com/Prod/item"
-export const BASE_URL_DATA_ADMIN_CREATE = "https://y0pgvg7is5.execute-api.ap-southeast-1.amazonaws.com/Prod/item"
+export const BASE_URL_DATA_ADMIN_CRUD = "https://7xiwvyzebf.execute-api.ap-southeast-1.amazonaws.com/Prod/item"
 export const BASE_URL_LOGIN = "https://7xiwvyzebf.execute-api.ap-southeast-1.amazonaws.com/Dev/admin/login"
 
 export const KAI_RPC_ENDPOINT = 'https://rpc.kardiachain.io'

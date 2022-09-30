@@ -1,12 +1,11 @@
 import BigNumber from 'bignumber.js'
-import poolsNftConfig from 'config/constants/poolsNFT'
-import sousChefABI from 'config/abi/sousChef.json'
 import cakeABI from 'config/abi/cake.json'
 import wbnbABI from 'config/abi/weth.json'
-import multicall from 'utils/multicall'
+import poolsNftConfig from 'config/constants/poolsNFT'
 import { getAddress, getWbnbAddress } from 'utils/addressHelpers'
 import { BIG_ZERO } from 'utils/bigNumber'
 import { getSouschefV2Contract } from 'utils/contractHelpers'
+import multicall from 'utils/multicall'
 
 export const fetchPoolsNftTotalStaking = async () => {
   const nonBnbPools = poolsNftConfig.filter((p) => p.stakingToken.symbol !== 'BNB')

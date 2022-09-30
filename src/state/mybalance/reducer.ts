@@ -1,6 +1,6 @@
 import { createReducer } from '@reduxjs/toolkit'
 import { fetchAllTransactions, fetchBalance } from './actions'
-import { ListTransaction, transactionProps, OffChainBalance, listBanlace } from './type'
+import { OffChainBalance, transactionProps } from './type'
 
 interface globalStateMyBalance {
     listTransactions: transactionProps[],

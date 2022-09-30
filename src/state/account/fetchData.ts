@@ -1,10 +1,9 @@
-import React, { useState, useEffect } from "react";
 import axios from "axios";
 import { Decrypts } from "config/api/decrypts";
 import { HashClient } from "config/api/encrypt";
-import { URL } from "config/index"
+import { URL } from "config/index";
 // eslint-disable-next-line import/named
-import { levelVipProps, referralCodeProps, nonceProps, userProps, listPartnerConfig, parentPartnerProps, getVipAndReferalProps, getListReferalProps } from "./type";
+import { getListReferalProps, getVipAndReferalProps, levelVipProps, listPartnerConfig, nonceProps, parentPartnerProps, referralCodeProps, userProps } from "./type";
 
 
 

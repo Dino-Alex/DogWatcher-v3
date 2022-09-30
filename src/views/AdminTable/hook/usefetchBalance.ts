@@ -1,6 +1,4 @@
-import { ChainId } from "@pancakeswap/sdk";
 import { ERC20_ABI } from "config/abi/erc20";
-import tokens from "config/constants/tokens";
 import { useEffect, useState } from "react";
 import multicall from "utils/multicall";
 

@@ -1,13 +1,11 @@
-import { Button, Flex, PencilIcon, Text, useModal } from '@phamphu19498/runtogether-uikit';
+import { Flex, PencilIcon, Text, useModal } from '@phamphu19498/runtogether-uikit';
 import { CloseIcon } from 'components/Pancake-uikit';
-import React, { useState } from 'react';
+import React from 'react';
 import history from 'routerHistory';
 import styled from 'styled-components';
 import { formatAmount } from 'utils/formatInfoNumbers';
-import { Tooltip } from 'views/Account/styles';
 import { GetBalance } from '../hook/usefetchBalance';
 import DeleteModalAdmin from './Modal/DeleteModalAdmin';
-import UpdateWallet from './Modal/UpdateWallet';
 
 interface Props {
     id?: string
@@ -15,7 +13,6 @@ interface Props {
     walletAddress?: string
     limit?: any
     email?: any
-    project?: string
     status?: boolean
     rowId?: number
 }
@@ -26,14 +23,12 @@ const ListAdmin: React.FC<Props> = ({
     walletAddress,
     limit,
     email,
-    project,
     status,
     rowId,
 }) => {
-    
+    const tokenAuth = localStorage.getItem("tokenAuth")
     const [openDeleteModal] = useModal(<DeleteModalAdmin id={id}/>)
-    const [openUpdateWalletModal] = useModal(<UpdateWallet id={id}/>)
-    console.log('listDataDog',email);
+    // const [openUpdateWalletModal] = useModal(<UpdateWallet id={id}/>)
     
     function setAddress(dataAddress) {
         if (dataAddress) {
@@ -42,12 +37,12 @@ const ListAdmin: React.FC<Props> = ({
         return ""
     }
 
-    function setEmail(dataEmail) {
-        if (dataEmail) {
-            return `${dataEmail.substring(0, 4)}...${dataEmail.substring(dataEmail.length - 4)}`
-        }
-        return ""
-    }
+    // function setEmail(dataEmail) {
+    //     if (dataEmail) {
+    //         return `${dataEmail.substring(0, 4)}...${dataEmail.substring(dataEmail.length - 4)}`
+    //     }
+    //     return ""
+    // }
     function compareBalance(balance, tokenLimit, name) {
         if (balance < tokenLimit) {
             return `${formatAmount(balance)} < ${formatAmount(tokenLimit)} ${name}`
@@ -163,6 +158,7 @@ const ListAdmin: React.FC<Props> = ({
                         </Flex>
                     }
                 </FlexDataName>
+                {tokenAuth ?
                 <FlexDataV1>
                     <Flex width='100%' justifyContent='center' style={{ gap: '10px' }}>
                         {/* <CsPencilIconV1 onClick={displayTooltip} style={{ cursor: 'pointer' }} /> */}
@@ -171,6 +167,9 @@ const ListAdmin: React.FC<Props> = ({
                         {/* <CsCloseIconV1 Color={Color} onClick={openDeleteModal} style={{ cursor: 'pointer' }} /> */}
                     </Flex>
                 </FlexDataV1>
+                :
+                    <></>
+                }
             </BodyTable>
         </Container>
     );
@@ -291,13 +290,13 @@ const CsText = styled(Text)`
         font-size: 12px;
     }
 `
-const TextEmail = styled(Text)`
-    font-weight: 400;
-    color: #029DA5;
-    @media screen and (max-width: 600px) {
-        font-size: 12px;
-    }
-`
+// const TextEmail = styled(Text)`
+//     font-weight: 400;
+//     color: #029DA5;
+//     @media screen and (max-width: 600px) {
+//         font-size: 12px;
+//     }
+// `
 const CsPencilIcon = styled(PencilIcon)`
     margin-bottom: 0.5rem;
     path{
@@ -310,10 +309,10 @@ const CsCloseIcon = styled(CloseIcon)`
         fill: #FF592C;
     }
 `
-const CsTextStatus = styled(Text) <{ isNone: boolean }>`
-    font-weight: 600;
-    @media screen and (max-width: 600px) {
-        font-size: 12px;
-    }
-    display: ${({ isNone }) => (isNone ? 'none' : 'block')};
-`
+// const CsTextStatus = styled(Text) <{ isNone: boolean }>`
+//     font-weight: 600;
+//     @media screen and (max-width: 600px) {
+//         font-size: 12px;
+//     }
+//     display: ${({ isNone }) => (isNone ? 'none' : 'block')};
+// `

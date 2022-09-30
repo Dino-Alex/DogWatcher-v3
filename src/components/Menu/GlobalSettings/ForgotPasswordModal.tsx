@@ -188,7 +188,7 @@ const ForgotModal: React.FC<InjectedModalProps> = ({ onDismiss }) => {
                   <ContainerIcon>
                     <Mail />
                   </ContainerIcon>
-                  <Controller
+                  {/* <Controller
                     control={control}
                     name="email"
                     rules={rules.email}
@@ -201,7 +201,7 @@ const ForgotModal: React.FC<InjectedModalProps> = ({ onDismiss }) => {
                         onChange={field.onChange}
                       />
                     )}
-                  />
+                  /> */}
                  </WrapInput>
                 <ErrorMessages errors={errors} name="email" />
 
@@ -210,7 +210,7 @@ const ForgotModal: React.FC<InjectedModalProps> = ({ onDismiss }) => {
                   <ContainerIcon>
                     <LockIcon />
                   </ContainerIcon>
-                  <Controller
+                  {/* <Controller
                     control={control}
                     name="password"
                     rules={rules.password}
@@ -223,7 +223,7 @@ const ForgotModal: React.FC<InjectedModalProps> = ({ onDismiss }) => {
                         onChange={field.onChange}
                       />  
                     )}
-                  />
+                  /> */}
                   <WrapIcon
                     className="icon"
                     onClick={() => {

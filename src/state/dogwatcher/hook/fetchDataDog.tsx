@@ -1,6 +1,5 @@
 import axios from "axios"
 import { BASE_URL_DATA_ADMIN } from "config"
-import { useState } from "react"
 import { ItemsPropsDog } from "../type"
 
 export const fetchDataDog =async (): Promise<ItemsPropsDog> => {

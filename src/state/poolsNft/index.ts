@@ -1,17 +1,15 @@
-import {createAsyncThunk, createSlice, PayloadAction} from '@reduxjs/toolkit'
+import { createAsyncThunk, createSlice } from '@reduxjs/toolkit'
 import poolsNftConfig from 'config/constants/poolsNFT'
-import {BIG_ZERO} from 'utils/bigNumber'
-import {PoolsNftState, CakeVault, VaultFees, VaultUser, AppThunk, PoolNft} from 'state/types'
-import {getAddress} from 'utils/addressHelpers'
-import {fetchPoolsNftStakingLimits, fetchPoolsNftTotalStaking } from './fetchPoolsNft'
+import { AppThunk, CakeVault, PoolNft, PoolsNftState, VaultFees, VaultUser } from 'state/types'
+import { getAddress } from 'utils/addressHelpers'
+import { BIG_ZERO } from 'utils/bigNumber'
+import { fetchPoolsNftStakingLimits, fetchPoolsNftTotalStaking } from './fetchPoolsNft'
 
 import {
     fetchPoolsNftAllowance,
-    fetchUserBalances,
-    fetchUserStakeBalances,
-    fetchUserPendingRewards,
+    fetchUserBalances, fetchUserPendingRewards, fetchUserStakeBalances
 } from './fetchPoolsNftUser'
-import {fetchPublicVaultData, fetchVaultFees} from './fetchVaultPublic'
+import { fetchPublicVaultData, fetchVaultFees } from './fetchVaultPublic'
 import fetchVaultUser from './fetchVaultUser'
 // eslint-disable-next-line import/named
 

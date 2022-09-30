@@ -1,6 +1,5 @@
 import axios from 'axios';
 import { BASE_URL_DATA_ADMIN_BY_ID } from "config";
-import useRefresh from 'hooks/useRefresh';
 import { useEffect, useState } from "react";
 
 export const GetListAdminByID = (ID:string) => {

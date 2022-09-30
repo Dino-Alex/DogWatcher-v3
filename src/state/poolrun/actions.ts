@@ -1,5 +1,5 @@
-import { createAction, createAsyncThunk } from '@reduxjs/toolkit'
-import { user, userStaked, endTimeProps, endBlockProps, startTimeProps } from './type'
+import { createAction } from '@reduxjs/toolkit'
+import { endBlockProps, endTimeProps, startTimeProps, user, userStaked } from './type'
 
 export const fetchDataUser = createAction<user>('poolRun/fetchDataUser')
 export const fetchDataUserStaked = createAction<userStaked>('poolRun/fetchDataUserStaked')

@@ -1,12 +1,11 @@
-import poolsConfig from 'config/constants/pools'
-import sousChefABI from 'config/abi/sousChef.json'
-import erc20ABI from 'config/abi/erc20.json'
-import multicall from 'utils/multicall'
-import { getMasterchefContract } from 'utils/contractHelpers'
-import { getAddress } from 'utils/addressHelpers'
-import { simpleRpcProvider } from 'utils/providers'
 import BigNumber from 'bignumber.js'
-import masterChefABI from "../../config/abi/masterchef.json";
+import erc20ABI from 'config/abi/erc20.json'
+import sousChefABI from 'config/abi/sousChef.json'
+import poolsConfig from 'config/constants/pools'
+import { getAddress } from 'utils/addressHelpers'
+import { getMasterchefContract } from 'utils/contractHelpers'
+import multicall from 'utils/multicall'
+import { simpleRpcProvider } from 'utils/providers'
 
 
 

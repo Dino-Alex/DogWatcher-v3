@@ -1,5 +1,5 @@
-import { createAction, createAsyncThunk } from '@reduxjs/toolkit'
-import { TokenIdsProps, SellListProps, NftInfoProps, TotalSellProps, SellItemsProps, ListSellItemsProps } from "./type"
+import { createAction } from '@reduxjs/toolkit'
+import { ListSellItemsProps, NftInfoProps, SellListProps, TokenIdsProps, TotalSellProps } from "./type"
 
 export const fetchBalance = createAction<{ balance: number }>('marketplace/fetchBalance')
 export const fetchTokenIds = createAction<TokenIdsProps>('marketplace/fetchTokenIds')

@@ -1,21 +1,21 @@
-import { useCallback } from 'react'
-import { useWeb3React, UnsupportedChainIdError } from '@web3-react/core'
 import { NoBscProviderError } from '@binance-chain/bsc-connector'
+import { connectorLocalStorageKey, ConnectorNames } from '@phamphu19498/runtogether-uikit'
+import { UnsupportedChainIdError, useWeb3React } from '@web3-react/core'
 import {
   NoEthereumProviderError,
-  UserRejectedRequestError as UserRejectedRequestErrorInjected,
+  UserRejectedRequestError as UserRejectedRequestErrorInjected
 } from '@web3-react/injected-connector'
 import {
   UserRejectedRequestError as UserRejectedRequestErrorWalletConnect,
-  WalletConnectConnector,
+  WalletConnectConnector
 } from '@web3-react/walletconnect-connector'
-import { ConnectorNames, connectorLocalStorageKey } from '@phamphu19498/runtogether-uikit'
-import { connectorsByName } from 'utils/web3React'
-import { setupNetwork } from 'utils/wallet'
-import useToast from 'hooks/useToast'
-import { profileClear } from 'state/profile'
-import { useAppDispatch } from 'state'
 import { useTranslation } from 'contexts/Localization'
+import useToast from 'hooks/useToast'
+import { useCallback } from 'react'
+import { useAppDispatch } from 'state'
+import { profileClear } from 'state/profile'
+import { setupNetwork } from 'utils/wallet'
+import { connectorsByName } from 'utils/web3React'
 
 
 
@@ -25,7 +25,6 @@ const useAuth = () => {
   const dispatch = useAppDispatch()
   const { activate, deactivate } = useWeb3React()
   const { toastError } = useToast()
-  const { account } = useWeb3React()
   const login = useCallback(
     (connectorID: ConnectorNames) => {
       const connector = connectorsByName[connectorID]
