@@ -51,7 +51,7 @@ const DeleteModalAdmin: React.FC<Props> = ({
             <Text bold fontSize="24px">{t('Delete Admin')}</Text>
           </CsFlex>
           <CsFlex mb={3} mt={3} width="100%" justifyContent="center" alignItems="center">
-            <Text color="red">Hãy chắc chắn bạn muốn xóa!</Text>
+            <Text color="red">Are you sure to delete?</Text>
           </CsFlex>
           {idProject !== undefined ?
            <Flex width="100%" mt="1rem" style={{gap: '10px'}}>

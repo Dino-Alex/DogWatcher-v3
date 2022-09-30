@@ -107,7 +107,7 @@ const Create = () => {
                     'Authorization': `${tokenAuth}`
                 },
                 data: {
-                    "id" : projectName+ramdomID.split(" ").join(""),
+                    "id" : (projectName+ramdomID).split(" ").join(""),
                     "walletName": nameWallet,
                     "walletAddress": walletAddress,
                     "status": status,
@@ -124,7 +124,7 @@ const Create = () => {
       }
 
       const [openSubmitModal] = useModal(<SubmitModal 
-        id={projectName+ramdomID.split(" ").join("")}
+        id={(projectName+ramdomID).split(" ").join("")}
         walletName={nameWallet}
         walletAddress={walletAddress}
         status={status}
@@ -154,7 +154,7 @@ const Create = () => {
                 parentCallback={callbackProjectName}/>
                 <Flex width='40%' flexDirection='column'>
                     <Text>Project ID</Text>
-                    <CustomInput  disabled value={projectName+ramdomID.split(" ").join("")}/>
+                    <CustomInput  disabled value={(projectName+ramdomID).split(" ").join("")}/>
                 </Flex>
             </FlexInput>
            <FlexInputToken>

@@ -185,7 +185,7 @@ const Update: React.FC<Props> = () => {
                     <FlexInputToken>
                         <Flex height='100%' width='40%' flexDirection='column' style={{ gap: '5px' }}  >
                             <Flex alignItems='center'>
-                                <Text bold color='#FF592C'>Thêm Token</Text>
+                                <Text bold color='#FF592C'>Add Token</Text>
                                 <CustomButton onClick={handleAddLimit} style={{ cursor: 'pointer' }} >
                                     <PlusIcon />
                                 </CustomButton>
@@ -211,7 +211,7 @@ const Update: React.FC<Props> = () => {
                         </Flex>
                         <Flex height='100%' width='40%' flexDirection='column' style={{ gap: '5px' }}>
                             <Flex alignItems='center' style={{ gap: "10px" }}>
-                                <Text bold color='#FF592C'>Thêm Email</Text>
+                                <Text bold color='#FF592C'>Add Email</Text>
                                 <CustomButton onClick={handleAddEmail} style={{ cursor: 'pointer' }} >
                                     <PlusIcon />
                                 </CustomButton>
@@ -253,7 +253,7 @@ const Update: React.FC<Props> = () => {
                         </Flex>
                         <Flex height='100%' width='40%' flexDirection='column' style={{ gap: '5px' }}>
                             <Flex alignItems='center'>
-                                <Text bold color='#FF592C'>Thêm Slack</Text>
+                                <Text bold color='#FF592C'>Add Slack</Text>
                                 <CustomButton onClick={handleAddSlack} style={{ cursor: 'pointer' }}  >
                                     <PlusIcon />
                                 </CustomButton>
