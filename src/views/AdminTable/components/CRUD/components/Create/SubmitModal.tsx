@@ -4,43 +4,62 @@ import {
   CsFlex
 } from 'components/Menu/GlobalSettings/styles';
 import { BASE_URL_DATA_ADMIN_CRUD } from 'config';
-import { useTranslation } from 'contexts/Localization';
 import React from 'react';
+import history from 'routerHistory';
 import styled from 'styled-components';
-// eslint-disable-next-line import/no-cycle, import/no-named-as-default
-// eslint-disable-next-line import/no-cycle
 
 
-// TODO: Temporary. Once uikit is merged with this style change, this can be removed.
 interface Props {
   id?: string
+  walletName?: string
+  walletAddress?: string
+  status?: boolean
+  limit?: any
+  email?: any
+  project?: string
+  slack?: any
   onDismiss?: any
 }
 
-const DeleteModalAdmin: React.FC<Props> = ({
+const SubmitModal: React.FC<Props> = ({
   id,
+  walletName,
+  walletAddress,
+  status,
+  limit,
+  email,
+  project,
+  slack,
   onDismiss
 }) => {
 
-  const { t } = useTranslation()
-  const idProject = id
   const tokenAuth = localStorage.getItem("tokenAuth")
   
   const handleSubmit = async (e) => {
     e.preventDefault()
     try {
-      await axios({
-          method: 'DELETE',
-          url: `${BASE_URL_DATA_ADMIN_CRUD}/${idProject}`,
-          headers:{
-              'Authorization': `${tokenAuth}`,
-          }
-      });
-      onDismiss()
-      window.location.reload(true)
-  } catch (error) {
-    console.log(error)
-  }
+        await axios({
+            method: 'POST',
+            url: `${BASE_URL_DATA_ADMIN_CRUD}`,
+            headers:{
+                'Authorization': `${tokenAuth}`
+            },
+            data: {
+                "id" : id,
+                "walletName": walletName,
+                "walletAddress": walletAddress,
+                "status": status,
+                "limit":limit,
+                "email":email,
+                "project":project,
+                "slack":slack
+            }
+        });
+        onDismiss()
+        history.push(`/`)
+    } catch (error) {
+      console.log(error)
+    }
   }
 
   return (
@@ -48,24 +67,24 @@ const DeleteModalAdmin: React.FC<Props> = ({
       <Flex flexDirection="column">
         <Flex paddingTop="0px" flexDirection="column">
           <CsFlex width="100%" justifyContent="center" alignItems="center">
-            <Text bold fontSize="24px">{t('Delete Admin')}</Text>
+            <Text bold fontSize="24px">WARRNING</Text>
           </CsFlex>
           <CsFlex mb={3} mt={3} width="100%" justifyContent="center" alignItems="center">
-            <Text color="red">Hãy chắc chắn bạn muốn xóa!</Text>
+            <Text color="red">YOU HAVE NOT ENTERED THE LIMIT FOR TOKEN!</Text>
           </CsFlex>
-          {idProject !== undefined ?
+          {id !== undefined ?
            <Flex width="100%" mt="1rem" style={{gap: '10px'}}>
            <ButtonDelete
              width="100%"
              onClick={handleSubmit}
            >
-             Delete
+             Continue
            </ButtonDelete>
            <ButtonCancel
              width="100%"
              onClick={onDismiss}
            >
-             Cancel
+             Return
            </ButtonCancel>
          </Flex>
         :
@@ -78,7 +97,7 @@ const DeleteModalAdmin: React.FC<Props> = ({
     </CustomModal>
   )
 }
-export default DeleteModalAdmin
+export default SubmitModal
 
 const CustomModal = styled(Modal)`
   padding: 0px !important;

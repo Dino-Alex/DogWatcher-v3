@@ -1,4 +1,4 @@
-import { Button, Flex, Input, Text } from '@phamphu19498/runtogether-uikit';
+import { Button, Flex, Input, Text, useModal } from '@phamphu19498/runtogether-uikit';
 import axios from 'axios';
 import { DeleteIcon } from 'components/Pancake-uikit';
 import { PlusIcon } from 'components/Pancake-uikit/widgets/Menu/icons';
@@ -14,6 +14,7 @@ import InputProject from './InputProject';
 import InputSlack from './InputSlack';
 import InputToken from './InputToken';
 import WalletAddress from './InputWalletAddress';
+import SubmitModal from './SubmitModal';
 
 const optionStatus = [
     {
@@ -36,14 +37,13 @@ const Create = () => {
     const [emails, setEmails] = useState([''])
     const [slacks, setSlacks] = useState([''])
     const [status, setStatus] = useState(true)
-    const [idProject, setIProject] = useState('')
     const [ramdomID, setRamdomID] = useState('')
     useEffect(()=>{
         const idRamdom = Math.random().toString(36).slice(2)
         setRamdomID(idRamdom)
     // eslint-disable-next-line react-hooks/exhaustive-deps
     },[])
-
+    
     function handleCancel() {
         history.push(`/`)
     }
@@ -55,7 +55,6 @@ const Create = () => {
     }
     const callbackProjectName = (childData) => {
         setProjectName(childData)
-        setIProject(projectName+ramdomID)
     }
     const callbackTokenLimit = (childData, index) => {
         const newArrLimit = [...tokenLimit];
@@ -108,7 +107,7 @@ const Create = () => {
                     'Authorization': `${tokenAuth}`
                 },
                 data: {
-                    "id" : idProject.split(" ").join(""),
+                    "id" : projectName+ramdomID.split(" ").join(""),
                     "walletName": nameWallet,
                     "walletAddress": walletAddress,
                     "status": status,
@@ -123,6 +122,17 @@ const Create = () => {
           console.log(error)
         }
       }
+
+      const [openSubmitModal] = useModal(<SubmitModal 
+        id={projectName+ramdomID.split(" ").join("")}
+        walletName={nameWallet}
+        walletAddress={walletAddress}
+        status={status}
+        limit={tokenLimit}
+        email={emails}
+        project={projectName}
+        slack={slacks}
+      />)
 
     return (
         <Container>
@@ -144,8 +154,7 @@ const Create = () => {
                 parentCallback={callbackProjectName}/>
                 <Flex width='40%' flexDirection='column'>
                     <Text>Project ID</Text>
-                    <CustomInput  disabled value={idProject.split(" ").join("")}/>
-                    {/* ""+ projectName.trim()+idRamdom.trim() +"" */}
+                    <CustomInput  disabled value={projectName+ramdomID.split(" ").join("")}/>
                 </Flex>
             </FlexInput>
            <FlexInputToken>
@@ -223,7 +232,11 @@ const Create = () => {
            <FlexInput>
                 <Flex width='100%' justifyContent='center'>
                     <Flex style={{gap: '20px'}}>
-                        <Button onClick={handleSubmit} disabled={nameWallet === '' || walletAddress === '' || projectName === ''}>Submit</Button>
+                        {tokenLimit[0].tokenLimit === 0 ?
+                            <Button onClick={openSubmitModal} disabled={nameWallet === '' || walletAddress === '' || projectName === '' || emails[0] === ''}>Submit</Button>
+                        :
+                            <Button onClick={handleSubmit} disabled={nameWallet === '' || walletAddress === '' || projectName === '' || emails[0] === ''}>Submit</Button>
+                        }
                         <Button onClick={handleCancel}>Cancel</Button>
                     </Flex>
                 </Flex>

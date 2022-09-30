@@ -39,7 +39,6 @@ const override: CSSProperties = {
 };
 
 
-
 const LoginModal: React.FC<InjectedModalProps> = ({ onDismiss }) => {
   const [changePassword, setChangePassword] = useState(true)
   const changeIcon = changePassword !== true

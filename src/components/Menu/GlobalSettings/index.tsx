@@ -19,6 +19,7 @@ const GlobalSettings = () => {
     localStorage.removeItem('tokenAuth');
     // window.location.reload();  userAddress
   }
+  
   return (
     <Flex alignItems="center">
       { 

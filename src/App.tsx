@@ -33,6 +33,7 @@ BigNumber.config({
   DECIMAL_PLACES: 80,
 })
 
+
 const App: React.FC = () => {
   usePollBlockNumber()
   useEagerConnect()

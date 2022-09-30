@@ -1,7 +1,7 @@
 import { Button, Flex, Text } from '@phamphu19498/runtogether-uikit';
 import { useTranslation } from 'contexts/Localization';
 import React from 'react';
-import { Link, useHistory } from 'react-router-dom';
+import {useHistory } from 'react-router-dom';
 import { GetDataDogWatcher } from 'state/dogwatcher';
 import styled from 'styled-components';
 import ListAdmin from './components/ListAdmin';
@@ -20,7 +20,7 @@ const AdminTable = () => {
     return (
         <Container>
             <Flex mb={1} mt={1} justifyContent='center'>
-                <Text fontWeight='700' fontSize='26px'>List Admin Table</Text>
+                <Text fontWeight='700' fontSize='26px'> ADMIN </Text>
             </Flex>
             {tokenAuth ?
                 <Flex mb={1} mt={1} mr={2} justifyContent='flex-end'>
