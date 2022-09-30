@@ -52,9 +52,9 @@ export const MIN_CREATE_VOTING_PROPOSALS = 1000000
 export const URL_SNAPSHORT_VOTING ="https://frvomtq0yglr.usemoralis.com:2053/server/functions/StakeToVote?"
 export const MIN_OPEN_POOL_STORE = 2500000
 
-export const BASE_URL_DATA_ADMIN = "https://p9e4wgd2e6.execute-api.ap-southeast-1.amazonaws.com/Prod/items"
-export const BASE_URL_DATA_ADMIN_BY_ID = "https://p9e4wgd2e6.execute-api.ap-southeast-1.amazonaws.com/Prod/item/"
-export const BASE_URL_DATA_ADMIN_CRUD = "https://7xiwvyzebf.execute-api.ap-southeast-1.amazonaws.com/Prod/item"
+export const BASE_URL_DATA_ADMIN = "https://7ncpndcv9h.execute-api.ap-southeast-1.amazonaws.com/Prod/items"
+export const BASE_URL_DATA_ADMIN_BY_ID = "https://7ncpndcv9h.execute-api.ap-southeast-1.amazonaws.com/Prod/item/"
+export const BASE_URL_DATA_ADMIN_CRUD = "https://e3w01df9cg.execute-api.ap-southeast-1.amazonaws.com/Prod/item"
 export const BASE_URL_LOGIN = "https://7xiwvyzebf.execute-api.ap-southeast-1.amazonaws.com/Dev/admin/login"
 
 export const KAI_RPC_ENDPOINT = 'https://rpc.kardiachain.io'

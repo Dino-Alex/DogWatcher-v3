@@ -1,7 +1,7 @@
 import { Button, Flex, Text } from '@phamphu19498/runtogether-uikit';
 import { useTranslation } from 'contexts/Localization';
 import React from 'react';
-import { Link } from 'react-router-dom';
+import { Link, useHistory } from 'react-router-dom';
 import { GetDataDogWatcher } from 'state/dogwatcher';
 import styled from 'styled-components';
 import ListAdmin from './components/ListAdmin';
@@ -11,6 +11,11 @@ const AdminTable = () => {
   const { t } = useTranslation()
   const [listDataDog] = GetDataDogWatcher()
   const tokenAuth = localStorage.getItem("tokenAuth")
+  const history = useHistory();
+
+  function handleClick() {
+    history.push(`/create`)
+  }
   
     return (
         <Container>
@@ -19,7 +24,7 @@ const AdminTable = () => {
             </Flex>
             {tokenAuth ?
                 <Flex mb={1} mt={1} mr={2} justifyContent='flex-end'>
-                    <Button><Link to='/create'>Create</Link></Button>
+                    <Button onClick={handleClick}>Create</Button>
                 </Flex>
             :
                 <></>

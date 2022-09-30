@@ -82,7 +82,7 @@ const LoginModal: React.FC<InjectedModalProps> = ({ onDismiss }) => {
             <Text color="#B5B5BE" />
             <TransferModal />
           </CsFlex>
-          <Flex width='100%'>
+          <form>
             <Flex width='100%' flexDirection="column">
               <ContainerInput>
                 <WrapInput>
@@ -136,7 +136,7 @@ const LoginModal: React.FC<InjectedModalProps> = ({ onDismiss }) => {
               }
               </Flex>
             </Flex>
-          </Flex>
+          </form>
         </Flex>
       </Flex>
     </CustomModal>

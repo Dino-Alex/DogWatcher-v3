@@ -3,7 +3,7 @@ import axios from 'axios';
 import { DeleteIcon } from 'components/Pancake-uikit';
 import { PlusIcon } from 'components/Pancake-uikit/widgets/Menu/icons';
 import {BASE_URL_DATA_ADMIN_CRUD } from 'config';
-import { Link } from 'react-router-dom';
+import { Link, useHistory } from 'react-router-dom';
 import history from 'routerHistory';
 import Select from 'react-select'
 import React, { useEffect, useState } from 'react';
@@ -43,7 +43,10 @@ const Create = () => {
         setRamdomID(idRamdom)
     // eslint-disable-next-line react-hooks/exhaustive-deps
     },[])
-    
+
+    function handleCancel() {
+        history.push(`/`)
+    }
     const callbackNameWallet = (childData) => {
         setNameWallet(childData)
     }
@@ -102,7 +105,7 @@ const Create = () => {
                 method: 'POST',
                 url: `${BASE_URL_DATA_ADMIN_CRUD}`,
                 headers:{
-                    'Authorization': `Bearer ${tokenAuth}`,
+                    'Authorization': `${tokenAuth}`
                 },
                 data: {
                     "id" : idProject.split(" ").join(""),
@@ -221,7 +224,7 @@ const Create = () => {
                 <Flex width='100%' justifyContent='center'>
                     <Flex style={{gap: '20px'}}>
                         <Button onClick={handleSubmit} disabled={nameWallet === '' || walletAddress === '' || projectName === ''}>Submit</Button>
-                        <Button><Link to='/'>Cancel</Link></Button>
+                        <Button onClick={handleCancel}>Cancel</Button>
                     </Flex>
                 </Flex>
            </FlexInput>

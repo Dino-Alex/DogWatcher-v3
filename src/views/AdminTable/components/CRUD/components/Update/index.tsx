@@ -45,6 +45,9 @@ const Update: React.FC<Props> = () => {
     const [slacks, setSlacks] = useState([''])
     const [status, setStatus] = useState(true)
 
+    function handleCancel() {
+        history.push(`/`)
+    }
     useEffect(() => {
         if (emails.length === 1) {
             if (listDataAdminByID[0]?.email !== undefined) {
@@ -136,7 +139,7 @@ const Update: React.FC<Props> = () => {
                 method: 'POST',
                 url: `${BASE_URL_DATA_ADMIN_CRUD}`,
                 headers:{
-                    'Authorization': `Bearer ${tokenAuth}`,
+                    'Authorization': `${tokenAuth}`,
                 },
                 data: {
                     "id": idProject,
@@ -279,7 +282,7 @@ const Update: React.FC<Props> = () => {
                         <Flex width='100%' justifyContent='center'>
                             <Flex style={{ gap: '20px' }}>
                                 <Button onClick={handleSubmit}>Submit</Button>
-                                <Button><Link to='/'>Cancel</Link></Button>
+                                <Button onClick={handleCancel}>Cancel</Button>
                             </Flex>
                         </Flex>
                     </FlexInput>
