@@ -1,6 +1,7 @@
 import { Button, Flex, Text } from '@phamphu19498/runtogether-uikit';
 import { useTranslation } from 'contexts/Localization';
-import React from 'react';
+import React, { useEffect, useState } from 'react';
+import ReactPaginate from 'react-paginate';
 import {useHistory } from 'react-router-dom';
 import { GetDataDogWatcher } from 'state/dogwatcher';
 import styled from 'styled-components';
@@ -16,11 +17,29 @@ const AdminTable = () => {
   function handleClick() {
     history.push(`/create`)
   }
+
+   // panigate
+   function MovetoTop(){
+    window.scrollTo({top: 0, left: 0, behavior: 'smooth'});
+  }
+  const itemsPerPage = 5
+  const [pageCount, setPageCount] = useState(0);
+  const [itemOffset, setItemOffset] = useState(0);
+  const [currentItems, setCurrentItems] = useState([]);
+  const handlePageClick = (event) => {
+    const newOffset = (event.selected * itemsPerPage) % listDataDog.length;
+      setItemOffset(newOffset);
+    };
+    useEffect(() => {
+      const endOffset = itemOffset + itemsPerPage;
+      setCurrentItems(listDataDog.slice(itemOffset, endOffset));
+        setPageCount(Math.ceil(listDataDog.length / itemsPerPage));
+    }, [itemOffset, itemsPerPage, listDataDog]);
   
     return (
         <Container>
-            <Flex mb={1} mt={1} justifyContent='center'>
-                <Text fontWeight='700' fontSize='26px'> ADMIN </Text>
+            <Flex mb={4} mt={1} justifyContent='center'>
+                <Text fontWeight='700' fontSize='26px'> TALBE ADMIN </Text>
             </Flex>
             {tokenAuth ?
                 <Flex mb={1} mt={1} mr={2} justifyContent='flex-end'>
@@ -44,9 +63,9 @@ const AdminTable = () => {
                     }
                 </FlexListVotting>
             </TitleTable>
-            {listDataDog ?
+            {currentItems ?
                 <>
-                    {listDataDog.map((item, key) => {
+                    {currentItems.map((item, key) => {
                         return (
                             <ListAdmin
                                 id={item.id}
@@ -67,6 +86,29 @@ const AdminTable = () => {
                 </Flex>
                </>
             }
+            <CustomFlex width="100%" mt="1rem" justifyContent="center" height="62px">
+                <ReactPaginate
+                    nextLabel=">"
+                    onPageChange={handlePageClick}
+                    pageRangeDisplayed={3}
+                    marginPagesDisplayed={2}
+                    pageCount={pageCount}
+                    previousLabel="<"
+                    pageClassName="page-item"
+                    pageLinkClassName="page-link"
+                    previousClassName="page-item"
+                    previousLinkClassName="page-link"
+                    nextClassName="page-item"
+                    nextLinkClassName="page-link"
+                    breakLabel="..."
+                    breakClassName="page-item"
+                    breakLinkClassName="page-link"
+                    containerClassName="pagination"
+                    activeClassName="active"
+                    renderOnZeroPageCount={null}
+                    onClick={MovetoTop}
+                />
+            </CustomFlex>
         </Container>
     );
 };
@@ -202,5 +244,44 @@ const TextListVottingV1 = styled(Flex)`
     }
     @media screen and (max-width: 980px) {
        display: none;
+    }
+`
+const CustomFlex = styled(Flex)`
+    margin-bottom:1.5rem;
+    .pagination{
+        display:flex;
+        flex-direction: row;
+        width:500px;
+        justify-content:space-around;
+        align-items:center;
+        @media screen and (max-width: 600px){
+            width: 100%;
+        }
+        *{
+            list-style-type: none;
+        }
+    }
+    .page-link {
+        background:${({ theme }) => theme.colors.tertiary};
+        padding:12px;
+        border-radius:5px !important;
+        border:none !important;
+        color:${({ theme }) => theme.colors.text};
+        &:focus {
+            box-shadow:none !important;
+        }
+        &:hover{
+            background:${({ theme }) => theme.colors.backgroundTab};
+        }
+    }
+    .page-item.disabled .page-link{
+        background:${({ theme }) => theme.colors.disabled};
+        cursor: not-allowed! important;
+        opacity: 0.7;
+        pointer-events:none;
+    }
+    .page-item.active .page-link{
+        background:${({ theme }) => theme.colors.primaryBright};
+        color:#fff;
     }
 `
