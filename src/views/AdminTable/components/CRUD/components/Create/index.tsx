@@ -3,9 +3,8 @@ import axios from 'axios';
 import { DeleteIcon } from 'components/Pancake-uikit';
 import { PlusIcon } from 'components/Pancake-uikit/widgets/Menu/icons';
 import {BASE_URL_DATA_ADMIN_CRUD } from 'config';
-import { Link, useHistory } from 'react-router-dom';
+import Select from 'components/Select/SelectV2';
 import history from 'routerHistory';
-import Select from 'react-select'
 import React, { useEffect, useState } from 'react';
 import styled from 'styled-components';
 import InputEmail from './InputEmail';
@@ -18,11 +17,11 @@ import SubmitModal from './SubmitModal';
 
 const optionStatus = [
     {
-        label: 'True',
+        label: 'Enable',
         value: true,
     },
     {
-        label: 'False',
+        label: 'Disable',
         value: false,
     }
 ]
@@ -32,7 +31,7 @@ const Create = () => {
     const tokenAuth = localStorage.getItem("tokenAuth")
     const [nameWallet, setNameWallet] = useState('')
     const [walletAddress, setWalletAddress] = useState('')
-    const [projectName, setProjectName] = useState('')
+    const [projectName, setProjectName] = useState('ProjectDeltaLabs')
     const [tokenLimit, setTokenLimit] = useState([{"tokenAddress" : "0xc643E83587818202E0fFf5eD96D10Abbc8Bb48e7", "tokenName" : "RUN", "tokenLimit" : 0}])
     const [emails, setEmails] = useState([''])
     const [slacks, setSlacks] = useState([''])
@@ -138,7 +137,7 @@ const Create = () => {
         <Container>
         <Flex flexDirection='column'>
             <Flex width='100%' mt={3} mb={3} justifyContent='center' alignItems='center'>
-                <Text fontSize='26px'>Create Admin</Text>
+                <Text fontSize='26px' fontWeight='900'>CREATE</Text>
             </Flex>
             <FlexInput>
                 <NameWallet 
@@ -160,7 +159,7 @@ const Create = () => {
            <FlexInputToken>
             <Flex height='100%' width='40%' flexDirection='column' style={{gap: '5px'}}  >
                 <Flex alignItems='center'>
-                    <Text bold color='#FF592C'>Add Token</Text>
+                    <Text>Add Token</Text>
                     <PlusIcon onClick={handleAddLimit} style={{cursor: 'pointer'}}/>
                 </Flex>
             {
@@ -177,7 +176,7 @@ const Create = () => {
             </Flex>
             <Flex height='100%' width='40%' flexDirection='column' style={{gap: '5px'}}>
                 <Flex alignItems='center'>
-                    <Text bold color='#FF592C'>Add Email</Text>
+                    <Text>Add Email</Text>
                     <PlusIcon onClick={handleAddEmail} style={{cursor: 'pointer'}}/>
                 </Flex>
             {
@@ -197,22 +196,18 @@ const Create = () => {
            <FlexInputToken>
             <Flex height='100%' width='40%' flexDirection='column' style={{gap: '5px'}}  >
                 <Flex alignItems='center'>
-                    <Text bold color='#FF592C'>Status</Text>
+                    <Text>Status</Text>
                 </Flex>
                 <Flex>
                 <Select
                     options={optionStatus}
-                    defaultValue={{
-                        label: 'True',
-                        value: true,
-                    }}
                     onChange={(e) => setStatus(e.value)}
                 />
                 </Flex>
             </Flex>
             <Flex height='100%' width='40%' flexDirection='column' style={{gap: '5px'}}>
                 <Flex alignItems='center'>
-                    <Text bold color='#FF592C'>Add Slack</Text>
+                    <Text>Add Slack</Text>
                     <PlusIcon onClick={handleAddSlack} style={{cursor: 'pointer'}}/>
                 </Flex>
             {

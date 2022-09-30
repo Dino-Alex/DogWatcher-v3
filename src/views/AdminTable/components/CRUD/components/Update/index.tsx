@@ -163,7 +163,7 @@ const Update: React.FC<Props> = () => {
             {listDataAdminByID.length !== 0 ?
                 <Flex flexDirection='column'>
                     <Flex width='100%' mt={3} mb={3} justifyContent='center' alignItems='center'>
-                        <Text fontSize='26px'>Update Admin</Text>
+                        <Text fontSize='26px' fontWeight='900'>UPDATE</Text>
                     </Flex>
                     <FlexInput>
                         <NameWallet
@@ -175,17 +175,18 @@ const Update: React.FC<Props> = () => {
                     </FlexInput>
                     <FlexInput>
                         <InputProject
-                            value={projectName}
+                            valueProject={projectName}
                             parentCallback={callbackProjectName} />
                         <Flex width='40%' flexDirection='column'>
                             <Text>ID Project</Text>
                             <CustomInput disabled value={idProject} />
+                            <Text fontSize='12px' color='#FF592C'>Can not change</Text>
                         </Flex>
                     </FlexInput>
                     <FlexInputToken>
                         <Flex height='100%' width='40%' flexDirection='column' style={{ gap: '5px' }}  >
                             <Flex alignItems='center'>
-                                <Text bold color='#FF592C'>Add Token</Text>
+                                <Text>Add Token</Text>
                                 <CustomButton onClick={handleAddLimit} style={{ cursor: 'pointer' }} >
                                     <PlusIcon />
                                 </CustomButton>
@@ -211,7 +212,7 @@ const Update: React.FC<Props> = () => {
                         </Flex>
                         <Flex height='100%' width='40%' flexDirection='column' style={{ gap: '5px' }}>
                             <Flex alignItems='center' style={{ gap: "10px" }}>
-                                <Text bold color='#FF592C'>Add Email</Text>
+                                <Text>Add Email</Text>
                                 <CustomButton onClick={handleAddEmail} style={{ cursor: 'pointer' }} >
                                     <PlusIcon />
                                 </CustomButton>
@@ -238,7 +239,7 @@ const Update: React.FC<Props> = () => {
                     <FlexInputToken>
                         <Flex height='100%' width='40%' flexDirection='column' style={{ gap: '5px' }}  >
                             <Flex alignItems='center'>
-                                <Text bold color='#FF592C'>Status</Text>
+                                <Text>Status</Text>
                             </Flex>
                             <Flex>
                                 <Select
@@ -253,7 +254,7 @@ const Update: React.FC<Props> = () => {
                         </Flex>
                         <Flex height='100%' width='40%' flexDirection='column' style={{ gap: '5px' }}>
                             <Flex alignItems='center'>
-                                <Text bold color='#FF592C'>Add Slack</Text>
+                                <Text>Add Slack</Text>
                                 <CustomButton onClick={handleAddSlack} style={{ cursor: 'pointer' }}  >
                                     <PlusIcon />
                                 </CustomButton>
@@ -281,7 +282,7 @@ const Update: React.FC<Props> = () => {
                     <FlexInput>
                         <Flex width='100%' justifyContent='center'>
                             <Flex style={{ gap: '20px' }}>
-                                <Button onClick={handleSubmit}>Submit</Button>
+                                <Button onClick={handleSubmit}>Update</Button>
                                 <Button onClick={handleCancel}>Cancel</Button>
                             </Flex>
                         </Flex>

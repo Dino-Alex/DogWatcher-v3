@@ -68,8 +68,8 @@ export const optionArrayToken = [
       value: '0xc643E83587818202E0fFf5eD96D10Abbc8Bb48e7',
   },
   {
-      label: 'BUSD',
-      value: '0xe9e7cea3dedca5984780bafc599bd69add087d56',
+      label: 'HESIC',
+      value: '0x50CCe3753990559bc0B81bEEA0667885edAaF0DD',
   },
   {
       label: 'BAMI',
@@ -78,5 +78,33 @@ export const optionArrayToken = [
   {
       label: 'LTD',
       value: '0xdbad544416df0677254645422bb560af8408cae7',
-  }
+  },
+  {
+    label: 'HTD',
+    value: '0x5E2689412Fae5c29BD575fbe1d5C1CD1e0622A8f',
+}
+]
+
+export const optionArrayProject = [
+  {
+    label: 'Project DeltaLabs',
+    value: 'ProjectDeltaLabs',
+  },
+  {
+      label: 'Project Run',
+      value: 'ProjectRun',
+  },
+  {
+      label: 'Project Hesman',
+      value: 'ProjectHesman',
+  },
+  {
+      label: 'Project Bami',
+      value: 'ProjectBami',
+  },
+  {
+      label: 'Project LTD',
+      value: 'ProjectLTD',
+  },
+
 ]

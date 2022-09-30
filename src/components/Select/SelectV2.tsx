@@ -50,7 +50,7 @@ const DropDownContainer = styled.div<{ isOpen: boolean; width: number; height: n
   cursor: pointer;
   width: ${({ width }) => width}px;
   position: relative;
-  width: 280px;
+  width: 100%;
   height: 48px;
   box-sizing: border-box;
   @media only screen and (max-width: 600px) {

@@ -25,6 +25,9 @@ const DeleteModalAdmin: React.FC<Props> = ({
   const { t } = useTranslation()
   const idProject = id
   const tokenAuth = localStorage.getItem("tokenAuth")
+
+  console.log('idProject',idProject);
+  
   
   const handleSubmit = async (e) => {
     e.preventDefault()
@@ -37,7 +40,7 @@ const DeleteModalAdmin: React.FC<Props> = ({
           }
       });
       onDismiss()
-      window.location.reload(true)
+      // window.location.reload(true)
   } catch (error) {
     console.log(error)
   }
