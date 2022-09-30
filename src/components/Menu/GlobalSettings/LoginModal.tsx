@@ -50,9 +50,6 @@ const LoginModal: React.FC<InjectedModalProps> = ({ onDismiss }) => {
   const [username, setUsername] = useState('');
   const [password, setPassword] = useState('');
 
-  console.log('errorLogin',errorLogin);
-  
-
   const handleSubmit = async (e) => {
     e.preventDefault()
     try {
