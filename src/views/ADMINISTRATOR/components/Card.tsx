@@ -1,4 +1,4 @@
-import { Button, Flex,  Text, useModal } from '@phamphu19498/runtogether-uikit';
+import { Button, Flex,  Text, useModal } from '@thaihuuluong/dogwatcher-uikit';
 import React from 'react';
 import BigNumber from 'bignumber.js';
 import { useWeb3React } from '@web3-react/core';

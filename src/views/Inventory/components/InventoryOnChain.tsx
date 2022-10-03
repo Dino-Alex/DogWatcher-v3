@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import styled from "styled-components";
-import { Text, Flex, Button } from "@phamphu19498/runtogether-uikit";
+import { Text, Flex, Button } from "@thaihuuluong/dogwatcher-uikit";
 import { useTranslation } from "contexts/Localization";
 import Inwallet from "./Inwallet"
 import OnSale from "./OnSale"

@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import { Text, Flex, Button, Modal, AutoRenewIcon } from "@phamphu19498/runtogether-uikit";
+import { Text, Flex, Button, Modal, AutoRenewIcon } from "@thaihuuluong/dogwatcher-uikit";
 import BigNumber from "bignumber.js";
 import { BalanceInput } from "components/Pancake-uikit";
 import { usePriceRunBusd } from "state/farms/hooks";

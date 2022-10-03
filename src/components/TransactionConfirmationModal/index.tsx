@@ -12,7 +12,7 @@ import {
   Modal,
   InjectedModalProps,
   Button,
-} from '@phamphu19498/runtogether-uikit'
+} from '@thaihuuluong/dogwatcher-uikit'
 
 import { registerToken } from 'utils/wallet'
 import { useTranslation } from 'contexts/Localization'

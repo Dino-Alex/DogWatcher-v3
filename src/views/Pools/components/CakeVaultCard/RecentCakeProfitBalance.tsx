@@ -1,5 +1,5 @@
 import React from 'react'
-import { Text, TooltipText, useTooltip } from '@phamphu19498/runtogether-uikit'
+import { Text, TooltipText, useTooltip } from '@thaihuuluong/dogwatcher-uikit'
 import { useTranslation } from 'contexts/Localization'
 import Balance from 'components/Balance'
 

@@ -1,6 +1,6 @@
 import React from 'react'
 import styled, { css, DefaultTheme } from 'styled-components'
-import { Box } from '@phamphu19498/runtogether-uikit'
+import { Box } from '@thaihuuluong/dogwatcher-uikit'
 import { ClipFill } from '../types'
 
 

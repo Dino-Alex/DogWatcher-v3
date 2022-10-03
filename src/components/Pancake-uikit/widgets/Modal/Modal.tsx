@@ -1,4 +1,4 @@
-import { Text } from "@phamphu19498/runtogether-uikit";
+import { Text } from "@thaihuuluong/dogwatcher-uikit";
 import React from "react";
 import { useTheme } from "styled-components";
 import Heading from "../../components/Heading/Heading";

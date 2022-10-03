@@ -9,7 +9,7 @@ import {
   ModalContainer,
   ModalHeader as UIKitModalHeader,
   ModalTitle,
-} from '@phamphu19498/runtogether-uikit'
+} from '@thaihuuluong/dogwatcher-uikit'
 import { Heading } from 'components/Pancake-uikit'
 import BigNumber from 'bignumber.js'
 import { useTranslation } from 'contexts/Localization'

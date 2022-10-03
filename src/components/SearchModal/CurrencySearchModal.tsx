@@ -11,7 +11,7 @@ import {
   Heading,
   Button,
 } from 'components/Pancake-uikit'
-import { Modal } from '@phamphu19498/runtogether-uikit'
+import { Modal } from '@thaihuuluong/dogwatcher-uikit'
 import styled from 'styled-components'
 import usePrevious from 'hooks/usePreviousValue'
 import { TokenList } from '@uniswap/token-lists'

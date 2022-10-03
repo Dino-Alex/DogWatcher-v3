@@ -1,5 +1,5 @@
 import React from 'react'
-import { ModalProvider , light , dark } from '@phamphu19498/runtogether-uikit'
+import { ModalProvider , light , dark } from '@thaihuuluong/dogwatcher-uikit'
 import { Web3ReactProvider } from '@web3-react/core'
 import { HelmetProvider } from 'react-helmet-async'
 import { Provider } from 'react-redux'

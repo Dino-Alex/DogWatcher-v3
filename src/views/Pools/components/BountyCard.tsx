@@ -13,7 +13,7 @@ import {
   useModal,
   Box,
   useTooltip,
-} from '@phamphu19498/runtogether-uikit'
+} from '@thaihuuluong/dogwatcher-uikit'
 import { useTranslation } from 'contexts/Localization'
 import { getBalanceNumber } from 'utils/formatBalance'
 import { usePriceLtdBusd } from 'state/farms/hooks'

@@ -1,5 +1,5 @@
 import React from 'react'
-import { Heading, Text } from '@phamphu19498/runtogether-uikit'
+import { Heading, Text } from '@thaihuuluong/dogwatcher-uikit'
 import { NormalComponents, SpecialComponents } from 'react-markdown/src/ast-to-react'
 import styled from 'styled-components'
 

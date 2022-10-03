@@ -1,6 +1,6 @@
 import React from 'react'
 import { Currency, Pair } from '@pancakeswap/sdk'
-import { ChevronDownIcon, Text, useModal, Flex } from '@phamphu19498/runtogether-uikit'
+import { ChevronDownIcon, Text, useModal, Flex } from '@thaihuuluong/dogwatcher-uikit'
 import { Button } from 'components/Pancake-uikit'
 import styled from 'styled-components'
 import { useTranslation } from 'contexts/Localization'

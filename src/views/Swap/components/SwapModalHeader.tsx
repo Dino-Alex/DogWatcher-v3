@@ -1,7 +1,7 @@
 import React, { useMemo } from 'react'
 import styled from 'styled-components'
 import { Trade, TradeType } from '@pancakeswap/sdk'
-import { Text, ArrowDownIcon, Button } from '@phamphu19498/runtogether-uikit'
+import { Text, ArrowDownIcon, Button } from '@thaihuuluong/dogwatcher-uikit'
 import { Field } from 'state/swap/actions'
 import { useTranslation } from "contexts/Localization";
 import { isAddress, shortenAddress } from 'utils'

@@ -1,6 +1,6 @@
 import React, { Children } from "react";
 import styled from "styled-components";
-import { Button } from "@phamphu19498/runtogether-uikit";
+import { Button } from "@thaihuuluong/dogwatcher-uikit";
 
 const ActiveButton = styled(Button)`
     background: ${({ theme }) => theme.isDark ? "linear-gradient(291.54deg, #101133 27.04%, #232441 86.39%)" : "#fff" };

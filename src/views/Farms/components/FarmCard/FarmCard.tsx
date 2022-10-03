@@ -1,7 +1,7 @@
 import React, { useState } from 'react'
 import BigNumber from 'bignumber.js'
 import styled from 'styled-components'
-import { Card, Flex, Text, Skeleton, useModal } from '@phamphu19498/runtogether-uikit'
+import { Card, Flex, Text, Skeleton, useModal } from '@thaihuuluong/dogwatcher-uikit'
 import { Farm } from 'state/types'
 import { getBscScanLink } from 'utils'
 import { useTranslation } from 'contexts/Localization'

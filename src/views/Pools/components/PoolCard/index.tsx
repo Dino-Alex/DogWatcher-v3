@@ -1,7 +1,7 @@
 import BigNumber from 'bignumber.js'
 import React from 'react'
 import styled from 'styled-components'
-import { CardBody, Flex, Text, CardRibbon } from '@phamphu19498/runtogether-uikit'
+import { CardBody, Flex, Text, CardRibbon } from '@thaihuuluong/dogwatcher-uikit'
 import ConnectWalletButton from 'components/ConnectWalletButton'
 import { useTranslation } from 'contexts/Localization'
 import { BIG_ZERO } from 'utils/bigNumber'

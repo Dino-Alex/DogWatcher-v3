@@ -1,6 +1,6 @@
 import React, { useState } from 'react'
 import styled from 'styled-components'
-import { ExpandableLabel, Flex, FlexProps, Text } from '@phamphu19498/runtogether-uikit'
+import { ExpandableLabel, Flex, FlexProps, Text } from '@thaihuuluong/dogwatcher-uikit'
 import { useTranslation } from 'contexts/Localization'
 
 

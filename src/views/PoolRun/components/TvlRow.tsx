@@ -1,5 +1,5 @@
 import React from "react";
-import { Text, Flex, Button } from "@phamphu19498/runtogether-uikit";
+import { Text, Flex, Button } from "@thaihuuluong/dogwatcher-uikit";
 import styled from "styled-components";
 import { usePriceRunBusd } from "state/farms/hooks";
 import { CalculateIcon } from "components/Pancake-uikit";

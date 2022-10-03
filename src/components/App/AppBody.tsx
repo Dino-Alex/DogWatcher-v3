@@ -1,6 +1,6 @@
 // import React from 'react'
 // import styled from 'styled-components'
-// import { Card } from '@phamphu19498/runtogether-uikit'
+// import { Card } from '@thaihuuluong/dogwatcher-uikit'
 
 // export const BodyWrapper = styled(Card)`
 //   border-radius: 24px;

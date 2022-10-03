@@ -1,4 +1,4 @@
-import { Flex, Text } from '@phamphu19498/runtogether-uikit';
+import { Flex, Text } from '@thaihuuluong/dogwatcher-uikit';
 import HeaderLiquidity from 'components/HeaderLiquidity/HeaderLiquidity';
 import HeaderProposals from 'components/HeaderProposals/HeaderProposals';
 import PageFullWidth from 'components/Layout/PageFullWidth';

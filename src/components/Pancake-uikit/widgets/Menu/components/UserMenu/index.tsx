@@ -1,6 +1,6 @@
 import React, { useEffect, useRef, useState } from "react";
 import { usePopper } from "react-popper";
-import { Text } from "@phamphu19498/runtogether-uikit";
+import { Text } from "@thaihuuluong/dogwatcher-uikit";
 import styled from "styled-components";
 import Flex from "../../../../components/Box/Flex";
 import { ChevronDownIcon } from "../../../../components/Svg";

@@ -1,5 +1,5 @@
 import React, { useState, useCallback } from 'react'
-import { FallingBunnies, FallingBunniesProps, useKonamiCheatCode } from '@phamphu19498/runtogether-uikit'
+import { FallingBunnies, FallingBunniesProps, useKonamiCheatCode } from '@thaihuuluong/dogwatcher-uikit'
 
 
 const EasterEgg: React.FC<FallingBunniesProps> = (props) => {

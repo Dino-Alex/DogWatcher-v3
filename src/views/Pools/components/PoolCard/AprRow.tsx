@@ -1,6 +1,6 @@
 import React from 'react'
 import styled from 'styled-components'
-import { Flex, TooltipText, IconButton, useModal, CalculateIcon, Skeleton, Text } from '@phamphu19498/runtogether-uikit'
+import { Flex, TooltipText, IconButton, useModal, CalculateIcon, Skeleton, Text } from '@thaihuuluong/dogwatcher-uikit'
 import { useTooltip } from 'components/Pancake-uikit'
 import { useTranslation } from 'contexts/Localization'
 import Balance from 'components/Balance'

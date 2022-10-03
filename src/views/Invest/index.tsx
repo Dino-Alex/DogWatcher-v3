@@ -1,4 +1,4 @@
-import { Flex, Input, SearchIcon, Text, useMatchBreakpoints } from '@phamphu19498/runtogether-uikit';
+import { Flex, Input, SearchIcon, Text, useMatchBreakpoints } from '@thaihuuluong/dogwatcher-uikit';
 import HeaderLiquidity from 'components/HeaderLiquidity/HeaderLiquidity';
 import PageFullWidth from 'components/Layout/PageFullWidth';
 import { Toggle } from 'components/Pancake-uikit';

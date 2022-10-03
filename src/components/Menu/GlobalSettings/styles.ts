@@ -1,4 +1,4 @@
-import { Box, Button, Flex, Input, ModalHeader, Text } from '@phamphu19498/runtogether-uikit'
+import { Box, Button, Flex, Input, ModalHeader, Text } from '@thaihuuluong/dogwatcher-uikit'
 import styled from 'styled-components'
 
 export const ButtonSignIn = styled.button`

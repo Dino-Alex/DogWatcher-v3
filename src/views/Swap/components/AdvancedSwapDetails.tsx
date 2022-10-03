@@ -1,6 +1,6 @@
 import React from 'react'
 import { Trade, TradeType } from '@pancakeswap/sdk'
-import { Text, Box, Flex } from '@phamphu19498/runtogether-uikit'
+import { Text, Box, Flex } from '@thaihuuluong/dogwatcher-uikit'
 import { useTranslation } from "contexts/Localization";
 import { Field } from 'state/swap/actions'
 import { useUserSlippageTolerance } from 'state/user/hooks'

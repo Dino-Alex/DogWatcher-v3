@@ -1,4 +1,4 @@
-import { Button, EarnIcon, Flex, Modal, Text } from '@phamphu19498/runtogether-uikit';
+import { Button, EarnIcon, Flex, Modal, Text } from '@thaihuuluong/dogwatcher-uikit';
 import axios from 'axios';
 import {
   ContainerIcon,

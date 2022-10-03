@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from "react";
 import styled from "styled-components";
-import { Flex, Text, Button } from "@phamphu19498/runtogether-uikit"
+import { Flex, Text, Button } from "@thaihuuluong/dogwatcher-uikit"
 import { MetamaskIcon, CoppyIcon } from 'components/Pancake-uikit'
 import { useTranslation } from "contexts/Localization";
 import { getAddress } from 'utils/addressHelpers';

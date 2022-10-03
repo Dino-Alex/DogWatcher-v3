@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import { Text, Flex, Button, useModal, AutoRenewIcon } from "@phamphu19498/runtogether-uikit";
+import { Text, Flex, Button, useModal, AutoRenewIcon } from "@thaihuuluong/dogwatcher-uikit";
 import styled from "styled-components";
 import { GetDataUser, GetDataUserStaked } from "state/poolrun";
 import { useWeb3React } from "@web3-react/core";

@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import styled from "styled-components";
-import { ButtonMenu, ButtonMenuItem, NotificationDot } from '@phamphu19498/runtogether-uikit'
+import { ButtonMenu, ButtonMenuItem, NotificationDot } from '@thaihuuluong/dogwatcher-uikit'
 import { useTranslation } from 'contexts/Localization'
 
 const styleActive = { background: '#49A2F2', color: '#fff', borderRadius:"5px"}

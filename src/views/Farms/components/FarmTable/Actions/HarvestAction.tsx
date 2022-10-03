@@ -1,6 +1,6 @@
 import React, { useState } from 'react'
 import { Heading, Skeleton, Text, TokenPairImage } from 'components/Pancake-uikit'
-import { Button, Flex } from '@phamphu19498/runtogether-uikit'
+import { Button, Flex } from '@thaihuuluong/dogwatcher-uikit'
 import BigNumber from 'bignumber.js'
 import { useWeb3React } from '@web3-react/core'
 import styled from 'styled-components'

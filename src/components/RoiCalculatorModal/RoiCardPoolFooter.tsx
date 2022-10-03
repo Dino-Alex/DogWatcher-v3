@@ -1,6 +1,6 @@
 import React, { useRef, useEffect } from 'react'
 import styled from 'styled-components'
-import { Box, Flex, Text, IconButton } from '@phamphu19498/runtogether-uikit'
+import { Box, Flex, Text, IconButton } from '@thaihuuluong/dogwatcher-uikit'
 import { CheckmarkIcon, PencilIcon, Input } from 'components/Pancake-uikit'
 import useTheme from 'hooks/useTheme'
 import { useTranslation } from 'contexts/Localization'

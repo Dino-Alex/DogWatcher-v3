@@ -1,4 +1,4 @@
-import { CloseIcon, Flex, Text } from "@phamphu19498/runtogether-uikit";
+import { CloseIcon, Flex, Text } from "@thaihuuluong/dogwatcher-uikit";
 import { useWeb3React } from '@web3-react/core';
 import { useTranslation } from "contexts/Localization";
 import { GetUser } from 'state/account';

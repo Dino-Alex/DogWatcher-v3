@@ -1,6 +1,6 @@
 import React from 'react';
 import styled from 'styled-components';
-import { ButtonMenu, ButtonMenuItem } from '@phamphu19498/runtogether-uikit'
+import { ButtonMenu, ButtonMenuItem } from '@thaihuuluong/dogwatcher-uikit'
 import TabButton from 'components/Pancake-uikit/components/Button/TabButton';
 
 const Wrapper = styled.div`

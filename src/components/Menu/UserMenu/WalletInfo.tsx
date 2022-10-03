@@ -1,5 +1,5 @@
 import React from 'react'
-import { Box, Flex, InjectedModalProps, LinkExternal, Message, Text, Button } from '@phamphu19498/runtogether-uikit'
+import { Box, Flex, InjectedModalProps, LinkExternal, Message, Text, Button } from '@thaihuuluong/dogwatcher-uikit'
 import { useWeb3React } from '@web3-react/core'
 import useTokenBalance, { useGetBnbBalance } from 'hooks/useTokenBalance'
 import { getLiveTradeAddress } from 'utils/addressHelpers'

@@ -1,7 +1,7 @@
 import React, { useRef } from 'react'
 import styled from 'styled-components'
 import { useTable, ChevronUpIcon, ColumnType } from 'components/Pancake-uikit'
-import { Button } from "@phamphu19498/runtogether-uikit"
+import { Button } from "@thaihuuluong/dogwatcher-uikit"
 import { useTranslation } from 'contexts/Localization'
 
 import Row, { RowProps } from './Row'

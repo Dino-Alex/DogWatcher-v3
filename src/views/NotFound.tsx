@@ -1,6 +1,6 @@
 import React from 'react'
 import styled from 'styled-components'
-import { Button, Heading, Flex } from '@phamphu19498/runtogether-uikit'
+import { Button, Heading, Flex } from '@thaihuuluong/dogwatcher-uikit'
 import PageFullWidth from 'components/Layout/PageFullWidth'
 import { useTranslation } from 'contexts/Localization'
 

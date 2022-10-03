@@ -1,6 +1,6 @@
 import React, { useState , useMemo } from 'react'
 import styled from 'styled-components'
-import { InjectedModalProps, Grid, Box } from '@phamphu19498/runtogether-uikit'
+import { InjectedModalProps, Grid, Box } from '@thaihuuluong/dogwatcher-uikit'
 import { useTranslation } from 'contexts/Localization'
 import ModalContainer from 'components/Pancake-uikit/widgets/Modal/Modal'
 import NetworkBlock from './NetworkBlock'

@@ -1,6 +1,6 @@
 import { Currency, CurrencyAmount, Fraction, Percent } from '@pancakeswap/sdk'
 import React from 'react'
-import { Text, Button,Flex} from '@phamphu19498/runtogether-uikit'
+import { Text, Button,Flex} from '@thaihuuluong/dogwatcher-uikit'
 import { useTranslation } from 'contexts/Localization'
 import styled from 'styled-components'
 import { RowBetween, RowFixed } from '../../components/Layout/Row'

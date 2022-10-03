@@ -1,6 +1,6 @@
 import React, { useState } from 'react'
 import styled from 'styled-components'
-import { Text, PancakeToggle, Flex, Modal, InjectedModalProps } from '@phamphu19498/runtogether-uikit'
+import { Text, PancakeToggle, Flex, Modal, InjectedModalProps } from '@thaihuuluong/dogwatcher-uikit'
 // import { Modal } from 'components/Pancake-uikit'
 import Toggle from 'components/Pancake-uikit/components/Toggle/Toggle'
 import { useAudioModeManager, useExpertModeManager, useUserSingleHopOnly } from 'state/user/hooks'

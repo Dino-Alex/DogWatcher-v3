@@ -1,6 +1,6 @@
 import React from 'react'
 import styled from 'styled-components'
-import { Flex, Heading, Text, useMatchBreakpoints } from '@phamphu19498/runtogether-uikit'
+import { Flex, Heading, Text, useMatchBreakpoints } from '@thaihuuluong/dogwatcher-uikit'
 import Page from 'components/Layout/Page'
 import { useTranslation } from 'contexts/Localization'
 import { Checked, Button, Box } from 'components/Pancake-uikit'

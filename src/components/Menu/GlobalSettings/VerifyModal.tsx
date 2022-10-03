@@ -1,7 +1,7 @@
 import React, { useState } from 'react'
 import styled from 'styled-components'
 import { Controller, useForm } from 'react-hook-form';
-import { Text, Flex, InjectedModalProps, useModal, Modal } from '@phamphu19498/runtogether-uikit'
+import { Text, Flex, InjectedModalProps, useModal, Modal } from '@thaihuuluong/dogwatcher-uikit'
 import axios from 'axios';
 import { Encrypts } from 'config/api/encrypt';
 // import {  } from 'components/Pancake-uikit'

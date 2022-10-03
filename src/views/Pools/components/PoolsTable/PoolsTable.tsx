@@ -1,6 +1,6 @@
 import React, { useRef } from 'react'
 import styled from 'styled-components'
-import { Button, ChevronUpIcon } from '@phamphu19498/runtogether-uikit'
+import { Button, ChevronUpIcon } from '@thaihuuluong/dogwatcher-uikit'
 import { useTranslation } from 'contexts/Localization'
 import { Pool } from 'state/types'
 import PoolRow from './PoolRow'

@@ -1,4 +1,4 @@
-import { Button, Card, Checkbox, Flex, Table, Text } from '@phamphu19498/runtogether-uikit'
+import { Button, Card, Checkbox, Flex, Table, Text } from '@thaihuuluong/dogwatcher-uikit'
 import Header from 'components/HeaderGlobal/Header'
 import Container from 'components/Layout/Container'
 import Row from 'components/Layout/Row'

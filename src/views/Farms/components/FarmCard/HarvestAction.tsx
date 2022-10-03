@@ -1,6 +1,6 @@
 import React, { useState } from 'react'
 import BigNumber from 'bignumber.js'
-import { Button, Flex, Heading } from '@phamphu19498/runtogether-uikit'
+import { Button, Flex, Heading } from '@thaihuuluong/dogwatcher-uikit'
 import { useTranslation } from 'contexts/Localization'
 import { useAppDispatch } from 'state'
 import { fetchFarmUserDataAsync } from 'state/farms'

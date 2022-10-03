@@ -12,7 +12,7 @@ import {
   InputGroup,
   Input,
   AutoRenewIcon
-} from '@phamphu19498/runtogether-uikit'
+} from '@thaihuuluong/dogwatcher-uikit'
 import { useTranslation } from 'contexts/Localization'
 import NumberFormat from 'react-number-format';
 import styled from 'styled-components'

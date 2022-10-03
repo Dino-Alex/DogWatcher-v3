@@ -1,6 +1,6 @@
 import React from 'react'
 import styled from 'styled-components'
-import { Skeleton, Text, useTooltip, HelpIcon, Flex, Box, useMatchBreakpoints } from '@phamphu19498/runtogether-uikit'
+import { Skeleton, Text, useTooltip, HelpIcon, Flex, Box, useMatchBreakpoints } from '@thaihuuluong/dogwatcher-uikit'
 import { Pool } from 'state/types'
 import Balance from 'components/Balance'
 import { useCakeVault } from 'state/pools/hooks'

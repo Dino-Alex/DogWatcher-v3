@@ -1,6 +1,6 @@
 import React, { FC } from 'react'
 import styled from 'styled-components'
-import { Button, Text, Box } from '@phamphu19498/runtogether-uikit'
+import { Button, Text, Box } from '@thaihuuluong/dogwatcher-uikit'
 import { SvgProps } from 'components/Pancake-uikit/components/Svg/types'
 import { useHistory } from 'react-router-dom'
 

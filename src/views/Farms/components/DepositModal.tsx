@@ -2,7 +2,7 @@ import BigNumber from 'bignumber.js'
 import React, { useCallback, useMemo, useState } from 'react'
 import styled from 'styled-components'
 import { Flex, Text,  LinkExternal, CalculateIcon } from 'components/Pancake-uikit'
-import { Button, IconButton } from "@phamphu19498/runtogether-uikit"
+import { Button, IconButton } from "@thaihuuluong/dogwatcher-uikit"
 import { ModalInput, ModalActions } from 'components/Modal'
 import RoiCalculatorModal from 'components/RoiCalculatorModal'
 import { useTranslation } from 'contexts/Localization'

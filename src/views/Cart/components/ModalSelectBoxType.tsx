@@ -1,5 +1,5 @@
 import React from "react";
-import { Text, Flex, Modal, Button } from "@phamphu19498/runtogether-uikit"
+import { Text, Flex, Modal, Button } from "@thaihuuluong/dogwatcher-uikit"
 import styled from "styled-components";
 import { renderBGCard, renderImgBox } from "utils/renderBGCard";
 

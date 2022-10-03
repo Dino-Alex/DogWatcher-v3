@@ -1,6 +1,6 @@
 import React from 'react'
 import styled from 'styled-components'
-import { Text, HelpIcon, Skeleton } from '@phamphu19498/runtogether-uikit'
+import { Text, HelpIcon, Skeleton } from '@thaihuuluong/dogwatcher-uikit'
 import { useTooltip } from 'components/Pancake-uikit'
 import useTheme from 'hooks/useTheme'
 import { useTranslation } from 'contexts/Localization'

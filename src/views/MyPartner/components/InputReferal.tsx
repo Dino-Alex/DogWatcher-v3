@@ -1,6 +1,6 @@
 import React from "react";
 import styled from "styled-components";
-import { Text, Flex, Input } from "@phamphu19498/runtogether-uikit";
+import { Text, Flex, Input } from "@thaihuuluong/dogwatcher-uikit";
 
 interface Props{
     text?:string,

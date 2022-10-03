@@ -10,7 +10,7 @@ import OtpTimer from 'otp-timer'
 import useToast from 'hooks/useToast'
 import ErrorMessages from 'components/ErrorMessages/ErrorMessage'
 import { rules } from 'config/constants/auth/rules'
-import { Text, Flex, InjectedModalProps, useModal, Modal } from '@phamphu19498/runtogether-uikit'
+import { Text, Flex, InjectedModalProps, useModal, Modal } from '@thaihuuluong/dogwatcher-uikit'
 import { useTranslation } from 'contexts/Localization'
 import { EyeCloseIcon } from 'components/Pancake-uikit'
 import CryptoJS from "crypto-js";

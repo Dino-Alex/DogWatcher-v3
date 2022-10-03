@@ -1,6 +1,6 @@
 import React from 'react'
 import styled from 'styled-components'
-import { Skeleton, Text, Flex, Box, useModal, useMatchBreakpoints } from '@phamphu19498/runtogether-uikit'
+import { Skeleton, Text, Flex, Box, useModal, useMatchBreakpoints } from '@thaihuuluong/dogwatcher-uikit'
 import { Pool } from 'state/types'
 import BigNumber from 'bignumber.js'
 import { PoolCategory } from 'config/constants/types'

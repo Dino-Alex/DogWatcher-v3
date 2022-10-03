@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from "react";
-import { Text, Flex, Button, useMatchBreakpoints, SearchIcon } from "@phamphu19498/runtogether-uikit";
+import { Text, Flex, Button, useMatchBreakpoints, SearchIcon } from "@thaihuuluong/dogwatcher-uikit";
 import Header from "components/HeaderGlobal/Header";
 import styled from "styled-components";
 import Container from "components/Layout/Container";

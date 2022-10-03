@@ -1,4 +1,4 @@
-import { Language } from '@phamphu19498/runtogether-uikit'
+import { Language } from '@thaihuuluong/dogwatcher-uikit'
 
 export const EN: Language = { locale: 'en-US', language: 'English', code: 'en' }
 export const VI: Language = { locale: 'vi-VN', language: 'Tiếng Việt', code: 'vi' }

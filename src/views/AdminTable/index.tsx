@@ -1,4 +1,4 @@
-import { Button, Flex, Input, InputGroup, SearchIcon, Text } from '@phamphu19498/runtogether-uikit';
+import { Button, Flex, Input, InputGroup, SearchIcon, Text } from '@thaihuuluong/dogwatcher-uikit';
 import { useTranslation } from 'contexts/Localization';
 import React, { useEffect, useState } from 'react';
 import ReactPaginate from 'react-paginate';

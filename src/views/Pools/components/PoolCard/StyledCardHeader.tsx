@@ -1,5 +1,5 @@
 import React from 'react'
-import { CardHeader, Heading, Text, Flex } from '@phamphu19498/runtogether-uikit'
+import { CardHeader, Heading, Text, Flex } from '@thaihuuluong/dogwatcher-uikit'
 import styled from 'styled-components'
 import { useTranslation } from 'contexts/Localization'
 import { Token } from 'config/constants/types'

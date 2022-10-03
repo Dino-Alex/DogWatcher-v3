@@ -11,7 +11,7 @@ import {
   Skeleton,
   Text,
   TimerIcon,
-} from '@phamphu19498/runtogether-uikit'
+} from '@thaihuuluong/dogwatcher-uikit'
 import { useTooltip } from 'components/Pancake-uikit'
 import { BASE_BSC_SCAN_URL } from 'config'
 import { getBscScanLink } from 'utils'

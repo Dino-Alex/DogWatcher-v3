@@ -1,6 +1,6 @@
 import React,{ useState } from 'react'
 import { Text } from 'components/Pancake-uikit'
-import { Button } from '@phamphu19498/runtogether-uikit'
+import { Button } from '@thaihuuluong/dogwatcher-uikit'
 import styled from 'styled-components'
 import Genesis from './tabs/Genesis'
 import Pools from './tabs/Pools'

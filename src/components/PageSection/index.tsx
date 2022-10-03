@@ -1,6 +1,6 @@
 import React from 'react'
 import styled from 'styled-components'
-import { BoxProps, Box, Flex, FlexProps } from '@phamphu19498/runtogether-uikit'
+import { BoxProps, Box, Flex, FlexProps } from '@thaihuuluong/dogwatcher-uikit'
 import Container from 'components/Layout/Container'
 import CurvedDivider from './CurvedDivider'
 import { ClipFill, DividerFill } from './types'

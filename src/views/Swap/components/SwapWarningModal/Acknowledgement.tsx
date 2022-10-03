@@ -1,6 +1,6 @@
 import React, { useState } from 'react'
 import { useTranslation } from 'contexts/Localization'
-import { Text, Flex, Checkbox } from '@phamphu19498/runtogether-uikit'
+import { Text, Flex, Checkbox } from '@thaihuuluong/dogwatcher-uikit'
 import { Button } from 'components/Pancake-uikit'
 
 interface AcknowledgementProps {

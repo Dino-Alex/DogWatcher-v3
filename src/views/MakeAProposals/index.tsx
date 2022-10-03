@@ -1,4 +1,4 @@
-import { Flex, Input, Text, AutoRenewIcon } from '@phamphu19498/runtogether-uikit'
+import { Flex, Input, Text, AutoRenewIcon } from '@thaihuuluong/dogwatcher-uikit'
 import { useWeb3React } from '@web3-react/core'
 import HeaderLiquidity from 'components/HeaderLiquidity/HeaderLiquidity'
 import HeaderProposals from 'components/HeaderProposals/HeaderProposals'

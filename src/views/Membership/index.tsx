@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react'
 import styled from 'styled-components'
-import { Flex, Text, useMatchBreakpoints, useModal } from '@phamphu19498/runtogether-uikit'
+import { Flex, Text, useMatchBreakpoints, useModal } from '@thaihuuluong/dogwatcher-uikit'
 import { Heading } from 'components/Pancake-uikit'
 import PageFullWidth from 'components/Layout/PageFullWidth'
 import Container from 'components/Layout/Container'

@@ -1,6 +1,6 @@
 import React from "react";
 import styled from "styled-components";
-import { Text, Flex, Button, AutoRenewIcon } from "@phamphu19498/runtogether-uikit"
+import { Text, Flex, Button, AutoRenewIcon } from "@thaihuuluong/dogwatcher-uikit"
 import { LINK_BOX_RUNGTOGETHER } from "config/index"
 import BigNumber from 'bignumber.js'
 import { useTranslation } from 'contexts/Localization';

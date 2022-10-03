@@ -1,6 +1,6 @@
 import React from 'react'
 import useTheme from 'hooks/useTheme'
-import { HelpIcon, Box, BoxProps, Placement } from '@phamphu19498/runtogether-uikit'
+import { HelpIcon, Box, BoxProps, Placement } from '@thaihuuluong/dogwatcher-uikit'
 import styled from 'styled-components'
 import { useTooltip } from 'components/Pancake-uikit'
 

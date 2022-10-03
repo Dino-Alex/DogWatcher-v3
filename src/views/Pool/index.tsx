@@ -1,7 +1,7 @@
 import React, { useMemo } from 'react'
 import styled from 'styled-components'
 import { Pair } from '@pancakeswap/sdk'
-import { Text, Flex, CardBody, CardFooter, Button, AddIcon, CogIcon,HistoryIcon} from '@phamphu19498/runtogether-uikit'
+import { Text, Flex, CardBody, CardFooter, Button, AddIcon, CogIcon,HistoryIcon} from '@thaihuuluong/dogwatcher-uikit'
 import { Link } from 'react-router-dom'
 import useTheme from 'hooks/useTheme'
 import { useTranslation } from 'contexts/Localization'

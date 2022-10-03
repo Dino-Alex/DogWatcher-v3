@@ -1,4 +1,4 @@
-import { EarnIcon, Flex, Modal, Text } from '@phamphu19498/runtogether-uikit';
+import { EarnIcon, Flex, Modal, Text } from '@thaihuuluong/dogwatcher-uikit';
 import {
   ButtonSubmit,
   ContainerIcon,

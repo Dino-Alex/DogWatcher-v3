@@ -1,6 +1,6 @@
 import React, { useState , useMemo } from 'react'
 import styled from 'styled-components'
-import { Modal, Button, Text } from '@phamphu19498/runtogether-uikit'
+import { Modal, Button, Text } from '@thaihuuluong/dogwatcher-uikit'
 import { useTranslation } from 'contexts/Localization'
 import Delist from "./Delist"
 

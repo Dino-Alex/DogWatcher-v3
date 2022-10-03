@@ -1,4 +1,4 @@
-import { Flex, PencilIcon, Text, useModal } from '@phamphu19498/runtogether-uikit';
+import { Flex, PencilIcon, Text, useModal } from '@thaihuuluong/dogwatcher-uikit';
 import { CloseIcon } from 'components/Pancake-uikit';
 import React from 'react';
 import history from 'routerHistory';

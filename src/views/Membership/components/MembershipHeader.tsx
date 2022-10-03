@@ -1,7 +1,7 @@
 
 import React from "react";
 import styled from "styled-components";
-import { Text, Heading, Flex } from "@phamphu19498/runtogether-uikit"
+import { Text, Heading, Flex } from "@thaihuuluong/dogwatcher-uikit"
 import Container from "components/Layout/Container";
 import { useTranslation } from "contexts/Localization";
 import CountDownBlock from "../CountDown/CountDownBlock"

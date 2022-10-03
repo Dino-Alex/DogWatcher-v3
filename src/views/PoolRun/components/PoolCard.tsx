@@ -1,7 +1,7 @@
 import React from "react";
 import styled from "styled-components";
 import tokens from "config/constants/tokens";
-import { Text, Flex, Button } from "@phamphu19498/runtogether-uikit";
+import { Text, Flex, Button } from "@thaihuuluong/dogwatcher-uikit";
 import { useWeb3React } from "@web3-react/core";
 import { BASE_BSC_URL } from "config";
 import contracts from "config/constants/contracts"

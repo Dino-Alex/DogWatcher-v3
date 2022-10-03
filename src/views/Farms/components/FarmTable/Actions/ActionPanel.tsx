@@ -1,7 +1,7 @@
 import React from 'react'
 import styled, { keyframes, css } from 'styled-components'
 import { useTranslation } from 'contexts/Localization'
-import { Flex } from '@phamphu19498/runtogether-uikit'
+import { Flex } from '@thaihuuluong/dogwatcher-uikit'
 import { Text, HelpIcon, useTooltip } from 'components/Pancake-uikit'
 import { FarmWithStakedValue } from 'views/Farms/components/FarmCard/FarmCard'
 import getLiquidityUrlPathParts from 'utils/getLiquidityUrlPathParts'

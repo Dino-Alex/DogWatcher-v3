@@ -1,6 +1,6 @@
 import React from 'react'
 import styled from 'styled-components'
-import { Text, Input, InputProps, Flex, Link, Button } from '@phamphu19498/runtogether-uikit'
+import { Text, Input, InputProps, Flex, Link, Button } from '@thaihuuluong/dogwatcher-uikit'
 import { useTranslation } from 'contexts/Localization'
 import { BigNumber } from 'bignumber.js'
 

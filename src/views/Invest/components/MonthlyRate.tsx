@@ -1,5 +1,5 @@
 import React from "react";
-import { Text, Flex, Button } from "@phamphu19498/runtogether-uikit";
+import { Text, Flex, Button } from "@thaihuuluong/dogwatcher-uikit";
 import styled from "styled-components";
 import { CalculateIcon, HelpIcon, useTooltip } from "components/Pancake-uikit";
 import { useTranslation } from "contexts/Localization";

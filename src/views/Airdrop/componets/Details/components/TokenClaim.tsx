@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from "react";
 import styled from "styled-components";
-import { Text, Flex } from "@phamphu19498/runtogether-uikit"
+import { Text, Flex } from "@thaihuuluong/dogwatcher-uikit"
 import { useTranslation } from "contexts/Localization";
 import { FetchAmountClaim } from "hooks/useAirdrop"
 

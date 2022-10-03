@@ -1,5 +1,5 @@
 import React from "react";
-import { Text , Flex, Button, InputGroup, Input } from "@phamphu19498/runtogether-uikit"
+import { Text , Flex, Button, InputGroup, Input } from "@thaihuuluong/dogwatcher-uikit"
 import styled from "styled-components";
 
 

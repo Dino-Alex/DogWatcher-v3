@@ -1,6 +1,6 @@
 /* eslint-disable react/no-unescaped-entities */
 import * as React from 'react';
-import { Flex, Text } from '@phamphu19498/runtogether-uikit';
+import { Flex, Text } from '@thaihuuluong/dogwatcher-uikit';
 import styled from 'styled-components';
 import { Button, EditIcon, EditIcon1, StarIcon } from 'components/Pancake-uikit';
 import { Link } from 'react-router-dom';

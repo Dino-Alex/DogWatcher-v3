@@ -1,6 +1,6 @@
 import React, { useState, useEffect , useCallback} from "react";
 import styled from "styled-components";
-import { ButtonMenu, ButtonMenuItem } from '@phamphu19498/runtogether-uikit'
+import { ButtonMenu, ButtonMenuItem } from '@thaihuuluong/dogwatcher-uikit'
 import { useTranslation } from 'contexts/Localization'
 import { ModalBody, ModalHeader, ModalContainer, ModalCloseButton, ModalBackButton, ModalTitleLogo } from "./styles";
 import { ModalProps } from "./types";

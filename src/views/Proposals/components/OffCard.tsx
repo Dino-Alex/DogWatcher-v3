@@ -1,6 +1,6 @@
 /* eslint-disable react/no-unescaped-entities */
 import React, { useState } from "react";
-import { Text, Flex, Button } from "@phamphu19498/runtogether-uikit";
+import { Text, Flex, Button } from "@thaihuuluong/dogwatcher-uikit";
 import styled from "styled-components";
 import { useTranslation } from "contexts/Localization";
 import { ChevronUpIcon, ChevronDownIcon, OpenNewIcon, ChevronRightIcon } from "components/Pancake-uikit";

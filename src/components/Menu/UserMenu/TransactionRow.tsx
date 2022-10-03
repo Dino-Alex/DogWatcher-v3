@@ -1,5 +1,5 @@
 import React from 'react'
-import { BlockIcon, CheckmarkCircleIcon, Flex, Link, OpenNewIcon, RefreshIcon } from '@phamphu19498/runtogether-uikit'
+import { BlockIcon, CheckmarkCircleIcon, Flex, Link, OpenNewIcon, RefreshIcon } from '@thaihuuluong/dogwatcher-uikit'
 import styled from 'styled-components'
 import { TransactionDetails } from 'state/transactions/reducer'
 import useActiveWeb3React from 'hooks/useActiveWeb3React'

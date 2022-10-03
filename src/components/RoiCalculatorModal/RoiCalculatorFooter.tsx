@@ -1,6 +1,6 @@
 import React, { useState } from 'react'
 import styled from 'styled-components'
-import { useTooltip, Flex, Box, Text, LinkExternal, Grid, HelpIcon } from '@phamphu19498/runtogether-uikit'
+import { useTooltip, Flex, Box, Text, LinkExternal, Grid, HelpIcon } from '@thaihuuluong/dogwatcher-uikit'
 import {  ExpandableLabel } from 'components/Pancake-uikit'
 import useTheme from 'hooks/useTheme'
 import { useTranslation } from 'contexts/Localization'

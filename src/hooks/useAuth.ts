@@ -1,5 +1,5 @@
 import { NoBscProviderError } from '@binance-chain/bsc-connector'
-import { connectorLocalStorageKey, ConnectorNames } from '@phamphu19498/runtogether-uikit'
+import { connectorLocalStorageKey, ConnectorNames } from '@thaihuuluong/dogwatcher-uikit'
 import { UnsupportedChainIdError, useWeb3React } from '@web3-react/core'
 import {
   NoEthereumProviderError,

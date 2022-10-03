@@ -1,6 +1,6 @@
 import React from "react";
 import styled from "styled-components";
-import { Text, Flex, Button, AutoRenewIcon } from "@phamphu19498/runtogether-uikit";
+import { Text, Flex, Button, AutoRenewIcon } from "@thaihuuluong/dogwatcher-uikit";
 import { Wallet } from "components/Pancake-uikit"
 import { GetTokenBalance } from "utils/getTokenBalance";
 import tokens from "config/constants/tokens";

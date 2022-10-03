@@ -1,4 +1,4 @@
-import { Flex, Text } from '@phamphu19498/runtogether-uikit'
+import { Flex, Text } from '@thaihuuluong/dogwatcher-uikit'
 import styled from 'styled-components'
 
 

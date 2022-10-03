@@ -4,7 +4,7 @@ import { useHistory } from 'react-router';
 import { Link, useParams } from 'react-router-dom'
 import useActiveWeb3React from 'hooks/useActiveWeb3React';
 import { useTranslation } from 'contexts/Localization'
-import { Text, Button, Flex, useModal } from '@phamphu19498/runtogether-uikit'
+import { Text, Button, Flex, useModal } from '@thaihuuluong/dogwatcher-uikit'
 import { Processes, Conditions, YourRight } from '../config'
 import Upgrade from "./UpgradeLevel"
 

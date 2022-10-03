@@ -1,7 +1,7 @@
 import React, { useState, CSSProperties } from 'react'
 import styled from 'styled-components'
 import { Controller, useForm } from 'react-hook-form'
-import { Text, Flex, useModal, Modal } from '@phamphu19498/runtogether-uikit'
+import { Text, Flex, useModal, Modal } from '@thaihuuluong/dogwatcher-uikit'
 import { register, sendmail } from 'state/auth.createslice'
 import OtpTimer from 'otp-timer'
 import { useHistory } from 'react-router-dom'

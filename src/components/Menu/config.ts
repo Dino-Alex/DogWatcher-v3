@@ -1,6 +1,6 @@
 import { MenuEntry } from 'components/Pancake-uikit'
 import { ContextApi } from 'contexts/Localization/types'
-import { MenuItemsType } from '@phamphu19498/runtogether-uikit';
+import { MenuItemsType } from '@thaihuuluong/dogwatcher-uikit';
 import { Colors } from "../Pancake-uikit/theme/types";
 
 export interface LinkStatus {

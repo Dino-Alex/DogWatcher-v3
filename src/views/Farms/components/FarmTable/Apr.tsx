@@ -1,4 +1,4 @@
-import { Button, Flex, useModal } from '@phamphu19498/runtogether-uikit'
+import { Button, Flex, useModal } from '@thaihuuluong/dogwatcher-uikit'
 import BigNumber from 'bignumber.js'
 import { CalculateIcon, ComputerIcon, Skeleton } from 'components/Pancake-uikit'
 import RoiCalculatorModal from 'components/RoiCalculatorModal'

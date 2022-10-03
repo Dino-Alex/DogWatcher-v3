@@ -3,7 +3,7 @@ import React, { useState, useEffect } from 'react'
 import { Link, useParams } from 'react-router-dom'
 import { useHistory } from 'react-router';
 import styled from 'styled-components'
-import { useModal, Button } from '@phamphu19498/runtogether-uikit'
+import { useModal, Button } from '@thaihuuluong/dogwatcher-uikit'
 import useActiveWeb3React from 'hooks/useActiveWeb3React';
 import ConnectWalletButton from 'components/ConnectWalletButton';
 import { Address } from 'config/constants/types';

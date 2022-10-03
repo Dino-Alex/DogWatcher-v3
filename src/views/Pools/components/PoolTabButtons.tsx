@@ -1,7 +1,7 @@
 import React from 'react'
 import { useRouteMatch, Link, useLocation } from 'react-router-dom'
 import styled from 'styled-components'
-import { ButtonMenu, ButtonMenuItem, Toggle, Text, NotificationDot } from '@phamphu19498/runtogether-uikit'
+import { ButtonMenu, ButtonMenuItem, Toggle, Text, NotificationDot } from '@thaihuuluong/dogwatcher-uikit'
 import { useTranslation } from 'contexts/Localization'
 import ToggleView, { ViewMode } from './ToggleView/ToggleView'
 

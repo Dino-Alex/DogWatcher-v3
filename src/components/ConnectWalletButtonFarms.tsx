@@ -1,5 +1,5 @@
 import React from 'react'
-import { useWalletModal, useModal, Button } from '@phamphu19498/runtogether-uikit'
+import { useWalletModal, useModal, Button } from '@thaihuuluong/dogwatcher-uikit'
 import useAuth from 'hooks/useAuth'
 import { useTranslation } from 'contexts/Localization'
 import styled from 'styled-components'

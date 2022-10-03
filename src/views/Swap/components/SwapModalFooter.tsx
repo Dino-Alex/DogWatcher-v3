@@ -1,7 +1,7 @@
 import React, { useMemo, useState } from 'react'
 import styled from 'styled-components'
 import { Trade, TradeType } from '@pancakeswap/sdk'
-import { Text, AutoRenewIcon, Button } from '@phamphu19498/runtogether-uikit'
+import { Text, AutoRenewIcon, Button } from '@thaihuuluong/dogwatcher-uikit'
 import { useTranslation } from "contexts/Localization";
 import { Field } from 'state/swap/actions'
 import {

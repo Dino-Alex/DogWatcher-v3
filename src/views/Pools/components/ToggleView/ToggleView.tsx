@@ -1,6 +1,6 @@
 import React from 'react'
 import styled from 'styled-components'
-import { ListViewIcon, CardViewIcon, IconButton } from '@phamphu19498/runtogether-uikit'
+import { ListViewIcon, CardViewIcon, IconButton } from '@thaihuuluong/dogwatcher-uikit'
 
 
 

@@ -11,7 +11,7 @@ import {
   useTooltip,
   Link,
   HelpIcon,
-} from '@phamphu19498/runtogether-uikit'
+} from '@thaihuuluong/dogwatcher-uikit'
 import { useBlock } from 'state/block/hooks'
 import { useCakeVault } from 'state/pools/hooks'
 import { Pool } from 'state/types'

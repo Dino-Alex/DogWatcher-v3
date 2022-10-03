@@ -1,6 +1,6 @@
 import React, { useState , useMemo } from 'react'
 import styled from 'styled-components'
-import { InjectedModalProps, Text } from '@phamphu19498/runtogether-uikit'
+import { InjectedModalProps, Text } from '@thaihuuluong/dogwatcher-uikit'
 import ModalWithLogo from 'components/Pancake-uikit/widgets/Modal/ModalWithLogo'
 import { useTranslation } from 'contexts/Localization'
 import { Processes, Conditions, YourRight } from '../config'

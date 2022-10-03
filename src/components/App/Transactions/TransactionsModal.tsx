@@ -1,7 +1,7 @@
 import React, { useMemo, useCallback } from 'react'
 import useActiveWeb3React from 'hooks/useActiveWeb3React'
 import { useDispatch } from 'react-redux'
-import { Modal, ModalBody, Text, Flex, InjectedModalProps, Button } from '@phamphu19498/runtogether-uikit'
+import { Modal, ModalBody, Text, Flex, InjectedModalProps, Button } from '@thaihuuluong/dogwatcher-uikit'
 import { useTranslation } from 'contexts/Localization'
 import { isTransactionRecent, useAllTransactions } from 'state/transactions/hooks'
 import { TransactionDetails } from 'state/transactions/reducer'

@@ -1,6 +1,6 @@
 import styled from 'styled-components'
 import Copy from 'components/Pancake-uikit/components/Svg/Icons/Copy'
-import { Button, Flex, Input } from '@phamphu19498/runtogether-uikit'
+import { Button, Flex, Input } from '@thaihuuluong/dogwatcher-uikit'
 
 export const CustomContainer = styled.div`
   width: 100%;

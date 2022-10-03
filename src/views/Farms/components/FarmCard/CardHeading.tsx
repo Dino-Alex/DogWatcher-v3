@@ -1,6 +1,6 @@
 import React from 'react'
 import styled from 'styled-components'
-import { Tag, Flex, Heading } from '@phamphu19498/runtogether-uikit'
+import { Tag, Flex, Heading } from '@thaihuuluong/dogwatcher-uikit'
 import { CommunityTag, CoreTag } from 'components/Tags'
 import { Token } from 'config/constants/types'
 import { useMatchBreakpoints } from 'components/Pancake-uikit'

@@ -1,4 +1,4 @@
-import { Flex, Text } from '@phamphu19498/runtogether-uikit';
+import { Flex, Text } from '@thaihuuluong/dogwatcher-uikit';
 import { Button, ChevronRightIcon, Radio } from 'components/Pancake-uikit';
 import { useTranslation } from 'contexts/Localization';
 import React, { useState } from 'react';

@@ -1,6 +1,6 @@
 import React from 'react'
 import useTheme from 'hooks/useTheme'
-import { Flex, IconButton, CogIcon, useModal, Text, Button } from '@phamphu19498/runtogether-uikit'
+import { Flex, IconButton, CogIcon, useModal, Text, Button } from '@thaihuuluong/dogwatcher-uikit'
 import styled from 'styled-components'
 import { useHistory } from 'react-router-dom'
 import { Decrypts } from 'config/api/decrypts'

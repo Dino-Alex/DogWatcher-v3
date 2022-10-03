@@ -1,5 +1,5 @@
 import React, { useState } from 'react'
-import { Text, Flex, Modal, InjectedModalProps} from '@phamphu19498/runtogether-uikit'
+import { Text, Flex, Modal, InjectedModalProps} from '@thaihuuluong/dogwatcher-uikit'
 import { Button } from 'components/Pancake-uikit'
 import  Checkbox  from 'components/Pancake-uikit/components/Checkbox/Checkbox'
 import Message from 'components/Pancake-uikit/components/Message/Message'

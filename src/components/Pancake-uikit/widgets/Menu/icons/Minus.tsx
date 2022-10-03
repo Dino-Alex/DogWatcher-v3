@@ -1,4 +1,4 @@
-import { Svg } from '@phamphu19498/runtogether-uikit'
+import { Svg } from '@thaihuuluong/dogwatcher-uikit'
 import React from 'react'
 import styled from 'styled-components'
 import { SvgProps } from '../../../components/Svg/types'

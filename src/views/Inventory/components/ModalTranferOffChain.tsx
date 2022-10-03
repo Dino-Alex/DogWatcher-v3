@@ -1,6 +1,6 @@
 import React, { useState, useMemo, useEffect } from 'react'
 import styled from 'styled-components'
-import { Modal, Button, Text, Flex, AutoRenewIcon } from '@phamphu19498/runtogether-uikit'
+import { Modal, Button, Text, Flex, AutoRenewIcon } from '@thaihuuluong/dogwatcher-uikit'
 import { useTranslation } from 'contexts/Localization'
 import { GetBoxName } from 'hooks/useGetBoxName'
 import { TRANSFER_FEE } from 'config'

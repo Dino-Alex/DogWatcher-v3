@@ -1,6 +1,6 @@
 import React from 'react'
 import useTheme from 'hooks/useTheme'
-import { Flex, IconButton, CogIcon, useModal } from '@phamphu19498/runtogether-uikit'
+import { Flex, IconButton, CogIcon, useModal } from '@thaihuuluong/dogwatcher-uikit'
 import SettingsModal from './SettingsModal'
 
 

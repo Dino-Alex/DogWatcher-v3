@@ -4,7 +4,7 @@ import styled from "styled-components";
 import ReactPaginate from 'react-paginate';
 import PageFullWidth from "components/Layout/PageFullWidth";
 import Container from "components/Layout/Container";
-import { Flex, InputGroup, Input, SearchIcon,  ButtonMenu, ButtonMenuItem, AutoRenewIcon } from "@phamphu19498/runtogether-uikit"
+import { Flex, InputGroup, Input, SearchIcon,  ButtonMenu, ButtonMenuItem, AutoRenewIcon } from "@thaihuuluong/dogwatcher-uikit"
 import { useTranslation } from "contexts/Localization";
 import { latinise } from 'utils/latinise'
 import { getAddress } from "utils/addressHelpers";

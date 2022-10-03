@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from "react";
 import styled from "styled-components";
 import PageFullWidth from 'components/Layout/PageFullWidth'
-import { Flex, Text, Button } from "@phamphu19498/runtogether-uikit"
+import { Flex, Text, Button } from "@thaihuuluong/dogwatcher-uikit"
 import { useTranslation } from "contexts/Localization";
 import Select, { OptionProps } from 'components/Select/Select'
 import Header from "./components/Header"

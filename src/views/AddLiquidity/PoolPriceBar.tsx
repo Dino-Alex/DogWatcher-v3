@@ -1,7 +1,7 @@
 import { Currency, Percent, Price } from '@pancakeswap/sdk'
 import React from 'react'
 import styled from 'styled-components'
-import { Text } from '@phamphu19498/runtogether-uikit'
+import { Text } from '@thaihuuluong/dogwatcher-uikit'
 import { useTranslation } from 'contexts/Localization'
 import { AutoColumn } from '../../components/Layout/Column'
 import { AutoRow } from '../../components/Layout/Row'

@@ -4,7 +4,7 @@ import { useHistory } from 'react-router-dom';
 import { useWeb3React } from "@web3-react/core";
 import Countdown, { zeroPad } from 'react-countdown'
 import { getAddress } from "utils/addressHelpers";
-import { Text, Flex, Button, AutoRenewIcon, Breadcrumbs, MetamaskIcon } from "@phamphu19498/runtogether-uikit"
+import { Text, Flex, Button, AutoRenewIcon, Breadcrumbs, MetamaskIcon } from "@thaihuuluong/dogwatcher-uikit"
 import { FrequencyIcon, CalendarIcon, LogoCircle, WarningV2, Suscess } from 'components/Pancake-uikit'
 import ReactMarkdown from 'components/ReactMarkdown'
 import remarkGfm from 'remark-gfm'

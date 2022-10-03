@@ -68,8 +68,8 @@ export const optionArrayToken = [
       value: '0xc643E83587818202E0fFf5eD96D10Abbc8Bb48e7',
   },
   {
-      label: 'HESIC',
-      value: '0x50CCe3753990559bc0B81bEEA0667885edAaF0DD',
+      label: 'HES',
+      value: '0x80A466Cea081bDd8E9c3Be80268Aad16915D03D0',
   },
   {
       label: 'BAMI',

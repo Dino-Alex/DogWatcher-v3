@@ -1,6 +1,6 @@
 import React, { useRef, RefObject, useCallback, useState, useMemo } from 'react'
 import { Token } from '@pancakeswap/sdk'
-import { Text, CloseIcon, IconButton, LinkExternal, Input, Link } from '@phamphu19498/runtogether-uikit'
+import { Text, CloseIcon, IconButton, LinkExternal, Input, Link } from '@thaihuuluong/dogwatcher-uikit'
 import { Button } from 'components/Pancake-uikit'
 import styled from 'styled-components'
 import Row, { RowBetween, RowFixed } from 'components/Layout/Row'

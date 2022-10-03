@@ -1,6 +1,6 @@
 import { CardViewIcon, ListViewIcon } from 'components/Pancake-uikit'
 import React from 'react'
-import { Flex } from '@phamphu19498/runtogether-uikit'
+import { Flex } from '@thaihuuluong/dogwatcher-uikit'
 import styled from 'styled-components'
 import { IconButton } from 'views/Farms/style'
 import { ViewMode } from 'views/Farms/type'

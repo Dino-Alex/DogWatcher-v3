@@ -4,7 +4,7 @@ import { GetLevelVip, GetNonceCode, GetUser } from 'state/account'
 import PageFullWidth from 'components/Layout/PageFullWidth';
 import Container from "components/Layout/Container";
 // eslint-disable-next-line import/no-duplicates
-import { Flex, InputGroup, Input, SearchIcon,  ButtonMenu, ButtonMenuItem, AutoRenewIcon } from "@phamphu19498/runtogether-uikit"
+import { Flex, InputGroup, Input, SearchIcon,  ButtonMenu, ButtonMenuItem, AutoRenewIcon } from "@thaihuuluong/dogwatcher-uikit"
 // import { Button } from 'components/Pancake-uikit'
 import Copy from 'components/Pancake-uikit/components/Svg/Icons/Copy'
 
@@ -12,7 +12,7 @@ import { useTranslation } from 'contexts/Localization'
 import ErrorMessages from 'components/ErrorMessages/ErrorMessage'
 import { useWeb3React } from '@web3-react/core'
 // eslint-disable-next-line import/no-duplicates
-import { Button, useModal } from '@phamphu19498/runtogether-uikit'
+import { Button, useModal } from '@thaihuuluong/dogwatcher-uikit'
 import { Controller, useForm } from 'react-hook-form'
 import { rules } from 'config/constants/auth/rules'
 import ConnectWalletButton from 'components/ConnectWalletButton'

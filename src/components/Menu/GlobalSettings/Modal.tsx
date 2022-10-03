@@ -1,4 +1,4 @@
-import { Flex, Heading, ModalBackButton, ModalBody, ModalCloseButton, ModalContainer, ModalHeader, ModalTitle, Text, useModal } from "@phamphu19498/runtogether-uikit";
+import { Flex, Heading, ModalBackButton, ModalBody, ModalCloseButton, ModalContainer, ModalHeader, ModalTitle, Text, useModal } from "@thaihuuluong/dogwatcher-uikit";
 // eslint-disable-next-line @typescript-eslint/no-unused-vars
 import { ModalProps } from "components/Pancake-uikit";
 import getThemeValue from "components/Pancake-uikit/util/getThemeValue";

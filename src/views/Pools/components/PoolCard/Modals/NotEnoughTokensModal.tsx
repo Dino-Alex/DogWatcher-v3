@@ -1,7 +1,7 @@
 import React from 'react'
 import { useTranslation } from 'contexts/Localization'
 import styled from 'styled-components'
-import { Modal, Text, Button, OpenNewIcon, Link } from '@phamphu19498/runtogether-uikit'
+import { Modal, Text, Button, OpenNewIcon, Link } from '@thaihuuluong/dogwatcher-uikit'
 import useTheme from 'hooks/useTheme'
 
 

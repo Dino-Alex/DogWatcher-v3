@@ -1,5 +1,5 @@
 import { Button } from 'components/Pancake-uikit'
-import { useWalletModal } from '@phamphu19498/runtogether-uikit'
+import { useWalletModal } from '@thaihuuluong/dogwatcher-uikit'
 import useAuth from 'hooks/useAuth'
 import React from 'react'
 import { useTranslation } from 'contexts/Localization'

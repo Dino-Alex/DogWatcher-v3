@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from "react";
 import styled from "styled-components";
-import { Text, Flex, Button } from "@phamphu19498/runtogether-uikit";
+import { Text, Flex, Button } from "@thaihuuluong/dogwatcher-uikit";
 import ReactPaginate from 'react-paginate'
 import { useTranslation } from 'contexts/Localization'
 import { GetTotalSellItems, GetListItems } from "state/marketplace/index"

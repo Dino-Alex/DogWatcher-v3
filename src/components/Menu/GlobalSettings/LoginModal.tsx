@@ -1,4 +1,4 @@
-import { Flex, InjectedModalProps, Modal, Text } from '@phamphu19498/runtogether-uikit';
+import { Flex, InjectedModalProps, Modal, Text } from '@thaihuuluong/dogwatcher-uikit';
 import axios from 'axios';
 import { BASE_URL_LOGIN } from 'config';
 import React, { CSSProperties, useState } from 'react';

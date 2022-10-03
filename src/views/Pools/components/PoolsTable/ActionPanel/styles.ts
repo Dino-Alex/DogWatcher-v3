@@ -1,5 +1,5 @@
 import styled from 'styled-components'
-import { Heading } from '@phamphu19498/runtogether-uikit'
+import { Heading } from '@thaihuuluong/dogwatcher-uikit'
 
 
 export const ActionContainer = styled.div<{ isAutoVault?: boolean }>`

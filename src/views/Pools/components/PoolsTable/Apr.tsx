@@ -1,6 +1,6 @@
 import React from 'react'
 import styled from 'styled-components'
-import { Flex, useModal, CalculateIcon, Skeleton, FlexProps, Button } from '@phamphu19498/runtogether-uikit'
+import { Flex, useModal, CalculateIcon, Skeleton, FlexProps, Button } from '@thaihuuluong/dogwatcher-uikit'
 import RoiCalculatorModal from 'components/RoiCalculatorModal'
 import Balance from 'components/Balance'
 import { Pool } from 'state/types'

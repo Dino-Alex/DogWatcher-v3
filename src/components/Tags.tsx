@@ -9,7 +9,7 @@ import {
   TimerIcon,
   BlockIcon,
   VoteIcon,
-} from '@phamphu19498/runtogether-uikit'
+} from '@thaihuuluong/dogwatcher-uikit'
 import { useTranslation } from 'contexts/Localization'
 import { CoreTagIcon } from './Pancake-uikit'
 

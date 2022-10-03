@@ -1,5 +1,5 @@
 import { useEffect } from 'react'
-import { useParticleBurst } from '@phamphu19498/runtogether-uikit'
+import { useParticleBurst } from '@thaihuuluong/dogwatcher-uikit'
 import { useLocation } from 'react-router-dom'
 
 

@@ -1,7 +1,7 @@
 import React, { useState, useCallback } from 'react'
 import styled from 'styled-components'
 import {  Skeleton, Text, Heading, MinusIcon, PlusIcon } from 'components/Pancake-uikit'
-import { Button, IconButton, AddIcon, useModal, Flex } from '@phamphu19498/runtogether-uikit'
+import { Button, IconButton, AddIcon, useModal, Flex } from '@thaihuuluong/dogwatcher-uikit'
 import { useLocation } from 'react-router-dom'
 import { BigNumber } from 'bignumber.js'
 import ConnectWalletButton from 'components/ConnectWalletButton'

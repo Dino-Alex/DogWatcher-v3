@@ -1,6 +1,6 @@
 import React from 'react'
 import styled from 'styled-components'
-import { Flex, Text, Button, Heading, useModal, Skeleton } from '@phamphu19498/runtogether-uikit'
+import { Flex, Text, Button, Heading, useModal, Skeleton } from '@thaihuuluong/dogwatcher-uikit'
 import BigNumber from 'bignumber.js'
 import { Token } from 'config/constants/types'
 import { useTranslation } from 'contexts/Localization'

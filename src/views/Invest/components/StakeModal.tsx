@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from "react";
-import { Text, Flex, Button, Modal, AutoRenewIcon } from "@phamphu19498/runtogether-uikit";
+import { Text, Flex, Button, Modal, AutoRenewIcon } from "@thaihuuluong/dogwatcher-uikit";
 import { BalanceInput } from "components/Pancake-uikit";
 import styled from "styled-components";
 import { useStaked } from "../hook/useStake"

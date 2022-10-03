@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import { Flex, Button, useModal, Text, AutoRenewIcon } from "@phamphu19498/runtogether-uikit";
+import { Flex, Button, useModal, Text, AutoRenewIcon } from "@thaihuuluong/dogwatcher-uikit";
 import styled from "styled-components";
 import { useWeb3React } from "@web3-react/core";
 import { Token } from "config/constants/types";

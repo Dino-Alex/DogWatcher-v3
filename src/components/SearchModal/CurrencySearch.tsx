@@ -1,7 +1,7 @@
 import React, { KeyboardEvent, RefObject, useCallback, useMemo, useRef, useState, useEffect } from 'react'
 import styled from 'styled-components'
 import { Currency, ETHER, Token } from '@pancakeswap/sdk'
-import { Text, Box, Flex } from '@phamphu19498/runtogether-uikit'
+import { Text, Box, Flex } from '@thaihuuluong/dogwatcher-uikit'
 import { Input} from 'components/Pancake-uikit'
 import useTheme from 'hooks/useTheme'
 import { useTranslation } from 'contexts/Localization'

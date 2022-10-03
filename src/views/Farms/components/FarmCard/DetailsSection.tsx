@@ -1,7 +1,7 @@
 import React from 'react'
 import { useTranslation } from 'contexts/Localization'
 import styled from 'styled-components'
-import { Text, Flex, LinkExternal, Skeleton } from '@phamphu19498/runtogether-uikit'
+import { Text, Flex, LinkExternal, Skeleton } from '@thaihuuluong/dogwatcher-uikit'
 import { BASE_ADD_LIQUIDITY_URL, startTimeStake } from 'config'
 
 export interface ExpandableSectionProps {

@@ -10,7 +10,7 @@ import {
   ButtonMenuItem,
   HelpIcon,
   useTooltip,
-} from '@phamphu19498/runtogether-uikit'
+} from '@thaihuuluong/dogwatcher-uikit'
 import { useTranslation } from 'contexts/Localization'
 import useTheme from 'hooks/useTheme'
 import useToast from 'hooks/useToast'

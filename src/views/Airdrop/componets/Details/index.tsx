@@ -2,7 +2,7 @@ import React, { useState, useEffect} from "react";
 import styled from "styled-components";
 import { useParams } from 'react-router-dom';
 import { useWeb3React } from "@web3-react/core";
-import { Flex, AutoRenewIcon } from "@phamphu19498/runtogether-uikit"
+import { Flex, AutoRenewIcon } from "@thaihuuluong/dogwatcher-uikit"
 import PageFullWidth from "components/Layout/PageFullWidth";
 import { useTranslation } from "contexts/Localization";
 import Body from "./components/Body"

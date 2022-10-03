@@ -1,6 +1,6 @@
 import React, { CSSProperties, MutableRefObject, useCallback, useMemo } from 'react'
 import { Currency, CurrencyAmount, currencyEquals, ETHER, Token } from '@pancakeswap/sdk'
-import { Text, Flex } from '@phamphu19498/runtogether-uikit'
+import { Text, Flex } from '@thaihuuluong/dogwatcher-uikit'
 import styled from 'styled-components'
 import useTheme from 'hooks/useTheme'
 import { FixedSizeList } from 'react-window'

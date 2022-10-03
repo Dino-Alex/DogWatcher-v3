@@ -1,5 +1,5 @@
 import React from 'react'
-import { HistoryIcon, useModal } from '@phamphu19498/runtogether-uikit'
+import { HistoryIcon, useModal } from '@thaihuuluong/dogwatcher-uikit'
 import { Button } from 'components/Pancake-uikit'
 import useTheme from 'hooks/useTheme'
 import TransactionsModal from './TransactionsModal'

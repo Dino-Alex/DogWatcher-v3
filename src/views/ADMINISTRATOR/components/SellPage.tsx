@@ -1,4 +1,4 @@
-import { Button, Flex, Text, Breadcrumbs, AutoRenewIcon } from '@phamphu19498/runtogether-uikit';
+import { Button, Flex, Text, Breadcrumbs, AutoRenewIcon } from '@thaihuuluong/dogwatcher-uikit';
 import { useTranslation } from 'contexts/Localization';
 import React, { useState, useEffect } from 'react';
 import PageFullWidth from 'components/Layout/PageFullWidth'

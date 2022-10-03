@@ -1,7 +1,7 @@
 import React from 'react'
 import styled from 'styled-components'
 import { useHistory } from 'react-router'
-import { Button, Text, LogoIcon, Flex } from '@phamphu19498/runtogether-uikit'
+import { Button, Text, LogoIcon, Flex } from '@thaihuuluong/dogwatcher-uikit'
 import PageFullWidth from 'components/Layout/PageFullWidth'
 import { useTranslation } from 'contexts/Localization'
 import Container from 'components/Layout/Container'

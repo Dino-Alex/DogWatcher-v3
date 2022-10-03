@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from "react";
-import { Text, Flex, Button } from "@phamphu19498/runtogether-uikit";
+import { Text, Flex, Button } from "@thaihuuluong/dogwatcher-uikit";
 import { GetBalanceNft, GetNftInfo, GetTokenIds } from "state/marketplace";
 import { useWeb3React } from "@web3-react/core";
 import { useTranslation } from "contexts/Localization";

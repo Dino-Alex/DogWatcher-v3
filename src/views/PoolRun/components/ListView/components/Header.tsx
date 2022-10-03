@@ -1,5 +1,5 @@
 import React from "react";
-import { Text, Flex } from "@phamphu19498/runtogether-uikit";
+import { Text, Flex } from "@thaihuuluong/dogwatcher-uikit";
 import { CoreTagIcon } from "components/Pancake-uikit";
 import styled from "styled-components";
 

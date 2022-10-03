@@ -1,5 +1,5 @@
 
-import { Button, Card, Checkbox, Flex, Table, Td, Text, Th, useModal } from '@phamphu19498/runtogether-uikit'
+import { Button, Card, Checkbox, Flex, Table, Td, Text, Th, useModal } from '@thaihuuluong/dogwatcher-uikit'
 import { TokenRunIcon } from 'components/Pancake-uikit'
 import { MinusIcon, PlusIcon } from 'components/Pancake-uikit/widgets/Menu/icons'
 import { useTranslation } from 'contexts/Localization'

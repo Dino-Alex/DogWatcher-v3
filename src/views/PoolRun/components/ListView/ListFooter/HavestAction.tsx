@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import { Text, Flex, Button, AutoRenewIcon } from "@phamphu19498/runtogether-uikit";
+import { Text, Flex, Button, AutoRenewIcon } from "@thaihuuluong/dogwatcher-uikit";
 import styled from "styled-components";
 import { useTranslation } from "contexts/Localization";
 import { GetDataUser, GetDataUserStaked } from "state/poolrun";

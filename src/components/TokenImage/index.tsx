@@ -4,7 +4,7 @@ import {
   TokenPairImageProps as UIKitTokenPairImageProps,
   TokenImage as UIKitTokenImage,
   ImageProps,
-} from '@phamphu19498/runtogether-uikit'
+} from '@thaihuuluong/dogwatcher-uikit'
 import styled from 'styled-components'
 import tokens from 'config/constants/tokens'
 import { Token } from 'config/constants/types'

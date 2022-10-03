@@ -1,5 +1,5 @@
 import React, {useState} from "react";
-import { Text, Flex, useModal } from "@phamphu19498/runtogether-uikit";
+import { Text, Flex, useModal } from "@thaihuuluong/dogwatcher-uikit";
 import styled from "styled-components";
 import { GetTvlPool } from "state/poolrun";
 import { usePriceRunBusd } from "state/farms/hooks";

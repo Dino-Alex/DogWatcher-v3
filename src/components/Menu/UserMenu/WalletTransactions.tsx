@@ -1,6 +1,6 @@
 import React from 'react'
 import { useDispatch } from 'react-redux'
-import { Box, Flex, Text } from '@phamphu19498/runtogether-uikit'
+import { Box, Flex, Text } from '@thaihuuluong/dogwatcher-uikit'
 import { Button } from 'components/Pancake-uikit'
 import { AppDispatch } from 'state'
 import { useAllTransactions } from 'state/transactions/hooks'

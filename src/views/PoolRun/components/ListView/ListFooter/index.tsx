@@ -1,5 +1,5 @@
 import React from "react";
-import { Text, Flex } from "@phamphu19498/runtogether-uikit";
+import { Text, Flex } from "@thaihuuluong/dogwatcher-uikit";
 import styled from "styled-components";
 import tokens from "config/constants/tokens";
 import { BASE_BSC_URL } from "config";

@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import styled from 'styled-components';
-import { Button, Flex, Text } from '@phamphu19498/runtogether-uikit';
+import { Button, Flex, Text } from '@thaihuuluong/dogwatcher-uikit';
 import { renderBGCard, renderImgBox } from "utils/renderBGCard";
 import BigNumber from 'bignumber.js';
 import tokens from 'config/constants/tokens';

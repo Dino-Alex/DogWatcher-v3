@@ -5,7 +5,7 @@ import ReactPlayer from "react-player";
 import { useWeb3React } from '@web3-react/core'
 import ConnectWalletButton from 'components/ConnectWalletButton';
 import { useTranslation } from 'contexts/Localization'
-import { useModal } from '@phamphu19498/runtogether-uikit'
+import { useModal } from '@thaihuuluong/dogwatcher-uikit'
 import { Text, Button, Swap, CopyIcon, Flex, MetamaskIcon, PrivilegesArrow, Box } from 'components/Pancake-uikit'
 import { fetchDataBountyUser } from 'views/Membership/hooks/fetchDataBounty';
 import { ethers } from 'ethers'

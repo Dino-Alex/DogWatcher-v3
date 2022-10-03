@@ -1,6 +1,6 @@
 import React, { useState } from 'react'
 import styled from 'styled-components'
-import { useMatchBreakpoints } from '@phamphu19498/runtogether-uikit'
+import { useMatchBreakpoints } from '@thaihuuluong/dogwatcher-uikit'
 import { Pool } from 'state/types'
 import useDelayedUnmount from 'hooks/useDelayedUnmount'
 import NameCell from './Cells/NameCell'

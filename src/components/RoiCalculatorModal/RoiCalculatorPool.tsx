@@ -7,7 +7,7 @@ import {
   HelpIcon,
   Modal,
   Checkbox, Button,  useTooltip
-} from '@phamphu19498/runtogether-uikit'
+} from '@thaihuuluong/dogwatcher-uikit'
 import { BalanceInput } from 'components/Pancake-uikit'
 import BigNumber from 'bignumber.js'
 import useTheme from 'hooks/useTheme'

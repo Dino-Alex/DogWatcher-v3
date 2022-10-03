@@ -1,6 +1,6 @@
 // import React from 'react'
 // import styled from 'styled-components'
-// import { Flex } from '@phamphu19498/runtogether-uikit'
+// import { Flex } from '@thaihuuluong/dogwatcher-uikit'
 // import Footer from 'components/Menu/Footer'
 // import SubNav from 'components/Menu/SubNav'
 

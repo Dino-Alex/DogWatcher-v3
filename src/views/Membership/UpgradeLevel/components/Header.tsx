@@ -1,7 +1,7 @@
 import React from 'react'
 import { Link, useParams } from 'react-router-dom'
 import styled from 'styled-components'
-import { Flex, Heading, Text, useMatchBreakpoints } from '@phamphu19498/runtogether-uikit'
+import { Flex, Heading, Text, useMatchBreakpoints } from '@thaihuuluong/dogwatcher-uikit'
 import { useTranslation } from 'contexts/Localization'
 import { BackArrow, Button } from 'components/Pancake-uikit'
 import useTheme from 'hooks/useTheme'

@@ -1,7 +1,7 @@
 import React from 'react'
 import styled from 'styled-components'
 import { BIG_ZERO } from 'utils/bigNumber'
-import { Text, useMatchBreakpoints } from '@phamphu19498/runtogether-uikit'
+import { Text, useMatchBreakpoints } from '@thaihuuluong/dogwatcher-uikit'
 import BigNumber from 'bignumber.js'
 import { Pool } from 'state/types'
 import { useTranslation } from 'contexts/Localization'

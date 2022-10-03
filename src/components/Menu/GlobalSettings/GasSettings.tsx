@@ -1,5 +1,5 @@
 import React from 'react'
-import { Flex, Text } from '@phamphu19498/runtogether-uikit'
+import { Flex, Text } from '@thaihuuluong/dogwatcher-uikit'
 import { Button } from 'components/Pancake-uikit'
 import QuestionHelper from 'components/QuestionHelper'
 import { useTranslation } from 'contexts/Localization'

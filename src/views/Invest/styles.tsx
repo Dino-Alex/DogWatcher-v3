@@ -1,4 +1,4 @@
-import { Button, Flex, InputGroup, Text } from "@phamphu19498/runtogether-uikit";
+import { Button, Flex, InputGroup, Text } from "@thaihuuluong/dogwatcher-uikit";
 import styled from "styled-components";
 
 

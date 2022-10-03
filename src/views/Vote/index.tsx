@@ -1,5 +1,5 @@
 /* eslint-disable react/no-unescaped-entities */
-import { Flex, LinkExternal, Text, useModal, Skeleton } from '@phamphu19498/runtogether-uikit';
+import { Flex, LinkExternal, Text, useModal, Skeleton } from '@thaihuuluong/dogwatcher-uikit';
 import TransactionsModal from 'components/App/Transactions/TransactionsModal';
 import { Link, useParams } from 'react-router-dom';
 import HeaderLiquidity from 'components/HeaderLiquidity/HeaderLiquidity';

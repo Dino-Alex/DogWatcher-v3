@@ -1,5 +1,5 @@
 import React, { memo, useCallback, useMemo, useState, useEffect } from 'react'
-import { Text, CheckmarkIcon, CogIcon, Input, Toggle, LinkExternal, useTooltip } from '@phamphu19498/runtogether-uikit'
+import { Text, CheckmarkIcon, CogIcon, Input, Toggle, LinkExternal, useTooltip } from '@thaihuuluong/dogwatcher-uikit'
 import { Button } from 'components/Pancake-uikit'
 import { useDispatch, useSelector } from 'react-redux'
 import styled from 'styled-components'

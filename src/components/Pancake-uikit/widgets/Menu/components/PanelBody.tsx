@@ -1,7 +1,7 @@
 import React from 'react'
 import styled from 'styled-components'
 import { useLocation } from 'react-router-dom'
-import { Text } from '@phamphu19498/runtogether-uikit'
+import { Text } from '@thaihuuluong/dogwatcher-uikit'
 import { SvgProps } from '../../../components/Svg'
 import * as IconModule from '../icons'
 import Accordion from './Accordion'

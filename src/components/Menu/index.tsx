@@ -1,6 +1,6 @@
 import React, { useEffect } from 'react'
 import { useLocation } from 'react-router-dom'
-import { Menu as UikitMenu } from '@phamphu19498/runtogether-uikit'
+import { Menu as UikitMenu } from '@thaihuuluong/dogwatcher-uikit'
 import { languageList } from 'config/localization/languages'
 import { useTranslation } from 'contexts/Localization'
 import useTheme from 'hooks/useTheme'

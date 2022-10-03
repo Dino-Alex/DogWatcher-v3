@@ -1,5 +1,5 @@
 import React from 'react'
-import { ImageProps } from '@phamphu19498/runtogether-uikit'
+import { ImageProps } from '@thaihuuluong/dogwatcher-uikit'
 import { TokenPairImage } from 'components/Pancake-uikit'
 import tokens from 'config/constants/tokens'
 import { getAddress } from 'utils/addressHelpers'

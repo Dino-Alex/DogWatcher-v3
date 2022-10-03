@@ -1,7 +1,7 @@
 import React from 'react'
 import { Button, Text, Dropdown } from 'components/Pancake-uikit'
 import { useMatchBreakpoints } from "components/Pancake-uikit/hooks/index";
-import { useModal } from '@phamphu19498/runtogether-uikit'
+import { useModal } from '@thaihuuluong/dogwatcher-uikit'
 import BinanceChain from "components/Pancake-uikit/components/Svg/Icons/BinanceChain";
 import SwitchNetworkModal from 'components/SwitchNetwork/Index'
 import styled from 'styled-components'

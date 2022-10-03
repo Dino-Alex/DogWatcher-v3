@@ -2,7 +2,7 @@ import React from 'react'
 import { Text, ErrorIcon } from 'components/Pancake-uikit'
 import styled, { css } from 'styled-components'
 import { AutoColumn } from 'components/Layout/Column'
-import { Button, Flex } from '@phamphu19498/runtogether-uikit'
+import { Button, Flex } from '@thaihuuluong/dogwatcher-uikit'
 import { RowBetween } from 'components/Layout/Row'
 
 export const Wrapper = styled.div`

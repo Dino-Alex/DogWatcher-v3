@@ -1,4 +1,4 @@
-import { Cart, Flex, Text } from '@phamphu19498/runtogether-uikit';
+import { Cart, Flex, Text } from '@thaihuuluong/dogwatcher-uikit';
 import React from 'react';
 import styled from 'styled-components'
 

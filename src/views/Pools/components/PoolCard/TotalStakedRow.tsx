@@ -9,7 +9,7 @@ import {
   Skeleton,
   Link,
   HelpIcon,
-} from '@phamphu19498/runtogether-uikit'
+} from '@thaihuuluong/dogwatcher-uikit'
 import { useTooltip } from 'components/Pancake-uikit'
 import { useCakeVault } from 'state/pools/hooks'
 import { Pool } from 'state/types'

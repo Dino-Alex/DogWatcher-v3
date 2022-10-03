@@ -1,6 +1,6 @@
 import React from 'react'
 import styled from 'styled-components'
-import { ButtonMenu, ButtonMenuItem, LinkExternal, Flex, Svg, Image } from '@phamphu19498/runtogether-uikit'
+import { ButtonMenu, ButtonMenuItem, LinkExternal, Flex, Svg, Image } from '@thaihuuluong/dogwatcher-uikit'
 import { Button } from 'components/Pancake-uikit'
 import { useTranslation } from 'contexts/Localization'
 

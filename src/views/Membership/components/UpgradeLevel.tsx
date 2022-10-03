@@ -1,7 +1,7 @@
 import React, { useState } from 'react'
 import styled from 'styled-components'
 import ModalUpgrade from "components/Pancake-uikit/widgets/Modal/ModalUpgrade"
-import { useModal, Button, Text } from '@phamphu19498/runtogether-uikit'
+import { useModal, Button, Text } from '@thaihuuluong/dogwatcher-uikit'
 import Tabupgrade from "./Tabupgrade"
 
 interface ProptypeData {

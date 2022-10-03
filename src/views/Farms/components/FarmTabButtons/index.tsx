@@ -1,4 +1,4 @@
-import { ButtonMenu, ButtonMenuItem, NotificationDot } from '@phamphu19498/runtogether-uikit'
+import { ButtonMenu, ButtonMenuItem, NotificationDot } from '@thaihuuluong/dogwatcher-uikit'
 import { useTranslation } from 'contexts/Localization'
 import React from 'react'
 import { NavLink, useLocation, useRouteMatch, Link } from 'react-router-dom'

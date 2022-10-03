@@ -4,7 +4,7 @@ import {
   Flex,
   Text,
   HelpIcon,
-} from '@phamphu19498/runtogether-uikit'
+} from '@thaihuuluong/dogwatcher-uikit'
 import styled from 'styled-components'
 
 const CustomText = styled(Text)`
