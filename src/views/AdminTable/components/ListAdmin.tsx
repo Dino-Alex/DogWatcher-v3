@@ -210,7 +210,7 @@ const BodyTable = styled(Flex) <{ isActive: boolean }>`
     }
 `
 const FlexDataName = styled(Flex)`
-    width: 200px;
+    width: 300px;
     font-family: 'Poppins';
     font-style: normal;
     font-weight: 600;

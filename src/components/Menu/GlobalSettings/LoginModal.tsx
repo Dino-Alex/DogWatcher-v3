@@ -58,6 +58,8 @@ const LoginModal: React.FC<InjectedModalProps> = ({ onDismiss }) => {
             "password": password
            
         })
+        console.log('resp', resp);
+        
         localStorage.setItem("tokenAuth", resp.data.token)
         onDismiss()
         setLoading(true)

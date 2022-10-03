@@ -1,10 +1,11 @@
-import { Button, Flex, Text } from '@phamphu19498/runtogether-uikit';
+import { Button, Flex, Input, InputGroup, SearchIcon, Text } from '@phamphu19498/runtogether-uikit';
 import { useTranslation } from 'contexts/Localization';
 import React, { useEffect, useState } from 'react';
 import ReactPaginate from 'react-paginate';
 import {useHistory } from 'react-router-dom';
 import { GetDataDogWatcher } from 'state/dogwatcher';
 import styled from 'styled-components';
+import { latinise } from 'utils/latinise'
 import ListAdmin from './components/ListAdmin';
 
 const AdminTable = () => {
@@ -26,21 +27,38 @@ const AdminTable = () => {
   const [pageCount, setPageCount] = useState(0);
   const [itemOffset, setItemOffset] = useState(0);
   const [currentItems, setCurrentItems] = useState([]);
+  const [saleArray, setSaleArray] = useState([]);
+  const [query, setQuery] = useState('')  
+  const handleChangeQuery = (event: React.ChangeEvent<HTMLInputElement>) => {
+    setQuery(event.target.value)
+}
   const handlePageClick = (event) => {
     const newOffset = (event.selected * itemsPerPage) % listDataDog.length;
       setItemOffset(newOffset);
     };
     useEffect(() => {
       const endOffset = itemOffset + itemsPerPage;
-      setCurrentItems(listDataDog.slice(itemOffset, endOffset));
-        setPageCount(Math.ceil(listDataDog.length / itemsPerPage));
-    }, [itemOffset, itemsPerPage, listDataDog]);
-  
+      setCurrentItems(saleArray.slice(itemOffset, endOffset));
+        setPageCount(Math.ceil(saleArray.length / itemsPerPage));
+    }, [itemOffset, itemsPerPage, saleArray]);
+    
+    useEffect(() => {
+        function SearchItem () {
+            const lowercaseQuery = latinise(query.toLowerCase())
+            setSaleArray(listDataDog.filter((data) =>{
+                return latinise(data.walletName.toLowerCase()).includes(lowercaseQuery)
+            }))
+        }
+        if (listDataDog || saleArray || query ) {
+            SearchItem()
+        }
+    }, [listDataDog, query]) // eslint-disable-line react-hooks/exhaustive-deps
     return (
         <Container>
             <Flex mb={4} mt={1} justifyContent='center'>
-                <Text fontWeight='700' fontSize='26px'> TALBE ADMIN </Text>
+                <Text fontWeight='700' fontSize='26px'> TABLE ADMIN </Text>
             </Flex>
+           
             {tokenAuth ?
                 <Flex mb={1} mt={1} mr={2} justifyContent='flex-end'>
                     <Button onClick={handleClick}>Create</Button>
@@ -48,7 +66,13 @@ const AdminTable = () => {
             :
                 <></>
             }
-           
+            <Flex mb={1} mt={1} mr={2} justifyContent='center'>
+                <Flex width='98%'>
+                    <InputGroup startIcon={<SearchIcon width="24px" />} scale="md">
+                        <Input type="text" placeholder={t("Search...")} onChange={handleChangeQuery}/>
+                    </InputGroup>
+                </Flex>
+            </Flex>
             <TitleTable>
                 <FlexListVotting width='100%' justifyContent='space-around'>
                     <TextListVotting justifyContent='center'>Name</TextListVotting>
