@@ -41,16 +41,18 @@ const AdminTable = () => {
     };
     useEffect(() => {
         const endOffset = itemOffset + itemsPerPage;
-        setCurrentItems(saleArray.slice(itemOffset, endOffset));
+        setCurrentItems(saleArray?.slice(itemOffset, endOffset));
         setPageCount(Math.ceil(saleArray.length / itemsPerPage));
     }, [itemOffset, itemsPerPage, saleArray]);
 
     useEffect(() => {
         function SearchItem() {
-            const lowercaseQuery = latinise(query.toLowerCase())
-            setSaleArray(listDataDog.filter((data) => {
-                return latinise(data.walletName.toLowerCase()).includes(lowercaseQuery)
-            }))
+            const lowercaseQuery = latinise(query?.toLowerCase())
+            if(lowercaseQuery){
+                setSaleArray(listDataDog?.filter((data) => {
+                    return latinise(data?.walletName?.toLowerCase()).includes(lowercaseQuery)
+                }))
+            }
         }
         if (listDataDog || saleArray || query) {
             SearchItem()
@@ -58,9 +60,9 @@ const AdminTable = () => {
     }, [listDataDog, query]) // eslint-disable-line react-hooks/exhaustive-deps
     useEffect(() => {
         function SearchItem() {
-            const lowercaseQuery = latinise(queryProject.toLowerCase())
-            setSaleArray(listDataDog.filter((data) => {
-                return latinise(data.project.toLowerCase()).includes(lowercaseQuery)
+            const lowercaseQuery = latinise(queryProject?.toLowerCase())
+            setSaleArray(listDataDog?.filter((data) => {
+                return latinise(data?.project.toLowerCase()).includes(lowercaseQuery)
             }))
         }
         if (listDataDog || saleArray || queryProject) {

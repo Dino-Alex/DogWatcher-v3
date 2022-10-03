@@ -8,6 +8,7 @@ import { getBscScanLink } from 'utils';
 import { formatAmount } from 'utils/formatInfoNumbers';
 import { GetBalance } from '../hook/usefetchBalance';
 import DeleteModalAdmin from './Modal/DeleteModalAdmin';
+import UpdateStatus from './Modal/UpdateStatus';
 
 interface Props {
     id?: string
@@ -32,26 +33,27 @@ const ListAdmin: React.FC<Props> = ({
 }) => {
     const tokenAuth = localStorage.getItem("tokenAuth")
     const { chainId } = useActiveWeb3React()
-    const [openDeleteModal] = useModal(<DeleteModalAdmin id={id}/>)
+    const [openDeleteModal] = useModal(<DeleteModalAdmin id={id} />)
+    const [openUpdateStatusModal] = useModal(<UpdateStatus idStatus={id} />)
     // const [openUpdateWalletModal] = useModal(<UpdateWallet id={id}/>)
 
-    function convertDate(date: any){
+    function convertDate(date: any) {
         if (date) {
-        const today=  new Date(date);
-        const minutes = String(today.getMinutes()).padStart(2, '0');
-        const hours = String(today.getHours()).padStart(2, '0');
-        const dd = String(today.getDate()).padStart(2, '0');
-        const mm = String(today.getMonth() + 1).padStart(2, '0');
-        const yyyy = today.getFullYear();
-        return <Flex alignItems="center">
-            <TextEmail bold>{hours}:{minutes}</TextEmail>
-            <TextEmail ml="10px" bold>{dd}/{mm}/{yyyy}</TextEmail>
-        </Flex>;
+            const today = new Date(date);
+            const minutes = String(today.getMinutes()).padStart(2, '0');
+            const hours = String(today.getHours()).padStart(2, '0');
+            const dd = String(today.getDate()).padStart(2, '0');
+            const mm = String(today.getMonth() + 1).padStart(2, '0');
+            const yyyy = today.getFullYear();
+            return <Flex alignItems="center">
+                <TextEmail bold>{hours}:{minutes}</TextEmail>
+                <TextEmail ml="10px" bold>{dd}/{mm}/{yyyy}</TextEmail>
+            </Flex>;
         }
         return <Skeleton width={60} />
-      }
-    
-    
+    }
+
+
     function setAddress(dataAddress) {
         if (dataAddress) {
             return `${dataAddress.substring(0, 4)}...${dataAddress.substring(dataAddress.length - 4)}`
@@ -93,10 +95,10 @@ const ListAdmin: React.FC<Props> = ({
     }
 
     const { balanceList } = GetBalance(walletAddress, limit)
-    
+
     const handleClickUpdate = () => {
         history.push(`/update/${id.toString()}`)
-      }
+    }
 
     return (
         <Container>
@@ -162,7 +164,7 @@ const ListAdmin: React.FC<Props> = ({
                         <Flex width='100%' justifyContent='center' alignItems='center'>
                             <CsText>No data</CsText>
                         </Flex>
-                    } 
+                    }
                 </FlexData>
                 <FlexData>
                     <Flex width='100%' justifyContent='center' alignItems='center'>
@@ -172,17 +174,17 @@ const ListAdmin: React.FC<Props> = ({
                                     {email.map((item) => {
                                         return (
                                             <>
-                                            {item.time === ''?
-                                               <>
-                                                <TextEmail textAlign='center' fontWeight='100'>{item.time}</TextEmail>
-                                                <CsText>{setEmail(item.address)}</CsText>
-                                               </>
-                                            :
-                                                <>
-                                                <TextEmail textAlign='center' fontWeight='100'>{convertDate(item.time)}</TextEmail>
-                                                <CsText>{setEmail(item.address)}</CsText>
-                                                </>
-                                            }
+                                                {item.time === '' ?
+                                                    <>
+                                                        <TextEmail textAlign='center' fontWeight='100'>{item.time}</TextEmail>
+                                                        <CsText>{setEmail(item.address)}</CsText>
+                                                    </>
+                                                    :
+                                                    <>
+                                                        <TextEmail textAlign='center' fontWeight='100'>{convertDate(item.time)}</TextEmail>
+                                                        <CsText>{setEmail(item.address)}</CsText>
+                                                    </>
+                                                }
                                             </>
                                         )
                                     })}
@@ -199,18 +201,24 @@ const ListAdmin: React.FC<Props> = ({
                     {status !== null ?
                         <Flex width='100%' justifyContent='center' alignItems='center'>
                             <Flex width='100%' justifyContent='center' alignItems='center' style={{ gap: '10px' }}>
-                                {status === true ?
-                                    <CsText>Enabled</CsText>
+                                {tokenAuth ?
+                                    <FlexStatus isStatus={status} onClick={openUpdateStatusModal}>
+                                        {status === true ?
+                                            <TextStatus isStatus={status}>Enabled</TextStatus>
+                                            :
+                                            <TextStatus isStatus={status}>Disabled</TextStatus>
+                                        }
+                                    </FlexStatus>
                                     :
-                                    <CsText>Disabled</CsText>
+                                    <FlexStatus isStatus={status}>
+                                        {status === true ?
+                                            <TextStatus isStatus={status}>Enabled</TextStatus>
+                                            :
+                                            <TextStatus isStatus={status}>Disabled</TextStatus>
+                                        }
+                                    </FlexStatus>
                                 }
-                                {/* <CsPencilIcon className='IconHiden' onClick={displayTooltip} style={{ cursor: 'pointer' }} /> */}
                             </Flex>
-                            {/* <Flex  alignItems='center' justifyContent='center'>
-                            <Tooltip isTooltipDisplayed={isTooltipDisplayed}>
-                                <Button onClick={() => setDisplay(true)}>{status === true ? 'Enable' : 'Disable'}</Button>
-                            </Tooltip>
-                            </Flex> */}
                         </Flex>
                         :
                         <Flex width='100%' justifyContent='center' alignItems='center'>
@@ -219,15 +227,15 @@ const ListAdmin: React.FC<Props> = ({
                     }
                 </FlexDataName>
                 {tokenAuth ?
-                <FlexDataV1>
-                    <Flex width='100%' justifyContent='center' style={{ gap: '10px' }}>
-                        {/* <CsPencilIconV1 onClick={displayTooltip} style={{ cursor: 'pointer' }} /> */}
-                        <CsPencilIcon onClick={handleClickUpdate}  style={{ cursor: 'pointer' }} />
-                        <CsCloseIcon onClick={openDeleteModal} style={{ cursor: 'pointer' }} />
-                        {/* <CsCloseIconV1 Color={Color} onClick={openDeleteModal} style={{ cursor: 'pointer' }} /> */}
-                    </Flex>
-                </FlexDataV1>
-                :
+                    <FlexDataV1>
+                        <Flex width='100%' justifyContent='center' style={{ gap: '10px' }}>
+                            {/* <CsPencilIconV1 onClick={displayTooltip} style={{ cursor: 'pointer' }} /> */}
+                            <CsPencilIcon onClick={handleClickUpdate} style={{ cursor: 'pointer' }} />
+                            <CsCloseIcon onClick={openDeleteModal} style={{ cursor: 'pointer' }} />
+                            {/* <CsCloseIconV1 Color={Color} onClick={openDeleteModal} style={{ cursor: 'pointer' }} /> */}
+                        </Flex>
+                    </FlexDataV1>
+                    :
                     <></>
                 }
             </BodyTable>
@@ -356,7 +364,6 @@ const FlexDataV1 = styled(Flex)`
     @media screen and (max-width: 980px) {
         display: none;
     }
-    
     .IconHiden{
         display: none;
     }
@@ -401,3 +408,19 @@ const CsCloseIcon = styled(CloseIcon)`
 //     }
 //     display: ${({ isNone }) => (isNone ? 'none' : 'block')};
 // `
+
+const FlexStatus = styled(Flex) <{ isStatus: boolean }>`
+    border: 1px solid ${({ isStatus }) => (isStatus ? '#029DA5' : '#000')};
+    padding: 5px;
+    border-radius: 10px;
+`
+const TextStatus = styled(Text) <{ isStatus: boolean }>`
+    color: ${({ isStatus }) => (isStatus ? '#029DA5' : '#000')};
+    font-weight: 600;
+    @media screen and (max-width: 768px) {
+        font-size: 10px;
+    }
+    @media screen and (max-width: 600px) {
+        font-size: 12px;
+    }
+`
