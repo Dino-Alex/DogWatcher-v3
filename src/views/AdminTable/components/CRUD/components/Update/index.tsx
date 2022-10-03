@@ -19,11 +19,11 @@ import WalletAddress from './InputWalletAddress';
 
 const optionStatus = [
     {
-        label: 'True',
+        label: 'Enable',
         value: true,
     },
     {
-        label: 'False',
+        label: 'Disable',
         value: false,
     }
 ]
@@ -245,7 +245,7 @@ const Update: React.FC<Props> = () => {
                                 <Select
                                     options={optionStatus}
                                     defaultValue={{
-                                        label: 'True',
+                                        label: 'Enable',
                                         value: true,
                                     }}
                                     onChange={(e) => setStatus(e.value)}
