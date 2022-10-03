@@ -1,8 +1,10 @@
-import { Flex, PencilIcon, Text, useModal } from '@thaihuuluong/dogwatcher-uikit';
+import { Flex, Link, PencilIcon, Text, useModal } from '@thaihuuluong/dogwatcher-uikit';
 import { CloseIcon } from 'components/Pancake-uikit';
+import useActiveWeb3React from 'hooks/useActiveWeb3React';
 import React from 'react';
 import history from 'routerHistory';
 import styled from 'styled-components';
+import { getBscScanLink } from 'utils';
 import { formatAmount } from 'utils/formatInfoNumbers';
 import { GetBalance } from '../hook/usefetchBalance';
 import DeleteModalAdmin from './Modal/DeleteModalAdmin';
@@ -13,6 +15,7 @@ interface Props {
     walletAddress?: string
     limit?: any
     email?: any
+    project?: string
     status?: boolean
     rowId?: number
 }
@@ -23,10 +26,12 @@ const ListAdmin: React.FC<Props> = ({
     walletAddress,
     limit,
     email,
+    project,
     status,
     rowId,
 }) => {
     const tokenAuth = localStorage.getItem("tokenAuth")
+    const { chainId } = useActiveWeb3React()
     const [openDeleteModal] = useModal(<DeleteModalAdmin id={id}/>)
     // const [openUpdateWalletModal] = useModal(<UpdateWallet id={id}/>)
     
@@ -37,18 +42,24 @@ const ListAdmin: React.FC<Props> = ({
         return ""
     }
 
-    // function setEmail(dataEmail) {
-    //     if (dataEmail) {
-    //         return `${dataEmail.substring(0, 4)}...${dataEmail.substring(dataEmail.length - 4)}`
-    //     }
-    //     return ""
-    // }
+    function setEmail(dataEmail) {
+        if (dataEmail) {
+            return `${dataEmail.substring(0, 8)}...${dataEmail.substring(dataEmail.length - 5)}`
+        }
+        return ""
+    }
+    function setProject(dataProject) {
+        if (dataProject) {
+            return `${dataProject.slice(7)}`
+        }
+        return ""
+    }
     function compareBalance(balance, tokenLimit, name) {
         if (balance < tokenLimit) {
-            return `${formatAmount(balance)} < ${formatAmount(tokenLimit)} ${name}`
+            return <CsText color='#FF592C'>{`${formatAmount(balance)} < ${formatAmount(tokenLimit)} ${name}`}</CsText>
         }
         if (balance > tokenLimit) {
-            return <CsText color='#FF592C'>{`${formatAmount(balance)} > ${formatAmount(tokenLimit)} ${name}`}</CsText>
+            return <CsText>{`${formatAmount(balance)} > ${formatAmount(tokenLimit)} ${name}`}</CsText>
         }
         if (balance === tokenLimit && (balance !== 0 && tokenLimit !== 0)) {
             return <CsText color='#FF592C'>{`${formatAmount(balance)} = ${formatAmount(tokenLimit)} ${name}`}</CsText>
@@ -68,11 +79,27 @@ const ListAdmin: React.FC<Props> = ({
     return (
         <Container>
             <BodyTable isActive={rowId % 2 === 0 ? !false : false}>
+                <FlexDataProject>
+                    <Flex width='100%' justifyContent='center' alignItems='center'>
+                        {project ?
+                            <Flex width='100%' justifyContent='center' alignItems='center' style={{ gap: '10px' }}>
+                                <CsText>{setProject(project)}</CsText>
+                                {/* <CsPencilIcon className='IconHiden' onClick={openUpdateWalletModal} style={{ cursor: 'pointer' }} /> */}
+                            </Flex>
+                            :
+                            <Flex width='100%' justifyContent='center' alignItems='center'>
+                                <CsText>No data</CsText>
+                            </Flex>
+                        }
+                    </Flex>
+                </FlexDataProject>
                 <FlexDataName>
                     <Flex width='100%' justifyContent='center' alignItems='center'>
                         {walletName ?
                             <Flex width='100%' justifyContent='center' alignItems='center' style={{ gap: '10px' }}>
-                                <CsText>{walletName}</CsText>
+                                <Link href={getBscScanLink(walletAddress, 'address', chainId)} external>
+                                    {walletName}
+                                </Link>
                                 {/* <CsPencilIcon className='IconHiden' onClick={openUpdateWalletModal} style={{ cursor: 'pointer' }} /> */}
                             </Flex>
                             :
@@ -86,7 +113,9 @@ const ListAdmin: React.FC<Props> = ({
                     <Flex width='100%' justifyContent='center' alignItems='center'>
                         {walletAddress ?
                             <Flex width='100%' justifyContent='center' alignItems='center' style={{ gap: '10px' }}>
-                                <CsText>{setAddress(walletAddress)}</CsText>
+                                <Link href={getBscScanLink(walletAddress, 'address', chainId)} external>
+                                    {setAddress(walletAddress)}
+                                </Link>
                                 {/* <CsPencilIcon className='IconHiden' onClick={openUpdateWalletModal} style={{ cursor: 'pointer' }} /> */}
                             </Flex>
                             :
@@ -122,7 +151,7 @@ const ListAdmin: React.FC<Props> = ({
                                         return (
                                             <>
                                                 {/* <TextEmail textAlign='center' fontWeight='100'>{item.emailTime}</TextEmail> */}
-                                                <CsText>{item}</CsText>
+                                                <CsText>{setEmail(item)}</CsText>
                                             </>
                                         )
                                     })}
@@ -135,14 +164,14 @@ const ListAdmin: React.FC<Props> = ({
                         }
                     </Flex>
                 </FlexData>
-                <FlexDataName className='NoneWallet' width='100%' justifyContent='center' alignItems='center'>
+                <FlexDataName className='NoneWallet' width='100%'>
                     {status !== null ?
                         <Flex width='100%' justifyContent='center' alignItems='center'>
                             <Flex width='100%' justifyContent='center' alignItems='center' style={{ gap: '10px' }}>
                                 {status === true ?
-                                    <CsText>Enable</CsText>
+                                    <CsText>Enabled</CsText>
                                     :
-                                    <CsText>Disable</CsText>
+                                    <CsText>Disabled</CsText>
                                 }
                                 {/* <CsPencilIcon className='IconHiden' onClick={displayTooltip} style={{ cursor: 'pointer' }} /> */}
                             </Flex>
@@ -217,6 +246,32 @@ const FlexDataName = styled(Flex)`
     font-size: 16px;
     line-height: 24px;
     display: flex;
+    text-align: center;
+    align-items: center;
+    justify-content: center;
+    @media screen and (max-width: 600px) {
+        width: 100px;
+        &.NoneWallet{
+            display: none;
+        }
+    }
+    .IconHiden{
+        display: none;
+    }
+    :hover{
+        .IconHiden{
+            display: block;
+        }
+    }
+`
+const FlexDataProject = styled(Flex)`
+    width: 200px;
+    font-family: 'Poppins';
+    font-style: normal;
+    font-weight: 600;
+    font-size: 16px;
+    line-height: 24px;
+    display: flex;
     align-items: center;
     @media screen and (max-width: 600px) {
         width: 100px;
@@ -224,7 +279,6 @@ const FlexDataName = styled(Flex)`
             display: none;
         }
     }
-   
     .IconHiden{
         display: none;
     }

@@ -1,4 +1,6 @@
 import { Button, Flex, Input, InputGroup, SearchIcon, Text } from '@thaihuuluong/dogwatcher-uikit';
+import Select from 'react-select';
+import { optionArrayProject } from 'config';
 import { useTranslation } from 'contexts/Localization';
 import React, { useEffect, useState } from 'react';
 import ReactPaginate from 'react-paginate';
@@ -29,6 +31,7 @@ const AdminTable = () => {
     const [currentItems, setCurrentItems] = useState([]);
     const [saleArray, setSaleArray] = useState([]);
     const [query, setQuery] = useState('')
+    const [queryProject, setQueryProject] = useState('')
     const handleChangeQuery = (event: React.ChangeEvent<HTMLInputElement>) => {
         setQuery(event.target.value)
     }
@@ -53,14 +56,31 @@ const AdminTable = () => {
             SearchItem()
         }
     }, [listDataDog, query]) // eslint-disable-line react-hooks/exhaustive-deps
+    useEffect(() => {
+        function SearchItem() {
+            const lowercaseQuery = latinise(queryProject.toLowerCase())
+            setSaleArray(listDataDog.filter((data) => {
+                return latinise(data.project.toLowerCase()).includes(lowercaseQuery)
+            }))
+        }
+        if (listDataDog || saleArray || queryProject) {
+            SearchItem()
+        }
+    }, [listDataDog, queryProject]) // eslint-disable-line react-hooks/exhaustive-deps
     return (
         <Container>
             <Flex mb={4} mt={1} justifyContent='center'>
-                <Text fontWeight='700' fontSize='26px'> TABLE ADMIN </Text>
+                <Text fontWeight='700' fontSize='26px'>ADMIN TABLE</Text>
             </Flex>
             <Flex justifyContent='space-between'>
                 <Flex mb={1} mt={1} mr={2} justifyContent='center'>
-                    <Flex width='98%'>
+                    <Flex width='98%' style={{gap: '10px'}} justifyContent='center' alignItems='center'>
+                        <InputGroup scale="md">
+                            <Select
+                                options={optionArrayProject}
+                                onChange={(e) => setQueryProject(e.value)}
+                            />
+                        </InputGroup>
                         <InputGroup startIcon={<SearchIcon width="24px" />} scale="md">
                             <Input type="text" placeholder={t("Search...")} onChange={handleChangeQuery} />
                         </InputGroup>
@@ -77,11 +97,12 @@ const AdminTable = () => {
 
             <TitleTable>
                 <FlexListVotting width='100%' justifyContent='space-around'>
-                    <TextListVotting justifyContent='center'>Name</TextListVotting>
-                    <TextListVotting className='NoneWallet' id='Wallet' justifyContent='center'>Wallet</TextListVotting>
+                    <TextListVottingProject justifyContent='center'>Project</TextListVottingProject>
+                    <TextListVotting justifyContent='center'>Wallet Name</TextListVotting>
+                    <TextListVotting className='NoneWallet' id='Wallet' justifyContent='center'>Wallet Address</TextListVotting>
                     <TextListVotting justifyContent='center' id='Balance'>Balance/Limit</TextListVotting>
                     <TextListVotting justifyContent='center'>Email</TextListVotting>
-                    <TextListVotting className='NoneWallet' id='Status' justifyContent='center'>Status</TextListVotting>
+                    <TextListVotting pl={4} className='NoneWallet' id='Status' justifyContent='center'>Status</TextListVotting>
                     {tokenAuth ?
                         <TextListVottingV1 justifyContent='center' id='Action'>Action</TextListVottingV1>
                         :
@@ -99,6 +120,7 @@ const AdminTable = () => {
                                 walletAddress={item.walletAddress}
                                 limit={item.limit}
                                 email={item.email}
+                                project={item.project}
                                 status={item.status}
                                 rowId={key}
                             />
@@ -196,55 +218,24 @@ const TextListVotting = styled(Flex)`
     line-height: 24px;
     display: flex;
     align-items: center;
-    @media screen and (max-width: 2560px) {
-        &#Wallet{
-            padding-right: 130px;
-        }
-        &#Balance{
-            padding-right: 130px;
-        }
-        &#Action{
-            padding-right: 130px;
-        }
-        &#Status{
-            padding-left: 0px;
+    @media screen and (max-width: 600px) {
+        margin-left: -1.5rem;
+        width: 80px;
+        word-break: break-all;
+        &.NoneWallet{
+            display: none;
         }
     }
-    @media screen and (max-width: 1444px) {
-        &#Wallet{
-            padding-right: 80px;
-        }
-        &#Balance{
-            padding-right: 80px;
-        }
-        &#Action{
-            padding-right: 80px;
-        }
-        &#Status{
-            padding-left: 30px;
-        }
-    }
-    @media screen and (max-width: 1024px) {
-        &#Wallet{
-            padding-right: 80px;
-        }
-        &#Balance{
-            padding-right: 80px;
-        }
-        &#Action{
-            padding-right: 80px;
-        }
-    }
-    @media screen and (max-width: 768px) {
-        font-size: 12px;
-        width: 100px;
-        &#Wallet{
-            padding-right: 80px;
-        }
-        &#Balance{
-            padding-right: 80px;
-        }
-    }
+`
+const TextListVottingProject = styled(Flex)`
+    width: 200px;
+    font-family: 'Poppins';
+    font-style: normal;
+    font-weight: 600;
+    font-size: 16px;
+    line-height: 24px;
+    display: flex;
+    align-items: center;
     @media screen and (max-width: 600px) {
         margin-left: -1.5rem;
         width: 80px;

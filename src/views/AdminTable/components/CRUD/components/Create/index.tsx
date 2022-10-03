@@ -17,11 +17,11 @@ import SubmitModal from './SubmitModal';
 
 const optionStatus = [
     {
-        label: 'Enable',
+        label: 'Enabled',
         value: true,
     },
     {
-        label: 'Disable',
+        label: 'Disabled',
         value: false,
     }
 ]

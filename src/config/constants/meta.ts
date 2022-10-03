@@ -4,7 +4,7 @@ import { PageMeta } from './types'
 
 
 export const DEFAULT_META: PageMeta = {
-  title: 'Run Together is a Move-to-earn project that applies both Game-Fi and Social-Fi aspects, aims to motivate people around the world living a healthier lifestyle.',
+  title: 'STAY ONE STEP AHEAD.',
   // description:
   //   'A multi-chain platform that allows continuous flows between digital and traditional financial assets. This is where values are connected and best exploited.',
   
@@ -12,8 +12,8 @@ export const DEFAULT_META: PageMeta = {
 
 export const getCustomMeta = (path: string, t: ContextApi['t']): PageMeta => {
   return {
-    title: `Run Together`,
-    image: 'https://runtogether.net/wp-content/uploads/2022/07/meta-banner.png',
-    description:"Run Together is a Move-to-earn project that applies both Game-Fi and Social-Fi aspects, aims to motivate people around the world living a healthier lifestyle."
+    title: `Delta Labs - DogWatcher`,
+    image: 'https://slack-imgs.com/?c=1&o1=ro&url=https%3A%2F%2Fdeltalabsjsc.com%2Fwp-content%2Fuploads%2F2022%2F07%2FHomepage.jpg',
+    description:"STAY ONE STEP AHEAD."
   }
 } 
