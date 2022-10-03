@@ -155,8 +155,17 @@ const ListAdmin: React.FC<Props> = ({
                                     {email.map((item) => {
                                         return (
                                             <>
-                                                {/* <TextEmail textAlign='center' fontWeight='100'>{item.emailTime}</TextEmail> */}
-                                                <CsText>{setEmail(item)}</CsText>
+                                            {item.time === ''?
+                                               <>
+                                                <TextEmail textAlign='center' fontWeight='100'>{item.time}</TextEmail>
+                                                <CsText>{setEmail(item.address)}</CsText>
+                                               </>
+                                            :
+                                                <>
+                                                <TextEmail textAlign='center' fontWeight='100'>{item.time}</TextEmail>
+                                                <CsText>{setEmail(item.address)}</CsText>
+                                                </>
+                                            }
                                             </>
                                         )
                                     })}
@@ -349,13 +358,13 @@ const CsText = styled(Text)`
         font-size: 12px;
     }
 `
-// const TextEmail = styled(Text)`
-//     font-weight: 400;
-//     color: #029DA5;
-//     @media screen and (max-width: 600px) {
-//         font-size: 12px;
-//     }
-// `
+const TextEmail = styled(Text)`
+    font-weight: 400;
+    color: #029DA5;
+    @media screen and (max-width: 600px) {
+        font-size: 12px;
+    }
+`
 const CsPencilIcon = styled(PencilIcon)`
     margin-bottom: 0.5rem;
     path{

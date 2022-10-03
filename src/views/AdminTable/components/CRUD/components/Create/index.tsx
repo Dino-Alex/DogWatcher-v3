@@ -33,7 +33,7 @@ const Create = () => {
     const [walletAddress, setWalletAddress] = useState('')
     const [projectName, setProjectName] = useState('ProjectDeltaLabs')
     const [tokenLimit, setTokenLimit] = useState([{"tokenAddress" : "0xc643E83587818202E0fFf5eD96D10Abbc8Bb48e7", "tokenName" : "RUN", "tokenLimit" : 0}])
-    const [emails, setEmails] = useState([''])
+    const [emails, setEmails] = useState([{"address" : "", "time" : ""}])
     const [slacks, setSlacks] = useState([''])
     const [status, setStatus] = useState(true)
     const [ramdomID, setRamdomID] = useState('')
@@ -80,7 +80,7 @@ const Create = () => {
         tokenLimit.splice(id, 1);
     };
     const handleAddEmail = () => {
-        const newEmail = ""
+        const newEmail = {"address" :"" ,"time": ""};
         const newArrEmail = [...emails, newEmail];
         setEmails(newArrEmail);
     };
@@ -89,7 +89,7 @@ const Create = () => {
     };
     const handleAddSlack = () => {
         const newSlack = ""
-        const newArrSlack = [...emails, newSlack];
+        const newArrSlack = [...slacks, newSlack];
         setSlacks(newArrSlack);
     };
     const handleDeleteSlack = (id: any) => {
@@ -184,7 +184,6 @@ const Create = () => {
                     <Flex style={{gap: '5px'}}>
                         <InputEmail
                         index={index}
-                        value={item}
                         parentCallback={callbackEmail}/>
                         <Flex justifyContent='center' alignItems='center' style={{ gap: "10px" }} mt={4}>
                             <DeleteIcon onClick={() => handleDeleteEmail(index)} style={{cursor: 'pointer'}}/>
@@ -228,9 +227,9 @@ const Create = () => {
                 <Flex width='100%' justifyContent='center'>
                     <Flex style={{gap: '20px'}}>
                         {tokenLimit[0].tokenLimit === 0 ?
-                            <Button onClick={openSubmitModal} disabled={nameWallet === '' || walletAddress === '' || projectName === '' || emails[0] === ''}>Submit</Button>
+                            <Button onClick={openSubmitModal} disabled={nameWallet === '' || walletAddress === '' || projectName === '' || emails[0].address === ''}>Submit</Button>
                         :
-                            <Button onClick={handleSubmit} disabled={nameWallet === '' || walletAddress === '' || projectName === '' || emails[0] === ''}>Submit</Button>
+                            <Button onClick={handleSubmit} disabled={nameWallet === '' || walletAddress === '' || projectName === '' || emails[0].address === ''}>Submit</Button>
                         }
                         <Button onClick={handleCancel}>Cancel</Button>
                     </Flex>
