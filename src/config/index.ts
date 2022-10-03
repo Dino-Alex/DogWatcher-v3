@@ -106,5 +106,30 @@ export const optionArrayProject = [
       label: 'Project LTD',
       value: 'ProjectLTD',
   },
-
+]
+export const optionArraySortProject = [
+  {
+    label: 'Project All',
+    value: '',
+  },
+  {
+    label: 'Project DeltaLabs',
+    value: 'ProjectDeltaLabs',
+  },
+  {
+      label: 'Project Run',
+      value: 'ProjectRun',
+  },
+  {
+      label: 'Project Hesman',
+      value: 'ProjectHesman',
+  },
+  {
+      label: 'Project Bami',
+      value: 'ProjectBami',
+  },
+  {
+      label: 'Project LTD',
+      value: 'ProjectLTD',
+  },
 ]

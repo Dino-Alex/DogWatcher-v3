@@ -1,6 +1,6 @@
 import { Button, Flex, Input, InputGroup, SearchIcon, Text } from '@thaihuuluong/dogwatcher-uikit';
 import Select from 'react-select';
-import { optionArrayProject } from 'config';
+import { optionArraySortProject } from 'config';
 import { useTranslation } from 'contexts/Localization';
 import React, { useEffect, useState } from 'react';
 import ReactPaginate from 'react-paginate';
@@ -77,8 +77,14 @@ const AdminTable = () => {
                     <Flex width='98%' style={{gap: '10px'}} justifyContent='center' alignItems='center'>
                         <InputGroup scale="md">
                             <Select
-                                options={optionArrayProject}
+                                options={optionArraySortProject}
                                 onChange={(e) => setQueryProject(e.value)}
+                                defaultValue={
+                                    {
+                                        label: 'Project All',
+                                        value: '',
+                                      }
+                                }
                             />
                         </InputGroup>
                         <InputGroup startIcon={<SearchIcon width="24px" />} scale="md">
