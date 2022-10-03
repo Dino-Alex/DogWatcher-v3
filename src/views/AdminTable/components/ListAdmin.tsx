@@ -174,7 +174,7 @@ const ListAdmin: React.FC<Props> = ({
                                             <>
                                             {item.time === ''?
                                                <>
-                                                <TextEmail textAlign='center' fontWeight='100'>{convertDate(item.time)}</TextEmail>
+                                                <TextEmail textAlign='center' fontWeight='100'>{item.time}</TextEmail>
                                                 <CsText>{setEmail(item.address)}</CsText>
                                                </>
                                             :
