@@ -2,7 +2,7 @@ import { Button, Flex, Input, InputGroup, SearchIcon, Text } from '@phamphu19498
 import { useTranslation } from 'contexts/Localization';
 import React, { useEffect, useState } from 'react';
 import ReactPaginate from 'react-paginate';
-import {useHistory } from 'react-router-dom';
+import { useHistory } from 'react-router-dom';
 import { GetDataDogWatcher } from 'state/dogwatcher';
 import styled from 'styled-components';
 import { latinise } from 'utils/latinise'
@@ -10,46 +10,46 @@ import ListAdmin from './components/ListAdmin';
 
 const AdminTable = () => {
 
-  const { t } = useTranslation()
-  const [listDataDog] = GetDataDogWatcher()
-  const tokenAuth = localStorage.getItem("tokenAuth")
-  const history = useHistory();
+    const { t } = useTranslation()
+    const [listDataDog] = GetDataDogWatcher()
+    const tokenAuth = localStorage.getItem("tokenAuth")
+    const history = useHistory();
 
-  function handleClick() {
-    history.push(`/create`)
-  }
+    function handleClick() {
+        history.push(`/create`)
+    }
 
-   // panigate
-   function MovetoTop(){
-    window.scrollTo({top: 0, left: 0, behavior: 'smooth'});
-  }
-  const itemsPerPage = 5
-  const [pageCount, setPageCount] = useState(0);
-  const [itemOffset, setItemOffset] = useState(0);
-  const [currentItems, setCurrentItems] = useState([]);
-  const [saleArray, setSaleArray] = useState([]);
-  const [query, setQuery] = useState('')  
-  const handleChangeQuery = (event: React.ChangeEvent<HTMLInputElement>) => {
-    setQuery(event.target.value)
-}
-  const handlePageClick = (event) => {
-    const newOffset = (event.selected * itemsPerPage) % listDataDog.length;
-      setItemOffset(newOffset);
+    // panigate
+    function MovetoTop() {
+        window.scrollTo({ top: 0, left: 0, behavior: 'smooth' });
+    }
+    const itemsPerPage = 5
+    const [pageCount, setPageCount] = useState(0);
+    const [itemOffset, setItemOffset] = useState(0);
+    const [currentItems, setCurrentItems] = useState([]);
+    const [saleArray, setSaleArray] = useState([]);
+    const [query, setQuery] = useState('')
+    const handleChangeQuery = (event: React.ChangeEvent<HTMLInputElement>) => {
+        setQuery(event.target.value)
+    }
+    const handlePageClick = (event) => {
+        const newOffset = (event.selected * itemsPerPage) % listDataDog.length;
+        setItemOffset(newOffset);
     };
     useEffect(() => {
-      const endOffset = itemOffset + itemsPerPage;
-      setCurrentItems(saleArray.slice(itemOffset, endOffset));
+        const endOffset = itemOffset + itemsPerPage;
+        setCurrentItems(saleArray.slice(itemOffset, endOffset));
         setPageCount(Math.ceil(saleArray.length / itemsPerPage));
     }, [itemOffset, itemsPerPage, saleArray]);
-    
+
     useEffect(() => {
-        function SearchItem () {
+        function SearchItem() {
             const lowercaseQuery = latinise(query.toLowerCase())
-            setSaleArray(listDataDog.filter((data) =>{
+            setSaleArray(listDataDog.filter((data) => {
                 return latinise(data.walletName.toLowerCase()).includes(lowercaseQuery)
             }))
         }
-        if (listDataDog || saleArray || query ) {
+        if (listDataDog || saleArray || query) {
             SearchItem()
         }
     }, [listDataDog, query]) // eslint-disable-line react-hooks/exhaustive-deps
@@ -58,21 +58,23 @@ const AdminTable = () => {
             <Flex mb={4} mt={1} justifyContent='center'>
                 <Text fontWeight='700' fontSize='26px'> TABLE ADMIN </Text>
             </Flex>
-           
-            {tokenAuth ?
-                <Flex mb={1} mt={1} mr={2} justifyContent='flex-end'>
-                    <Button onClick={handleClick}>Create</Button>
+            <Flex justifyContent='space-between'>
+                <Flex mb={1} mt={1} mr={2} justifyContent='center'>
+                    <Flex width='98%'>
+                        <InputGroup startIcon={<SearchIcon width="24px" />} scale="md">
+                            <Input type="text" placeholder={t("Search...")} onChange={handleChangeQuery} />
+                        </InputGroup>
+                    </Flex>
                 </Flex>
-            :
-                <></>
-            }
-            <Flex mb={1} mt={1} mr={2} justifyContent='center'>
-                <Flex width='98%'>
-                    <InputGroup startIcon={<SearchIcon width="24px" />} scale="md">
-                        <Input type="text" placeholder={t("Search...")} onChange={handleChangeQuery}/>
-                    </InputGroup>
-                </Flex>
+                {tokenAuth ?
+                    <Flex mb={1} mt={1} mr={2} justifyContent='flex-end'>
+                        <Button onClick={handleClick}>Create</Button>
+                    </Flex>
+                    :
+                    <></>
+                }
             </Flex>
+
             <TitleTable>
                 <FlexListVotting width='100%' justifyContent='space-around'>
                     <TextListVotting justifyContent='center'>Name</TextListVotting>
@@ -80,9 +82,9 @@ const AdminTable = () => {
                     <TextListVotting justifyContent='center' id='Balance'>Balance/Limit</TextListVotting>
                     <TextListVotting justifyContent='center'>Email</TextListVotting>
                     <TextListVotting className='NoneWallet' id='Status' justifyContent='center'>Status</TextListVotting>
-                    {tokenAuth?
+                    {tokenAuth ?
                         <TextListVottingV1 justifyContent='center' id='Action'>Action</TextListVottingV1>
-                    :
+                        :
                         <></>
                     }
                 </FlexListVotting>
@@ -104,11 +106,11 @@ const AdminTable = () => {
                     })}
                 </>
                 :
-               <>
-                <Flex width="100%" justifyContent="center" mt="1rem">
-                    <Text mt="2rem">{t("No Data")}</Text>
-                </Flex>
-               </>
+                <>
+                    <Flex width="100%" justifyContent="center" mt="1rem">
+                        <Text mt="2rem">{t("No Data")}</Text>
+                    </Flex>
+                </>
             }
             <CustomFlex width="100%" mt="1rem" justifyContent="center" height="62px">
                 <ReactPaginate
