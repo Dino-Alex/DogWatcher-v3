@@ -13,7 +13,11 @@ const InputEmail: React.FC<Props> = ({ parentCallback, value, index }) => {
     return (
         <Flex width='100%' flexDirection='column'>
             <Text>Email</Text>
-            <CustomInput placeholder='Please input your email' value={value} onChange={(e) => parentCallback(e.target.value, index)}/>
+            <CustomInput name="email" value={value}
+                pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,4}$"
+                type="email" placeholder='Please input your email' onChange={(e) => parentCallback(e.target.value, index)}
+            />
+            {/* <CustomInput placeholder='Please input your email' value={value} onChange={(e) => parentCallback(e.target.value, index)}/> */}
             {value === '' &&
             <Text fontSize='12px' color='#FF592C'>Email Null</Text>
             }

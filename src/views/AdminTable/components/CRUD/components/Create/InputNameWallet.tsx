@@ -14,7 +14,7 @@ const NameWallet: React.FC<Props> = ({parentCallback, value}) => {
             <Flex>
                 <Text>Wallet Name</Text> <Text color='#FF592C'>*</Text>
             </Flex>
-            <CustomInput placeholder='Please input your name' onChange={(e) => parentCallback(e.target.value)}/>
+            <CustomInput type='text' placeholder='Please input your name' onChange={(e) => parentCallback(e.target.value)}/>
             {value === '' &&
             <Text fontSize='12px' color='#FF592C'>Please input your name</Text>
             }
