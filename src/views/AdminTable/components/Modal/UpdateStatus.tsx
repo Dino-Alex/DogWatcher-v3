@@ -5,7 +5,7 @@ import {
 } from 'components/Menu/GlobalSettings/styles';
 import { BASE_URL_DATA_ADMIN_CRUD } from 'config';
 import { useTranslation } from 'contexts/Localization';
-import React, { useEffect, useState } from 'react';
+import React, { createContext, useEffect, useState } from 'react';
 import styled from 'styled-components';
 import { GetListAdminByID } from 'views/AdminTable/hook/fetchDataByID';
 
@@ -13,6 +13,9 @@ interface Props {
   idStatus?: string
   onDismiss?: any
 }
+
+const RefreshUpdate= []
+export const RefreshUpdateGlobal = createContext(RefreshUpdate)
 
 const UpdateStatus: React.FC<Props> = ({
   idStatus,
@@ -54,8 +57,9 @@ const handleSubmit = async (e) => {
             "slack": listDataAdminByID[0]?.slack
           }
       });
+      RefreshUpdate.push('Successful')
       onDismiss()
-      window.location.reload(true)
+      // window.location.reload(true)
   } catch (error) {
     console.log(error)
   }

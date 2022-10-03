@@ -5,13 +5,17 @@ import {
 } from 'components/Menu/GlobalSettings/styles';
 import { BASE_URL_DATA_ADMIN_CRUD } from 'config';
 import { useTranslation } from 'contexts/Localization';
-import React from 'react';
+import React, { createContext } from 'react';
 import styled from 'styled-components';
 // eslint-disable-next-line import/no-cycle, import/no-named-as-default
 // eslint-disable-next-line import/no-cycle
 
 
 // TODO: Temporary. Once uikit is merged with this style change, this can be removed.
+
+const RefreshDelete= []
+export const RefreshUpdateGlobal = createContext(RefreshDelete)
+
 interface Props {
   id?: string
   onDismiss?: any
@@ -37,7 +41,8 @@ const DeleteModalAdmin: React.FC<Props> = ({
           }
       });
       onDismiss()
-      window.location.reload(true)
+      RefreshDelete.push('Successful')
+      // window.location.reload(true)
   } catch (error) {
     console.log(error)
   }

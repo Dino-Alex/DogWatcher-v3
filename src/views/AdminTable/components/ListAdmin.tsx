@@ -200,9 +200,9 @@ const ListAdmin: React.FC<Props> = ({
                 <FlexDataName className='NoneWallet' width='100%'>
                     {status !== null ?
                         <Flex width='100%' justifyContent='center' alignItems='center'>
-                            <Flex width='100%' justifyContent='center' alignItems='center' style={{ gap: '10px' }}>
+                            <Flex width='100%' justifyContent='center' alignItems='center' style={{ gap: '10px'}}>
                                 {tokenAuth ?
-                                    <FlexStatus isStatus={status} onClick={openUpdateStatusModal}>
+                                    <FlexStatus isStatus={status} onClick={openUpdateStatusModal} style={{cursor:'pointer'}}>
                                         {status === true ?
                                             <TextStatus isStatus={status}>Enabled</TextStatus>
                                             :

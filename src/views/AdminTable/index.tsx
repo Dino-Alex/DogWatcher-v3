@@ -1,13 +1,13 @@
 import { Button, Flex, Input, InputGroup, SearchIcon, Text } from '@thaihuuluong/dogwatcher-uikit';
-import Select from 'react-select';
 import { optionArraySortProject } from 'config';
 import { useTranslation } from 'contexts/Localization';
 import React, { useEffect, useState } from 'react';
 import ReactPaginate from 'react-paginate';
 import { useHistory } from 'react-router-dom';
+import Select from 'react-select';
 import { GetDataDogWatcher } from 'state/dogwatcher';
 import styled from 'styled-components';
-import { latinise } from 'utils/latinise'
+import { latinise } from 'utils/latinise';
 import ListAdmin from './components/ListAdmin';
 
 const AdminTable = () => {
@@ -41,18 +41,21 @@ const AdminTable = () => {
     };
     useEffect(() => {
         const endOffset = itemOffset + itemsPerPage;
-        setCurrentItems(saleArray?.slice(itemOffset, endOffset));
+        setCurrentItems(saleArray.slice(itemOffset, endOffset));
         setPageCount(Math.ceil(saleArray.length / itemsPerPage));
     }, [itemOffset, itemsPerPage, saleArray]);
 
     useEffect(() => {
         function SearchItem() {
-            const lowercaseQuery = latinise(query?.toLowerCase())
+            const lowercaseQuery = latinise(query.toLowerCase())
             if(lowercaseQuery){
-                setSaleArray(listDataDog?.filter((data) => {
-                    return latinise(data?.walletName?.toLowerCase()).includes(lowercaseQuery)
+                setSaleArray(listDataDog.filter((data) => {
+                    return latinise(data.walletName.toLowerCase()).includes(lowercaseQuery)
                 }))
+            }if(!lowercaseQuery){
+                return setSaleArray(listDataDog)
             }
+
         }
         if (listDataDog || saleArray || query) {
             SearchItem()
@@ -60,9 +63,9 @@ const AdminTable = () => {
     }, [listDataDog, query]) // eslint-disable-line react-hooks/exhaustive-deps
     useEffect(() => {
         function SearchItem() {
-            const lowercaseQuery = latinise(queryProject?.toLowerCase())
-            setSaleArray(listDataDog?.filter((data) => {
-                return latinise(data?.project.toLowerCase()).includes(lowercaseQuery)
+            const lowercaseQuery = latinise(queryProject.toLowerCase())
+            setSaleArray(listDataDog.filter((data) => {
+                return latinise(data.project.toLowerCase()).includes(lowercaseQuery)
             }))
         }
         if (listDataDog || saleArray || queryProject) {
