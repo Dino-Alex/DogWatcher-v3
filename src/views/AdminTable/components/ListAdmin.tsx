@@ -43,7 +43,7 @@ const ListAdmin: React.FC<Props> = ({
     }
 
     function setEmail(dataEmail) {
-        if (dataEmail.length < 21) {
+        if (dataEmail.length <= 22) {
             // return `${dataEmail.substring(0, 8)}...${dataEmail.substring(dataEmail.length - 5)}`
             return `${dataEmail}`
         }
