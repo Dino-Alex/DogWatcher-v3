@@ -45,7 +45,7 @@ const handleSubmit = async (e) => {
           },
           data: {
             "id": listDataAdminByID[0]?.id,
-            "walletName": listDataAdminByID[0]?.nameWallet,
+            "walletName": listDataAdminByID[0]?.walletName,
             "walletAddress": listDataAdminByID[0]?.walletAddress,
             "status": status,
             "limit": listDataAdminByID[0]?.limit,
