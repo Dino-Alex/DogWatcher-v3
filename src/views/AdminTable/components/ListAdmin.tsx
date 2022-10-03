@@ -1,4 +1,4 @@
-import { Flex, Link, PencilIcon, Text, useModal } from '@thaihuuluong/dogwatcher-uikit';
+import { Flex, Link, PencilIcon, Skeleton, Text, useModal } from '@thaihuuluong/dogwatcher-uikit';
 import { CloseIcon } from 'components/Pancake-uikit';
 import useActiveWeb3React from 'hooks/useActiveWeb3React';
 import React from 'react';
@@ -34,6 +34,23 @@ const ListAdmin: React.FC<Props> = ({
     const { chainId } = useActiveWeb3React()
     const [openDeleteModal] = useModal(<DeleteModalAdmin id={id}/>)
     // const [openUpdateWalletModal] = useModal(<UpdateWallet id={id}/>)
+
+    function convertDate(date: any){
+        if (date) {
+        const today=  new Date(date);
+        const minutes = String(today.getMinutes()).padStart(2, '0');
+        const hours = String(today.getHours()).padStart(2, '0');
+        const dd = String(today.getDate()).padStart(2, '0');
+        const mm = String(today.getMonth() + 1).padStart(2, '0');
+        const yyyy = today.getFullYear();
+        return <Flex alignItems="center">
+            <TextEmail bold>{hours}:{minutes}</TextEmail>
+            <TextEmail ml="10px" bold>{dd}/{mm}/{yyyy}</TextEmail>
+        </Flex>;
+        }
+        return <Skeleton width={60} />
+      }
+    
     
     function setAddress(dataAddress) {
         if (dataAddress) {
@@ -157,12 +174,12 @@ const ListAdmin: React.FC<Props> = ({
                                             <>
                                             {item.time === ''?
                                                <>
-                                                <TextEmail textAlign='center' fontWeight='100'>{item.time}</TextEmail>
+                                                <TextEmail textAlign='center' fontWeight='100'>{convertDate(item.time)}</TextEmail>
                                                 <CsText>{setEmail(item.address)}</CsText>
                                                </>
                                             :
                                                 <>
-                                                <TextEmail textAlign='center' fontWeight='100'>{item.time}</TextEmail>
+                                                <TextEmail textAlign='center' fontWeight='100'>{convertDate(item.time)}</TextEmail>
                                                 <CsText>{setEmail(item.address)}</CsText>
                                                 </>
                                             }
