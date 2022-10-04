@@ -1,13 +1,13 @@
 import { Button, Flex, Input, InputGroup, SearchIcon, Text } from '@thaihuuluong/dogwatcher-uikit';
-import Select from 'react-select';
 import { optionArraySortProject } from 'config';
 import { useTranslation } from 'contexts/Localization';
 import React, { useEffect, useState } from 'react';
 import ReactPaginate from 'react-paginate';
 import { useHistory } from 'react-router-dom';
+import Select from 'react-select';
 import { GetDataDogWatcher } from 'state/dogwatcher';
 import styled from 'styled-components';
-import { latinise } from 'utils/latinise'
+import { latinise } from 'utils/latinise';
 import ListAdmin from './components/ListAdmin';
 
 const AdminTable = () => {
@@ -48,9 +48,14 @@ const AdminTable = () => {
     useEffect(() => {
         function SearchItem() {
             const lowercaseQuery = latinise(query.toLowerCase())
-            setSaleArray(listDataDog.filter((data) => {
-                return latinise(data.walletName.toLowerCase()).includes(lowercaseQuery)
-            }))
+            if(lowercaseQuery){
+                setSaleArray(listDataDog.filter((data) => {
+                    return latinise(data.walletName.toLowerCase()).includes(lowercaseQuery)
+                }))
+            }if(!lowercaseQuery){
+                return setSaleArray(listDataDog)
+            }
+
         }
         if (listDataDog || saleArray || query) {
             SearchItem()
