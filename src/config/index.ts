@@ -109,7 +109,7 @@ export const optionArrayProject = [
 ]
 export const optionArraySortProject = [
   {
-    label: 'Project All',
+    label: 'All',
     value: '',
   },
   {

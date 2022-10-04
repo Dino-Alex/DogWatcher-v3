@@ -18,11 +18,11 @@ import WalletAddress from './InputWalletAddress';
 
 const optionStatus = [
     {
-        label: 'Enabled',
+        label: 'Enable',
         value: true,
     },
     {
-        label: 'Disabled',
+        label: 'Disable',
         value: false,
     }
 ]
@@ -43,6 +43,7 @@ const Update: React.FC<Props> = () => {
     const [emails, setEmails] = useState([''])
     const [slacks, setSlacks] = useState([''])
     const [status, setStatus] = useState(true)
+    
 
     function handleCancel() {
         history.push(`/`)
@@ -244,8 +245,8 @@ const Update: React.FC<Props> = () => {
                                 <Select
                                     options={optionStatus}
                                     defaultValue={{
-                                        label: 'Enable',
-                                        value: true,
+                                        label: listDataAdminByID[0]?.status === true ? "Enable" : "Disable",
+                                        value: listDataAdminByID[0]?.status,
                                     }}
                                     onChange={(e) => setStatus(e.value)}
                                 />
