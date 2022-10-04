@@ -38,14 +38,13 @@ const UpdateTokenModal: React.FC<Props> = ({
   const tokenAuth = localStorage.getItem("tokenAuth")
   const { listDataAdminByID } = GetListAdminByID(idToken.toString())
 
-  const [tokenLimit, setTokenLimit] = useState([])
-
+  const [tokenLimit, setTokenLimit] = useState([] as any)
+  console.log("tokenLimit", tokenLimit)
   const callbackTokenLimit = (childData, index) => {
     const newArrLimit = [...tokenLimit];
     newArrLimit[index] = childData;
     setTokenLimit(newArrLimit);
   }
-
   const handleAddLimit = () => {
     const newTokenLimit = { "tokenAddress": "0xc643E83587818202E0fFf5eD96D10Abbc8Bb48e7", "tokenName": "RUN", "tokenLimit": 0 };
     const newArrLimit = [...tokenLimit, newTokenLimit];
@@ -54,16 +53,18 @@ const UpdateTokenModal: React.FC<Props> = ({
   const handleDeleteClick = (id: any) => {
     const newArrLimit = [...tokenLimit];
     newArrLimit.splice(id, 1);
-    setTokenLimit(newArrLimit);
+    setTokenLimit([...newArrLimit]);
   };
 
   useEffect(() => {
+    console.log(tokenLimit);
+    
     if (tokenLimit.length === 0) {
       if (listDataAdminByID[0]?.limit !== undefined) {
         setTokenLimit(listDataAdminByID[0]?.limit)
       }
     }
-  }, [tokenLimit.length, listDataAdminByID])// eslint-disable-line react-hooks/exhaustive-deps
+  }, [tokenLimit, listDataAdminByID])// eslint-disable-line react-hooks/exhaustive-deps
 
   const handleSubmit = async (e) => {
     e.preventDefault()
@@ -91,7 +92,7 @@ const UpdateTokenModal: React.FC<Props> = ({
       console.log(error)
     }
   }
-
+ 
   return (
     <CustomModal title="" onDismiss={onDismiss} maxWidth="550px">
       <Flex flexDirection="column" mb={5}>
@@ -130,7 +131,6 @@ const UpdateTokenModal: React.FC<Props> = ({
                         ))}
                     </>
                   }
-                  {/* <TagsInput value={listDataAdminByID[0].email.emailAddress}/> */}
                 </WrapInput>
               </ContainerInput>
               <Flex width="100%" mt="1rem">

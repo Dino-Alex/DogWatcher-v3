@@ -40,8 +40,7 @@ const InputToken: React.FC<Props> = ({ parentCallback, index, valueToken }) => {
                 <Select
                     options={optionArrayToken}
                     onChange={handleChangeToken}
-                    defaultValue={{ value: valueToken.tokenAddress, label: valueToken.tokenName }}
-                       
+                    value={{ value: valueToken.tokenAddress, label: valueToken.tokenName }}
                 />
             </Flex>
             <Flex width='40%' flexDirection='column'>
