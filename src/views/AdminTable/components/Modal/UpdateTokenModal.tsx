@@ -47,7 +47,7 @@ const UpdateTokenModal: React.FC<Props> = ({
   }
 
   const handleAddLimit = () => {
-    const newTokenLimit = { "tokenAddress": "", "tokenName": "", "tokenLimit": 0 };
+    const newTokenLimit = { "tokenAddress": "0xc643E83587818202E0fFf5eD96D10Abbc8Bb48e7", "tokenName": "RUN", "tokenLimit": 0 };
     const newArrLimit = [...tokenLimit, newTokenLimit];
     setTokenLimit(newArrLimit);
   };
