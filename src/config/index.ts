@@ -82,7 +82,19 @@ export const optionArrayToken = [
   {
     label: 'HTD',
     value: '0x5E2689412Fae5c29BD575fbe1d5C1CD1e0622A8f',
-}
+},
+{
+  label: 'BNB',
+  value: '0xbb4cdb9cbd36b01bd1cbaebf2de08d9173bc095c',
+},
+{
+  label: 'BUSD',
+  value: '0xe9e7cea3dedca5984780bafc599bd69add087d56',
+},
+{
+  label: 'USDT',
+  value: '0x55d398326f99059fF775485246999027B3197955',
+},
 ]
 
 export const optionArrayProject = [

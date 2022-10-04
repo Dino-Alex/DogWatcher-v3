@@ -94,7 +94,7 @@ const UpdateTokenModal: React.FC<Props> = ({
 
   return (
     <CustomModal title="" onDismiss={onDismiss} maxWidth="550px">
-      <Flex flexDirection="column">
+      <Flex flexDirection="column" mb={5}>
         <Flex paddingTop="0px" flexDirection="column">
           <CsFlex width="100%" justifyContent="center" alignItems="center">
             <Text bold fontSize="24px">{t('Update Email')}</Text>
