@@ -10,6 +10,7 @@ import { GetBalance } from '../hook/usefetchBalance';
 import DeleteModalAdmin from './Modal/DeleteModalAdmin';
 import UpdateEmail from './Modal/UpdateEmail';
 import UpdateStatus from './Modal/UpdateStatus';
+import UpdateTokenModal from './Modal/UpdateTokenModal';
 import UpdateWallet from './Modal/UpdateWallet';
 
 interface Props {
@@ -39,6 +40,7 @@ const ListAdmin: React.FC<Props> = ({
     const [openUpdateStatusModal] = useModal(<UpdateStatus idStatus={id} />)
     const [openUpdateEmailModal] = useModal(<UpdateEmail idEmail={id} />)
     const [openUpdateWalletModal] = useModal(<UpdateWallet id={id}/>)
+    const [openUpdateTokenModal] = useModal(<UpdateTokenModal idToken={id}/>)
 
     function convertDate(date: any) {
         if (date) {
@@ -127,7 +129,12 @@ const ListAdmin: React.FC<Props> = ({
                                 <Link href={getBscScanLink(walletAddress, 'address', chainId)} external>
                                     {walletName}
                                 </Link>
-                                <CsPencilIcon className='IconHiden' onClick={openUpdateWalletModal} style={{ cursor: 'pointer' }} />
+                                {tokenAuth ?
+                                    <CsPencilIcon className='IconHiden' onClick={openUpdateWalletModal} style={{ cursor: 'pointer' }} />
+                                :
+                                <>
+                                </>
+                                }
                             </Flex>
                             :
                             <Flex width='100%' justifyContent='center' alignItems='center'>
@@ -162,6 +169,11 @@ const ListAdmin: React.FC<Props> = ({
                                     </Flex>
                                 )
                             })}
+                               {tokenAuth ?
+                                    <CsPencilIcon className='IconHiden' onClick={openUpdateTokenModal} style={{ cursor: 'pointer' }} />
+                                :
+                                    <></>
+                                }
                         </Flex>
                         :
                         <Flex width='100%' justifyContent='center' alignItems='center'>
@@ -192,7 +204,11 @@ const ListAdmin: React.FC<Props> = ({
                                         )
                                     })}
                                 </Flex>
-                                <CsPencilIcon className='IconHiden' onClick={openUpdateEmailModal} style={{ cursor: 'pointer' }} />
+                                {tokenAuth ?
+                                    <CsPencilIcon className='IconHiden' onClick={openUpdateEmailModal} style={{ cursor: 'pointer' }} />
+                                :
+                                    <></>
+                                }
                             </>
                             :
                             <Flex width='100%' justifyContent='center' alignItems='center'>
