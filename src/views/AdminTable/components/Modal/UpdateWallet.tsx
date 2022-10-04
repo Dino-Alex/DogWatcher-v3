@@ -10,9 +10,13 @@ import {
 import { WalletIcon } from 'components/Pancake-uikit';
 import { BASE_URL_DATA_ADMIN_CRUD } from 'config';
 import { useTranslation } from 'contexts/Localization';
-import React, { useEffect, useState } from 'react';
+import React, { createContext, useEffect, useState } from 'react';
 import styled from 'styled-components';
 import { GetListAdminByID } from 'views/AdminTable/hook/fetchDataByID';
+
+
+const RefreshUpdateWallet= []
+export const RefreshUpdateWalletGlobal = createContext(RefreshUpdateWallet)
 
 interface Props {
   id?: string
@@ -25,6 +29,7 @@ const UpdateWallet: React.FC<Props> = ({
 }) => {
 
   const { t } = useTranslation()
+  const tokenAuth = localStorage.getItem("tokenAuth")
   const { listDataAdminByID } = GetListAdminByID(id.toString())
   const [nameWallet, setNameWallet] = useState("")
   const [walletAddress, setWalletAddress] = useState("")
@@ -45,23 +50,30 @@ const UpdateWallet: React.FC<Props> = ({
   const handleSubmit = async (e) => {
     e.preventDefault()
     try {
-        await axios.post(BASE_URL_DATA_ADMIN_CRUD,
-            {
-                "id": listDataAdminByID[0].id,
-                "walletName": nameWallet,
-                "walletAddress": walletAddress,
-                "status": listDataAdminByID[0].status,
-                "limit": listDataAdminByID[0].limit,
-                "email": listDataAdminByID[0].email,
-                "project": listDataAdminByID[0].project,
-                "slack": listDataAdminByID[0].slack
-            })
-            onDismiss()
-      // window.location.reload(true)
+        await axios({
+            method: 'POST',
+            url: `${BASE_URL_DATA_ADMIN_CRUD}`,
+            headers:{
+                'Authorization': `${tokenAuth}`,
+            },
+            data: {
+              "id": listDataAdminByID[0].id,
+              "walletName": nameWallet,
+              "walletAddress": walletAddress,
+              "status": listDataAdminByID[0].status,
+              "limit": listDataAdminByID[0].limit,
+              "email": listDataAdminByID[0].email,
+              "project": listDataAdminByID[0].project,
+              "slack": listDataAdminByID[0].slack
+            }
+        });
+        RefreshUpdateWallet.push('Successful')
+        onDismiss()
+        // window.location.reload(true)
     } catch (error) {
-        console.log(error)
+      console.log(error)
     }
-}
+  }
 
   return (
     <CustomModal title="" onDismiss={onDismiss} maxWidth="550px">

@@ -1,7 +1,9 @@
 import { useContext, useEffect } from "react"
 import { useDispatch, useSelector } from "react-redux"
 import { AppDispatch, AppState } from "state"
+import { RefreshUpdateEmailGlobal } from "views/AdminTable/components/Modal/UpdateEmail"
 import { RefreshUpdateGlobal } from "views/AdminTable/components/Modal/UpdateStatus"
+import { RefreshUpdateWalletGlobal } from "views/AdminTable/components/Modal/UpdateWallet"
 import { fetchDataAdminItems } from "./action"
 import { fetchDataDog } from "./hook/fetchDataDog"
 
@@ -10,6 +12,8 @@ export const GetDataDogWatcher = () =>{
 
     const refreshUpdate = useContext(RefreshUpdateGlobal)
     const refreshDelete = useContext(RefreshUpdateGlobal)
+    const refreshUpdateEmail = useContext(RefreshUpdateEmailGlobal)
+    const refreshUpdateWallet = useContext(RefreshUpdateWalletGlobal)
     
     const dogwatcher = useSelector<AppState, AppState['dogwatcher']>((state) => state.dogwatcher)
     const listDataDog = dogwatcher.listDataDog
@@ -26,6 +30,6 @@ export const GetDataDogWatcher = () =>{
         }
         getSaleItems()
     // eslint-disable-next-line react-hooks/exhaustive-deps
-    },[refreshUpdate.length, refreshDelete.length])
+    },[refreshUpdate.length, refreshDelete.length, refreshUpdateEmail.length, refreshUpdateWallet.length])
     return [listDataDog]
 }

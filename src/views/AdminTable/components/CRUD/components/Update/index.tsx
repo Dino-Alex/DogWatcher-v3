@@ -43,7 +43,6 @@ const Update: React.FC<Props> = () => {
     const [emails, setEmails] = useState([''])
     const [slacks, setSlacks] = useState([''])
     const [status, setStatus] = useState(true)
-    
 
     function handleCancel() {
         history.push(`/`)
@@ -110,9 +109,10 @@ const Update: React.FC<Props> = () => {
         setTokenLimit(newArrLimit);
     };
     const handleDeleteClick = (id: any) => {
-        tokenLimit.splice(id, 1);
+        const newArrLimit = [...tokenLimit];
+        newArrLimit.splice(id, 1);
+        setTokenLimit(newArrLimit);
     };
-
 
     const handleAddEmail = () => {
         const newEmail = ""
@@ -120,7 +120,9 @@ const Update: React.FC<Props> = () => {
         setEmails(newArrEmail);
     };
     const handleDeleteEmail = (id: any) => {
-        emails.splice(id, 1);
+        const newArrEmail = [...emails,];
+        newArrEmail.splice(id, 1);
+        setEmails(newArrEmail);
     };
     const handleAddSlack = () => {
         const newSlack = "Slack"
@@ -128,7 +130,9 @@ const Update: React.FC<Props> = () => {
         setSlacks(newArrSlack);
     };
     const handleDeleteSlack = (id: any) => {
-        slacks.splice(id, 1);
+        const newArrSlack = [...slacks];
+        newArrSlack.splice(id, 1);
+        setSlacks(newArrSlack);
     };
 
 
@@ -282,7 +286,7 @@ const Update: React.FC<Props> = () => {
                     <FlexInput>
                         <Flex width='100%' justifyContent='center'>
                             <Flex style={{ gap: '20px' }}>
-                                <Button onClick={handleSubmit}>Update</Button>
+                                <Button onClick={handleSubmit} disabled={nameWallet === '' || walletAddress === '' || projectName === '' || emails.length === 0 || slacks.length === 0}>Update</Button>
                                 <Button onClick={handleCancel}>Cancel</Button>
                             </Flex>
                         </Flex>

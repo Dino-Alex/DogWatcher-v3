@@ -77,7 +77,9 @@ const Create = () => {
         setTokenLimit(newArrLimit);
     };
     const handleDeleteClick = (id: any) => {
-        tokenLimit.splice(id, 1);
+        const newArrLimit = [...tokenLimit];
+        newArrLimit.splice(id, 1);
+        setTokenLimit(newArrLimit);
     };
     const handleAddEmail = () => {
         const newEmail = {"address" :"" ,"time": ""};
@@ -85,7 +87,9 @@ const Create = () => {
         setEmails(newArrEmail);
     };
     const handleDeleteEmail = (id: any) => {
-        emails.splice(id, 1);
+        const newArrEmail = [...emails];
+        newArrEmail.splice(id, 1);
+        setEmails(newArrEmail);
     };
     const handleAddSlack = () => {
         const newSlack = ""
@@ -93,7 +97,10 @@ const Create = () => {
         setSlacks(newArrSlack);
     };
     const handleDeleteSlack = (id: any) => {
-        slacks.splice(id, 1);
+        const newArrSlack = [...slacks];
+        newArrSlack.splice(id, 1);
+        setSlacks(newArrSlack);
+
     };
 
     const handleSubmit = async (e) => {
@@ -227,9 +234,9 @@ const Create = () => {
                 <Flex width='100%' justifyContent='center'>
                     <Flex style={{gap: '20px'}}>
                         {tokenLimit[0].tokenLimit === 0 ?
-                            <Button onClick={openSubmitModal} disabled={nameWallet === '' || walletAddress === '' || projectName === '' || emails[0].address === ''}>Submit</Button>
+                            <Button onClick={openSubmitModal} disabled={nameWallet === '' || walletAddress === '' || projectName === '' || emails[0].address === '' || slacks.length === 0}>Submit</Button>
                         :
-                            <Button onClick={handleSubmit} disabled={nameWallet === '' || walletAddress === '' || projectName === '' || emails[0].address === ''}>Submit</Button>
+                            <Button onClick={handleSubmit} disabled={nameWallet === '' || walletAddress === '' || projectName === '' || emails[0].address === '' || slacks.length === 0}>Submit</Button>
                         }
                         <Button onClick={handleCancel}>Cancel</Button>
                     </Flex>

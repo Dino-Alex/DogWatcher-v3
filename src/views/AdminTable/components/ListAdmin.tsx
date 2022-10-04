@@ -8,7 +8,9 @@ import { getBscScanLink } from 'utils';
 import { formatAmount } from 'utils/formatInfoNumbers';
 import { GetBalance } from '../hook/usefetchBalance';
 import DeleteModalAdmin from './Modal/DeleteModalAdmin';
+import UpdateEmail from './Modal/UpdateEmail';
 import UpdateStatus from './Modal/UpdateStatus';
+import UpdateWallet from './Modal/UpdateWallet';
 
 interface Props {
     id?: string
@@ -35,7 +37,8 @@ const ListAdmin: React.FC<Props> = ({
     const { chainId } = useActiveWeb3React()
     const [openDeleteModal] = useModal(<DeleteModalAdmin id={id} />)
     const [openUpdateStatusModal] = useModal(<UpdateStatus idStatus={id} />)
-    // const [openUpdateWalletModal] = useModal(<UpdateWallet id={id}/>)
+    const [openUpdateEmailModal] = useModal(<UpdateEmail idEmail={id} />)
+    const [openUpdateWalletModal] = useModal(<UpdateWallet id={id}/>)
 
     function convertDate(date: any) {
         if (date) {
@@ -124,7 +127,7 @@ const ListAdmin: React.FC<Props> = ({
                                 <Link href={getBscScanLink(walletAddress, 'address', chainId)} external>
                                     {walletName}
                                 </Link>
-                                {/* <CsPencilIcon className='IconHiden' onClick={openUpdateWalletModal} style={{ cursor: 'pointer' }} /> */}
+                                <CsPencilIcon className='IconHiden' onClick={openUpdateWalletModal} style={{ cursor: 'pointer' }} />
                             </Flex>
                             :
                             <Flex width='100%' justifyContent='center' alignItems='center'>
@@ -189,6 +192,7 @@ const ListAdmin: React.FC<Props> = ({
                                         )
                                     })}
                                 </Flex>
+                                <CsPencilIcon className='IconHiden' onClick={openUpdateEmailModal} style={{ cursor: 'pointer' }} />
                             </>
                             :
                             <Flex width='100%' justifyContent='center' alignItems='center'>
