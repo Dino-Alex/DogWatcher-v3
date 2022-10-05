@@ -98,7 +98,7 @@ const UpdateTokenModal: React.FC<Props> = ({
       <Flex flexDirection="column" mb={5}>
         <Flex paddingTop="0px" flexDirection="column">
           <CsFlex width="100%" justifyContent="center" alignItems="center">
-            <Text bold fontSize="24px">{t('Update Email')}</Text>
+            <Text bold fontSize="24px">{t('Update Token/Limit')}</Text>
           </CsFlex>
           <CsFlex mb={4} width="100%" justifyContent="center" alignItems="center">
             <Text color="#B5B5BE" />
