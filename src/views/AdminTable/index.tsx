@@ -25,7 +25,7 @@ const AdminTable = () => {
     function MovetoTop() {
         window.scrollTo({ top: 0, left: 0, behavior: 'smooth' });
     }
-    const itemsPerPage = 5
+    const itemsPerPage = 40
     const [pageCount, setPageCount] = useState(0);
     const [itemOffset, setItemOffset] = useState(0);
     const [currentItems, setCurrentItems] = useState([]);
