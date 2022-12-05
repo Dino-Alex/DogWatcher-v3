@@ -29,7 +29,7 @@ const Menu = (props) => {
   const activeSubMenuItem = getActiveSubMenuItem({ menuItem: activeMenuItem, pathname })
   return (
     <UikitMenu
-      // userMenu={<UserMenu/>}
+      userMenu={<UserMenu/>}
       isDark={!true}
       toggleTheme={toggleTheme}
       currentLang="en"

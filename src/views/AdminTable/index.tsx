@@ -5,6 +5,8 @@ import React, { useEffect, useState } from 'react';
 import ReactPaginate from 'react-paginate';
 import { useHistory } from 'react-router-dom';
 import Select from 'react-select';
+import axios from 'axios';
+import { useWeb3React } from '@web3-react/core';
 import { GetDataDogWatcher } from 'state/dogwatcher';
 import styled from 'styled-components';
 import { latinise } from 'utils/latinise';
@@ -15,6 +17,22 @@ const AdminTable = () => {
     const { t } = useTranslation()
     const [listDataDog] = GetDataDogWatcher()
     const tokenAuth = localStorage.getItem("tokenAuth")
+    const { account } = useWeb3React()
+    const [arrayWhiteList, setArrayWhiteList] = useState([]);
+    const [isWhiteList, setWhiteList] = useState(false);
+
+    useEffect(() => {
+        for (let i = 0; i < arrayWhiteList.length; i++) {
+            if (arrayWhiteList[i].walletAddress === account) {
+                setWhiteList(true)
+            }
+        }
+        if(!account){
+            setWhiteList(false)
+        }
+    }, [account, arrayWhiteList])
+
+
     const history = useHistory();
 
     function handleClick() {
@@ -48,11 +66,11 @@ const AdminTable = () => {
     useEffect(() => {
         function SearchItem() {
             const lowercaseQuery = latinise(query.toLowerCase())
-            if(lowercaseQuery){
+            if (lowercaseQuery) {
                 setSaleArray(listDataDog.filter((data) => {
                     return latinise(data.walletName.toLowerCase()).includes(lowercaseQuery)
                 }))
-            }if(!lowercaseQuery){
+            } if (!lowercaseQuery) {
                 return setSaleArray(listDataDog)
             }
 
@@ -72,103 +90,122 @@ const AdminTable = () => {
             SearchItem()
         }
     }, [listDataDog, queryProject]) // eslint-disable-line react-hooks/exhaustive-deps
-    return (
-        <Container>
-            <Flex mb={4} mt={1} justifyContent='center'>
-                <Text fontWeight='700' fontSize='26px'>ADMIN TABLE</Text>
-            </Flex>
-            <Flex justifyContent='space-between'>
-                <Flex mb={1} mt={1} mr={2} justifyContent='center'>
-                    <Flex width='98%' style={{gap: '10px'}} justifyContent='center' alignItems='center'>
-                        <InputGroup scale="md">
-                            <Select
-                                options={optionArraySortProject}
-                                onChange={(e) => setQueryProject(e.value)}
-                                defaultValue={
-                                    {
-                                        label: 'Project All',
-                                        value: '',
-                                      }
-                                }
-                            />
-                        </InputGroup>
-                        <InputGroup startIcon={<SearchIcon width="24px" />} scale="md">
-                            <Input type="text" placeholder={t("Search...")} onChange={handleChangeQuery} />
-                        </InputGroup>
-                    </Flex>
-                </Flex>
-                {tokenAuth ?
-                    <Flex mb={1} mt={1} mr={2} justifyContent='flex-end'>
-                        <Button onClick={handleClick}>Create</Button>
-                    </Flex>
-                    :
-                    <></>
-                }
-            </Flex>
 
-            <TitleTable>
-                <FlexListVotting width='100%' justifyContent='space-around'>
-                    <TextListVottingProject justifyContent='center'>Project</TextListVottingProject>
-                    <TextListVotting justifyContent='center'>Wallet Name</TextListVotting>
-                    <TextListVotting className='NoneWallet' id='Wallet' justifyContent='center'>Wallet Address</TextListVotting>
-                    <TextListVotting justifyContent='center' id='Balance'>Balance/Limit</TextListVotting>
-                    <TextListVotting justifyContent='center'>Email</TextListVotting>
-                    <TextListVotting pl={4} className='NoneWallet' id='Status' justifyContent='center'>Status</TextListVotting>
+    useEffect(() => {
+        axios.get(`https://raw.githubusercontent.com/THAIHUULUONG/tokenWatcher/main/whitelist.json`)
+            .then(res => {
+                const persons = res.data;
+                setArrayWhiteList(persons)
+            })
+            .catch(error => console.log(error));
+    }, [account])
+
+    return (
+        <>{isWhiteList ?
+            <Container>
+                <Flex mb={4} mt={1} justifyContent='center'>
+                    <Text fontWeight='700' fontSize='26px'>ADMIN TABLE</Text>
+                </Flex>
+                <Flex justifyContent='space-between'>
+                    <Flex mb={1} mt={1} mr={2} justifyContent='center'>
+                        <Flex width='98%' style={{ gap: '10px' }} justifyContent='center' alignItems='center'>
+                            <InputGroup scale="md">
+                                <Select
+                                    options={optionArraySortProject}
+                                    onChange={(e) => setQueryProject(e.value)}
+                                    defaultValue={
+                                        {
+                                            label: 'Project All',
+                                            value: '',
+                                        }
+                                    }
+                                />
+                            </InputGroup>
+                            <InputGroup startIcon={<SearchIcon width="24px" />} scale="md">
+                                <Input type="text" placeholder={t("Search...")} onChange={handleChangeQuery} />
+                            </InputGroup>
+                        </Flex>
+                    </Flex>
                     {tokenAuth ?
-                        <TextListVottingV1 justifyContent='center' id='Action'>Action</TextListVottingV1>
+                        <Flex mb={1} mt={1} mr={2} justifyContent='flex-end'>
+                            <Button onClick={handleClick}>Create</Button>
+                        </Flex>
                         :
                         <></>
                     }
-                </FlexListVotting>
-            </TitleTable>
-            {currentItems ?
-                <>
-                    {currentItems.map((item, key) => {
-                        return (
-                            <ListAdmin
-                                id={item.id}
-                                walletName={item.walletName}
-                                walletAddress={item.walletAddress}
-                                limit={item.limit}
-                                email={item.email}
-                                project={item.project}
-                                status={item.status}
-                                rowId={key}
-                            />
-                        )
-                    })}
-                </>
-                :
-                <>
-                    <Flex width="100%" justifyContent="center" mt="1rem">
-                        <Text mt="2rem">{t("No Data")}</Text>
-                    </Flex>
-                </>
-            }
-            <CustomFlex width="100%" mt="1rem" justifyContent="center" height="62px">
-                <ReactPaginate
-                    nextLabel=">"
-                    onPageChange={handlePageClick}
-                    pageRangeDisplayed={3}
-                    marginPagesDisplayed={2}
-                    pageCount={pageCount}
-                    previousLabel="<"
-                    pageClassName="page-item"
-                    pageLinkClassName="page-link"
-                    previousClassName="page-item"
-                    previousLinkClassName="page-link"
-                    nextClassName="page-item"
-                    nextLinkClassName="page-link"
-                    breakLabel="..."
-                    breakClassName="page-item"
-                    breakLinkClassName="page-link"
-                    containerClassName="pagination"
-                    activeClassName="active"
-                    renderOnZeroPageCount={null}
-                    onClick={MovetoTop}
-                />
-            </CustomFlex>
-        </Container>
+                </Flex>
+
+                <TitleTable>
+                    <FlexListVotting width='100%' justifyContent='space-around'>
+                        <TextListVottingProject justifyContent='center'>Project</TextListVottingProject>
+                        <TextListVotting justifyContent='center'>Wallet Name</TextListVotting>
+                        <TextListVotting className='NoneWallet' id='Wallet' justifyContent='center'>Wallet Address</TextListVotting>
+                        <TextListVotting justifyContent='center' id='Balance'>Balance/Limit</TextListVotting>
+                        <TextListVotting justifyContent='center'>Email</TextListVotting>
+                        <TextListVotting pl={4} className='NoneWallet' id='Status' justifyContent='center'>Status</TextListVotting>
+                        {tokenAuth ?
+                            <TextListVottingV1 justifyContent='center' id='Action'>Action</TextListVottingV1>
+                            :
+                            <></>
+                        }
+                    </FlexListVotting>
+                </TitleTable>
+                {currentItems ?
+                    <>
+                        {currentItems.map((item, key) => {
+                            return (
+                                <ListAdmin
+                                    id={item.id}
+                                    walletName={item.walletName}
+                                    walletAddress={item.walletAddress}
+                                    limit={item.limit}
+                                    email={item.email}
+                                    project={item.project}
+                                    status={item.status}
+                                    rowId={key}
+                                />
+                            )
+                        })}
+                    </>
+                    :
+                    <>
+                        <Flex width="100%" justifyContent="center" mt="1rem">
+                            <Text mt="2rem">{t("No Data")}</Text>
+                        </Flex>
+                    </>
+                }
+                <CustomFlex width="100%" mt="1rem" justifyContent="center" height="62px">
+                    <ReactPaginate
+                        nextLabel=">"
+                        onPageChange={handlePageClick}
+                        pageRangeDisplayed={3}
+                        marginPagesDisplayed={2}
+                        pageCount={pageCount}
+                        previousLabel="<"
+                        pageClassName="page-item"
+                        pageLinkClassName="page-link"
+                        previousClassName="page-item"
+                        previousLinkClassName="page-link"
+                        nextClassName="page-item"
+                        nextLinkClassName="page-link"
+                        breakLabel="..."
+                        breakClassName="page-item"
+                        breakLinkClassName="page-link"
+                        containerClassName="pagination"
+                        activeClassName="active"
+                        renderOnZeroPageCount={null}
+                        onClick={MovetoTop}
+                    />
+                </CustomFlex>
+            </Container>
+            :
+            <Container>
+                <Flex style={{height: '500px'}} mb={4} pt='100px' justifyContent='center'>
+                    <Text fontWeight='700' fontSize='26px'>YOU ARE NOT WHITELIST</Text>
+                </Flex>
+            </Container>
+        }
+        </>
     );
 };
 
