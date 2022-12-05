@@ -201,7 +201,7 @@ const AdminTable = () => {
             :
             <Container>
                 <Flex style={{height: '500px'}} mb={4} pt='100px' justifyContent='center'>
-                    <Text fontWeight='700' fontSize='26px'>YOU ARE NOT IN WHITELIST</Text>
+                    <Text fontWeight='700' fontSize='26px'>No Data</Text>
                 </Flex>
             </Container>
         }
