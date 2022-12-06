@@ -1,11 +1,7 @@
-import React from 'react'
-import styled, { css } from 'styled-components'
-import { useTranslation } from 'contexts/Localization'
-import { Helmet } from 'react-helmet-async'
-import { useLocation } from 'react-router'
 import { DEFAULT_META, getCustomMeta } from 'config/constants/meta'
-import tokens from 'config/constants/tokens'
-import { usePriceRunBusd, useTokenPrice } from 'state/farms/hooks'
+import React from 'react'
+import { Helmet } from 'react-helmet-async'
+import styled from 'styled-components'
 import Container from './Container'
 
 
@@ -46,12 +42,8 @@ const Wrapper = styled.div`
 `
 
 const PageMeta = () => {
-  const { t } = useTranslation()
-  const { pathname } = useLocation()
-  const cakePriceUsd = useTokenPrice(tokens.Run.address[56]).toNumber();
-  const runPriceBUSD = cakePriceUsd !==0 ? `$ ${cakePriceUsd.toLocaleString('en', { minimumFractionDigits: 2, maximumFractionDigits: 2 })}` : ""
 
-  const pageMeta = getCustomMeta(pathname, t) || {}
+  const pageMeta = getCustomMeta() || {}
   const { title, description, image } = { ...DEFAULT_META, ...pageMeta }
   const pageTitle = title
 

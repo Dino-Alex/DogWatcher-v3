@@ -6,6 +6,7 @@ const StyleDiv = styled.div`
   padding-right:0px
 `
 
+// eslint-disable-next-line @typescript-eslint/no-unused-vars
 const Icon: React.FC<SvgProps> = (_props) => {
   return (
     <StyleDiv>

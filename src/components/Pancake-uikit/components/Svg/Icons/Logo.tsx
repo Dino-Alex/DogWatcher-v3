@@ -1,7 +1,7 @@
 import React from "react";
 import { SvgProps } from "../types";
 
-const Icon: React.FC<SvgProps> = (props) => {
+const Icon: React.FC<SvgProps> = () => {
   return (
     <img
       src="/images/logo-mobile.png"

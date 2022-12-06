@@ -1,9 +1,7 @@
 import React from 'react'
+import { Flex, Text, useModal } from '@thaihuuluong/dogwatcher-uikit'
 import useTheme from 'hooks/useTheme'
-import { Flex, IconButton, CogIcon, useModal, Text, Button } from '@thaihuuluong/dogwatcher-uikit'
 import styled from 'styled-components'
-import { useHistory } from 'react-router-dom'
-import { Decrypts } from 'config/api/decrypts'
 // eslint-disable-next-line import/no-named-as-default, import/no-named-as-default-member
 import LoginModal from './LoginModal'
 
@@ -11,7 +9,6 @@ import LoginModal from './LoginModal'
 const GlobalSettings = () => {
   const [onPresentLoginModal] = useModal(<LoginModal />)
   const { theme } = useTheme()
-  const history = useHistory();
   // const token = Decrypts();
   const tokenAuth = localStorage.getItem("tokenAuth")
 

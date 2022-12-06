@@ -25,7 +25,6 @@ const NotFound = lazy(() => import('./views/NotFound'))
 const AdminTable = lazy(() => import('./views/AdminTable'))
 const Create = lazy(() => import('./views/AdminTable/components/CRUD/components/Create/index')) 
 const Update = lazy(() => import('./views/AdminTable/components/CRUD/components/Update/index')) 
-const ProjectTable = lazy(() => import('./views/ProjectTable'))
 // const Register = lazy(() => import('./state/register/index'))
 // This config is required for number formatting Membership 
 BigNumber.config({

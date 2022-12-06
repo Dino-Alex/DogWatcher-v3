@@ -18,7 +18,8 @@ const ActiveButton: PolymorphicComponent<InactiveButtonProps, "button"> = styled
   box-sizing: border-box;
   box-shadow: 4px 2px 1px rgba(8, 9, 26, 0.2);
   border-radius: 48px !important;
-  color: ${({ theme, variant }) => (theme.isDark ? "#FDB533" : "#000" )};
+  // eslint-disable-next-line @typescript-eslint/no-unused-vars
+  color: ${({ theme }) => (theme.isDark ? "#FDB533" : "#000" )};
   
 `;  
 

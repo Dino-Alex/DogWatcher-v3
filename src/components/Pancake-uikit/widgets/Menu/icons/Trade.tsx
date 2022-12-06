@@ -5,6 +5,7 @@ import { SvgProps } from "../../../components/Svg/types";
 const StyleDiv = styled.div`
   padding-right:5px
 `
+// eslint-disable-next-line @typescript-eslint/no-unused-vars
 const Icon: React.FC<SvgProps> = (props) => {
   return (
     <StyleDiv>

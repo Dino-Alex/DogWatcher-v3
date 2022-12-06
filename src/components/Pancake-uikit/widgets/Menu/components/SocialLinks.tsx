@@ -53,7 +53,7 @@ const DropDownMenu: React.FC = () => (
       <SocialButton variant="text" startIcon={ <LanguageIcon width="24px" color="#FFFFFF" /> } />
     }>
       <ItemMenu>
-        {socials.map((social, index) => {
+        {socials.map((social) => {
           const Icon = Icons[social.icon];
           const mt = '13px';
           const mr = '6px';

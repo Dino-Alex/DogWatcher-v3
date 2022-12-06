@@ -1,13 +1,10 @@
-import React from 'react'
-import { Box, Flex, InjectedModalProps, LinkExternal, Message, Text, Button } from '@thaihuuluong/dogwatcher-uikit'
+import { Box, Button, Flex, InjectedModalProps, LinkExternal, Message, Text } from '@thaihuuluong/dogwatcher-uikit'
 import { useWeb3React } from '@web3-react/core'
-import useTokenBalance, { useGetBnbBalance } from 'hooks/useTokenBalance'
-import { getLiveTradeAddress } from 'utils/addressHelpers'
-import useAuth from 'hooks/useAuth'
 import { useTranslation } from 'contexts/Localization'
-import { getBscScanLink } from 'utils'
+import useAuth from 'hooks/useAuth'
+import React from 'react'
 import styled from 'styled-components'
-import { getFullDisplayBalance } from 'utils/formatBalance'
+import { getBscScanLink } from 'utils'
 import CopyAddress from './CopyAddress'
 
 const CsButton = styled(Button)`

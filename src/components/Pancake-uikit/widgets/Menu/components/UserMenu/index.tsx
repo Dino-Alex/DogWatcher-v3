@@ -1,15 +1,12 @@
+import { Text } from "@thaihuuluong/dogwatcher-uikit";
 import React, { useEffect, useRef, useState } from "react";
 import { usePopper } from "react-popper";
-import { Text } from "@thaihuuluong/dogwatcher-uikit";
 import styled from "styled-components";
 import Flex from "../../../../components/Box/Flex";
 import { ChevronDownIcon } from "../../../../components/Svg";
 import isTouchDevice from "../../../../util/isTouchDevice";
-import { UserMenuProps, variants } from "./types";
-import MenuIcon from "./MenuIcon";
 import { UserMenuItem } from "./styles";
-
-
+import { UserMenuProps, variants } from "./types";
 
 const StyledUserMenu = styled(Flex)`
   align-items: center;
@@ -28,18 +25,6 @@ const StyledUserMenu = styled(Flex)`
   }
   &:hover {
     opacity: 0.65;
-  }
-`;
-
-const LabelText = styled.div`
-  color: #000;
-  display: none;
-  font-weight: 400;
-
-  ${({ theme }) => theme.mediaQueries.sm} {
-    display: block;
-    margin-left: 8px;
-    margin-right: 4px;
   }
 `;
 
@@ -72,8 +57,11 @@ const Menu = styled.div<{ isOpen: boolean }>`
 
 const UserMenu: React.FC<UserMenuProps> = ({
   account,
+  // eslint-disable-next-line @typescript-eslint/no-unused-vars
   text,
+  // eslint-disable-next-line @typescript-eslint/no-unused-vars
   avatarSrc,
+  // eslint-disable-next-line @typescript-eslint/no-unused-vars
   variant = variants.DEFAULT,
   children,
   ...props

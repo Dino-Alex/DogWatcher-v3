@@ -1,7 +1,7 @@
-import React, { useState } from 'react'
-import styled from 'styled-components'
 import { Player } from '@lottiefiles/react-lottie-player';
-import Page from '../Layout/Page'
+import React from 'react';
+import styled from 'styled-components';
+import Page from '../Layout/Page';
 
 
 

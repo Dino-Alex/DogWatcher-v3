@@ -41,6 +41,7 @@ const initialState: PoolsNftState = {
 }
 
 // Thunks
+// eslint-disable-next-line @typescript-eslint/no-unused-vars
 export const fetchPoolsNftPublicDataAsync = (currentBlock: number) => async (dispatch, getState) => {
     const totalStakings = await fetchPoolsNftTotalStaking()
     // lấy data từ src\config\constants\farms.ts

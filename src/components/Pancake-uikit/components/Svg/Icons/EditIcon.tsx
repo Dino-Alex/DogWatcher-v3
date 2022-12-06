@@ -1,4 +1,3 @@
-import useTheme from "hooks/useTheme";
 import React from "react";
 import styled from "styled-components";
 import Svg from "../Svg";
@@ -9,7 +8,6 @@ const CsSvg = styled(Svg)`
 `
 
 const Icon: React.FC<SvgProps> = (props) => {
-    const { theme } = useTheme()
   return (
     <CsSvg width="25" height="24" viewBox="0 0 25 24" fill="transparent" xmlns="http://www.w3.org/2000/svg" {...props}>
         <path d="M11.7896 2H9.78961C4.78961 2 2.78961 4 2.78961 9V15C2.78961 20 4.78961 22 9.78961 22H15.7896C20.7896 22 22.7896 20 22.7896 15V13" stroke="white" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round"/>

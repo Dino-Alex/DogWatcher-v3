@@ -1,6 +1,5 @@
-import { MenuEntry } from 'components/Pancake-uikit'
-import { ContextApi } from 'contexts/Localization/types'
 import { MenuItemsType } from '@thaihuuluong/dogwatcher-uikit';
+import { ContextApi } from 'contexts/Localization/types';
 import { Colors } from "../Pancake-uikit/theme/types";
 
 export interface LinkStatus {
@@ -25,7 +24,7 @@ export const status = {
 
 export type ConfigMenuItemsType = MenuItemsType & { hideSubNav?: boolean }
 
-export const configIsConnect: (t: ContextApi['t']) => MenuItemsType[] = (t) => [
+export const configIsConnect: (t: ContextApi['t']) => MenuItemsType[] = () => [
   // {
   //   label: t('Admin Table'),
   //   icon: 'Marketplace',
@@ -48,7 +47,7 @@ export const configIsConnect: (t: ContextApi['t']) => MenuItemsType[] = (t) => [
   // },
 ]
 
-export const configDisconnect: (t: ContextApi['t']) => MenuItemsType[] = (t) => [
+export const configDisconnect: (t: ContextApi['t']) => MenuItemsType[] = () => [
   // {
   //   label: t('Admin Table'),
   //   icon: 'Marketplace',

@@ -1,8 +1,7 @@
-import React, { useState, useRef, useEffect } from 'react'
-import styled, { css } from 'styled-components'
+import { IconSort, Text } from 'components/Pancake-uikit'
 import useTheme from 'hooks/useTheme'
-import { ArrowDropDownIcon, Text, IconSort } from 'components/Pancake-uikit'
-import { Button } from '@thaihuuluong/dogwatcher-uikit'
+import React, { useEffect, useRef, useState } from 'react'
+import styled, { css } from 'styled-components'
 
 const DropDownHeader = styled.div`
   width: 100%;

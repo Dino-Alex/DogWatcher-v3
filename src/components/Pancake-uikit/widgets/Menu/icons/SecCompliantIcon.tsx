@@ -5,6 +5,7 @@ import { SvgProps } from "components/Pancake-uikit/components/Svg/types";
 const StyleDiv = styled.div`
   padding-right: 0px;
 `
+// eslint-disable-next-line @typescript-eslint/no-unused-vars
 const SecCompliantIcon: React.FC<SvgProps> = (props) => {
 
   const theme = useTheme();

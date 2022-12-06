@@ -68,6 +68,7 @@ const MobileOnlyOverlay = styled(Overlay)`
   }
 `;
 
+// eslint-disable-next-line @typescript-eslint/no-unused-vars
 interface TokenProps {
   address: string,
   price: number
@@ -75,6 +76,7 @@ interface TokenProps {
 
 const Menu: React.FC<NavProps> = ({
   userMenu,
+  // eslint-disable-next-line @typescript-eslint/no-unused-vars
   globalMenu,
   isDark,
   toggleTheme,

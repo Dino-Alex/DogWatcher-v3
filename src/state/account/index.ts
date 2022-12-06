@@ -8,7 +8,7 @@ import { fetchLevelVip, fetchListReferalData, fetchnonceCodeByUser, fetchParentP
 
 export const GetLevelVip = () => {
     const account = useSelector<AppState, AppState['account']>((state) => state.account)
-    const level = account.level
+    const {level} = account
     const dispatch = useDispatch<AppDispatch>()
     useEffect(() => {
         const getDataUser = async () => {
@@ -26,7 +26,7 @@ export const GetLevelVip = () => {
 
 export const GetReferralCode = () => {
     const account = useSelector<AppState, AppState['account']>((state) => state.account)
-    const referralCode = account.referralCode
+    const {referralCode} = account
     const dispatch = useDispatch<AppDispatch>()
     useEffect(() => {
         const getReferralCode = async () => {
@@ -44,7 +44,7 @@ export const GetReferralCode = () => {
 
 export const GetNonceCode = (account:string) => {
     const userData = useSelector<AppState, AppState['account']>((state) => state.account)
-    const nonceCode = userData.nonceCode
+    const {nonceCode} = userData
     const dispatch = useDispatch<AppDispatch>()
     useEffect(() => {
         const getReferralCode = async () => {

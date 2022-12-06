@@ -1,8 +1,7 @@
-import { Flex, Input, Text } from '@thaihuuluong/dogwatcher-uikit';
+import { Flex, Text } from '@thaihuuluong/dogwatcher-uikit';
 import { optionArrayProject } from 'config';
 import React from 'react';
-import styled from 'styled-components';
-import Select from 'react-select'
+import Select from 'react-select';
 
 interface Props {
     parentCallback?:(newValue) => void
@@ -31,7 +30,3 @@ const InputProject: React.FC<Props> = ({parentCallback, valueProject}) => {
 
 export default InputProject;
 
-const CustomInput = styled(Input)`
-    height: 50px;
-    background-color: transparent;
-`

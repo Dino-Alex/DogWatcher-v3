@@ -5,7 +5,7 @@ import { SvgProps } from "components/Pancake-uikit/components/Svg/types";
 const StyleDiv = styled.div`
   padding-right: 0px;
 `
-const AffordableCapitalIcon: React.FC<SvgProps> = (props) => {
+const AffordableCapitalIcon: React.FC<SvgProps> = () => {
 
   const theme = useTheme();
   const primaryColor = theme.isDark ? "#FFFFFF":  "#000000";

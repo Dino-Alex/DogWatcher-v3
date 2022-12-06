@@ -1,4 +1,4 @@
-import React, { cloneElement, Children, ReactElement } from "react";
+import React, { Children, cloneElement, ReactElement } from "react";
 import styled, { DefaultTheme } from "styled-components";
 import { space } from "styled-system";
 import { scales, variants } from "../Button/types";
@@ -7,14 +7,6 @@ import { ButtonMenuProps } from "./types";
 interface StyledButtonMenuProps extends ButtonMenuProps {
   theme: DefaultTheme;
 }
-
-const getBackgroundColor = ({ theme, variant }: StyledButtonMenuProps) => {
-  return theme.colors[variant === variants.PRIMARYDARK ? "backgroundTab" : "tertiary"];
-};
-
-const getBorderColor = ({ theme, variant }: StyledButtonMenuProps) => {
-  return theme.colors[variant === variants.PRIMARYDARK ? "borderTab" : "disabled"];
-};
 
 const StyledButtonMenu = styled.div<StyledButtonMenuProps>`
 background:${({ theme }) => (theme.isDark ? 'linear-gradient(330.77deg, #37385A 0.25%, #212240 90.42%)' : 'linear-gradient(330.77deg, #EFF0FF 0.25%, #E9ECFC 90.42%)')};

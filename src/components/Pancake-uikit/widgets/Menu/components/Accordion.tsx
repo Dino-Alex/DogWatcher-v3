@@ -1,10 +1,9 @@
-import React, { ReactNode, useState, useMemo } from "react";
+import React, { ReactNode, useState } from "react";
 import styled from "styled-components";
-import useTheme from 'hooks/useTheme'
-import { MENU_ENTRY_HEIGHT } from "../config";
-import { LinkLabel, MenuEntry } from "./MenuEntry";
-import { PushedProps } from "../types";
 import { ArrowDropDownIcon, ArrowDropUpIcon } from "../../../components/Svg";
+import { MENU_ENTRY_HEIGHT } from "../config";
+import { PushedProps } from "../types";
+import { LinkLabel, MenuEntry } from "./MenuEntry";
 
 interface Props extends PushedProps {
   label: string;
@@ -22,7 +21,7 @@ const Container = styled.div`
   flex-shrink: 0;
 `;
 const CustomLinkLabel = styled(LinkLabel)`
-    color: ${({ isPushed, theme }) => (isPushed && "#fdb533")};
+    color: ${({ isPushed }) => (isPushed && "#fdb533")};
 `
 const AccordionContent = styled.div<{ isOpen: boolean; isPushed: boolean; maxHeight: number }>`
   max-height: ${({ isOpen, maxHeight }) => (isOpen ? `${maxHeight}px` : 0)};
@@ -45,6 +44,7 @@ const Accordion: React.FC<Props> = ({
   initialOpenState = false,
   children,
   className,
+  // eslint-disable-next-line @typescript-eslint/no-unused-vars
   isActive,
 }) => {
   const [isOpen, setIsOpen] = useState(initialOpenState);

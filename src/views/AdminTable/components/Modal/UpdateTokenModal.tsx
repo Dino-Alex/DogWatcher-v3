@@ -1,23 +1,16 @@
-import { EarnIcon, Flex, IconButton, Input, Modal, Text } from '@thaihuuluong/dogwatcher-uikit';
+import { Flex, IconButton, Modal, Text } from '@thaihuuluong/dogwatcher-uikit';
 import axios from 'axios';
 import {
-  ButtonSubmit,
-  ContainerIcon,
-  ContainerInput,
-  CsFlex,
-  CsInput,
-  FormSubmit, WrapInput
+  ButtonSubmit, ContainerInput,
+  CsFlex, WrapInput
 } from 'components/Menu/GlobalSettings/styles';
-import { DeleteIcon, WalletIcon } from 'components/Pancake-uikit';
+import { DeleteIcon } from 'components/Pancake-uikit';
 import { PlusIcon } from 'components/Pancake-uikit/widgets/Menu/icons';
-import { BASE_URL_DATA_ADMIN_CRUD, optionArrayToken } from 'config';
+import { BASE_URL_DATA_ADMIN_CRUD } from 'config';
 import { useTranslation } from 'contexts/Localization';
 import React, { createContext, useEffect, useState } from 'react';
-import { TagsInput } from 'react-tag-input-component';
 import styled from 'styled-components';
-import Select from 'react-select'
 import { GetListAdminByID } from 'views/AdminTable/hook/fetchDataByID';
-import InputEmail from '../CRUD/components/Update/InputEmail';
 import InputToken from '../CRUD/components/Update/InputToken';
 
 
@@ -166,10 +159,6 @@ const CustomModal = styled(Modal)`
     min-width: 320px;
     width: 320px;
   }
-`
-const CustomInput = styled(Input)`
-    height: 50px;
-    background-color: transparent;
 `
 const CustomButton = styled(IconButton)`
     background-color: transparent;

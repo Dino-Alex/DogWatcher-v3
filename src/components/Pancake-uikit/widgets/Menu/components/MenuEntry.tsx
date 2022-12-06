@@ -84,7 +84,8 @@ const MenuEntry = styled.div<Props>`
   }
 
   &:hover {
-    background-color: ${({ theme, isActive }) => {if (theme.isDark)
+    // eslint-disable-next-line @typescript-eslint/no-unused-vars
+    background-color: ${({ theme }) => {if (theme.isDark)
       return '#353547'
     return 'rgba(232,233,250,0.45)'}};
     filter: brightness(0.9);

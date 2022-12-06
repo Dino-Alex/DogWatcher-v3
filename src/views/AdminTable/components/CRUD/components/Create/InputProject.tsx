@@ -1,14 +1,14 @@
-import { Flex, Input, Text } from '@thaihuuluong/dogwatcher-uikit';
-import React from 'react';
-import styled from 'styled-components';
-import { optionArrayProject } from 'config';
+import { Flex, Text } from '@thaihuuluong/dogwatcher-uikit';
 import Select from 'components/Select/SelectV2';
+import { optionArrayProject } from 'config';
+import React from 'react';
 
 interface Props {
     parentCallback?:(newValue) => void
     value?: string
   }
 
+// eslint-disable-next-line @typescript-eslint/no-unused-vars
 const InputProject: React.FC<Props> = ({parentCallback, value}) => {
 
     return (
@@ -34,8 +34,3 @@ const InputProject: React.FC<Props> = ({parentCallback, value}) => {
 };
 
 export default InputProject;
-
-const CsSelect = styled(Input)`
-    height: 50px;
-    background-color: transparent;
-`

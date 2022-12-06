@@ -1,4 +1,3 @@
-import { StringFormatDefinition } from "ajv";
 
 export type Breakpoints = string[];
 

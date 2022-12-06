@@ -1,13 +1,8 @@
 import React from 'react'
-import styled from 'styled-components'
 import Svg from '../Svg'
 import { SvgProps } from '../types'
 
-const CsSvg = styled(Svg)`
-  @media screen and (max-width: 768px) {
-  }
-`
-
+// eslint-disable-next-line @typescript-eslint/no-unused-vars
 const Icon: React.FC<SvgProps> = ({ color, height, ...props }) => {
   return (
     // <CsSvg width="100%" height="600px" viewBox="0 0 1440 354" fill="none" xmlns="http://www.w3.org/2000/svg" {...props}>

@@ -1,15 +1,7 @@
-
-import useTheme from 'hooks/useTheme'
-import React from "react";
+/* eslint-disable react/react-in-jsx-scope */
 import Svg from "../Svg";
-import { SvgProps } from "../types";
 
 const Icon = (props) => {
-    const { theme } = useTheme()
-
-    const renderColorStroke = () => {
-        return theme.isDark ? theme.colors.secondaryDark : theme.colors.bright
-    }
   return (
   //     <Svg viewBox="0 0 44 44" {...props} width="44px" style={{cursor:"pointer"}}>
   //       <svg width="44" height="44" viewBox="0 0 44 44" fill="none" xmlns="http://www.w3.org/2000/svg">
@@ -21,6 +13,7 @@ const Icon = (props) => {
   //       </svg>
   //  </Svg>
 
+    // eslint-disable-next-line react/react-in-jsx-scope
     <Svg width="60" height="60" viewBox="0 0 60 60" fill="none" xmlns="http://www.w3.org/2000/svg" style={{cursor:"pointer"}} {...props}>
       <circle cx="30" cy="30" r="30" fill="#4B19F5"/>
       <path d="M38.4201 30.2215C38.0101 30.2215 37.6701 29.8815 37.6701 29.4715V26.1516C37.6701 24.9116 36.6601 23.9016 35.4201 23.9016H21.5801C21.1701 23.9016 20.8301 23.5616 20.8301 23.1516C20.8301 22.7416 21.1701 22.4016 21.5801 22.4016H35.4201C37.4901 22.4016 39.1701 24.0816 39.1701 26.1516V29.4715C39.1701 29.8915 38.8301 30.2215 38.4201 30.2215Z" fill="white"/>

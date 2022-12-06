@@ -8,24 +8,20 @@ import { RefreshUpdateWalletGlobal } from "views/AdminTable/components/Modal/Upd
 import { fetchDataAdminItems } from "./action"
 import { fetchDataDog } from "./hook/fetchDataDog"
 
-
 export const GetDataDogWatcher = () =>{
-
     const refreshUpdate = useContext(RefreshUpdateGlobal)
     const refreshDelete = useContext(RefreshUpdateGlobal)
     const refreshUpdateEmail = useContext(RefreshUpdateEmailGlobal)
     const refreshUpdateWallet = useContext(RefreshUpdateWalletGlobal)
     const refreshUpdateTokenLimit = useContext(RefreshUpdateTokenLimitGlobal)
-    
     const dogwatcher = useSelector<AppState, AppState['dogwatcher']>((state) => state.dogwatcher)
-    const listDataDog = dogwatcher.listDataDog
+    const {listDataDog} = dogwatcher
     const dispatch = useDispatch<AppDispatch>()
     useEffect(() => {
         const getSaleItems = async () => {
             try{
                 const result = await fetchDataDog()
                 dispatch(fetchDataAdminItems(result))
-
             }catch(e){
                 console.log(e);
             }

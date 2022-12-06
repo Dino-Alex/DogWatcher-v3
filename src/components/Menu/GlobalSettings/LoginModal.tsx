@@ -1,11 +1,11 @@
 import { Flex, InjectedModalProps, Modal, Text } from '@thaihuuluong/dogwatcher-uikit';
 import axios from 'axios';
-import { BASE_URL_LOGIN } from 'config';
-import React, { CSSProperties, useState } from 'react';
-import styled from 'styled-components';
 import { EyeCloseIcon } from 'components/Pancake-uikit';
+import { BASE_URL_LOGIN } from 'config';
 import { useTranslation } from 'contexts/Localization';
+import React, { CSSProperties, useState } from 'react';
 import RingLoader from "react-spinners/RingLoader";
+import styled from 'styled-components';
 // eslint-disable-next-line import/no-cycle, import/no-named-as-default
 // eslint-disable-next-line import/no-cycle
 import EyeOpenIcon from '../../Pancake-uikit/components/Svg/Icons/EyeOpenIcon';
@@ -23,14 +23,6 @@ import {
 } from './styles';
 
 // TODO: Temporary. Once uikit is merged with this style change, this can be removed.
-interface RegisterProp {
-  email: string,
-  password: string,
-}
-const initValue: RegisterProp = {
-  email: '',
-  password: '',
-}
 
 const override: CSSProperties = {
   display: "block",
@@ -43,7 +35,7 @@ const LoginModal: React.FC<InjectedModalProps> = ({ onDismiss }) => {
   const [changePassword, setChangePassword] = useState(true)
   const changeIcon = changePassword !== true
   const [loading, setLoading] = useState(false);
-  const [color, setColor] = useState("#FFFFFF");
+  const [color, ] = useState("#FFFFFF");
   const [errorLogin, setErrorLogin] = useState(0);
   const { t } = useTranslation()
   const [username, setUsername] = useState('');
@@ -67,8 +59,6 @@ const LoginModal: React.FC<InjectedModalProps> = ({ onDismiss }) => {
       console.log(error)
     }
   }
-
-
   
   return (
     <CustomModal title="" onDismiss={onDismiss} maxWidth="550px">
@@ -154,12 +144,6 @@ const CustomModal = styled(Modal)`
     min-width: 320px;
     width: 320px;
   }
-`
-const CustomMessageError = styled.div`
-color: #FF592C;
-font-size:16px;
-font-weight:400;
-letter-spacing: 0.1;
 `
 const TextInvalid = styled(Text)`
   margin-top: 10px;

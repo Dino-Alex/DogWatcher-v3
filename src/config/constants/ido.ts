@@ -1,15 +1,5 @@
-import {Conditions, Memberships} from "views/Membership/config"
 import tokens from "config/constants/tokens"
-
-const nftRequired = () => {
-    const arr = []
-    for(let i = 0; i < Conditions.length ; i++){
-        if(Conditions[i].title === 'Diamond' || Conditions[i].title ===  'Platinum' || Conditions[i].title ===  'Gold' || Conditions[i].title ===  'Elite'){
-            arr.push(Conditions[i])
-        }
-    }
-    return arr
-} 
+import { Memberships } from "views/Membership/config"
 
 export const idoList = [
     {

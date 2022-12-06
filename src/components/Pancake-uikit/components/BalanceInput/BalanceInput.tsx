@@ -1,5 +1,5 @@
 import React from "react";
-import { Flex, Box } from "../Box";
+import { Flex } from "../Box";
 import { IconButton } from "../Button";
 import { SwapVertIcon } from "../Svg";
 import Text from "../Text/Text";
@@ -15,6 +15,7 @@ const BalanceInput: React.FC<BalanceInputProps> = ({
   innerRef,
   isWarning = false,
   decimals = 18,
+  // eslint-disable-next-line @typescript-eslint/no-unused-vars
   unit,
   switchEditingUnits,
   ...props

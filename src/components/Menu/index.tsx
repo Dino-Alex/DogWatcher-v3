@@ -1,30 +1,21 @@
-import React, { useEffect } from 'react'
-import { useLocation } from 'react-router-dom'
+import React from 'react'
 import { Menu as UikitMenu } from '@thaihuuluong/dogwatcher-uikit'
 import { languageList } from 'config/localization/languages'
 import { useTranslation } from 'contexts/Localization'
 import useTheme from 'hooks/useTheme'
-import { useTokenPrice } from 'state/farms/hooks'
-import { DecryptsUserInfo } from 'config/api/decrypts'
-import tokens from 'config/constants/tokens'
-import ShoppingCart from 'components/ShoppingCart'
-import styled from 'styled-components'
+import { useLocation } from 'react-router-dom'
 import { useProfile } from 'state/profile/hooks'
+import { configIsConnect } from './config'
 import GlobalSettings from './GlobalSettings'
-import { configIsConnect, configDisconnect}  from './config'
 import UserMenu from './UserMenu'
 import { getActiveMenuItem, getActiveSubMenuItem } from './utils'
-
- 
  
 const Menu = (props) => {
-  const { isDark, toggleTheme } = useTheme()
-  const cakePriceUsd = useTokenPrice(tokens.Run.address[56]).toNumber();
+  const {toggleTheme } = useTheme()
   const { profile } = useProfile()
-  const { currentLanguage, setLanguage, t } = useTranslation()
+  const { setLanguage, t } = useTranslation()
   const location = useLocation()
-  const data:any = DecryptsUserInfo() || "";
-  const pathname = location.pathname
+  const {pathname} = location
   const activeMenuItem = getActiveMenuItem({ menuConfig: configIsConnect(t), pathname })
   const activeSubMenuItem = getActiveSubMenuItem({ menuItem: activeMenuItem, pathname })
   return (

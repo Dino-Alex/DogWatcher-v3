@@ -1,18 +1,16 @@
-import React from 'react'
-import { ModalProvider , light , dark } from '@thaihuuluong/dogwatcher-uikit'
+import { light, ModalProvider } from '@thaihuuluong/dogwatcher-uikit'
 import { Web3ReactProvider } from '@web3-react/core'
-import { HelmetProvider } from 'react-helmet-async'
-import { Provider } from 'react-redux'
-import { ThemeProvider } from 'styled-components'
-import { useThemeManager } from 'state/user/hooks'
-import { getLibrary } from 'utils/web3React'
 import { LanguageProvider } from 'contexts/Localization'
 import { RefreshContextProvider } from 'contexts/RefreshContext'
 import { ToastsProvider } from 'contexts/ToastsContext'
+import React from 'react'
+import { HelmetProvider } from 'react-helmet-async'
+import { Provider } from 'react-redux'
 import store from 'state'
+import { ThemeProvider } from 'styled-components'
+import { getLibrary } from 'utils/web3React'
 
 const ThemeProviderWrapper = (props) => {
-  const [isDark] = useThemeManager()
   return <ThemeProvider theme={light} {...props} />
 }
 

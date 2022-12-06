@@ -5,7 +5,7 @@ import { SvgProps } from '../../../components/Svg/types'
 const StyleDiv = styled.div`
   padding-right: 5px;
 `
-const Icon: React.FC<SvgProps> = (_props) => {
+const Icon: React.FC<SvgProps> = () => {
   return (
     <StyleDiv>
       <svg width="18" height="18" viewBox="0 0 18 18" fill="none" xmlns="http://www.w3.org/2000/svg">

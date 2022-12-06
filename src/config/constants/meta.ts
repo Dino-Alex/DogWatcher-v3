@@ -1,4 +1,3 @@
-import { ContextApi } from 'contexts/Localization/types'
 import { PageMeta } from './types'
 
 
@@ -10,7 +9,7 @@ export const DEFAULT_META: PageMeta = {
   
 }
 
-export const getCustomMeta = (path: string, t: ContextApi['t']): PageMeta => {
+export const getCustomMeta = (): PageMeta => {
   return {
     title: `Delta Labs - DogWatcher`,
     image: 'https://slack-imgs.com/?c=1&o1=ro&url=https%3A%2F%2Fdeltalabsjsc.com%2Fwp-content%2Fuploads%2F2022%2F07%2FHomepage.jpg',

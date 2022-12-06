@@ -1,26 +1,11 @@
-import React from 'react'
-import styled, { css } from 'styled-components'
-import { useTranslation } from 'contexts/Localization'
-import { Helmet } from 'react-helmet'
-import MetaTags from 'react-meta-tags'
-import { useLocation } from 'react-router'
 import { DEFAULT_META, getCustomMeta } from 'config/constants/meta'
-import { usePriceRunBusd } from 'state/farms/hooks'
-
+import React from 'react'
+import MetaTags from 'react-meta-tags'
+import styled from 'styled-components'
 
 
 const PageMeta = () => {
-  const { t } = useTranslation()
-  const { pathname } = useLocation()
-  const cakePriceUsd = usePriceRunBusd()
-  const cakePriceUsdDisplay = cakePriceUsd.gt(0)
-    ? `$${cakePriceUsd.toNumber().toLocaleString(undefined, {
-        minimumFractionDigits: 3,
-        maximumFractionDigits: 3,
-      })}`
-    : ''
-
-  const pageMeta = getCustomMeta(pathname, t) || {}
+  const pageMeta = getCustomMeta() || {}
   const { title, description, image } = { ...DEFAULT_META, ...pageMeta }
   const pageTitle = title
   
@@ -34,7 +19,7 @@ const PageMeta = () => {
   )
 }
 
-const PageFullWidth: React.FC<React.HTMLAttributes<HTMLDivElement>> = ({ children, ...props }) => {
+const PageFullWidth: React.FC<React.HTMLAttributes<HTMLDivElement>> = ({ children }) => {
   return (
         <Wrapper>
             <PageMeta />

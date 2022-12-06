@@ -1,4 +1,3 @@
-import { Decrypts } from 'config/api/decrypts';
 import jwtDecode from 'jwt-decode';
 
 const useCheckTokenExpired = () => { 
@@ -16,6 +15,7 @@ const useCheckTokenExpired = () => {
         }
     }
     else {
+        // eslint-disable-next-line @typescript-eslint/no-unused-vars
         isExpired = true;
     }    
 }
