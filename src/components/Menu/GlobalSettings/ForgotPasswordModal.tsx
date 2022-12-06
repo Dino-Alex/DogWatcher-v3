@@ -241,7 +241,7 @@ const ForgotModal: React.FC<InjectedModalProps> = ({ onDismiss }) => {
                   <ContainerIcon>
                     <LockIcon />
                   </ContainerIcon>
-                  <Controller
+                  {/* <Controller
                     control={control}
                     name="confirmpassword"
                     rules={{
@@ -259,7 +259,7 @@ const ForgotModal: React.FC<InjectedModalProps> = ({ onDismiss }) => {
                         onChange={field.onChange}
                       />
                     )}
-                  />
+                  /> */}
                   <WrapIcon
                     className="icon"
                     onClick={() => {
@@ -274,7 +274,7 @@ const ForgotModal: React.FC<InjectedModalProps> = ({ onDismiss }) => {
                   <ContainerIcon>
                     <img src="/images/KeyIcon.svg" alt="" />
                   </ContainerIcon>
-                  <Controller
+                  {/* <Controller
                     control={control}
                     rules={rules.codeotpForgot}
                     name="codeotp"
@@ -287,7 +287,7 @@ const ForgotModal: React.FC<InjectedModalProps> = ({ onDismiss }) => {
                         onChange={field.onChange}
                       />
                     )}
-                  />
+                  /> */}
                   <WrapTextVerify>
                     {timeto === 0 ? (
                       <TextVerify onClick={() => handleSendCode()}>Get Verify Code</TextVerify>

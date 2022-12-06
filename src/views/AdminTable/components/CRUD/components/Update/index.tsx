@@ -287,7 +287,7 @@ const Update: React.FC<Props> = () => {
                         <Flex width='100%' justifyContent='center'>
                             <Flex style={{ gap: '20px' }}>
                                 <Button onClick={handleSubmit} disabled={nameWallet === '' || walletAddress === '' || projectName === '' || emails.length === 0 || slacks.length === 0}>Update</Button>
-                                <Button onClick={handleCancel}>Cancel</Button>
+                                <Button onClick={()=> handleCancel()}>Cancel</Button>
                             </Flex>
                         </Flex>
                     </FlexInput>

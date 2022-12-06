@@ -128,7 +128,7 @@ const AdminTable = () => {
                     </Flex>
                     {tokenAuth ?
                         <Flex mb={1} mt={1} mr={2} justifyContent='flex-end'>
-                            <Button onClick={handleClick}>Create</Button>
+                            <Button onClick={()=> handleClick()}>Create</Button>
                         </Flex>
                         :
                         <></>
@@ -194,7 +194,7 @@ const AdminTable = () => {
                         containerClassName="pagination"
                         activeClassName="active"
                         renderOnZeroPageCount={null}
-                        onClick={MovetoTop}
+                        onClick={()=> MovetoTop()}
                     />
                 </CustomFlex>
             </Container>

@@ -238,7 +238,7 @@ const Create = () => {
                         :
                             <Button onClick={handleSubmit} disabled={nameWallet === '' || walletAddress === '' || projectName === '' || emails[0].address === '' || slacks.length === 0}>Submit</Button>
                         }
-                        <Button onClick={handleCancel}>Cancel</Button>
+                        <Button onClick={()=> handleCancel()}>Cancel</Button>
                     </Flex>
                 </Flex>
            </FlexInput>
